@@ -1,0 +1,8 @@
+{
+  "comparator_output": 0,
+  "description": {
+    "translate": "item.the_root_of_corruption.hope.desc"
+  },
+  "length_in_seconds": 750,
+  "sound_event": "the_root_of_corruption:hope"
+}

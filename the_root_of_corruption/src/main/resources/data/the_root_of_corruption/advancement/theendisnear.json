@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "the_root_of_corruption:textures/screens/eye.png",
+    "icon": {
+      "id": "the_root_of_corruption:item_is_missing_id"
+    },
+    "title": {
+      "translate": "advancements.theendisnear.title"
+    },
+    "description": {
+      "translate": "advancements.theendisnear.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "theendisnear_0": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

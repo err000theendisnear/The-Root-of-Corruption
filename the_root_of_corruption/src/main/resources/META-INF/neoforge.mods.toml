@@ -1,0 +1,39 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT License"
+
+[[mods]]
+modId="the_root_of_corruption"
+version="1.0.0"
+displayName="The Root of Corruption"
+displayURL="https://mcreator.net"
+logoFile="logo.png"
+credits="Created using mod maker MCreator - https://mcreator.net/about"
+authors="err.undefined"
+description="arthouse"
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.the_root_of_corruption]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.65,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.the_root_of_corruption]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="AFTER"
+side="BOTH"
+
+
+
+
+[[mixins]]
+    config="mixins.the_root_of_corruption.json"
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

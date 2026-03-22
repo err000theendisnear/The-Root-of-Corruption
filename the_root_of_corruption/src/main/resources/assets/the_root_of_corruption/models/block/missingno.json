@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "the_root_of_corruption:block/64px-missing_texture_windows_je1",
+    "up": "the_root_of_corruption:block/64px-missing_texture_windows_je1",
+    "north": "the_root_of_corruption:block/64px-missing_texture_windows_je1",
+    "east": "the_root_of_corruption:block/64px-missing_texture_windows_je1",
+    "south": "the_root_of_corruption:block/64px-missing_texture_windows_je1",
+    "west": "the_root_of_corruption:block/64px-missing_texture_windows_je1",
+    "particle": "the_root_of_corruption:block/64px-missing_texture_windows_je1"
+  },
+  "render_type": "solid"
+}

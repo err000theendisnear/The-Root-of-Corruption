@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "the_root_of_corruption:block/c",
+    "up": "the_root_of_corruption:block/c",
+    "north": "the_root_of_corruption:block/c",
+    "east": "the_root_of_corruption:block/c",
+    "south": "the_root_of_corruption:block/c",
+    "west": "the_root_of_corruption:block/c",
+    "particle": "the_root_of_corruption:block/c"
+  },
+  "render_type": "solid"
+}

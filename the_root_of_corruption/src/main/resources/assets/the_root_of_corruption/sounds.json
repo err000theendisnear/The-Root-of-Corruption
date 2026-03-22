@@ -1,0 +1,126 @@
+{
+  "noise": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:white_noise",
+        "stream": false
+      }
+    ]
+  },
+  "jumpscare": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:jumpscare",
+        "stream": false
+      }
+    ]
+  },
+  "cave": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:menu",
+        "stream": false
+      }
+    ]
+  },
+  "chase": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:chase",
+        "stream": false
+      }
+    ]
+  },
+  "error": {
+    "subtitle": "subtitles.error",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:error",
+        "stream": false
+      }
+    ]
+  },
+  "void": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:null",
+        "stream": false
+      }
+    ]
+  },
+  "goaway": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:go_away",
+        "stream": false
+      }
+    ]
+  },
+  "glitch": {
+    "subtitle": "subtitles.glitch",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:glitch",
+        "stream": false
+      }
+    ]
+  },
+  "the_end_is_undefined": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:theendisundefined",
+        "stream": false
+      }
+    ]
+  },
+  "die": {
+    "subtitle": "subtitles.die",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:help",
+        "stream": true
+      }
+    ]
+  },
+  "hope": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:get_out",
+        "stream": true
+      }
+    ]
+  },
+  "nothing": {
+    "subtitle": "subtitles.nothing",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:nothing",
+        "stream": false
+      }
+    ]
+  },
+  "wrong_sound": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:wrong_sound",
+        "stream": false
+      }
+    ]
+  },
+  "failed": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:failed",
+        "stream": false
+      }
+    ]
+  },
+  "hal1": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:hal1",
+        "stream": false
+      }
+    ]
+  }
+}

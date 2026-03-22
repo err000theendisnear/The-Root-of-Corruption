@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aca"
+  ],
+  "key": {
+    "a": {
+      "item": "the_root_of_corruption:laugh"
+    },
+    "b": {
+      "item": "minecraft:beacon"
+    },
+    "c": {
+      "item": "minecraft:sculk_shrieker"
+    }
+  },
+  "result": {
+    "id": "the_root_of_corruption:missing_armor_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "background": "the_root_of_corruption:textures/screens/no_texture.png",
+    "icon": {
+      "id": "the_root_of_corruption:hope"
+    },
+    "title": {
+      "translate": "advancements.you_help_all_soul.title"
+    },
+    "description": {
+      "translate": "advancements.you_help_all_soul.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "you_help_all_soul_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 666
+  }
+}

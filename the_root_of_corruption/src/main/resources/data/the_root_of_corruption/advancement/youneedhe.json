@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "the_root_of_corruption:textures/screens/no_texture.png",
+    "icon": {
+      "id": "the_root_of_corruption:laugh"
+    },
+    "title": {
+      "translate": "advancements.youneedhe.title"
+    },
+    "description": {
+      "translate": "advancements.youneedhe.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "youneedhe_0": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "damagetype",
+  "definition": {
+    "exhaustion": 0.1,
+    "scaling": "never",
+    "effects": "hurt",
+    "normalDeathMessage": "err",
+    "itemDeathMessage": "err",
+    "playerDeathMessage": "err"
+  }
+}

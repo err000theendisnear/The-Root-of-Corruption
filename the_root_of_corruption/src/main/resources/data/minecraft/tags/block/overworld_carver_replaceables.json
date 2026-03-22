@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:red_nether_bricks",
+    "minecraft:soul_sand",
+    "the_root_of_corruption:this_is_all_theblock_fault",
+    "the_root_of_corruption:executeroot",
+    "the_root_of_corruption:corruptionbedrock"
+  ]
+}

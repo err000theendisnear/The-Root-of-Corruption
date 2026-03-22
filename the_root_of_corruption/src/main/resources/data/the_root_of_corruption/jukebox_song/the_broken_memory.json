@@ -1,0 +1,8 @@
+{
+  "comparator_output": 0,
+  "description": {
+    "translate": "item.the_root_of_corruption.the_broken_memory.desc"
+  },
+  "length_in_seconds": 57.25,
+  "sound_event": "the_root_of_corruption:wrong_sound"
+}

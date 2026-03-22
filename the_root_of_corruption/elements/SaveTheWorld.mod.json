@@ -1,0 +1,68 @@
+{
+  "_fv": 73,
+  "_type": "item",
+  "definition": {
+    "renderType": 0,
+    "texture": "lost",
+    "customModelName": "Normal",
+    "customProperties": {},
+    "states": [],
+    "name": "Save The World",
+    "rarity": "EPIC",
+    "creativeTabs": [],
+    "stackSize": 1,
+    "enchantability": 0,
+    "useDuration": 0,
+    "toolType": 32.0,
+    "damageCount": 100,
+    "recipeRemainder": {
+      "value": ""
+    },
+    "destroyAnyBlock": true,
+    "immuneToFire": true,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": true,
+    "damageVsEntity": 66.0,
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "glowCondition": {
+      "fixedValue": true
+    },
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "onRightClickedInAir": {
+      "name": "Savelevel"
+    },
+    "onRightClickedOnBlock": {
+      "name": "Savelevel"
+    },
+    "onFinishUsingItem": {
+      "name": "Tamebase0"
+    },
+    "enableRanged": false,
+    "shootConstantly": false,
+    "rangedItemChargesPower": false,
+    "projectile": {
+      "value": "CUSTOM:Err"
+    },
+    "projectileDisableAmmoCheck": false,
+    "isFood": true,
+    "nutritionalValue": 20,
+    "saturation": 20.0,
+    "eatResultItem": {
+      "value": "CUSTOM:TheBrokenMemory"
+    },
+    "isMeat": false,
+    "isAlwaysEdible": false,
+    "animation": "none",
+    "isMusicDisc": true,
+    "musicDiscMusic": {
+      "value": "record.13"
+    },
+    "musicDiscDescription": "freedom",
+    "musicDiscLengthInTicks": 1000,
+    "musicDiscAnalogOutput": 1
+  }
+}

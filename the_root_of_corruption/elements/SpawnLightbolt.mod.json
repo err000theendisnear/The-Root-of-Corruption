@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "H",
+    "keyBindingName": "Spawn Lightbolt",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "Summonlightbolt"
+    }
+  }
+}

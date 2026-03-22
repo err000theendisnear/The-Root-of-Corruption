@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "the_root_of_corruption:corruptionbedrock",
+    "the_root_of_corruption:executeroot",
+    "the_root_of_corruption:glowingobsidian",
+    "the_root_of_corruption:netherreactor",
+    "the_root_of_corruption:initializednetherreactor",
+    "the_root_of_corruption:finished_netherreactor",
+    "the_root_of_corruption:missingno",
+    "minecraft:bedrock",
+    "minecraft:netherrack",
+    "minecraft:mossy_cobblestone"
+  ]
+}

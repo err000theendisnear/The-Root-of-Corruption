@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core",
+    "up": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core",
+    "north": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core",
+    "east": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core",
+    "south": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core",
+    "west": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core",
+    "particle": "the_root_of_corruption:block/blocksprite_finished-nether-reactor-core"
+  },
+  "render_type": "solid"
+}

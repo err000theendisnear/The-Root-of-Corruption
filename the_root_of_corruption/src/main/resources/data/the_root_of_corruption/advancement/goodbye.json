@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "the_root_of_corruption:textures/screens/no_texture.png",
+    "icon": {
+      "id": "the_root_of_corruption:item_is_missing_id"
+    },
+    "title": {
+      "translate": "advancements.goodbye.title"
+    },
+    "description": {
+      "translate": "advancements.goodbye.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "goodbye_0": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "the_root_of_corruption:block/blocksprite_glowing-obsidian",
+    "up": "the_root_of_corruption:block/blocksprite_glowing-obsidian",
+    "north": "the_root_of_corruption:block/blocksprite_glowing-obsidian",
+    "east": "the_root_of_corruption:block/blocksprite_glowing-obsidian",
+    "south": "the_root_of_corruption:block/blocksprite_glowing-obsidian",
+    "west": "the_root_of_corruption:block/blocksprite_glowing-obsidian",
+    "particle": "the_root_of_corruption:block/blocksprite_glowing-obsidian"
+  },
+  "render_type": "solid"
+}

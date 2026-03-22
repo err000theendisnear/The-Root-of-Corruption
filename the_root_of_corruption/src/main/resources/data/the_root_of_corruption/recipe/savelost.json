@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    "ded",
+    "dfd"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:music_disc_13"
+    },
+    "b": {
+      "item": "the_root_of_corruption:undefined_heart"
+    },
+    "c": {
+      "item": "minecraft:music_disc_11"
+    },
+    "d": {
+      "item": "the_root_of_corruption:laugh"
+    },
+    "e": {
+      "item": "the_root_of_corruption:the_broken_memory"
+    },
+    "f": {
+      "item": "the_root_of_corruption:hope"
+    }
+  },
+  "result": {
+    "id": "the_root_of_corruption:save_the_world",
+    "count": 1
+  }
+}

@@ -1,0 +1,18 @@
+package i.see.you.procedures;
+
+import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.Event;
+import java.lang.Math;
+import net.minecraft.world.level.Level;
+@EventBusSubscriber
+public class GoawayProcedure {
+	@SubscribeEvent
+	public static void onEntityTeleportation(EntityTeleportEvent event) {
+		if (event != null && Math.random() < 0.1) {
+			event.setCanceled(true);
+			DieProcedure.execute(event.getEntity().level());
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "efe"
+  ],
+  "key": {
+    "a": {
+      "item": "the_root_of_corruption:laugh"
+    },
+    "b": {
+      "item": "minecraft:nether_star"
+    },
+    "c": {
+      "item": "the_root_of_corruption:item_is_missing_id"
+    },
+    "d": {
+      "item": "the_root_of_corruption:the_broken_memory"
+    },
+    "e": {
+      "item": "the_root_of_corruption:netherreactor"
+    },
+    "f": {
+      "item": "minecraft:netherite_pickaxe"
+    }
+  },
+  "result": {
+    "id": "the_root_of_corruption:notexture_tool",
+    "count": 1
+  }
+}

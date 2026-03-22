@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Items.RECORD_13"
+      },
+      {
+        "value": "CUSTOM:UndefinedHeart"
+      },
+      {
+        "value": "Items.RECORD_11"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:TheBrokenMemory"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:Hope"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:SaveTheWorld"
+    },
+    "name": "savelost",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "the_root_of_corruption:finished_netherreactor",
+    "the_root_of_corruption:initializednetherreactor",
+    "the_root_of_corruption:netherreactor",
+    "the_root_of_corruption:glowingobsidian"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "Items.NETHER_STAR"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:ItemIsMissingID"
+      },
+      {
+        "value": "CUSTOM:TheBrokenMemory"
+      },
+      {
+        "value": "CUSTOM:ItemIsMissingID"
+      },
+      {
+        "value": "CUSTOM:Netherreactor"
+      },
+      {
+        "value": "Items.NETHERITE_PICKAXE"
+      },
+      {
+        "value": "CUSTOM:Netherreactor"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:NotextureTool"
+    },
+    "name": "missrecipe",
+    "namespace": "mod"
+  }
+}

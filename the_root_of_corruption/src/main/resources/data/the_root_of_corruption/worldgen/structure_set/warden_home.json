@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "the_root_of_corruption:warden_home",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 30,
+    "separation": 24,
+    "salt": 1275058097
+  }
+}

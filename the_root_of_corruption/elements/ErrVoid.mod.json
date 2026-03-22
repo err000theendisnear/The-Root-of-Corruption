@@ -1,0 +1,73 @@
+{
+  "_fv": 73,
+  "_type": "dimension",
+  "definition": {
+    "biomesInDimension": [
+      {
+        "value": "CUSTOM:Saveus"
+      }
+    ],
+    "worldGenType": "Normal world gen",
+    "mainFillerBlock": {
+      "value": "CUSTOM:Corruptionbedrock"
+    },
+    "fluidBlock": {
+      "value": "CUSTOM:ErrNull"
+    },
+    "seaLevel": 0,
+    "generateOreVeins": false,
+    "generateAquifers": false,
+    "horizontalNoiseSize": 1,
+    "verticalNoiseSize": 2,
+    "defaultEffects": "overworld",
+    "useCustomEffects": true,
+    "hasClouds": false,
+    "cloudHeight": 192.0,
+    "skyType": "NONE",
+    "airColor": {
+      "value": -16777216,
+      "falpha": 0.0
+    },
+    "sunHeightAffectsFog": false,
+    "canRespawnHere": false,
+    "hasFog": true,
+    "ambientLight": 0.0,
+    "doesWaterVaporize": true,
+    "hasFixedTime": true,
+    "fixedTimeValue": 18000,
+    "coordinateScale": 1.0,
+    "infiniburnTag": "minecraft:infiniburn_overworld",
+    "bedWorks": false,
+    "hasSkyLight": false,
+    "imitateOverworldBehaviour": false,
+    "piglinSafe": false,
+    "hasRaids": false,
+    "minMonsterSpawnLightLimit": 15,
+    "maxMonsterSpawnLightLimit": 15,
+    "monsterSpawnBlockLightLimit": 15,
+    "portalFrame": {
+      "value": ""
+    },
+    "portalParticles": {
+      "value": "PORTAL"
+    },
+    "portalLuminance": 0,
+    "portalSound": {
+      "value": "block.portal.ambient"
+    },
+    "enableIgniter": true,
+    "igniterName": "Err Void Portal Igniter",
+    "igniterRarity": "COMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "creativeTabs": [
+      {
+        "value": "TOOLS"
+      }
+    ],
+    "texture": "",
+    "portalTexture": "",
+    "enablePortal": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "_fv": 73,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Corruption",
+    "icon": "die",
+    "color": {
+      "value": -16777216,
+      "falpha": 0.0
+    },
+    "isInstant": false,
+    "mobEffectCategory": "BENEFICIAL",
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "isCuredByMilk": false,
+    "isProtectedByTotem": false,
+    "isCuredbyHoney": false,
+    "modifiers": [],
+    "onActiveTick": {
+      "name": "Errorsee"
+    },
+    "onExpired": {
+      "name": "LightBolt"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "the_root_of_corruption:textures/screens/no_texture.png",
+    "icon": {
+      "id": "the_root_of_corruption:undefined_heart"
+    },
+    "title": {
+      "translate": "advancements.udf.title"
+    },
+    "description": {
+      "translate": "advancements.udf.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "udf_0": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "the_root_of_corruption:void_code",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 30,
+    "salt": 268794008
+  }
+}

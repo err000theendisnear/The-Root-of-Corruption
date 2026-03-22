@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "the_root_of_corruption:saveus",
+  "features": "the_root_of_corruption:iseeyou",
+  "step": "surface_structures"
+}

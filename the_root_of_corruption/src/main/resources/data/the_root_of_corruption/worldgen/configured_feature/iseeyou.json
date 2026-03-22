@@ -1,0 +1,420 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": {
+        "type": "minecraft:block_column",
+        "config": {
+          "allowed_placement": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          },
+          "direction": "up",
+          "layers": [
+            {
+              "height": 50,
+              "provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "the_root_of_corruption:missingno"
+                }
+              }
+            }
+          ],
+          "prioritize_tip": false
+        }
+      },
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": {
+            "type": "minecraft:block_column",
+            "config": {
+              "allowed_placement": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
+              },
+              "direction": "up",
+              "layers": [
+                {
+                  "height": 50,
+                  "provider": {
+                    "type": "minecraft:simple_state_provider",
+                    "state": {
+                      "Name": "minecraft:oak_sign"
+                    }
+                  }
+                }
+              ],
+              "prioritize_tip": false
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": {
+            "type": "minecraft:block_pile",
+            "config": {
+              "state_provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:oak_sign"
+                }
+              }
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": {
+            "type": "minecraft:disk",
+            "config": {
+              "radius": {
+                "type": "uniform",
+                "min_inclusive": 2,
+                "max_inclusive": 3
+              },
+              "half_height": 1,
+              "target": {
+                "type": "minecraft:true"
+              },
+              "state_provider": {
+                "fallback": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:oak_sign"
+                  }
+                },
+                "rules": []
+              }
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": {
+            "type": "minecraft:huge_red_mushroom",
+            "config": {
+              "cap_provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:oak_sign"
+                }
+              },
+              "stem_provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:oak_sign"
+                }
+              }
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": {
+            "type": "minecraft:huge_brown_mushroom",
+            "config": {
+              "cap_provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:oak_sign"
+                }
+              },
+              "stem_provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:oak_sign"
+                }
+              },
+              "foliage_radius": 3
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.4,
+        "feature": {
+          "feature": {
+            "type": "minecraft:random_selector",
+            "config": {
+              "default": {
+                "feature": {
+                  "type": "minecraft:simple_random_selector",
+                  "config": {
+                    "features": [
+                      {
+                        "feature": {
+                          "type": "minecraft:spring_feature",
+                          "config": {
+                            "state": {
+                              "Name": "the_root_of_corruption:err_null"
+                            },
+                            "valid_blocks": "#minecraft:err",
+                            "rock_count": 5,
+                            "hole_count": 5
+                          }
+                        },
+                        "placement": []
+                      },
+                      {
+                        "feature": {
+                          "type": "minecraft:random_patch",
+                          "config": {
+                            "xz_spread": 30,
+                            "y_spread": 10,
+                            "feature": {
+                              "feature": {
+                                "type": "minecraft:delta_feature",
+                                "config": {
+                                  "contents": {
+                                    "Name": "minecraft:netherrack"
+                                  },
+                                  "rim": {
+                                    "Name": "minecraft:bedrock"
+                                  },
+                                  "size": 15,
+                                  "rim_size": 5
+                                }
+                              },
+                              "placement": []
+                            }
+                          }
+                        },
+                        "placement": []
+                      },
+                      {
+                        "feature": {
+                          "type": "minecraft:lake",
+                          "config": {
+                            "fluid": {
+                              "type": "minecraft:simple_state_provider",
+                              "state": {
+                                "Name": "the_root_of_corruption:err_null"
+                              }
+                            },
+                            "barrier": {
+                              "type": "minecraft:simple_state_provider",
+                              "state": {
+                                "Name": "minecraft:bedrock"
+                              }
+                            }
+                          }
+                        },
+                        "placement": []
+                      },
+                      {
+                        "feature": {
+                          "type": "minecraft:block_pile",
+                          "config": {
+                            "state_provider": {
+                              "type": "minecraft:simple_state_provider",
+                              "state": {
+                                "Name": "the_root_of_corruption:missingno"
+                              }
+                            }
+                          }
+                        },
+                        "placement": []
+                      },
+                      {
+                        "feature": {
+                          "type": "minecraft:block_column",
+                          "config": {
+                            "allowed_placement": {
+                              "type": "minecraft:matching_blocks",
+                              "blocks": "minecraft:air"
+                            },
+                            "direction": "up",
+                            "layers": [
+                              {
+                                "height": 30,
+                                "provider": {
+                                  "type": "minecraft:simple_state_provider",
+                                  "state": {
+                                    "Name": "the_root_of_corruption:glowingobsidian"
+                                  }
+                                }
+                              }
+                            ],
+                            "prioritize_tip": false
+                          }
+                        },
+                        "placement": []
+                      },
+                      {
+                        "feature": {
+                          "type": "minecraft:random_patch",
+                          "config": {
+                            "xz_spread": 16,
+                            "y_spread": 10,
+                            "feature": {
+                              "feature": {
+                                "type": "minecraft:simple_block",
+                                "config": {
+                                  "to_place": {
+                                    "type": "minecraft:simple_state_provider",
+                                    "state": {
+                                      "Name": "the_root_of_corruption:executeroot"
+                                    }
+                                  }
+                                }
+                              },
+                              "placement": []
+                            }
+                          }
+                        },
+                        "placement": []
+                      },
+                      {
+                        "feature": {
+                          "type": "minecraft:geode",
+                          "config": {
+                            "blocks": {
+                              "filling_provider": {
+                                "type": "minecraft:simple_state_provider",
+                                "state": {
+                                  "Name": "the_root_of_corruption:err_null"
+                                }
+                              },
+                              "inner_layer_provider": {
+                                "type": "minecraft:simple_state_provider",
+                                "state": {
+                                  "Name": "the_root_of_corruption:finished_netherreactor"
+                                }
+                              },
+                              "alternate_inner_layer_provider": {
+                                "type": "minecraft:simple_state_provider",
+                                "state": {
+                                  "Name": "the_root_of_corruption:executeroot"
+                                }
+                              },
+                              "middle_layer_provider": {
+                                "type": "minecraft:simple_state_provider",
+                                "state": {
+                                  "Name": "the_root_of_corruption:missingno"
+                                }
+                              },
+                              "outer_layer_provider": {
+                                "type": "minecraft:simple_state_provider",
+                                "state": {
+                                  "Name": "the_root_of_corruption:corruptionbedrock"
+                                }
+                              },
+                              "inner_placements": [
+                                {
+                                  "Name": "the_root_of_corruption:glowingobsidian"
+                                },
+                                {
+                                  "Name": "the_root_of_corruption:glowingobsidian"
+                                },
+                                {
+                                  "Name": "the_root_of_corruption:glowingobsidian"
+                                },
+                                {
+                                  "Name": "the_root_of_corruption:glowingobsidian"
+                                }
+                              ],
+                              "cannot_replace": "#features_cannot_replace",
+                              "invalid_blocks": "#geode_invalid_blocks"
+                            },
+                            "layers": {},
+                            "crack": {},
+                            "invalid_blocks_threshold": 1,
+                            "use_alternate_layer0_chance": 0.083
+                          }
+                        },
+                        "placement": []
+                      }
+                    ]
+                  }
+                },
+                "placement": []
+              },
+              "features": [
+                {
+                  "chance": 0.1,
+                  "feature": {
+                    "feature": {
+                      "type": "minecraft:block_pile",
+                      "config": {
+                        "state_provider": {
+                          "type": "minecraft:simple_state_provider",
+                          "state": {
+                            "Name": "the_root_of_corruption:corruptionbedrock"
+                          }
+                        }
+                      }
+                    },
+                    "placement": []
+                  }
+                },
+                {
+                  "chance": 0.1,
+                  "feature": {
+                    "feature": {
+                      "type": "minecraft:simple_block",
+                      "config": {
+                        "to_place": {
+                          "type": "minecraft:simple_state_provider",
+                          "state": {
+                            "Name": "the_root_of_corruption:corruptionbedrock"
+                          }
+                        }
+                      }
+                    },
+                    "placement": []
+                  }
+                }
+              ]
+            }
+          },
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": {
+            "type": "minecraft:huge_fungus",
+            "config": {
+              "valid_base_block": {
+                "Name": "the_root_of_corruption:corruptionbedrock"
+              },
+              "stem_state": {
+                "Name": "the_root_of_corruption:corruptionbedrock"
+              },
+              "hat_state": {
+                "Name": "the_root_of_corruption:initializednetherreactor"
+              },
+              "decor_state": {
+                "Name": "minecraft:oak_sign"
+              },
+              "replaceable_blocks": {
+                "type": "minecraft:true"
+              },
+              "planted": "true"
+            }
+          },
+          "placement": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "_fv": 73,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "64px-missing_texture_windows_je2",
+    "enableBody": true,
+    "textureBody": "64px-missing_texture_windows_je2",
+    "enableLeggings": true,
+    "textureLeggings": "64px-missing_texture_windows_je2",
+    "enableBoots": true,
+    "textureBoots": "64px-missing_texture_windows_je2",
+    "onHelmetTick": {
+      "name": "InfiniteNightVision"
+    },
+    "onBodyTick": {
+      "name": "NoWaJuePiLao"
+    },
+    "onLeggingsTick": {
+      "name": "Noslowness"
+    },
+    "onBootsTick": {
+      "name": "GlitchWalker"
+    },
+    "creativeTabs": [],
+    "armorTextureFile": "missing",
+    "helmetName": "Missing",
+    "bodyName": "Missing",
+    "leggingsName": "Missing",
+    "bootsName": "Missing",
+    "helmetSpecialInformation": {
+      "fixedValue": []
+    },
+    "bodySpecialInformation": {
+      "fixedValue": []
+    },
+    "leggingsSpecialInformation": {
+      "fixedValue": []
+    },
+    "bootsSpecialInformation": {
+      "fixedValue": []
+    },
+    "helmetModelName": "Default",
+    "helmetModelPart": "Helmet",
+    "helmetModelTexture": "64px-missing_texture_windows_je2.png",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "armsModelPartL": "Arms L",
+    "armsModelPartR": "Arms R",
+    "bodyModelTexture": "64px-missing_texture_windows_je2.png",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "64px-missing_texture_windows_je2.png",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "64px-missing_texture_windows_je2.png",
+    "helmetItemRenderType": 0,
+    "helmetItemCustomModelName": "Normal",
+    "bodyItemRenderType": 0,
+    "bodyItemCustomModelName": "Normal",
+    "leggingsItemRenderType": 0,
+    "leggingsItemCustomModelName": "Normal",
+    "bootsItemRenderType": 0,
+    "bootsItemCustomModelName": "Normal",
+    "helmetImmuneToFire": true,
+    "bodyImmuneToFire": true,
+    "leggingsImmuneToFire": true,
+    "bootsImmuneToFire": true,
+    "helmetGlowCondition": {
+      "fixedValue": false
+    },
+    "bodyGlowCondition": {
+      "fixedValue": false
+    },
+    "leggingsGlowCondition": {
+      "fixedValue": false
+    },
+    "bootsGlowCondition": {
+      "fixedValue": false
+    },
+    "helmetPiglinNeutral": {
+      "fixedValue": false
+    },
+    "bodyPiglinNeutral": {
+      "fixedValue": false
+    },
+    "leggingsPiglinNeutral": {
+      "fixedValue": false
+    },
+    "bootsPiglinNeutral": {
+      "fixedValue": false
+    },
+    "maxDamage": 1024,
+    "damageValueHelmet": 25,
+    "damageValueBody": 48,
+    "damageValueLeggings": 37,
+    "damageValueBoots": 19,
+    "enchantability": 50,
+    "toughness": 10.0,
+    "knockbackResistance": 5.0,
+    "equipSound": {
+      "value": "ambient.cave"
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:ItemIsMissingID"
+      }
+    ]
+  }
+}

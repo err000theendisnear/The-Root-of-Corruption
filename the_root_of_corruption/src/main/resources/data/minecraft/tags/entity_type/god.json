@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "the_root_of_corruption:entity_spawner",
+    "the_root_of_corruption:undefindchase",
+    "the_root_of_corruption:undefindstare",
+    "the_root_of_corruption:yourjavaisdie",
+    "the_root_of_corruption:yourjavaisdie_chase",
+    "the_root_of_corruption:bedrock_stalker",
+    "the_root_of_corruption:undefined_on_surface",
+    "the_root_of_corruption:undefinedleftthegame",
+    "the_root_of_corruption:glitch_code",
+    "the_root_of_corruption:watcher",
+    "the_root_of_corruption:custom_death",
+    "the_root_of_corruption:custom_death_watch"
+  ]
+}

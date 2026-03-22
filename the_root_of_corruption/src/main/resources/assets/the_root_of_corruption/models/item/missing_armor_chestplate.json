@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "the_root_of_corruption:item/64px-missing_texture_windows_je2"
+  }
+}

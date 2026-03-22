@@ -1,0 +1,26 @@
+{
+  "feature": "the_root_of_corruption:iseeyou",
+  "placement": [
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": 2,
+      "below_noise": 3,
+      "above_noise": 6
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "min_inclusive": {
+          "below_top": 5
+        },
+        "max_inclusive": {
+          "above_bottom": 5
+        }
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    }
+  ]
+}

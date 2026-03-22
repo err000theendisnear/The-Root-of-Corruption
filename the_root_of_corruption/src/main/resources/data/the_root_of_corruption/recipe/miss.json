@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cac"
+  ],
+  "key": {
+    "a": {
+      "item": "the_root_of_corruption:laugh"
+    },
+    "b": {
+      "item": "minecraft:elytra"
+    },
+    "c": {
+      "item": "the_root_of_corruption:glowingobsidian"
+    }
+  },
+  "result": {
+    "id": "the_root_of_corruption:missing_armor_boots",
+    "count": 1
+  }
+}

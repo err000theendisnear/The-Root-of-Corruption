@@ -1,0 +1,61 @@
+{
+  "_fv": 73,
+  "_type": "item",
+  "definition": {
+    "renderType": 0,
+    "texture": "1101000_1100101_1101100_1110000",
+    "customModelName": "Normal",
+    "customProperties": {},
+    "states": [],
+    "name": "Laugh",
+    "rarity": "UNCOMMON",
+    "creativeTabs": [],
+    "stackSize": 1,
+    "enchantability": 0,
+    "useDuration": 32,
+    "toolType": 1.0,
+    "damageCount": 0,
+    "recipeRemainder": {
+      "value": ""
+    },
+    "destroyAnyBlock": false,
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "specialInformation": {
+      "fixedValue": [
+        "err"
+      ]
+    },
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "enableRanged": false,
+    "shootConstantly": false,
+    "rangedItemChargesPower": false,
+    "projectile": {
+      "value": "CUSTOM:Err"
+    },
+    "projectileDisableAmmoCheck": false,
+    "isFood": true,
+    "nutritionalValue": -20,
+    "saturation": -20.0,
+    "eatResultItem": {
+      "value": "CUSTOM:ItemIsMissingID"
+    },
+    "isMeat": false,
+    "isAlwaysEdible": true,
+    "animation": "eat",
+    "isMusicDisc": true,
+    "musicDiscMusic": {
+      "value": "CUSTOM:jumpscare"
+    },
+    "musicDiscDescription": "1",
+    "musicDiscLengthInTicks": 100,
+    "musicDiscAnalogOutput": 0
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "_fv": 73,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:ItemIsMissingID"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "Blocks.CONDUIT"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Laugh"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:MissingArmor.legs"
+    },
+    "name": "erorr",
+    "namespace": "mod"
+  }
+}

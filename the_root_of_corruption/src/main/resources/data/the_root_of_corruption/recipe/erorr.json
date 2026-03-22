@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aca",
+    "a a"
+  ],
+  "key": {
+    "a": {
+      "item": "the_root_of_corruption:laugh"
+    },
+    "b": {
+      "item": "the_root_of_corruption:item_is_missing_id"
+    },
+    "c": {
+      "item": "minecraft:conduit"
+    }
+  },
+  "result": {
+    "id": "the_root_of_corruption:missing_armor_leggings",
+    "count": 1
+  }
+}

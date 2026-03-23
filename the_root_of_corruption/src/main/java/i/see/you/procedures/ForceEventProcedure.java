@@ -20,6 +20,8 @@ public class ForceEventProcedure {
 		event = StringArgumentType.getString(arguments, "execute");
 		if (event.contains("jumpscare")) {
 			JumpscareProcedure.execute(world, x, y, z);
+		} else if (event.contains("safe")) {
+			YouarenotsafeProcedure.execute(world, x, y, z, entity);
 		} else if (event.contains("damage")) {
 			ToDeathProcedure.execute(world, entity);
 		} else if (event.contains("hell")) {

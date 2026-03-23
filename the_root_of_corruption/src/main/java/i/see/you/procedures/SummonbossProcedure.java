@@ -14,24 +14,25 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
 import i.see.you.init.TheRootOfCorruptionModEntities;
+import i.see.you.init.TheRootOfCorruptionModBlocks;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class SummonbossProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		world.setBlock(BlockPos.containing(x, y, z), TheRootOfCorruptionModBlocks.CORRUPTION_ROOT.get().defaultBlockState(), 3);
 		if (world instanceof ServerLevel _level) {
 			LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-			entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y, z)));
-			entityToSpawn.setVisualOnly(true);
+			entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y + 1, z)));;
 			_level.addFreshEntity(entityToSpawn);
 		}
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("here i am"), false);
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 1));
+			_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 350, 1));
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-			_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 200, 1));
+			_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 350, 1));
 		TheRootOfCorruptionMod.queueServerWork(200, () -> {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefined> err."), false);
@@ -50,7 +51,7 @@ public class SummonbossProcedure {
 		});
 		TheRootOfCorruptionMod.queueServerWork(500, () -> {
 			if (world instanceof ServerLevel _level) {
-				Entity entityToSpawn = TheRootOfCorruptionModEntities.UNDEFINED_BOSS.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+				Entity entityToSpawn = TheRootOfCorruptionModEntities.UNDEFINED_BOSS.get().spawn(_level, BlockPos.containing(x, y + 1, z), MobSpawnType.MOB_SUMMONED);
 				if (entityToSpawn != null) {
 					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 				}

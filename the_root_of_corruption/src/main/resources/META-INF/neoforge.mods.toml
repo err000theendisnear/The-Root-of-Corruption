@@ -4,13 +4,13 @@ license="MIT License"
 
 [[mods]]
 modId="the_root_of_corruption"
-version="1.0.0"
+version="1.0.1"
 displayName="The Root of Corruption"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
 authors="err.undefined"
-description="arthouse"
+description="BUILD FAILED"
 
 # Start of user code block mod configuration
 # End of user code block mod configuration

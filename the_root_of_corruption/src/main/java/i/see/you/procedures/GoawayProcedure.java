@@ -6,13 +6,14 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 import java.lang.Math;
 import net.minecraft.world.level.Level;
+
 @EventBusSubscriber
 public class GoawayProcedure {
 	@SubscribeEvent
 	public static void onEntityTeleportation(EntityTeleportEvent event) {
-		if (event != null && Math.random() < 0.1) {
+		if (event != null && Math.random() < 0.025) {
 			event.setCanceled(true);
-			DieProcedure.execute(event.getEntity().level());
+			DieProcedure.execute(event.getEntity().level(),event.getEntity());
 		}
 	}
 }

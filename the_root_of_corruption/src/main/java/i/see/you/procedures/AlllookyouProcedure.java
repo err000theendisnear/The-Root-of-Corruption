@@ -22,8 +22,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
@@ -92,13 +90,7 @@ public class AlllookyouProcedure {
 			}
 		}
 		if (TheRootOfCorruptionModVariables.MapVariables.get(world).ban && ConfigConfiguration.BAN.get()) {
-			{
-				Entity _ent = entity;
-				if (!_ent.level().isClientSide() && _ent.getServer() != null) {
-					_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-							_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), ("kick @s " + Component.translatable("multiplayer.disconnect.not_whitelisted").getString()));
-				}
-			}
+			KickplayerProcedure.execute(entity, "kick @s " + Component.translatable("multiplayer.disconnect.not_whitelisted").getString());
 		}
 		if (TheRootOfCorruptionModVariables.MapVariables.get(world).look_player) {
 			{

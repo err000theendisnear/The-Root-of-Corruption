@@ -15,8 +15,10 @@ public class ExecuteEventProcedure {
 			if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//because recipe event need before give the recipe.
 				CutomRecipeProcedure.execute(entity);
 			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
+				YouarenotsafeProcedure.execute(world, x, y, z, entity);
+			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 				ToDeathProcedure.execute(world, entity);
-			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//rot in hell event need you are'n in hell.
+			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//rot in hell event need you aren't in hell.
 				RotinthehellProcedure.execute(world, x, y, z, entity);
 			} else if (Mth.nextInt(RandomSource.create(), 0, 10) == 0) {
 				JumpscareProcedure.execute(world, x, y, z);

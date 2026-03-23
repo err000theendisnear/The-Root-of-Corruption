@@ -6,11 +6,11 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import i.see.you.entity.InvadeCrashreportEntity;
-import i.see.you.client.model.Modelinvade_crash_report;
+import i.see.you.client.model.Modelnothingiswatching;
 
-public class InvadeCrashreportRenderer extends MobRenderer<InvadeCrashreportEntity, Modelinvade_crash_report<InvadeCrashreportEntity>> {
+public class InvadeCrashreportRenderer extends MobRenderer<InvadeCrashreportEntity, Modelnothingiswatching<InvadeCrashreportEntity>> {
 	public InvadeCrashreportRenderer(EntityRendererProvider.Context context) {
-		super(context, new Modelinvade_crash_report<InvadeCrashreportEntity>(context.bakeLayer(Modelinvade_crash_report.LAYER_LOCATION)), 0.5f);
+		super(context, new Modelnothingiswatching<InvadeCrashreportEntity>(context.bakeLayer(Modelnothingiswatching.LAYER_LOCATION)), 0.5f);
 	}
 
 	@Override

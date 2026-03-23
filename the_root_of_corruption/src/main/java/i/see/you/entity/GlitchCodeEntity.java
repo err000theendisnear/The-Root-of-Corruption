@@ -130,7 +130,7 @@ public class GlitchCodeEntity extends Monster {
 	@Override
 	public void playerTouch(Player sourceentity) {
 		super.playerTouch(sourceentity);
-		GlitchProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), sourceentity);
+		GlitchProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this, sourceentity);
 	}
 
 	public static void init(RegisterSpawnPlacementsEvent event) {

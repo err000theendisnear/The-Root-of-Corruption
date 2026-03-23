@@ -58,7 +58,7 @@ public class CustomdeathStareProcedure {
 					}
 				}
 				TheRootOfCorruptionMod.queueServerWork(1400, () -> {
-					NosoundProcedure.execute(entity);
+					NosoundProcedure.execute(world, x, y, z);
 					TheRootOfCorruptionMod.queueServerWork(300, () -> {
 						if (world instanceof Level _level) {
 							if (!_level.isClientSide()) {
@@ -134,8 +134,7 @@ public class CustomdeathStareProcedure {
 			} else {
 				if (world instanceof ServerLevel _level) {
 					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y, z)));
-					entityToSpawn.setVisualOnly(true);
+					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y, z)));;
 					_level.addFreshEntity(entityToSpawn);
 				}
 				if (world instanceof ServerLevel _level) {
@@ -145,9 +144,9 @@ public class CustomdeathStareProcedure {
 					}
 				}
 				if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 600000, 255));
+					_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 114514, 255));
 				if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 600000, 255));
+					_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 114514, 255));
 			}
 		}
 	}

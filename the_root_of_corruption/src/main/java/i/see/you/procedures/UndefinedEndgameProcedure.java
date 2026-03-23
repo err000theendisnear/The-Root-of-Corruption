@@ -30,8 +30,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.CommandSource;
 
 import java.util.ArrayList;
 
@@ -121,7 +119,7 @@ public class UndefinedEndgameProcedure {
 				_entity.stopUsingItem();
 			if (entityiterator.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerIter) {
 				for (int _idx = 0; _idx < _modHandlerIter.getSlots(); _idx++) {
-					ItemStack itemstackiterator = _modHandlerIter.getStackInSlot(_idx).copy();
+					ItemStack itemstackiterator = _modHandlerIter.getStackInSlot(_idx);
 					itemstackiterator.set(DataComponents.CUSTOM_NAME, Component.literal("undefined"));
 					EnchantmentHelper.updateEnchantments(itemstackiterator,
 							mutableEnchantments -> mutableEnchantments.removeIf(enchantment -> enchantment.is(world.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.MENDING))));
@@ -190,13 +188,6 @@ public class UndefinedEndgameProcedure {
 			TheRootOfCorruptionMod.queueServerWork(85, () -> {
 				entityiterator.kill();
 				TheRootOfCorruptionMod.queueServerWork(15, () -> {
-					{
-						Entity _ent = entityiterator;
-						if (!_ent.level().isClientSide() && _ent.getServer() != null) {
-							_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-									_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), ("kick @s " + Component.translatable("multiplayer.disconnect.invalid_player_data").getString()));
-						}
-					}
 				});
 			});
 		}

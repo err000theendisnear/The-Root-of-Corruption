@@ -57,7 +57,7 @@ public class ErrorseeProcedure {
 			_entity.swing(InteractionHand.OFF_HAND, true);
 		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerIter) {
 			for (int _idx = 0; _idx < _modHandlerIter.getSlots(); _idx++) {
-				ItemStack itemstackiterator = _modHandlerIter.getStackInSlot(_idx).copy();
+				ItemStack itemstackiterator = _modHandlerIter.getStackInSlot(_idx);
 				itemstackiterator.setDamageValue(Mth.nextInt(RandomSource.create(), 0, (int) (itemstackiterator.getMaxDamage() - 1)));
 				itemstackiterator.set(DataComponents.CUSTOM_NAME, Component.literal(("\u00A7m" + itemstackiterator.getDisplayName().getString() + "\u00A7r\u00A78Corruption")));
 				if (entity instanceof Player _player)

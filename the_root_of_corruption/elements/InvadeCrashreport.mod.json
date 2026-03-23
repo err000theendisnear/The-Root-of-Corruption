@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "Invade Crashreport",
     "mobLabel": "",
-    "mobModelName": "Modelinvade_crash_report",
+    "mobModelName": "Modelnothingiswatching",
     "mobModelTexture": "64px-missing_texture_windows_je2.png",
     "transparentModelCondition": {
       "fixedValue": false

@@ -17,7 +17,7 @@ public class CrashProcedure {
 			entity.discard();
 		NotchaseProcedure.execute(world);
 		if (ConfigConfiguration.CRASH.get()) {
-			TruecrashProcedure.execute(world);
+			TruecrashProcedure.execute();
 		}
 	}
 }

@@ -64,7 +64,7 @@ public class RunrunrunProcedure {
 				}
 			}
 			{
-				Entity _ent = entity;
+				Entity _ent = player;
 				if (!_ent.level().isClientSide() && _ent.getServer() != null) {
 					_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
 							_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "weather thunder");
@@ -119,9 +119,9 @@ public class RunrunrunProcedure {
 					if (world instanceof ServerLevel _level)
 						FallingBlockEntity.fall(_level, BlockPos.containing(player.getX(), player.getY(), player.getZ()), Blocks.BEDROCK.defaultBlockState());
 				}
-				if (Math.random() < 0.5) {
+				if (Math.random() < 0.8) {
 					{
-						Entity _ent = entity;
+						Entity _ent = player;
 						if (!_ent.level().isClientSide() && _ent.getServer() != null) {
 							_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
 									_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "title runrunrunrunrunrun");

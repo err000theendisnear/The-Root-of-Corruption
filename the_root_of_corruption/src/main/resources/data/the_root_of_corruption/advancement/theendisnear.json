@@ -1,6 +1,6 @@
 {
   "display": {
-    "background": "the_root_of_corruption:textures/screens/eye.png",
+    "background": "the_root_of_corruption:textures/screens/behindyou.png",
     "icon": {
       "id": "the_root_of_corruption:item_is_missing_id"
     },

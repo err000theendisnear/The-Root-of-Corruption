@@ -948,7 +948,7 @@
       "name": "Errorsee",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "errorsee",
       "metadata": {
         "files": [
@@ -1447,7 +1447,7 @@
       "name": "UndefinedEndgame",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "undefined_endgame",
       "metadata": {
         "files": [
@@ -1938,12 +1938,7 @@
         "files": [
           "src/main/java/i/see/you/procedures/TruecrashProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -2725,6 +2720,10 @@
           "src/main/java/i/see/you/procedures/GlitchProcedure.java"
         ],
         "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
           {
             "name": "sourceentity",
             "type": "entity"
@@ -3774,6 +3773,18 @@
             "type": "entity"
           },
           {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -3977,18 +3988,6 @@
       }
     },
     {
-      "name": "License",
-      "type": "code",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "license",
-      "metadata": {
-        "files": [
-          "src/main/java/i/see/you/License.java"
-        ]
-      }
-    },
-    {
       "name": "Randomdisc",
       "type": "procedure",
       "compiles": true,
@@ -4034,7 +4033,6 @@
       "registry_name": "tamed_base_0",
       "metadata": {
         "files": [
-          "src/main/resources/data/the_root_of_corruption/neoforge/biome_modifier/tamed_base_0_biome_modifier.json",
           "src/main/java/i/see/you/client/renderer/TamedBase0Renderer.java",
           "src/main/java/i/see/you/entity/TamedBase0Entity.java"
         ]
@@ -4778,8 +4776,20 @@
         ],
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -4941,8 +4951,52 @@
         ],
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "world",
             "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Kickplayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kickplayer",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/KickplayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "kickreason",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Commandkick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "commandkick",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/CommandkickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
           }
         ]
       }
@@ -5278,7 +5332,7 @@
       "subtitles.chase": "",
       "gamerule.enableEvent": "enable event",
       "item.error_not_found.hope.desc": "Discard it.",
-      "advancements.theendisnear.title": "Theendisnear",
+      "advancements.theendisnear.title": "theendisnear",
       "entity.the_root_of_corruption.custom_death_watch": "Custom Death Watch",
       "biome.error_not_found.saveus": "Saveus",
       "block.error_not_found.fight_gen": "Fight Gen",
@@ -5329,7 +5383,7 @@
       "entity.the_root_of_corruption.undefindchase": "Undefindchase",
       "item.the_root_of_corruption.missing_armor_leggings": "Missing",
       "item.error_not_found.undefined_heart.desc": "Eat it",
-      "advancements.theendisnear.descr": "Theendisnear",
+      "advancements.theendisnear.descr": "theendisnear",
       "subtitles.error": "undefined.watch",
       "subtitles.wrong_sound": "",
       "fluid.error_not_found.err_null": "Err Null",
@@ -5374,8 +5428,8 @@
   "workspaceSettings": {
     "modid": "the_root_of_corruption",
     "modName": "The Root of Corruption",
-    "version": "1.0.0",
-    "description": "arthouse",
+    "version": "1.0.1",
+    "description": "BUILD FAILED",
     "author": "err.undefined",
     "websiteURL": "https://mcreator.net",
     "license": "MIT License",

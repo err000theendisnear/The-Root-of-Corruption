@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.arguments.blocks.BlockStateArgument;
+import net.minecraft.commands.arguments.MessageArgument;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.Commands;
 
@@ -24,6 +25,7 @@ import i.see.you.procedures.SfProcedure;
 import i.see.you.procedures.SetsurfaceProcedure;
 import i.see.you.procedures.ForceEventProcedure;
 import i.see.you.procedures.ExecuteEventProcedure;
+import i.see.you.procedures.CommandkickProcedure;
 import i.see.you.procedures.CommandcrossProcedure;
 import i.see.you.procedures.ClearoverlayProcedure;
 import i.see.you.procedures.AddsurfaceProcedure;
@@ -146,7 +148,7 @@ public class DebugEventCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					TruecrashProcedure.execute(world);
+					TruecrashProcedure.execute();
 					return 0;
 				})).then(Commands.literal("overlay").then(Commands.literal("clear").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
@@ -191,6 +193,21 @@ public class DebugEventCommand {
 
 							SpawnSelfProcedure.execute(world, arguments);
 							return 0;
-						})))))));
+						}))))))
+				.then(Commands.literal("kick").then(Commands.argument("player", EntityArgument.players()).then(Commands.argument("reason", MessageArgument.message()).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					CommandkickProcedure.execute(arguments);
+					return 0;
+				})))));
 	}
 }

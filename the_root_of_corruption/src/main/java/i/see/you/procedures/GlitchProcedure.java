@@ -20,9 +20,11 @@ import net.minecraft.core.BlockPos;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class GlitchProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity sourceentity) {
-		if (sourceentity == null)
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
+		if (entity == null || sourceentity == null)
 			return;
+		if (!entity.level().isClientSide())
+			entity.discard();
 		if (sourceentity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
 			ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_root_of_corruption:err_void"));
 			if (_player.level().dimension() == destinationType)
@@ -58,7 +60,7 @@ public class GlitchProcedure {
 				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.VOICE, 100, 1, false);
 			}
 		}
-		TheRootOfCorruptionMod.queueServerWork(1000, () -> {
+		TheRootOfCorruptionMod.queueServerWork(2000, () -> {
 			if (sourceentity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
 				ResourceKey<Level> destinationType = Level.OVERWORLD;
 				if (_player.level().dimension() == destinationType)

@@ -194,7 +194,7 @@ public class UndefinedBossEntity extends Monster {
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		TrueleftthegameProcedure.execute(this.level(), source.getEntity());
+		TrueleftthegameProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), source.getEntity());
 	}
 
 	@Override

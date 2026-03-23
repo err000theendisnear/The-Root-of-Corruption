@@ -2,12 +2,12 @@
   "_fv": 73,
   "_type": "achievement",
   "definition": {
-    "achievementName": "Theendisnear",
-    "achievementDescription": "Theendisnear",
+    "achievementName": "theendisnear",
+    "achievementDescription": "theendisnear",
     "achievementIcon": {
       "value": "CUSTOM:ItemIsMissingID"
     },
-    "background": "eye.png",
+    "background": "behindyou.png",
     "disableDisplay": false,
     "showPopup": true,
     "announceToChat": true,

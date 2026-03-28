@@ -63,7 +63,7 @@ public class SpawnrandomentityProcedure {
 				}
 			} else if (0 == Mth.nextInt(RandomSource.create(), 0, 10)) {
 				if (world instanceof ServerLevel _level) {
-					Entity entityToSpawn = TheRootOfCorruptionModEntities.UNDEFINEDLEFTTHEGAME.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+					Entity entityToSpawn = TheRootOfCorruptionModEntities.SOUL.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
 					if (entityToSpawn != null) {
 						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 					}

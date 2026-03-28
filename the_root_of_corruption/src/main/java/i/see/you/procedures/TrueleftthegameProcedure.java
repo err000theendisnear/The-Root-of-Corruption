@@ -1,9 +1,12 @@
 package i.see.you.procedures;
 
+import net.neoforged.neoforge.items.ItemHandlerHelper;
+
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -22,6 +25,7 @@ import java.util.Comparator;
 import java.util.Collections;
 
 import i.see.you.network.TheRootOfCorruptionModVariables;
+import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TrueleftthegameProcedure {
@@ -58,6 +62,15 @@ public class TrueleftthegameProcedure {
 							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
 						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 					}
+				}
+				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
+					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
+					}
+				}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof Player _player) {
+					ItemStack _setstack = new ItemStack(TheRootOfCorruptionModItems.UNDEFINED_HEART.get()).copy();
+					_setstack.setCount(1);
+					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 				}
 			}
 		});

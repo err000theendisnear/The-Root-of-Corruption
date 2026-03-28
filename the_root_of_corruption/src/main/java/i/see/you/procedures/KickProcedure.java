@@ -20,7 +20,7 @@ public class KickProcedure {
 							_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "kill @s");
 				}
 			}
-			KickplayerProcedure.execute(sourceentity, "kick @s " + Component.translatable("multiplayer.disconnect.banned").getString());
+			KickplayerProcedure.execute(sourceentity, Component.translatable("multiplayer.disconnect.banned").getString());
 			if (!entity.level().isClientSide())
 				entity.discard();
 		} else {
@@ -31,7 +31,7 @@ public class KickProcedure {
 							_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "kill @s");
 				}
 			}
-			KickplayerProcedure.execute(entity, "kick @s " + Component.translatable("multiplayer.disconnect.banned").getString());
+			KickplayerProcedure.execute(entity, Component.translatable("multiplayer.disconnect.banned").getString());
 			if (!sourceentity.level().isClientSide())
 				sourceentity.discard();
 		}

@@ -50,6 +50,7 @@ public class TheRootOfCorruptionModItems {
 	public static final DeferredItem<Item> SAVE_THE_WORLD = REGISTRY.register("save_the_world", SaveTheWorldItem::new);
 	public static final DeferredItem<Item> MISSING_SWORD = REGISTRY.register("missing_sword", MissingSwordItem::new);
 	public static final DeferredItem<Item> CORRUPTION_ROOT = block(TheRootOfCorruptionModBlocks.CORRUPTION_ROOT);
+	public static final DeferredItem<Item> OP_COMMAND_BLOCK = block(TheRootOfCorruptionModBlocks.OP_COMMAND_BLOCK);
 
 	// Start of user code block custom items
 	// End of user code block custom items

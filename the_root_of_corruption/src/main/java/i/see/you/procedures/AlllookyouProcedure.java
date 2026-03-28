@@ -14,8 +14,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.util.RandomSource;
-import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
@@ -50,6 +48,7 @@ public class AlllookyouProcedure {
 		double zz = 0;
 		double cave = 0;
 		BlockState block = Blocks.AIR.defaultBlockState();
+		String blockname = "";
 		xx = x - 8;
 		for (int index0 = 0; index0 < 16; index0++) {
 			yy = y - 8;
@@ -57,8 +56,8 @@ public class AlllookyouProcedure {
 				zz = z - 8;
 				for (int index2 = 0; index2 < 16; index2++) {
 					block = (world.getBlockState(BlockPos.containing(xx, yy, zz)));
-					if ((BuiltInRegistries.BLOCK.getKey(block.getBlock()).toString()).contains("stone") || (BuiltInRegistries.BLOCK.getKey(block.getBlock()).toString()).contains("rock")
-							|| (BuiltInRegistries.BLOCK.getKey(block.getBlock()).toString()).contains("ore")) {
+					blockname = BuiltInRegistries.BLOCK.getKey(block.getBlock()).toString();
+					if (blockname.contains("stone") || blockname.contains("rock") || blockname.contains("ore")) {
 						cave = cave + 1;
 					}
 					zz = zz + 1;
@@ -71,7 +70,7 @@ public class AlllookyouProcedure {
 			TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = 0;
 			TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 		} else {
-			if (world instanceof ServerLevel _level7 && _level7.isVillage(BlockPos.containing(x, y, z))) {
+			if (world instanceof ServerLevel _level5 && _level5.isVillage(BlockPos.containing(x, y, z))) {
 				TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface + 0.01;
 				TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 			} else {
@@ -90,7 +89,7 @@ public class AlllookyouProcedure {
 			}
 		}
 		if (TheRootOfCorruptionModVariables.MapVariables.get(world).ban && ConfigConfiguration.BAN.get()) {
-			KickplayerProcedure.execute(entity, "kick @s " + Component.translatable("multiplayer.disconnect.not_whitelisted").getString());
+			KickplayerProcedure.execute(entity, Component.translatable("multiplayer.disconnect.not_whitelisted").getString());
 		}
 		if (TheRootOfCorruptionModVariables.MapVariables.get(world).look_player) {
 			{
@@ -103,7 +102,7 @@ public class AlllookyouProcedure {
 				}
 			}
 		}
-		if (Mth.nextInt(RandomSource.create(), 1, 1000000) == 1) {
+		if (Math.random() < 1 / (double) ConfigConfiguration.EVENT_INTERVAL.get()) {
 			ExecuteEventProcedure.execute(world, x, y, z, entity);
 		}
 	}

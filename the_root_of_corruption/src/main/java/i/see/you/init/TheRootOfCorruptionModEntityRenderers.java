@@ -21,12 +21,14 @@ import i.see.you.client.renderer.UndefindstareRenderer;
 import i.see.you.client.renderer.UndefindchaseRenderer;
 import i.see.you.client.renderer.TamedBase0Renderer;
 import i.see.you.client.renderer.SteveRenderer;
+import i.see.you.client.renderer.SoulRenderer;
 import i.see.you.client.renderer.RandomCrossRenderer;
 import i.see.you.client.renderer.MinecraftRootRenderer;
 import i.see.you.client.renderer.LostMemoryRenderer;
 import i.see.you.client.renderer.InvalidCreeperRenderer;
 import i.see.you.client.renderer.InvadeCrashreportRenderer;
 import i.see.you.client.renderer.GlitchCodeRenderer;
+import i.see.you.client.renderer.GameCrashRenderer;
 import i.see.you.client.renderer.ForgottenPlayerRenderer;
 import i.see.you.client.renderer.EntitySpawnerRenderer;
 import i.see.you.client.renderer.CustomDeathWatchRenderer;
@@ -63,5 +65,7 @@ public class TheRootOfCorruptionModEntityRenderers {
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.CLEARBOMB.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.CUSTOM_DEATH.get(), CustomDeathRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.CUSTOM_DEATH_WATCH.get(), CustomDeathWatchRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.SOUL.get(), SoulRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.GAME_CRASH.get(), GameCrashRenderer::new);
 	}
 }

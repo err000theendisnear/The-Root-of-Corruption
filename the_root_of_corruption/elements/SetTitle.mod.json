@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"String\" id=\"titles\">titles</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"java_code\"><field name=\"CODE\">Minecraft mc = Minecraft.getInstance();</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"java_code_get\"><field name=\"CODE\">mc.getWindow() != null</field></block></value><statement name=\"DO0\"><block type=\"variables_set_string\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:titles</field><value name=\"VAL\"><block type=\"custom_dependency_string\"><field name=\"NAME\">title</field></block></value><next><block type=\"java_code\"><field name=\"CODE\">long windowHandle = mc.getWindow().getWindow();</field><next><block type=\"java_code\"><field name=\"CODE\">GLFW.glfwSetWindowTitle(windowHandle, titles);</field></block></next></block></next></block></statement></block></next></block></next></block></xml>"
+  }
+}

@@ -11,8 +11,7 @@ public class KickplayerProcedure {
 		String reason = "";
 		if (!entity.level().isClientSide() && entity instanceof ServerPlayer srveplyr_071) {
 			reason = kickreason;
-			srveplyr_071.connection.disconnect(Component.literal(reason));//孩子们我原本要用Mixin改写kick命令的，但是太难了我不会，Man!
+			srveplyr_071.connection.disconnect(Component.literal(reason));
 		}
 	}
 }
-

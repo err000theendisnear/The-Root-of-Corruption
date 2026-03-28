@@ -14,13 +14,25 @@ public class ExecuteEventProcedure {
 		if (world.getLevelData().getGameRules().getBoolean(TheRootOfCorruptionModGameRules.ENABLE_EVENT)) {//why can't execute event?
 			if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//because recipe event need before give the recipe.
 				CutomRecipeProcedure.execute(entity);
+			} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 1) {
+				IpProcedure.execute(world, x, y, z);
+			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
+				HorrorTitleProcedure.execute();
+			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
+				TheBrokenAnomalyProcedure.execute(world, x, y, z, entity);
+			} else if (Mth.nextInt(RandomSource.create(), 0, 3) == 0) {
+				LeftgameProcedure.execute(world, x, y, z);
+			} else if (Mth.nextInt(RandomSource.create(), 0, 4) == 0) {
+				OutOfMemoryErrorProcedure.execute(world, x, y, z, entity);
+			} else if (Mth.nextInt(RandomSource.create(), 0, 5) == 0) {
+				HotSpotLogProcedure.execute(world, x, y, z);
 			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 				YouarenotsafeProcedure.execute(world, x, y, z, entity);
 			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 				ToDeathProcedure.execute(world, entity);
 			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//rot in hell event need you aren't in hell.
 				RotinthehellProcedure.execute(world, x, y, z, entity);
-			} else if (Mth.nextInt(RandomSource.create(), 0, 10) == 0) {
+			} else if (Mth.nextInt(RandomSource.create(), 0, 5) == 0) {
 				JumpscareProcedure.execute(world, x, y, z);
 			} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 				RightbehindyouProcedure.execute(world, x, y, z, entity);

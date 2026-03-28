@@ -10,12 +10,15 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 
 public class CommandkickProcedure {
 	public static void execute(CommandContext<CommandSourceStack> arguments) {
-		try {
-			for (Entity entityiterator : EntityArgument.getEntities(arguments, "player")) {
-				KickplayerProcedure.execute(entityiterator, StringArgumentType.getString(arguments, "reason"));
+		KickplayerProcedure.execute(new Object() {
+			public Entity getEntity() {
+				try {
+					return EntityArgument.getEntity(arguments, "player");
+				} catch (CommandSyntaxException e) {
+					e.printStackTrace();
+					return null;
+				}
 			}
-		} catch (CommandSyntaxException e) {
-			e.printStackTrace();
-		}
+		}.getEntity(), "" + StringArgumentType.getString(arguments, "reason"));
 	}
 }

@@ -1,0 +1,102 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 300,
+    "height": 225,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": true,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_op",
+          "text": {
+            "fixedValue": "OP:",
+            "name": "GetOP"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 67,
+          "y": 10,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_add_op",
+          "text": "Add OP",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "AddOP"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 305,
+          "y": 11,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_command",
+          "text": {
+            "fixedValue": "Command:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 138,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "",
+          "name": "command",
+          "width": 120,
+          "height": 20,
+          "x": 181,
+          "y": 74,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_done",
+          "text": "Done",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "CloseGUI"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 199,
+          "y": 195,
+          "locked": false
+        }
+      }
+    ],
+    "onClosed": {
+      "name": "Savecommand"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

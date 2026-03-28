@@ -5,15 +5,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.model.PigModel;
 import net.minecraft.client.model.HierarchicalModel;
 
 import i.see.you.entity.CustomDeathEntity;
 import i.see.you.client.model.animations.CustomModelAnimation;
-import i.see.you.client.model.ModelCustomModel;
 
-public class CustomDeathRenderer extends MobRenderer<CustomDeathEntity, ModelCustomModel<CustomDeathEntity>> {
+public class CustomDeathRenderer extends MobRenderer<CustomDeathEntity, PigModel<CustomDeathEntity>> {
 	public CustomDeathRenderer(EntityRendererProvider.Context context) {
-		super(context, new AnimatedModel(context.bakeLayer(ModelCustomModel.LAYER_LOCATION)), 0f);
+		super(context, new AnimatedModel(context.bakeLayer(ModelLayers.PIG)), 0f);
 	}
 
 	@Override
@@ -26,7 +27,7 @@ public class CustomDeathRenderer extends MobRenderer<CustomDeathEntity, ModelCus
 		return true;
 	}
 
-	private static final class AnimatedModel extends ModelCustomModel<CustomDeathEntity> {
+	private static final class AnimatedModel extends PigModel<CustomDeathEntity> {
 		private final ModelPart root;
 		private final HierarchicalModel animator = new HierarchicalModel<CustomDeathEntity>() {
 			@Override

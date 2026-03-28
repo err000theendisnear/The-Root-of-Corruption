@@ -7,11 +7,37 @@ import net.minecraft.commands.CommandSourceStack;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.arguments.DoubleArgumentType;
 
 public class SpawnSelfProcedure {
 	public static void execute(LevelAccessor world, CommandContext<CommandSourceStack> arguments) {
-		AnotherSelfProcedure.execute(world, DoubleArgumentType.getDouble(arguments, "x"), DoubleArgumentType.getDouble(arguments, "y"), DoubleArgumentType.getDouble(arguments, "z"), new Object() {
+		AnotherSelfProcedure.execute(world, (new Object() {
+			public Entity getEntity() {
+				try {
+					return EntityArgument.getEntity(arguments, "self");
+				} catch (CommandSyntaxException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}.getEntity()).getX(), (new Object() {
+			public Entity getEntity() {
+				try {
+					return EntityArgument.getEntity(arguments, "self");
+				} catch (CommandSyntaxException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}.getEntity()).getY(), (new Object() {
+			public Entity getEntity() {
+				try {
+					return EntityArgument.getEntity(arguments, "self");
+				} catch (CommandSyntaxException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}.getEntity()).getZ(), new Object() {
 			public Entity getEntity() {
 				try {
 					return EntityArgument.getEntity(arguments, "self");

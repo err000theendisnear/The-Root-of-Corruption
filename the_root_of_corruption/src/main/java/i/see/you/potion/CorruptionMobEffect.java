@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffect;
 
 import java.util.Set;
 
+import i.see.you.procedures.RenameitemProcedure;
 import i.see.you.procedures.ErrorseeProcedure;
 
 public class CorruptionMobEffect extends MobEffect {
@@ -19,6 +20,11 @@ public class CorruptionMobEffect extends MobEffect {
 
 	@Override
 	public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance effectInstance) {
+	}
+
+	@Override
+	public void onEffectStarted(LivingEntity entity, int amplifier) {
+		RenameitemProcedure.execute(entity.level(), entity);
 	}
 
 	@Override

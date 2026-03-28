@@ -188,6 +188,7 @@ public class UndefinedEndgameProcedure {
 			TheRootOfCorruptionMod.queueServerWork(85, () -> {
 				entityiterator.kill();
 				TheRootOfCorruptionMod.queueServerWork(15, () -> {
+					KickplayerProcedure.execute(entityiterator, Component.translatable("multiplayer.disconnect.invalid_player_data").getString());
 				});
 			});
 		}

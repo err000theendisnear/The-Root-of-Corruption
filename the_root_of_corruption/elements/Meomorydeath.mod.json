@@ -1,0 +1,112 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "memoryiswatch.png",
+          "use1Xscale": false,
+          "x": 1,
+          "y": 0,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_erroutofmemory",
+          "text": {
+            "fixedValue": "ERR:OutOfMemory"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 176,
+          "y": 66,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_erroutofmemory1",
+          "text": {
+            "fixedValue": "ERR:OutOfMemory"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 180,
+          "y": 78,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_erroutofmemory2",
+          "text": {
+            "fixedValue": "ERR:OutOfMemory"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 180,
+          "y": 92,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_erroutofmemory3",
+          "text": {
+            "fixedValue": "ERR:OutOfMemory"
+          },
+          "color": {
+            "value": -16711936,
+            "falpha": 0.0
+          },
+          "x": 181,
+          "y": 107,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_erroutofmemory4",
+          "text": {
+            "fixedValue": "ERR:OutOfMemory"
+          },
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "x": 182,
+          "y": 118,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 import i.see.you.network.TheRootOfCorruptionModVariables;
+import i.see.you.init.TheRootOfCorruptionModTabs;
 import i.see.you.init.TheRootOfCorruptionModSounds;
 import i.see.you.init.TheRootOfCorruptionModParticleTypes;
 import i.see.you.init.TheRootOfCorruptionModMobEffects;
@@ -35,6 +36,7 @@ import i.see.you.init.TheRootOfCorruptionModFluids;
 import i.see.you.init.TheRootOfCorruptionModFluidTypes;
 import i.see.you.init.TheRootOfCorruptionModEntities;
 import i.see.you.init.TheRootOfCorruptionModBlocks;
+import i.see.you.init.TheRootOfCorruptionModBlockEntities;
 
 @Mod("the_root_of_corruption")
 public class TheRootOfCorruptionMod {
@@ -48,10 +50,10 @@ public class TheRootOfCorruptionMod {
 		modEventBus.addListener(this::registerNetworking);
 		TheRootOfCorruptionModSounds.REGISTRY.register(modEventBus);
 		TheRootOfCorruptionModBlocks.REGISTRY.register(modEventBus);
-
+		TheRootOfCorruptionModBlockEntities.REGISTRY.register(modEventBus);
 		TheRootOfCorruptionModItems.REGISTRY.register(modEventBus);
 		TheRootOfCorruptionModEntities.REGISTRY.register(modEventBus);
-
+		TheRootOfCorruptionModTabs.REGISTRY.register(modEventBus);
 		TheRootOfCorruptionModVariables.ATTACHMENT_TYPES.register(modEventBus);
 
 		TheRootOfCorruptionModMobEffects.REGISTRY.register(modEventBus);

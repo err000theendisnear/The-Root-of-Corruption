@@ -32,8 +32,7 @@ public class UdfstaretickupdateProcedure {
 					if (entityToSpawn != null) {
 					}
 				}
-				if (!entity.level().isClientSide())
-					entity.discard();
+				DiscardProcedure.execute(entity);
 			}
 		}
 	}

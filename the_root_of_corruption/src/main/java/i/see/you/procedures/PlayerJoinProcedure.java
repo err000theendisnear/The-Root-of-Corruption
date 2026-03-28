@@ -1,5 +1,6 @@
 package i.see.you.procedures;
 
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -10,10 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
@@ -47,14 +45,8 @@ public class PlayerJoinProcedure {
 		TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 		if (TheRootOfCorruptionModVariables.MapVariables.get(world).undefined_join) {
 			if ((entity.getDisplayName().getString()).equals("Undefind") || (entity.getDisplayName().getString()).equals("Undefined")) {
-				{
-					Entity _ent = entity;
-					if (!_ent.level().isClientSide() && _ent.getServer() != null) {
-						_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-								_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), ("kick @s " + Component.translatable("multiplayer.disconnect.name_taken").getString()));
-					}
-				}
-			} else if (1 == world.players().size()) {
+				KickplayerProcedure.execute(entity, Component.translatable("multiplayer.disconnect.name_taken").getString());
+			} else if ((!world.isClientSide() && world.getServer() != null) ? (ServerLifecycleHooks.getCurrentServer().isSingleplayer()) : true) {
 				if (!world.isClientSide() && world.getServer() != null)
 					world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7e" + (Component.translatable("multiplayer.player.joined").getString()).replace("%s", entity.getDisplayName().getString()))), false);
 			}

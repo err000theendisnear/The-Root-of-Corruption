@@ -2,9 +2,9 @@
   "_fv": 73,
   "_type": "config",
   "definition": {
-    "file": "error_not_found_config",
+    "file": "the_root_of_corruption_config",
     "configType": 0,
-    "config": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"config_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"config_category\"><field name=\"name\">game</field><statement name=\"write\"><block type=\"config_variable\"><field name=\"name\">ban</field><field name=\"comment\">是否封禁玩家</field><value name=\"value\"><block type=\"config_logic_variable\"><field name=\"name\">ban</field><field name=\"value\">true</field></block></value><next><block type=\"config_variable\"><field name=\"name\">crash</field><field name=\"comment\">是否崩溃</field><value name=\"value\"><block type=\"config_logic_variable\"><field name=\"name\">crash</field><field name=\"value\">true</field></block></value></block></next></block></statement></block></next></block></xml>",
-    "defining": false
+    "config": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"config_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"config_category\"><field name=\"name\">game</field><statement name=\"write\"><block type=\"config_variable\"><field name=\"name\">ban</field><field name=\"comment\">是否封禁玩家 Whether to ban the player</field><value name=\"value\"><block type=\"config_logic_variable\"><field name=\"name\">ban</field><field name=\"value\">true</field></block></value><next><block type=\"config_variable\"><field name=\"name\">crash</field><field name=\"comment\">是否崩溃 Whether it has crashed</field><value name=\"value\"><block type=\"config_logic_variable\"><field name=\"name\">crash</field><field name=\"value\">true</field></block></value><next><block type=\"config_variable\"><field name=\"name\">event_interval</field><field name=\"comment\">事件发生的间隔 The interval at the time of the event</field><value name=\"value\"><block type=\"config_number_variable\"><field name=\"name\">event_interval</field><field name=\"value\">100000</field></block></value><next><block type=\"config_variable\"><field name=\"name\">run_exe</field><field name=\"comment\">是否允许运行exe文件 Whether to allow running exe files</field><value name=\"value\"><block type=\"config_logic_variable\"><field name=\"name\">run_exe</field><field name=\"value\">false</field></block></value></block></next></block></next></block></next></block></statement></block></next></block></xml>",
+    "defining": true
   }
 }

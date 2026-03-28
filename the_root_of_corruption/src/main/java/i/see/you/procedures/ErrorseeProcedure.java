@@ -21,7 +21,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
@@ -59,7 +58,6 @@ public class ErrorseeProcedure {
 			for (int _idx = 0; _idx < _modHandlerIter.getSlots(); _idx++) {
 				ItemStack itemstackiterator = _modHandlerIter.getStackInSlot(_idx);
 				itemstackiterator.setDamageValue(Mth.nextInt(RandomSource.create(), 0, (int) (itemstackiterator.getMaxDamage() - 1)));
-				itemstackiterator.set(DataComponents.CUSTOM_NAME, Component.literal(("\u00A7m" + itemstackiterator.getDisplayName().getString() + "\u00A7r\u00A78Corruption")));
 				if (entity instanceof Player _player)
 					_player.getCooldowns().addCooldown(itemstackiterator.getItem(), 100);
 			}
@@ -81,8 +79,8 @@ public class ErrorseeProcedure {
 		if (entity instanceof Player _plr && _plr.isFallFlying()) {
 			_plr.stopFallFlying();
 		}
-		if (entity instanceof Player _plr36)
-			_plr36.resetAttackStrengthTicker();
+		if (entity instanceof Player _plr32)
+			_plr32.resetAttackStrengthTicker();
 		if (entity instanceof ServerPlayer _player)
 			_player.setGameMode(GameType.SURVIVAL);
 	}

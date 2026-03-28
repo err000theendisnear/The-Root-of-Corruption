@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "Invade Crashreport",
     "mobLabel": "",
-    "mobModelName": "Modelnothingiswatching",
+    "mobModelName": "Modelinvade_crash_report",
     "mobModelTexture": "64px-missing_texture_windows_je2.png",
     "transparentModelCondition": {
       "fixedValue": false
@@ -105,47 +105,26 @@
       "value": ""
     },
     "livingSound": {
-      "value": ""
+      "value": "ambient.cave"
     },
     "hurtSound": {
-      "value": "entity.generic.hurt"
+      "value": "ambient.cave"
     },
     "deathSound": {
-      "value": "entity.generic.death"
+      "value": "ambient.cave"
     },
     "stepSound": {
-      "value": ""
+      "value": "ambient.cave"
     },
     "raidCelebrationSound": {
       "value": ""
     },
     "entityDataEntries": [],
-    "onStruckByLightning": {
-      "name": "Logdie"
-    },
-    "whenMobFalls": {
-      "name": "Logdie"
-    },
-    "whenMobDies": {
-      "name": "Crash"
-    },
-    "whenMobIsHurt": {
-      "name": "Logdie"
-    },
-    "onRightClickedOn": {
-      "name": "Logdie"
-    },
-    "whenThisMobKillsAnother": {
-      "name": "Crash"
-    },
     "onMobTickUpdate": {
       "name": "Logdie"
     },
     "onPlayerCollidesWith": {
       "name": "Crash"
-    },
-    "onInitialSpawn": {
-      "name": "Cavesound"
     },
     "hasAI": true,
     "aiBase": "(none)",
@@ -160,8 +139,8 @@
     "rangedItemType": "Default item",
     "rangedAttackInterval": 20,
     "rangedAttackRadius": 10.0,
-    "spawnThisMob": true,
-    "doesDespawnWhenIdle": true,
+    "spawnThisMob": false,
+    "doesDespawnWhenIdle": false,
     "spawningProbability": 20,
     "mobSpawningType": "monster",
     "minNumberOfMobsPerGroup": 4,

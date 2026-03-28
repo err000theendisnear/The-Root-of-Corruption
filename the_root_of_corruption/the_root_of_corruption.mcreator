@@ -282,6 +282,10 @@
         ],
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -3258,7 +3262,6 @@
       "metadata": {
         "files": [
           "src/main/java/i/see/you/entity/InvadeCrashreportEntity.java",
-          "src/main/resources/data/the_root_of_corruption/neoforge/biome_modifier/invade_crashreport_biome_modifier.json",
           "src/main/java/i/see/you/client/renderer/InvadeCrashreportRenderer.java"
         ]
       }
@@ -3676,10 +3679,6 @@
         "dependencies": [
           {
             "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
             "type": "entity"
           },
           {
@@ -4965,7 +4964,7 @@
       "name": "Kickplayer",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "kickplayer",
       "metadata": {
         "files": [
@@ -4997,6 +4996,967 @@
           {
             "name": "arguments",
             "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Noreasonkick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "noreasonkick",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/NoreasonkickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Renameitem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "renameitem",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RenameitemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Errsoul",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "errsoul",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ErrsoulProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Soul",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soul",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/renderer/SoulRenderer.java",
+          "src/main/java/i/see/you/entity/SoulEntity.java",
+          "src/main/resources/data/the_root_of_corruption/neoforge/biome_modifier/soul_biome_modifier.json"
+        ]
+      }
+    },
+    {
+      "name": "Soulspawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soulspawn",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/SoulspawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Hserrpidlog",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hserrpidlog",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/HserrpidlogProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Leftgame",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "leftgame",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/LeftgameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TryCrash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "try_crash",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TryCrashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GameCrash",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "game_crash",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/renderer/GameCrashRenderer.java",
+          "src/main/java/i/see/you/entity/GameCrashEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "GameToCrash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "game_to_crash",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GameToCrashProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HotSpotLog",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hot_spot_log",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/HotSpotLogProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AllMissnoAromr",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "all_missno_aromr",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/AllMissnoAromrProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Godplayer2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "godplayer_2",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/Godplayer2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JVMCrash",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "jvm_crash",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/JVMCrashProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Banplayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "banplayer",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/BanplayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MemoryDeath",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "memory_death",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/MemoryDeathProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Lookatplayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lookatplayer",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/LookatplayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Meomorydeath",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "meomorydeath",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/world/inventory/MeomorydeathMenu.java",
+          "src/main/java/i/see/you/client/gui/MeomorydeathScreen.java"
+        ]
+      }
+    },
+    {
+      "name": "OutOfMemoryError",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "out_of_memory_error",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/OutOfMemoryErrorProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OPCommandBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "op_command_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/item/op_command_block.json",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/op_command_block.json",
+          "src/main/java/i/see/you/block/entity/OPCommandBlockBlockEntity.java",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/op_command_block.json",
+          "src/main/java/i/see/you/block/OPCommandBlockBlock.java",
+          "src/main/resources/assets/the_root_of_corruption/models/block/op_command_block.json"
+        ]
+      }
+    },
+    {
+      "name": "Resetdata",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "resetdata",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ResetdataProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddOP",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_op",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/AddOPProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GetOP",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_op",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/i/see/you/procedures/GetOPProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CloseGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "close_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/CloseGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Savecommand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "savecommand",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SavecommandProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Opcommand",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "opcommand",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/gui/OpcommandScreen.java",
+          "src/main/java/i/see/you/network/OpcommandButtonMessage.java",
+          "src/main/java/i/see/you/world/inventory/OpcommandMenu.java"
+        ]
+      }
+    },
+    {
+      "name": "ExecuteCommand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "execute_command",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ExecuteCommandProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TheBrokenAnomaly",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_broken_anomaly",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TheBrokenAnomalyProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetHealth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_health",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SetHealthProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RunEXEFile",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "run_exe_file",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RunEXEFileProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "path",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Exe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "exe",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ExeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OpenGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/OpenGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommandPlace",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "command_place",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/CommandPlaceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetTitle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "set_title",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SetTitleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "title",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ToggleFullScreen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toggle_full_screen",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ToggleFullScreenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "exit",
+            "type": "logic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fullscreen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fullscreen",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/FullscreenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Setwindowtitle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "setwindowtitle",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SetwindowtitleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Onlytooglefullscreen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "onlytooglefullscreen",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/OnlytooglefullscreenProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "HorrorTitle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "horror_title",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/HorrorTitleProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "GetRequest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_request",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GetRequestProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Post",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "post",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PostProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HaveJSONBodyPost",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "have_json_body_post",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/HaveJSONBodyPostProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ip",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ip",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/IpProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -5197,11 +6157,11 @@
       "~CUSTOM:Executeroot",
       "~CUSTOM:Corruptionbedrock"
     ],
-    "BLOCKS:minecraft:needs_diamond_tool": [
-      "~CUSTOM:Glowingobsidian"
-    ],
     "ITEMS:minecraft:leg_armor": [
       "~CUSTOM:MissingArmor.legs"
+    ],
+    "BLOCKS:minecraft:needs_diamond_tool": [
+      "~CUSTOM:Glowingobsidian"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
       "~CUSTOM:FinishedNetherreactor",
@@ -5239,7 +6199,8 @@
       "CUSTOM:GlitchCode",
       "CUSTOM:Watcher",
       "CUSTOM:CustomDeath",
-      "CUSTOM:CustomDeathWatch"
+      "CUSTOM:CustomDeathWatch",
+      "CUSTOM:Soul"
     ],
     "ITEMS:minecraft:head_armor": [
       "~CUSTOM:MissingArmor.helmet"
@@ -5267,20 +6228,24 @@
       "block.the_root_of_corruption.void_alter": "Void Alter",
       "item.error_not_found.the_broken_memory.desc": "he is die",
       "entity.error_not_found.undefindstare": "Undefindstare",
-      "entity.the_root_of_corruption.undefindstare": "Undefindstare",
       "block.the_root_of_corruption.executeroot": "Executeroot",
+      "entity.the_root_of_corruption.undefindstare": "Undefindstare",
       "block.error_not_found.rot_in_hell": "Rot In Hell",
-      "entity.error_not_found.undefined_on_surface": "Undefined On Surface",
       "entity.the_root_of_corruption.forgotten_player": "Forgotten Player",
+      "entity.error_not_found.undefined_on_surface": "Undefined On Surface",
       "item.error_not_found.missing_armor_helmet": "Missing",
       "advancements.udf.descr": "err.undefined",
       "item.the_root_of_corruption.laugh": "Laugh",
       "entity.the_root_of_corruption.entity_spawner": "Entity Spawner",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory1": "ERR:OutOfMemory",
       "block.error_not_found.this_is_all_theblock_fault": "This Is All Theblock Fault",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory2": "ERR:OutOfMemory",
       "block.error_not_found.err_null": "err",
       "advancements.youneedhe.title": "i see you",
       "entity.the_root_of_corruption.steve": "Steve",
       "key.the_root_of_corruption.spawn_lightbolt": "Spawn Lightbolt",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory3": "ERR:OutOfMemory",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory4": "ERR:OutOfMemory",
       "entity.error_not_found.steve": "Steve",
       "block.the_root_of_corruption.corruption_root": "Corruption Root",
       "fluid.the_root_of_corruption.err_null": "Err Null",
@@ -5310,6 +6275,7 @@
       "advancements.you_help_all_soul.descr": "You Clear All Error",
       "entity.error_not_found.entity_spawner": "Entity Spawner",
       "block.the_root_of_corruption.this_is_all_theblock_fault": "This Is All Theblock Fault",
+      "entity.the_root_of_corruption.game_crash": "Game Crash",
       "subtitles.void": "???",
       "item.the_root_of_corruption.missing_armor_helmet": "Missing",
       "entity.the_root_of_corruption.yourjavaisdie_chase": "Yourjavaisdie Chase",
@@ -5320,6 +6286,7 @@
       "entity.the_root_of_corruption.custom_death": "Custom Death",
       "item.the_root_of_corruption.item_is_missing_id": "ItemIsMissingID",
       "painting.the_root_of_corruption.errerrerrerr.title": "Err",
+      "gui.the_root_of_corruption.opcommand.command": "",
       "item.the_root_of_corruption.save_the_world.desc": "freedom",
       "block.the_root_of_corruption.finished_netherreactor": "Finished Netherreactor",
       "entity.error_not_found.bedrock_stalker": "Bedrock Stalker",
@@ -5327,6 +6294,7 @@
       "chat.error_not_found.discard": "Discard num entities!",
       "chat.error_not_found.event": "Execute a event!",
       "item.error_not_found.item_is_missing_id": "ItemIsMissingID",
+      "entity.the_root_of_corruption.soul": "Soul",
       "entity.error_not_found.undefinedleftthegame": "Undefinedleftthegame",
       "block.error_not_found.glowingobsidian": "Glowingobsidian",
       "subtitles.chase": "",
@@ -5346,6 +6314,7 @@
       "block.the_root_of_corruption.netherreactor": "Netherreactor",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you": "you look at behind you",
       "block.the_root_of_corruption.err_null": "Err Null",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory": "ERR:OutOfMemory",
       "key.the_root_of_corruption.missing_chestplate_key": "Missing Chestplate Key",
       "block.error_not_found.netherreactor": "Netherreactor",
       "block.error_not_found.initializednetherreactor": "Initializednetherreactor",
@@ -5359,12 +6328,14 @@
       "death.attack.null_pointer_damage": "err",
       "item.the_root_of_corruption.laugh.description_0": "err",
       "entity.error_not_found.random_cross": "Random Cross",
+      "gui.the_root_of_corruption.opcommand.button_add_op": "Add OP",
       "subtitles.failed": "",
       "entity.error_not_found.watcher": "Watcher",
       "block.error_not_found.corruptionbedrock": "Corruptionbedrock",
       "advancements.you_help_all_soul.title": "You Save All Soul",
       "item.error_not_found.undefined_heart": "Undefined Heart",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you2": "you look at behind you",
+      "gui.the_root_of_corruption.opcommand.label_command": "Command:",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you1": "you look at behind you",
       "item.the_root_of_corruption.item_is_missing_id.description_0": "err",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you4": "you look at behind you",
@@ -5378,6 +6349,7 @@
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you7": "you look at behind you",
       "death.attack.null_pointer_damage.player": "err",
       "item.the_root_of_corruption.missing_armor_chestplate": "Missing",
+      "gui.the_root_of_corruption.opcommand.button_done": "Done",
       "subtitles.die": "0",
       "item.error_not_found.laugh": "Laugh",
       "entity.the_root_of_corruption.undefindchase": "Undefindchase",
@@ -5390,6 +6362,7 @@
       "advancements.goodbye.descr": "\u003d)",
       "subtitles.jumpscare": "behind you",
       "block.the_root_of_corruption.rot_in_hell": "Rot In Hell",
+      "block.the_root_of_corruption.op_command_block": "OP Command Block",
       "block.error_not_found.void_alter": "Void Alter",
       "advancements.goodbye.title": "\u003d)",
       "entity.error_not_found.lost_memory": "Lost Memory",
@@ -5428,10 +6401,10 @@
   "workspaceSettings": {
     "modid": "the_root_of_corruption",
     "modName": "The Root of Corruption",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "BUILD FAILED",
     "author": "err.undefined",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://java.lang.NullPointerException",
     "license": "MIT License",
     "serverSideOnly": false,
     "modPicture": "lost",
@@ -5440,7 +6413,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.1",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "credits": "???",
     "modElementsPackage": "i.see.you"
   },
   "mcreatorVersion": 202400452410

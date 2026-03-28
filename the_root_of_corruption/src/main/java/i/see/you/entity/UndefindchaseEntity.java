@@ -146,7 +146,7 @@ public class UndefindchaseEntity extends Monster {
 	@Override
 	public void baseTick() {
 		super.baseTick();
-		UdfChaseProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+		UdfChaseProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
 	}
 
 	@Override
@@ -180,7 +180,7 @@ public class UndefindchaseEntity extends Monster {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 3);
+		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.35);
 		builder = builder.add(Attributes.MAX_HEALTH, 1024);
 		builder = builder.add(Attributes.ARMOR, 30);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 10000);

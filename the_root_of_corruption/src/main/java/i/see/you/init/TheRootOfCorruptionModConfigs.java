@@ -14,7 +14,7 @@ public class TheRootOfCorruptionModConfigs {
 	@SubscribeEvent
 	public static void register(FMLConstructModEvent event) {
 		event.enqueueWork(() -> {
-			ModList.get().getModContainerById("the_root_of_corruption").get().registerConfig(ModConfig.Type.COMMON, ConfigConfiguration.SPEC, "error_not_found_config.toml");
+			ModList.get().getModContainerById("the_root_of_corruption").get().registerConfig(ModConfig.Type.COMMON, ConfigConfiguration.SPEC, "the_root_of_corruption_config.toml");
 		});
 	}
 }

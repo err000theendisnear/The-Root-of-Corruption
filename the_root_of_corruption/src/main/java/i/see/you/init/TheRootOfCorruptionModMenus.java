@@ -11,10 +11,14 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.core.registries.Registries;
 
+import i.see.you.world.inventory.OpcommandMenu;
+import i.see.you.world.inventory.MeomorydeathMenu;
 import i.see.you.world.inventory.BehindyouMenu;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TheRootOfCorruptionModMenus {
 	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(Registries.MENU, TheRootOfCorruptionMod.MODID);
 	public static final DeferredHolder<MenuType<?>, MenuType<BehindyouMenu>> BEHINDYOU = REGISTRY.register("behindyou", () -> IMenuTypeExtension.create(BehindyouMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<MeomorydeathMenu>> MEOMORYDEATH = REGISTRY.register("meomorydeath", () -> IMenuTypeExtension.create(MeomorydeathMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<OpcommandMenu>> OPCOMMAND = REGISTRY.register("opcommand", () -> IMenuTypeExtension.create(OpcommandMenu::new));
 }

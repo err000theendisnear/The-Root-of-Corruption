@@ -39,6 +39,7 @@ public class JavatickupdateProcedure {
 			TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 			if (player instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.ADVENTURE);
+			ToggleFullScreenProcedure.execute(true);
 		}
 	}
 }

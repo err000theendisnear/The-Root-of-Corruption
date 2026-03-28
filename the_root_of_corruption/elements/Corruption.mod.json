@@ -16,6 +16,9 @@
     "isProtectedByTotem": false,
     "isCuredbyHoney": false,
     "modifiers": [],
+    "onStarted": {
+      "name": "Renameitem"
+    },
     "onActiveTick": {
       "name": "Errorsee"
     },

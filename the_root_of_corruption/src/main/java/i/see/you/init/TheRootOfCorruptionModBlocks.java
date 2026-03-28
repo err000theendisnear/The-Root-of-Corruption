@@ -13,6 +13,7 @@ import i.see.you.block.VoidAlterBlock;
 import i.see.you.block.ThisIsAllTheblockFaultBlock;
 import i.see.you.block.TexturelessBlock;
 import i.see.you.block.RotInHellBlock;
+import i.see.you.block.OPCommandBlockBlock;
 import i.see.you.block.NetherreactorBlock;
 import i.see.you.block.MissingnoBlock;
 import i.see.you.block.InitializednetherreactorBlock;
@@ -41,6 +42,7 @@ public class TheRootOfCorruptionModBlocks {
 	public static final DeferredBlock<Block> VOID_ALTER = REGISTRY.register("void_alter", VoidAlterBlock::new);
 	public static final DeferredBlock<Block> ROT_IN_HELL = REGISTRY.register("rot_in_hell", RotInHellBlock::new);
 	public static final DeferredBlock<Block> CORRUPTION_ROOT = REGISTRY.register("corruption_root", CorruptionRootBlock::new);
+	public static final DeferredBlock<Block> OP_COMMAND_BLOCK = REGISTRY.register("op_command_block", OPCommandBlockBlock::new);
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

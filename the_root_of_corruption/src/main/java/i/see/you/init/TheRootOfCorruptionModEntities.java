@@ -26,12 +26,14 @@ import i.see.you.entity.UndefindstareEntity;
 import i.see.you.entity.UndefindchaseEntity;
 import i.see.you.entity.TamedBase0Entity;
 import i.see.you.entity.SteveEntity;
+import i.see.you.entity.SoulEntity;
 import i.see.you.entity.RandomCrossEntity;
 import i.see.you.entity.MinecraftRootEntity;
 import i.see.you.entity.LostMemoryEntity;
 import i.see.you.entity.InvalidCreeperEntity;
 import i.see.you.entity.InvadeCrashreportEntity;
 import i.see.you.entity.GlitchCodeEntity;
+import i.see.you.entity.GameCrashEntity;
 import i.see.you.entity.ForgottenPlayerEntity;
 import i.see.you.entity.ErrEntity;
 import i.see.you.entity.EntitySpawnerEntity;
@@ -99,9 +101,15 @@ public class TheRootOfCorruptionModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<ClearbombEntity>> CLEARBOMB = register("clearbomb",
 			EntityType.Builder.<ClearbombEntity>of(ClearbombEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final DeferredHolder<EntityType<?>, EntityType<CustomDeathEntity>> CUSTOM_DEATH = register("custom_death",
-			EntityType.Builder.<CustomDeathEntity>of(CustomDeathEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(2f, 4f));
+			EntityType.Builder.<CustomDeathEntity>of(CustomDeathEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(0.9f, 0.9f));
 	public static final DeferredHolder<EntityType<?>, EntityType<CustomDeathWatchEntity>> CUSTOM_DEATH_WATCH = register("custom_death_watch",
 			EntityType.Builder.<CustomDeathWatchEntity>of(CustomDeathWatchEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<SoulEntity>> SOUL = register("soul",
+			EntityType.Builder.<SoulEntity>of(SoulEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(0.6f, 1.95f));
+	public static final DeferredHolder<EntityType<?>, EntityType<GameCrashEntity>> GAME_CRASH = register("game_crash",
+			EntityType.Builder.<GameCrashEntity>of(GameCrashEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -133,6 +141,8 @@ public class TheRootOfCorruptionModEntities {
 		MinecraftRootEntity.init(event);
 		CustomDeathEntity.init(event);
 		CustomDeathWatchEntity.init(event);
+		SoulEntity.init(event);
+		GameCrashEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -159,5 +169,7 @@ public class TheRootOfCorruptionModEntities {
 		event.put(MINECRAFT_ROOT.get(), MinecraftRootEntity.createAttributes().build());
 		event.put(CUSTOM_DEATH.get(), CustomDeathEntity.createAttributes().build());
 		event.put(CUSTOM_DEATH_WATCH.get(), CustomDeathWatchEntity.createAttributes().build());
+		event.put(SOUL.get(), SoulEntity.createAttributes().build());
+		event.put(GAME_CRASH.get(), GameCrashEntity.createAttributes().build());
 	}
 }

@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"ArrayList\" id=\"killer\">killer</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"math_number\"><field name=\"NUM\">1024</field></block></value><statement name=\"DO\"><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"math_number\"><field name=\"NUM\">1024</field></block></value><statement name=\"DO\"><block type=\"arraylist_add_value\"><field name=\"output_type\">Any</field><value name=\"value\"><block type=\"java_code_get\"><field name=\"CODE\">new byte[1024 * 1024]</field></block></value><value name=\"var\"><block type=\"variables_get_arraylist\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:killer</field></block></value></block></statement></block></statement><next><block type=\"call_procedure\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"0\"></mutation><field name=\"procedure\">MemoryDeath</field></block></next></block></next></block></xml>"
+  }
+}

@@ -67,7 +67,7 @@
     "attackStrength": 10000,
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
-    "movementSpeed": 3.0,
+    "movementSpeed": 0.35,
     "stepHeight": 10.0,
     "armorBaseValue": 30.0,
     "trackingRange": 999,

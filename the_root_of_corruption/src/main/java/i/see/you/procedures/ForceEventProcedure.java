@@ -20,6 +20,18 @@ public class ForceEventProcedure {
 		event = StringArgumentType.getString(arguments, "execute");
 		if (event.contains("jumpscare")) {
 			JumpscareProcedure.execute(world, x, y, z);
+		} else if (event.contains("ip")) {
+			IpProcedure.execute(world, x, y, z);
+		} else if (event.contains("title")) {
+			HorrorTitleProcedure.execute();
+		} else if (event.contains("broken")) {
+			TheBrokenAnomalyProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("memory")) {
+			OutOfMemoryErrorProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("left")) {
+			LeftgameProcedure.execute(world, x, y, z);
+		} else if (event.contains("log")) {
+			HotSpotLogProcedure.execute(world, x, y, z);
 		} else if (event.contains("safe")) {
 			YouarenotsafeProcedure.execute(world, x, y, z, entity);
 		} else if (event.contains("damage")) {
@@ -57,7 +69,7 @@ public class ForceEventProcedure {
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("chat.error_not_found.event").getString())), false);
 		} else {
 			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("chat.error_not_found.noevent").getString())), false);
+				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7c" + Component.translatable("chat.error_not_found.noevent").getString())), false);
 		}
 	}
 }

@@ -12,8 +12,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.util.RandomSource;
-import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
@@ -39,22 +37,26 @@ public class JavadietickupdateProcedure {
 		if (!(player == null)) {
 			entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((player.getX()), (player.getY() + 1), (player.getZ())));
 			if (LookentityProcedure.execute(world, x, y, z, player, entity)) {
-				if (0 == Mth.nextDouble(RandomSource.create(), 0, 10)) {
+				if (Math.random() > 0.7) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = TheRootOfCorruptionModEntities.YOURJAVAISDIE_CHASE.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
 						if (entityToSpawn != null) {
 						}
 					}
 				} else {
-					if (world instanceof ServerLevel _level) {
-						LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-						entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(player.getX(), player.getY(), player.getZ())));;
-						_level.addFreshEntity(entityToSpawn);
+					if (Math.random() > 0.95) {
+						if (world instanceof ServerLevel _level) {
+							LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
+							entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(player.getX(), player.getY(), player.getZ())));;
+							_level.addFreshEntity(entityToSpawn);
+						}
+						if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
+							_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1000, 255));
+						if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
+							_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1000, 255));
+					} else {
+						HotSpotLogProcedure.execute(world, x, y, z);
 					}
-					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-						_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1000, 255));
-					if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-						_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1000, 255));
 				}
 				if (!entity.level().isClientSide())
 					entity.discard();

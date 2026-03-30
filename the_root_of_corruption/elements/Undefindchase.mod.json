@@ -126,9 +126,6 @@
     "onMobTickUpdate": {
       "name": "UdfChase"
     },
-    "onPlayerCollidesWith": {
-      "name": "Kick"
-    },
     "onInitialSpawn": {
       "name": "UdfchaseSpawn"
     },

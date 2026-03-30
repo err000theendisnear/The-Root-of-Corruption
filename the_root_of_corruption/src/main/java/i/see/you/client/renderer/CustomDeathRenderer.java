@@ -6,15 +6,15 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.model.PigModel;
 import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.CowModel;
 
 import i.see.you.entity.CustomDeathEntity;
 import i.see.you.client.model.animations.CustomModelAnimation;
 
-public class CustomDeathRenderer extends MobRenderer<CustomDeathEntity, PigModel<CustomDeathEntity>> {
+public class CustomDeathRenderer extends MobRenderer<CustomDeathEntity, CowModel<CustomDeathEntity>> {
 	public CustomDeathRenderer(EntityRendererProvider.Context context) {
-		super(context, new AnimatedModel(context.bakeLayer(ModelLayers.PIG)), 0f);
+		super(context, new AnimatedModel(context.bakeLayer(ModelLayers.COW)), 0f);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class CustomDeathRenderer extends MobRenderer<CustomDeathEntity, PigModel
 		return true;
 	}
 
-	private static final class AnimatedModel extends PigModel<CustomDeathEntity> {
+	private static final class AnimatedModel extends CowModel<CustomDeathEntity> {
 		private final ModelPart root;
 		private final HierarchicalModel animator = new HierarchicalModel<CustomDeathEntity>() {
 			@Override

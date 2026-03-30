@@ -19,14 +19,14 @@ public class UdfstaretickupdateProcedure {
 		if (entity == null)
 			return;
 		Entity player = null;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
+		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 640, 640, 640), e -> true).stream().sorted(new Object() {
 			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 			}
 		}.compareDistOf(x, y, z)).findFirst().orElse(null);
 		if (!(player == null)) {
 			entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((player.getX()), (player.getY() + 1), (player.getZ())));
-			if (LookentityProcedure.execute(world, x, y, z, player, entity)) {
+			if (LookentityProcedure.execute(player, entity)) {
 				if (world instanceof ServerLevel _level) {
 					Entity entityToSpawn = TheRootOfCorruptionModEntities.UNDEFINDCHASE.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
 					if (entityToSpawn != null) {

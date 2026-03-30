@@ -31,15 +31,16 @@ public class CustomdeathStareProcedure {
 		if (entity == null)
 			return;
 		Entity player = null;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 12, 12, 12), e -> true).stream().sorted(new Object() {
+		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
 			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 			}
 		}.compareDistOf(x, y, z)).findFirst().orElse(null);
-		if (!(player == null)) {
+		if (!(player == null) && LookentityProcedure.execute(player, entity)) {
 			if (Math.random() > 0.1) {
 				if (!entity.level().isClientSide())
 					entity.discard();
+				NosoundProcedure.execute(world, x, y, z);
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:hal1")), SoundSource.MUSIC, 1000, 1);

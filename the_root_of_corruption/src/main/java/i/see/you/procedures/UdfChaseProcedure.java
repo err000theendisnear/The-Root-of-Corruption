@@ -14,9 +14,7 @@ import net.minecraft.server.level.ServerPlayer;
 import java.util.Comparator;
 
 public class UdfChaseProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		if (entity == null)
-			return;
+	public static void execute(LevelAccessor world, double x, double y, double z) {
 		Entity player = null;
 		Entity kick = null;
 		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
@@ -43,9 +41,6 @@ public class UdfChaseProcedure {
 					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 				}
 			}.compareDistOf(x, y, z)).findFirst().orElse(null);
-			if (!(kick == null)) {
-				KickProcedure.execute(kick, entity);
-			}
 		}
 	}
 }

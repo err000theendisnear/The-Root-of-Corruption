@@ -148,12 +148,6 @@ public class YourjavaisdieChaseEntity extends Monster {
 	}
 
 	@Override
-	public void playerTouch(Player sourceentity) {
-		super.playerTouch(sourceentity);
-		CrashProcedure.execute(this.level(), this, sourceentity);
-	}
-
-	@Override
 	public boolean canDrownInFluidType(FluidType type) {
 		double x = this.getX();
 		double y = this.getY();
@@ -173,7 +167,7 @@ public class YourjavaisdieChaseEntity extends Monster {
 		builder = builder.add(Attributes.ARMOR, 0);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 10000);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 616);
-		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
+		builder = builder.add(Attributes.STEP_HEIGHT, 100);
 		return builder;
 	}
 }

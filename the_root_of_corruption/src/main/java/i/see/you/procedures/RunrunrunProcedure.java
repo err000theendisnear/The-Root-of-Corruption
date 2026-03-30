@@ -43,7 +43,7 @@ public class RunrunrunProcedure {
 			return;
 		Entity player = null;
 		double time = 0;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 150, 150, 150), e -> true).stream().sorted(new Object() {
+		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1500, 1500, 1500), e -> true).stream().sorted(new Object() {
 			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 			}
@@ -148,6 +148,8 @@ public class RunrunrunProcedure {
 				if (entity instanceof CustomDeathEntity _datEntSetI)
 					_datEntSetI.getEntityData().set(CustomDeathEntity.DATA_run, (int) ((entity instanceof CustomDeathEntity _datEntI ? _datEntI.getEntityData().get(CustomDeathEntity.DATA_run) : 0) + 1));
 			}
+		} else {
+			DiscardProcedure.execute(entity);
 		}
 	}
 }

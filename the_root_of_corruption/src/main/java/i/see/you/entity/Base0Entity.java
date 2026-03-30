@@ -249,7 +249,7 @@ public class Base0Entity extends Monster {
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.325);
 		builder = builder.add(Attributes.MAX_HEALTH, 100);
 		builder = builder.add(Attributes.ARMOR, 30);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 10000);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 20);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 114);
 		builder = builder.add(Attributes.STEP_HEIGHT, 10);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);

@@ -38,31 +38,31 @@ public class ThisIsAllTheblockFaultBlock extends Block {
 	@Override
 	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
 		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-		EndfightProcedure.execute(entity);
+		EndfightProcedure.execute(world, entity);
 		return retval;
 	}
 
 	@Override
 	public void attack(BlockState blockstate, Level world, BlockPos pos, Player entity) {
 		super.attack(blockstate, world, pos, entity);
-		EndfightProcedure.execute(entity);
+		EndfightProcedure.execute(world, entity);
 	}
 
 	@Override
 	public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
 		super.entityInside(blockstate, world, pos, entity);
-		EndfightProcedure.execute(entity);
+		EndfightProcedure.execute(world, entity);
 	}
 
 	@Override
 	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
 		super.stepOn(world, pos, blockstate, entity);
-		EndfightProcedure.execute(entity);
+		EndfightProcedure.execute(world, entity);
 	}
 
 	@Override
 	public void onProjectileHit(Level world, BlockState blockstate, BlockHitResult hit, Projectile entity) {
-		EndfightProcedure.execute(entity);
+		EndfightProcedure.execute(world, entity);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class ThisIsAllTheblockFaultBlock extends Block {
 		double hitY = hit.getLocation().y;
 		double hitZ = hit.getLocation().z;
 		Direction direction = hit.getDirection();
-		EndfightProcedure.execute(entity);
+		EndfightProcedure.execute(world, entity);
 		return InteractionResult.SUCCESS;
 	}
 }

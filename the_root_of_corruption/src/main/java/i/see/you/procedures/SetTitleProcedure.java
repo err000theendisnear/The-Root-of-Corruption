@@ -9,11 +9,9 @@ public class SetTitleProcedure {
 		if (title == "")
 			return;
 		String titles = "";
-		Minecraft mc = Minecraft.getInstance();
-		if (mc.getWindow() != null) {
+		if (Minecraft.getInstance().getWindow() != null) {
 			titles = title;
-			long windowHandle = mc.getWindow().getWindow();
-			GLFW.glfwSetWindowTitle(windowHandle, titles);
+			GLFW.glfwSetWindowTitle(WindowHandleProcedure.execute(), titles);
 		}
 	}
 }

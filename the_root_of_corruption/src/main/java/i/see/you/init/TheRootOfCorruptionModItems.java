@@ -16,11 +16,13 @@ import i.see.you.item.UndefinedHeartItem;
 import i.see.you.item.TheBrokenMemoryItem;
 import i.see.you.item.SaveTheWorldItem;
 import i.see.you.item.NotextureToolItem;
+import i.see.you.item.NotextureItem;
 import i.see.you.item.MissingSwordItem;
 import i.see.you.item.MissingArmorItem;
 import i.see.you.item.LaughItem;
 import i.see.you.item.ItemIsMissingIDItem;
 import i.see.you.item.HopeItem;
+import i.see.you.item.FlyItem;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TheRootOfCorruptionModItems {
@@ -51,6 +53,11 @@ public class TheRootOfCorruptionModItems {
 	public static final DeferredItem<Item> MISSING_SWORD = REGISTRY.register("missing_sword", MissingSwordItem::new);
 	public static final DeferredItem<Item> CORRUPTION_ROOT = block(TheRootOfCorruptionModBlocks.CORRUPTION_ROOT);
 	public static final DeferredItem<Item> OP_COMMAND_BLOCK = block(TheRootOfCorruptionModBlocks.OP_COMMAND_BLOCK);
+	public static final DeferredItem<Item> FLY = REGISTRY.register("fly", FlyItem::new);
+	public static final DeferredItem<Item> NOTEXTURE_HELMET = REGISTRY.register("notexture_helmet", NotextureItem.Helmet::new);
+	public static final DeferredItem<Item> NOTEXTURE_CHESTPLATE = REGISTRY.register("notexture_chestplate", NotextureItem.Chestplate::new);
+	public static final DeferredItem<Item> NOTEXTURE_LEGGINGS = REGISTRY.register("notexture_leggings", NotextureItem.Leggings::new);
+	public static final DeferredItem<Item> NOTEXTURE_BOOTS = REGISTRY.register("notexture_boots", NotextureItem.Boots::new);
 
 	// Start of user code block custom items
 	// End of user code block custom items

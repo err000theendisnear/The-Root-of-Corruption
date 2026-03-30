@@ -26,6 +26,6 @@ public class ToDiscardProcedure {
 			e.printStackTrace();
 		}
 		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(((Component.translatable("chat.error_not_found.discard").getString()).replace("num", "" + i))), false);
+			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(((Component.translatable("chat.error_not_found.discard").getString()).replace("%5", "" + i))), false);
 	}
 }

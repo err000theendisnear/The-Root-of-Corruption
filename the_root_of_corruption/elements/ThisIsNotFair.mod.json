@@ -2,7 +2,7 @@
   "_fv": 73,
   "_type": "particle",
   "definition": {
-    "texture": "lost",
+    "texture": "this_is_not_fair",
     "animate": false,
     "frameDuration": 1,
     "width": 0.2,

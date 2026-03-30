@@ -1,7 +1,6 @@
 package i.see.you.client.model;
 
 import net.minecraft.world.entity.Entity;
-import net.minecraft.util.Mth;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -49,7 +48,5 @@ public class ModelCustomModel<T extends Entity> extends EntityModel<T> {
 	}
 
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.head.zRot = (Mth.sin(ageInTicks * 0.6F) * 0.6F);
-		this.bone.xRot = (Mth.sin(ageInTicks * 0.6F + 3) * 0.6F);
 	}
 }

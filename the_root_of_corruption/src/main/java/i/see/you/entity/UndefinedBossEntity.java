@@ -8,6 +8,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -63,7 +64,7 @@ public class UndefinedBossEntity extends Monster {
 		setNoAi(false);
 		setPersistenceRequired();
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(TheRootOfCorruptionModItems.NOTEXTURE_TOOL.get()));
-		this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(TheRootOfCorruptionModItems.LAUGH.get()));
+		this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
 		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(TheRootOfCorruptionModItems.MISSING_ARMOR_HELMET.get()));
 		this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(TheRootOfCorruptionModItems.MISSING_ARMOR_CHESTPLATE.get()));
 		this.setItemSlot(EquipmentSlot.LEGS, new ItemStack(TheRootOfCorruptionModItems.MISSING_ARMOR_LEGGINGS.get()));

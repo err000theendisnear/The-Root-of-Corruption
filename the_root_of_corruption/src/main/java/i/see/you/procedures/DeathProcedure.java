@@ -11,8 +11,8 @@ import net.minecraft.core.BlockPos;
 import i.see.you.network.TheRootOfCorruptionModVariables;
 
 public class DeathProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		if (entity == null)
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
+		if (entity == null || sourceentity == null)
 			return;
 		TheRootOfCorruptionModVariables.MapVariables.get(world).ban = true;
 		TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
@@ -87,5 +87,6 @@ public class DeathProcedure {
 			}
 		}
 		DiscardProcedure.execute(entity);
+		DiscardProcedure.execute(sourceentity);
 	}
 }

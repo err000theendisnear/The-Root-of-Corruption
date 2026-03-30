@@ -1,6 +1,7 @@
 package i.see.you.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
@@ -10,9 +11,10 @@ import i.see.you.network.TheRootOfCorruptionModVariables;
 import i.see.you.init.TheRootOfCorruptionModMobEffects;
 
 public class NoWaJuePiLaoProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
+		itemstack.setDamageValue(0);
 		TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = 0;
 		TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())

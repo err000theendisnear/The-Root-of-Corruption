@@ -48,7 +48,7 @@
       "value": "CUSTOM:NotextureTool"
     },
     "equipmentOffHand": {
-      "value": "CUSTOM:Laugh"
+      "value": "Items.TOTEM_OF_UNDYING"
     },
     "equipmentHelmet": {
       "value": "CUSTOM:MissingArmor.helmet"

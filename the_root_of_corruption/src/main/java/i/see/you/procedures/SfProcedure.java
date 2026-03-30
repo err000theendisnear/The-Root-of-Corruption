@@ -8,6 +8,7 @@ import i.see.you.network.TheRootOfCorruptionModVariables;
 public class SfProcedure {
 	public static void execute(LevelAccessor world) {
 		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("chat.error_not_found.surface").getString() + "" + TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface)), false);
+			world.getServer().getPlayerList()
+					.broadcastSystemMessage(Component.literal(((Component.translatable("chat.error_not_found.surface").getString()).replace("%5", "" + (int) TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface))), false);
 	}
 }

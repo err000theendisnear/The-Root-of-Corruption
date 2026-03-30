@@ -120,11 +120,11 @@
       "value": ""
     },
     "entityDataEntries": [],
+    "whenThisMobKillsAnother": {
+      "name": "Crash"
+    },
     "onMobTickUpdate": {
       "name": "Logdie"
-    },
-    "onPlayerCollidesWith": {
-      "name": "Crash"
     },
     "hasAI": true,
     "aiBase": "(none)",

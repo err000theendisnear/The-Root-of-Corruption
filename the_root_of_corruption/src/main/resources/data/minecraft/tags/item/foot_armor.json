@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "the_root_of_corruption:notexture_boots",
     "the_root_of_corruption:missing_armor_boots"
   ]
 }

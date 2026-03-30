@@ -31,6 +31,9 @@ public class PlayerJoinProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		if (TheRootOfCorruptionModVariables.MapVariables.get(world).event_count == 0) {
+			ResetpercentProcedure.execute(world);
+		}
 		if (entity instanceof Player _player) {
 			_player.getAbilities().mayBuild = true;
 			_player.onUpdateAbilities();

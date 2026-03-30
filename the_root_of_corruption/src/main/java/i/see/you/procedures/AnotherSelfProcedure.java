@@ -24,10 +24,8 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.component.ResolvableProfile;
 import com.mojang.authlib.GameProfile;
-
+import net.minecraft.tags.TagKey;
 import java.util.Comparator;
-
-import com.mojang.authlib.GameProfile;
 
 public class AnotherSelfProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -37,7 +35,7 @@ public class AnotherSelfProcedure {
 		ItemStack player_tool = ItemStack.EMPTY;
 		Entity player = null;
 		String playername = "";
-		if (entity instanceof Monster && entity.getType().is(EntityTypeTags.UNDEAD)) {
+		if (entity instanceof Monster && entity.getType().is(EntityTypeTags.UNDEAD) && !entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god")))) {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.creeper.primed")), SoundSource.HOSTILE, 100, 1);
@@ -45,48 +43,14 @@ public class AnotherSelfProcedure {
 					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.creeper.primed")), SoundSource.HOSTILE, 100, 1, false);
 				}
 			}
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
+			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 6400, 6400, 6400), e -> true).stream().sorted(new Object() {
 				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 				}
 			}.compareDistOf(x, y, z)).findFirst().orElse(null);
 			if (!(player == null)) {
 				playername = player.getDisplayName().getString();
-				if (((player.getStringUUID()).replace("-", "")).equals((new Object() {
-					public String getResponse(java.net.HttpURLConnection connection) {
-						try {
-							if (connection != null) {
-								int responseCode = connection.getResponseCode();
-								java.io.InputStream inputStream = (responseCode >= 400) ? connection.getErrorStream() : connection.getInputStream();
-								StringBuilder response = new StringBuilder();
-								try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream, "utf-8"))) {
-									String responseLine;
-									while ((responseLine = br.readLine()) != null) {
-										response.append(responseLine.trim());
-									}
-								}
-								return response.toString();
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-						return "Error getting response";
-					}
-				}.getResponse((new Object() {
-					public java.net.HttpURLConnection createGetRequest(String url) {
-						try {
-							java.net.URL requestUrl = new java.net.URL(url);
-							java.net.HttpURLConnection connection = (java.net.HttpURLConnection) requestUrl.openConnection();
-							connection.setRequestMethod("GET");
-							connection.setConnectTimeout(5000);
-							connection.setReadTimeout(5000);
-							return connection;
-						} catch (Exception e) {
-							e.printStackTrace();
-							return null;
-						}
-					}
-				}.createGetRequest(("https://api.mojang.com/users/profiles/minecraft/" + playername))))).substring(13, 44))) {
+				if (IsOnlineProcedure.execute(player)) {
 					player_head = new ItemStack(Blocks.PLAYER_HEAD).copy();
 					if (entity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 						_livingEntity10.getAttribute(Attributes.MAX_HEALTH).setBaseValue((player instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1));

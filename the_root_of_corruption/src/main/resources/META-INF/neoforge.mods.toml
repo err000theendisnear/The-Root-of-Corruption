@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="the_root_of_corruption"
-version="1.0.2"
+version="1.0.3"
 displayName="The Root of Corruption"
 displayURL="https://java.lang.NullPointerException"
 logoFile="logo.png"

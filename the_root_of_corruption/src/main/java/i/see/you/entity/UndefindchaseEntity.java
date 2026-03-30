@@ -146,13 +146,7 @@ public class UndefindchaseEntity extends Monster {
 	@Override
 	public void baseTick() {
 		super.baseTick();
-		UdfChaseProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
-	}
-
-	@Override
-	public void playerTouch(Player sourceentity) {
-		super.playerTouch(sourceentity);
-		KickProcedure.execute(this, sourceentity);
+		UdfChaseProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
 	}
 
 	@Override

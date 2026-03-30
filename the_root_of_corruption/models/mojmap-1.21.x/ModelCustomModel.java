@@ -44,7 +44,5 @@ public class ModelCustomModel<T extends Entity> extends EntityModel<T> {
 
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
 			float headPitch) {
-		this.head.zRot = (Mth.sin(ageInTicks * 0.6F) * 0.6F);
-		this.bone.xRot = (Mth.sin(ageInTicks * 0.6F + 3) * 0.6F);
 	}
 }

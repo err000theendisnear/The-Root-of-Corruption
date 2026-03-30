@@ -6,7 +6,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.ModList;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
-
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
@@ -19,28 +20,28 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
-
-import javax.annotation.Nullable;
-
-import java.util.Calendar;
-
-import i.see.you.network.TheRootOfCorruptionModVariables;
+import java.util.Calendar;
+import i.see.you.network.TheRootOfCorruptionModVariables;
+import i.see.you.entity.CustomDeathWatchEntity;
 import i.see.you.TheRootOfCorruptionMod;
 
 @EventBusSubscriber
 public class UndefindchatProcedure {
 	@SubscribeEvent
 	public static void onChat(ServerChatEvent event) {
-		execute(event, event.getPlayer().level(), event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ(), event.getPlayer(), event.getRawText());
-	}
-
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, String text) {
-		execute(null, world, x, y, z, entity, text);
-	}
-
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, String text) {
-		if (entity == null || text == null)
+		Entity entity = event.getPlayer();
+		LevelAccessor world = entity.level();
+		double x = entity.getX();
+		double y = entity.getY();
+		double z = entity.getZ();
+		String text = event.getRawText();
+		if (event.getPlayer() == null || text == null || event == null)
 			return;
+		if (!world.getEntitiesOfClass(CustomDeathWatchEntity.class, AABB.ofSize(new Vec3(x, y, z), 1280, 1280, 1280), e -> true).isEmpty()) {
+			event.setCanceled(true);
+			SayProcedure.execute(entity);
+			return;
+		}
 		String chat = "";
 		if (!TheRootOfCorruptionModVariables.MapVariables.get(world).left) {
 			chat = text;
@@ -54,7 +55,7 @@ public class UndefindchatProcedure {
 								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7aHello."), false);
 						});
 					});
-				} else if ((chat).equals("undefind")) {
+				} else if ((chat).equals("undefined") || (chat).equals("undefind")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
 						TheRootOfCorruptionMod.queueServerWork(25, () -> {
 							if (world instanceof Level _level) {

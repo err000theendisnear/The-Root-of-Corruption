@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "Custom Death",
     "mobLabel": "",
-    "mobModelName": "Pig",
+    "mobModelName": "Cow",
     "mobModelTexture": "agag.png",
     "transparentModelCondition": {
       "fixedValue": false
@@ -57,7 +57,7 @@
       }
     ],
     "modelWidth": 0.9,
-    "modelHeight": 0.9,
+    "modelHeight": 1.4,
     "modelShadowSize": 0.0,
     "mountedYOffset": 0.0,
     "hasSpawnEgg": false,
@@ -97,7 +97,7 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEFINED",
-    "attackStrength": 3,
+    "attackStrength": 10000,
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
     "movementSpeed": 0.5,
@@ -161,11 +161,14 @@
         "value": 0
       }
     ],
+    "whenThisMobKillsAnother": {
+      "name": "Death"
+    },
     "onMobTickUpdate": {
       "name": "Runrun"
     },
-    "onPlayerCollidesWith": {
-      "name": "Death"
+    "onInitialSpawn": {
+      "name": "Todie"
     },
     "hasAI": true,
     "aiBase": "(none)",

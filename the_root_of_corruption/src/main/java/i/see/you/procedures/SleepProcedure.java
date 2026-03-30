@@ -8,16 +8,21 @@ import net.neoforged.bus.api.Event;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
 
 import javax.annotation.Nullable;
 
-import java.util.Comparator;
-
 import i.see.you.entity.YourjavaisdieEntity;
+import i.see.you.entity.WatcherEntity;
+import i.see.you.entity.UndefinedOnSurfaceEntity;
 import i.see.you.entity.UndefindstareEntity;
+import i.see.you.entity.SteveEntity;
+import i.see.you.entity.SoulEntity;
+import i.see.you.entity.InvalidCreeperEntity;
+import i.see.you.entity.InvadeCrashreportEntity;
+import i.see.you.entity.GlitchCodeEntity;
+import i.see.you.entity.CustomDeathWatchEntity;
+import i.see.you.entity.Base0Entity;
 
 @EventBusSubscriber
 public class SleepProcedure {
@@ -33,31 +38,29 @@ public class SleepProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (!(((Entity) world.getEntitiesOfClass(UndefindstareEntity.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null)) == null)) {
+		if (!world.getEntitiesOfClass(UndefindstareEntity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(UndefinedOnSurfaceEntity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()) {
 			UnsleepProcedure.execute(world, entity);
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("err.undefined"), true);
-		} else if (!(((Entity) world.getEntitiesOfClass(YourjavaisdieEntity.class, AABB.ofSize(new Vec3(x, y, z), 64, 64, 64), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null)) == null)) {
-			if (((Entity) world.getEntitiesOfClass(YourjavaisdieEntity.class, AABB.ofSize(new Vec3(x, y, z), 24, 24, 24), e -> true).stream().sorted(new Object() {
-				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-				}
-			}.compareDistOf(x, y, z)).findFirst().orElse(null)) == null) {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("err.wrong_java"), true);
+			AlertWindowsProcedure.execute("err.undefined", "err");
+		} else if (!world.getEntitiesOfClass(YourjavaisdieEntity.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).isEmpty()) {
+			if (!world.getEntitiesOfClass(YourjavaisdieEntity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()) {
+				AlertWindowsProcedure.execute("err.java_version=6.66", "err");
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("err.java_version=6.66"), true);
+				AlertWindowsProcedure.execute("err.wrong_java", "err");
 			}
 			UnsleepProcedure.execute(world, entity);
+		} else if (!world.getEntitiesOfClass(SteveEntity.class, AABB.ofSize(new Vec3(x, y, z), 5000, 5000, 5000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(SoulEntity.class, AABB.ofSize(new Vec3(x, y, z), 5000, 5000, 5000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(Base0Entity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(InvadeCrashreportEntity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(WatcherEntity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(InvalidCreeperEntity.class, AABB.ofSize(new Vec3(x, y, z), 5000, 5000, 5000), e -> true).isEmpty()
+				|| !world.getEntitiesOfClass(GlitchCodeEntity.class, AABB.ofSize(new Vec3(x, y, z), 8000, 8000, 8000), e -> true).isEmpty()) {
+			AlertWindowsProcedure.execute("err.invalid_entity", "err");
+			UnsleepProcedure.execute(world, entity);
+		} else if (!world.getEntitiesOfClass(CustomDeathWatchEntity.class, AABB.ofSize(new Vec3(x, y, z), 15000, 15000, 15000), e -> true).isEmpty()) {
+			UnsleepProcedure.execute(world, entity);
+			AlertWindowsProcedure.execute("I Watch you.", "err");
 		}
 	}
 }

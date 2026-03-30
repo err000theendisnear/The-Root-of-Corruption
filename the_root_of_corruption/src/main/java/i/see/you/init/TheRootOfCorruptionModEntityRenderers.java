@@ -23,6 +23,8 @@ import i.see.you.client.renderer.TamedBase0Renderer;
 import i.see.you.client.renderer.SteveRenderer;
 import i.see.you.client.renderer.SoulRenderer;
 import i.see.you.client.renderer.RandomCrossRenderer;
+import i.see.you.client.renderer.MissingOneRenderer;
+import i.see.you.client.renderer.MissingOneChaseRenderer;
 import i.see.you.client.renderer.MinecraftRootRenderer;
 import i.see.you.client.renderer.LostMemoryRenderer;
 import i.see.you.client.renderer.InvalidCreeperRenderer;
@@ -67,5 +69,7 @@ public class TheRootOfCorruptionModEntityRenderers {
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.CUSTOM_DEATH_WATCH.get(), CustomDeathWatchRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.SOUL.get(), SoulRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.GAME_CRASH.get(), GameCrashRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.MISSING_ONE.get(), MissingOneRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.MISSING_ONE_CHASE.get(), MissingOneChaseRenderer::new);
 	}
 }

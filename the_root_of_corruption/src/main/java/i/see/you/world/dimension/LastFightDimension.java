@@ -46,7 +46,7 @@ public class LastFightDimension {
 		double y = entity.getY();
 		double z = entity.getZ();
 		if (event.getTo() == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_root_of_corruption:last_fight"))) {
-			WhyProcedure.execute(world, x, y, z, entity);
+			WhyProcedure.execute(world, entity);
 		}
 	}
 }

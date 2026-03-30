@@ -58,14 +58,14 @@ public class TickupdateProcedure {
 				final Vec3 _center = new Vec3(x, y, z);
 				List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(64 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
 				for (Entity entityiterator : _entfound) {
-					if (entityiterator instanceof LivingEntity || !(entityiterator instanceof Player)) {
+					if (entityiterator instanceof LivingEntity && !(entityiterator instanceof Player)) {
 						player = entityiterator;
 						break;
 					}
 				}
 			}
 		} else {
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 100, 100, 100), e -> true).stream().sorted(new Object() {
+			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 500, 500, 500), e -> true).stream().sorted(new Object() {
 				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 				}
@@ -74,7 +74,7 @@ public class TickupdateProcedure {
 		if (!(player == null)) {
 			if (entity instanceof LivingEntity _entity)
 				_entity.setHealth((float) (entity instanceof UndefinedBossEntity _datEntI ? _datEntI.getEntityData().get(UndefinedBossEntity.DATA_hp) : 0));
-			a = new ItemStack(TheRootOfCorruptionModItems.SAVE_THE_WORLD.get()).copy();
+			a = new ItemStack(TheRootOfCorruptionModItems.NOTEXTURE_TOOL.get()).copy();
 			a.enchant(world.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.VANISHING_CURSE), 1);
 			if (entity instanceof LivingEntity _entity) {
 				ItemStack _setstack = a.copy();
@@ -138,6 +138,7 @@ public class TickupdateProcedure {
 				_entity.swing(InteractionHand.MAIN_HAND, true);
 			if (player instanceof LivingEntity _entity)
 				_entity.swing(InteractionHand.OFF_HAND, true);
+			player.stopRiding();
 			entity.stopRiding();
 			if (player instanceof Player _player) {
 				_player.getAbilities().flying = false;
@@ -152,7 +153,7 @@ public class TickupdateProcedure {
 			}
 			if (player instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.SURVIVAL);
-			if (0 == Mth.nextInt(RandomSource.create(), 0, 100)) {
+			if (0 == Mth.nextInt(RandomSource.create(), 0, 5)) {
 				if (0 == Mth.nextInt(RandomSource.create(), 0, 100)) {
 					if (world instanceof ServerLevel _level) {
 						LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);

@@ -50,11 +50,11 @@ public class AlllookyouProcedure {
 		BlockState block = Blocks.AIR.defaultBlockState();
 		String blockname = "";
 		xx = x - 8;
-		for (int index0 = 0; index0 < 16; index0++) {
+		for (int index0 = 0; index0 < 4; index0++) {
 			yy = y - 8;
-			for (int index1 = 0; index1 < 16; index1++) {
+			for (int index1 = 0; index1 < 4; index1++) {
 				zz = z - 8;
-				for (int index2 = 0; index2 < 16; index2++) {
+				for (int index2 = 0; index2 < 4; index2++) {
 					block = (world.getBlockState(BlockPos.containing(xx, yy, zz)));
 					blockname = BuiltInRegistries.BLOCK.getKey(block.getBlock()).toString();
 					if (blockname.contains("stone") || blockname.contains("rock") || blockname.contains("ore")) {
@@ -74,7 +74,7 @@ public class AlllookyouProcedure {
 				TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface + 0.01;
 				TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 			} else {
-				if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y, z)) && world.getMaxLocalRawBrightness(BlockPos.containing(x, y, z)) > 4 && y > 20 && cave < 2048) {
+				if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y, z)) && world.getMaxLocalRawBrightness(BlockPos.containing(x, y, z)) > 4 && y > 20 && cave < 40) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.GRASS_BLOCK) {
 						TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface + 0.02;
 						TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
@@ -101,9 +101,6 @@ public class AlllookyouProcedure {
 					}
 				}
 			}
-		}
-		if (Math.random() < 1 / (double) ConfigConfiguration.EVENT_INTERVAL.get()) {
-			ExecuteEventProcedure.execute(world, x, y, z, entity);
 		}
 	}
 }

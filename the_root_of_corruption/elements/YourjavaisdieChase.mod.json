@@ -68,7 +68,7 @@
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
     "movementSpeed": 0.4,
-    "stepHeight": 0.6,
+    "stepHeight": 100.0,
     "armorBaseValue": 0.0,
     "trackingRange": 64,
     "followRange": 616,
@@ -131,9 +131,6 @@
     },
     "onMobTickUpdate": {
       "name": "Javatickupdate"
-    },
-    "onPlayerCollidesWith": {
-      "name": "Crash"
     },
     "hasAI": true,
     "aiBase": "(none)",

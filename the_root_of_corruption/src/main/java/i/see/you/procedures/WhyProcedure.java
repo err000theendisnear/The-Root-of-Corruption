@@ -10,13 +10,19 @@ import net.minecraft.commands.arguments.EntityAnchorArgument;
 import i.see.you.init.TheRootOfCorruptionModBlocks;
 
 public class WhyProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		world.setBlock(BlockPos.containing(x, y - 1, z), TheRootOfCorruptionModBlocks.FIGHT_GEN.get().defaultBlockState(), 3);
-		world.setBlock(BlockPos.containing(x, y, z - 3), TheRootOfCorruptionModBlocks.ROT_IN_HELL.get().defaultBlockState(), 3);
+		world.setBlock(new BlockPos(0, 99, 0), TheRootOfCorruptionModBlocks.FIGHT_GEN.get().defaultBlockState(), 3);
+		world.setBlock(new BlockPos(0, 100, -3), TheRootOfCorruptionModBlocks.ROT_IN_HELL.get().defaultBlockState(), 3);
 		if (entity instanceof ServerPlayer _serverPlayer)
-			_serverPlayer.setRespawnPosition(_serverPlayer.level().dimension(), BlockPos.containing(x, y, z), _serverPlayer.getYRot(), true, false);
-		entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3(x, y, (z - 3)));
+			_serverPlayer.setRespawnPosition(_serverPlayer.level().dimension(), new BlockPos(0, 100, 0), _serverPlayer.getYRot(), true, false);
+		entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3(0, 0, (-3)));
+		{
+			Entity _ent = entity;
+			_ent.teleportTo(0, 100, 0);
+			if (_ent instanceof ServerPlayer _serverPlayer)
+				_serverPlayer.connection.teleport(0, 100, 0, _ent.getYRot(), _ent.getXRot());
+		}
 	}
 }

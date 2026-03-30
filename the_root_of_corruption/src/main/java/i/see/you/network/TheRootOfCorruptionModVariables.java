@@ -106,6 +106,10 @@ public class TheRootOfCorruptionModVariables {
 		public double blocky = 0;
 		public double blockz = 0;
 		public boolean left = false;
+		public double event_count = 0;
+		public double spawnx = 0;
+		public double spawny = 0;
+		public double spawnz = 0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -124,6 +128,10 @@ public class TheRootOfCorruptionModVariables {
 			blocky = nbt.getDouble("blocky");
 			blockz = nbt.getDouble("blockz");
 			left = nbt.getBoolean("left");
+			event_count = nbt.getDouble("event_count");
+			spawnx = nbt.getDouble("spawnx");
+			spawny = nbt.getDouble("spawny");
+			spawnz = nbt.getDouble("spawnz");
 		}
 
 		@Override
@@ -138,6 +146,10 @@ public class TheRootOfCorruptionModVariables {
 			nbt.putDouble("blocky", blocky);
 			nbt.putDouble("blockz", blockz);
 			nbt.putBoolean("left", left);
+			nbt.putDouble("event_count", event_count);
+			nbt.putDouble("spawnx", spawnx);
+			nbt.putDouble("spawny", spawny);
+			nbt.putDouble("spawnz", spawnz);
 			return nbt;
 		}
 

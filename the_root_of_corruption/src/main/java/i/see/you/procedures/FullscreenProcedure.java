@@ -7,6 +7,6 @@ import com.mojang.brigadier.arguments.BoolArgumentType;
 
 public class FullscreenProcedure {
 	public static void execute(CommandContext<CommandSourceStack> arguments) {
-		ToggleFullScreenProcedure.execute(BoolArgumentType.getBool(arguments, "isexit"));
+		ToggleFullScreenProcedure.execute(!BoolArgumentType.getBool(arguments, "isexit"));
 	}
 }

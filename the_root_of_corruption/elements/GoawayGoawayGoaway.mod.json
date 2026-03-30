@@ -1,0 +1,80 @@
+{
+  "_fv": 73,
+  "_type": "overlay",
+  "definition": {
+    "priority": "HIGHEST",
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "anchorPoint": "CENTER",
+          "x": 0,
+          "y": 1,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "anchorPoint": "CENTER",
+          "x": 298,
+          "y": -1,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "anchorPoint": "CENTER",
+          "x": 2,
+          "y": 111,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "anchorPoint": "CENTER",
+          "x": 297,
+          "y": 111,
+          "locked": false
+        }
+      },
+      {
+        "type": "entitymodel",
+        "data": {
+          "entityModel": {
+            "name": "HeYiWei"
+          },
+          "scale": 30,
+          "rotationX": 0,
+          "followMouseMovement": false,
+          "anchorPoint": "CENTER",
+          "x": 201,
+          "y": 105,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "displayCondition": {
+      "name": "Ishere"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

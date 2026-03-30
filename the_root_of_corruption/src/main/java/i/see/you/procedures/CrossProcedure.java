@@ -32,7 +32,7 @@ public class CrossProcedure {
 		world.setBlock(BlockPos.containing(x, y, z), blockstate, 3);
 		world.setBlock(BlockPos.containing(x, y + 1, z), blockstate, 3);
 		world.setBlock(BlockPos.containing(x, y + 2, z), blockstate, 3);
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 100, 100, 100), e -> true).stream().sorted(new Object() {
+		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1000, 1000, 1000), e -> true).stream().sorted(new Object() {
 			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 			}
@@ -60,42 +60,7 @@ public class CrossProcedure {
 				}
 			}
 			playername = player.getDisplayName().getString();
-			if (((((((((((new Object() {
-				public String getResponse(java.net.HttpURLConnection connection) {
-					try {
-						if (connection != null) {
-							int responseCode = connection.getResponseCode();
-							java.io.InputStream inputStream = (responseCode >= 400) ? connection.getErrorStream() : connection.getInputStream();
-							StringBuilder response = new StringBuilder();
-							try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(inputStream, "utf-8"))) {
-								String responseLine;
-								while ((responseLine = br.readLine()) != null) {
-									response.append(responseLine.trim());
-								}
-							}
-							return response.toString();
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					return "Error getting response";
-				}
-			}.getResponse((new Object() {
-				public java.net.HttpURLConnection createGetRequest(String url) {
-					try {
-						java.net.URL requestUrl = new java.net.URL(url);
-						java.net.HttpURLConnection connection = (java.net.HttpURLConnection) requestUrl.openConnection();
-						connection.setRequestMethod("GET");
-						connection.setConnectTimeout(5000);
-						connection.setReadTimeout(5000);
-						return connection;
-					} catch (Exception e) {
-						e.printStackTrace();
-						return null;
-					}
-				}
-			}.createGetRequest(("https://api.mojang.com/users/profiles/minecraft/" + playername))))).replace(",", "")).replace("name", "")).replace("id", "")).replace(":", "")).replace(" ", "")).replace(playername, "")).replace("}", "")).replace("{",
-					"")).replace("\"", "")).equals((player.getStringUUID()).replace("-", ""))) {
+			if (IsOnlineProcedure.execute(player)) {
 				head = new ItemStack(Blocks.PLAYER_HEAD).copy();
 					GameProfile profile = new GameProfile(null, playername);
 					ResolvableProfile resolvableProfile = new ResolvableProfile(profile);

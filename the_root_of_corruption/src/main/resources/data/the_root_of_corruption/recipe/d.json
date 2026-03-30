@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "the_root_of_corruption:netherreactor"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "addition": {
+    "item": "the_root_of_corruption:laugh"
+  },
+  "result": {
+    "id": "the_root_of_corruption:notexture_boots"
+  }
+}

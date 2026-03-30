@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Comparator;
 
 import i.see.you.init.TheRootOfCorruptionModBlocks;
+import i.see.you.configuration.ConfigConfiguration;
 
 @EventBusSubscriber
 public class GodtickupdateProcedure {
@@ -53,12 +54,12 @@ public class GodtickupdateProcedure {
 			return;
 		Entity target = null;
 		if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god")))) {
-			if (!((entity.level().dimension()) == Level.OVERWORLD)) {
+			if (!((entity.level().dimension()) == Level.OVERWORLD || ConfigConfiguration.SPAWN_ENTITY.get())) {
 				DiscardProcedure.execute(entity);
 			}
 			if (entity instanceof LivingEntity _entity)
 				_entity.setHealth(entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1);
-			if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() instanceof LiquidBlock) {
+			if (ConfigConfiguration.REPLACE_TO_GLOWING_OBSIDIAN.get() && (world.getBlockState(BlockPos.containing(x, y, z))).getBlock() instanceof LiquidBlock) {
 				world.setBlock(BlockPos.containing(x, y, z), TheRootOfCorruptionModBlocks.GLOWINGOBSIDIAN.get().defaultBlockState(), 3);
 				{
 					Entity _ent = entity;
@@ -73,8 +74,8 @@ public class GodtickupdateProcedure {
 			}
 			target = entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null;
 			if (!(target == null)) {
-				if (target instanceof Player _plr16)
-					_plr16.resetAttackStrengthTicker();
+				if (target instanceof Player _plr18)
+					_plr18.resetAttackStrengthTicker();
 				if (target instanceof Player _plr && _plr.isFallFlying()) {
 					_plr.stopFallFlying();
 				}
@@ -125,8 +126,8 @@ public class GodtickupdateProcedure {
 							entityiterator.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((target.getX()), (target.getY()), (target.getZ())));
 							entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL)), 2147483647);
 							entityiterator.hurt(new DamageSource(world.holderOrThrow(DamageTypes.FELL_OUT_OF_WORLD)), 2147483647);
-							if (entityiterator instanceof LivingEntity _livingEntity65 && _livingEntity65.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
-								_livingEntity65.getAttribute(Attributes.MAX_HEALTH).setBaseValue(0);
+							if (entityiterator instanceof LivingEntity _livingEntity67 && _livingEntity67.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
+								_livingEntity67.getAttribute(Attributes.MAX_HEALTH).setBaseValue(0);
 							if (entityiterator instanceof LivingEntity _entity)
 								_entity.setHealth(0);
 							entityiterator.kill();

@@ -12,6 +12,7 @@ import net.neoforged.api.distmarker.Dist;
 import i.see.you.client.model.Modelwatch;
 import i.see.you.client.model.Modelnothingiswatching;
 import i.see.you.client.model.Modelinvade_crash_report;
+import i.see.you.client.model.ModelUndefined;
 import i.see.you.client.model.ModelCustomModel;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
@@ -22,5 +23,6 @@ public class TheRootOfCorruptionModModels {
 		event.registerLayerDefinition(Modelwatch.LAYER_LOCATION, Modelwatch::createBodyLayer);
 		event.registerLayerDefinition(Modelnothingiswatching.LAYER_LOCATION, Modelnothingiswatching::createBodyLayer);
 		event.registerLayerDefinition(Modelinvade_crash_report.LAYER_LOCATION, Modelinvade_crash_report::createBodyLayer);
+		event.registerLayerDefinition(ModelUndefined.LAYER_LOCATION, ModelUndefined::createBodyLayer);
 	}
 }

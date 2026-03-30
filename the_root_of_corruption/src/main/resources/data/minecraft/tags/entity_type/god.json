@@ -13,6 +13,8 @@
     "the_root_of_corruption:watcher",
     "the_root_of_corruption:custom_death",
     "the_root_of_corruption:custom_death_watch",
-    "the_root_of_corruption:soul"
+    "the_root_of_corruption:soul",
+    "the_root_of_corruption:missing_one",
+    "the_root_of_corruption:missing_one_chase"
   ]
 }

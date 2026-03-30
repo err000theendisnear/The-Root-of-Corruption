@@ -70,7 +70,7 @@ public abstract class MissingArmorItem extends ArmorItem {
 		public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 			super.inventoryTick(itemstack, world, entity, slot, selected);
 			if (entity instanceof Player player && Iterables.contains(player.getArmorSlots(), itemstack)) {
-				InfiniteNightVisionProcedure.execute(entity);
+				InfiniteNightVisionProcedure.execute(entity, itemstack);
 			}
 		}
 	}
@@ -89,7 +89,7 @@ public abstract class MissingArmorItem extends ArmorItem {
 		public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 			super.inventoryTick(itemstack, world, entity, slot, selected);
 			if (entity instanceof Player player && Iterables.contains(player.getArmorSlots(), itemstack)) {
-				NoWaJuePiLaoProcedure.execute(world, entity);
+				NoWaJuePiLaoProcedure.execute(world, entity, itemstack);
 			}
 		}
 	}
@@ -108,7 +108,7 @@ public abstract class MissingArmorItem extends ArmorItem {
 		public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 			super.inventoryTick(itemstack, world, entity, slot, selected);
 			if (entity instanceof Player player && Iterables.contains(player.getArmorSlots(), itemstack)) {
-				NoslownessProcedure.execute(entity);
+				NoslownessProcedure.execute(entity, itemstack);
 			}
 		}
 	}
@@ -127,7 +127,7 @@ public abstract class MissingArmorItem extends ArmorItem {
 		public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 			super.inventoryTick(itemstack, world, entity, slot, selected);
 			if (entity instanceof Player player && Iterables.contains(player.getArmorSlots(), itemstack)) {
-				GlitchWalkerProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity);
+				GlitchWalkerProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, itemstack);
 			}
 		}
 	}

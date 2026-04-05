@@ -28,19 +28,19 @@ public class HelpworldProcedure {
 			if (entity instanceof Player _player)
 				_player.getCooldowns().addCooldown((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem(), 1000);
 			if (world instanceof ServerLevel _level) {
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY).hurtAndBreak(5, _level, null, _stkprov -> {
+				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY).hurtAndBreak(1000, _level, null, _stkprov -> {
 				});
 			}
 			if (world instanceof ServerLevel _level) {
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).hurtAndBreak(5, _level, null, _stkprov -> {
+				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).hurtAndBreak(1000, _level, null, _stkprov -> {
 				});
 			}
 			if (world instanceof ServerLevel _level) {
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).hurtAndBreak(5, _level, null, _stkprov -> {
+				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).hurtAndBreak(1000, _level, null, _stkprov -> {
 				});
 			}
 			if (world instanceof ServerLevel _level) {
-				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).hurtAndBreak(5, _level, null, _stkprov -> {
+				(entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).hurtAndBreak(1000, _level, null, _stkprov -> {
 				});
 			}
 			SaveworldProcedure.execute(world, x, y, z, entity, 16);

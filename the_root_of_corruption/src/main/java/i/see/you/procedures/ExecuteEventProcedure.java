@@ -27,6 +27,16 @@ public class ExecuteEventProcedure {
 		}.hasRecipe(entity, ResourceLocation.parse("the_root_of_corruption:errr"))) && Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//because recipe event need before give the recipe.
 			CutomRecipeProcedure.execute(entity);
 		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
+			HorrornameProcedure.execute(entity);
+		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
+			FakePlayerAttackProcedure.execute(world, entity);
+		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 1) {
+			BreakblocksoundProcedure.execute(world, x, y, z);
+		} else if (Mth.nextInt(RandomSource.create(), 0, 1) == 1) {
+			WindchargeProcedure.execute(world, x, y, z);
+		} else if (Mth.nextInt(RandomSource.create(), 0, 4) == 1) {
+			FromthevoidProcedure.execute(world, x, z, entity);
+		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			FlyplayerProcedure.execute(world, x, y, z, entity);
 		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 1) {
 			BUILDSUCCESSFULProcedure.execute(world);
@@ -38,9 +48,9 @@ public class ExecuteEventProcedure {
 			TheBrokenAnomalyProcedure.execute(world, x, y, z, entity);
 		} else if (Mth.nextInt(RandomSource.create(), 0, 3) == 0) {
 			LeftgameProcedure.execute(world, x, y, z);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 4) == 0) {
-			OutOfMemoryErrorProcedure.execute(world, x, y, z, entity);
 		} else if (Mth.nextInt(RandomSource.create(), 0, 5) == 0) {
+			OutOfMemoryErrorProcedure.execute(world, x, y, z, entity);
+		} else if (Mth.nextInt(RandomSource.create(), 0, 6) == 0) {
 			HotSpotLogProcedure.execute(world, x, y, z);
 		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			YouarenotsafeProcedure.execute(world, x, y, z, entity);
@@ -54,7 +64,7 @@ public class ExecuteEventProcedure {
 			RightbehindyouProcedure.execute(world, x, y, z, entity);
 		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			MissingProcedure.execute(entity);
-		} else if (entity instanceof ServerPlayer _plr19 && _plr19.level() instanceof ServerLevel && _plr19.getAdvancements().getOrStartProgress(_plr19.server.getAdvancements().get(ResourceLocation.parse("minecraft:end/kill_dragon"))).isDone()
+		} else if (entity instanceof ServerPlayer _plr24 && _plr24.level() instanceof ServerLevel && _plr24.getAdvancements().getOrStartProgress(_plr24.server.getAdvancements().get(ResourceLocation.parse("minecraft:end/kill_dragon"))).isDone()
 				&& Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			GiftProcedure.execute(world, x, y, z, entity);
 			//gift event need kill ender dragon.
@@ -72,6 +82,8 @@ public class ExecuteEventProcedure {
 			ToJumpProcedure.execute(world, x, y, z, entity);
 		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			IcanseeyouProcedure.execute(world, x, y, z, entity);
+		} else {
+			UndefindProcedure.execute(entity);
 		}
 	}
 }

@@ -23,6 +23,7 @@ import i.see.you.item.LaughItem;
 import i.see.you.item.ItemIsMissingIDItem;
 import i.see.you.item.HopeItem;
 import i.see.you.item.FlyItem;
+import i.see.you.item.FakeLaughItem;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TheRootOfCorruptionModItems {
@@ -58,6 +59,7 @@ public class TheRootOfCorruptionModItems {
 	public static final DeferredItem<Item> NOTEXTURE_CHESTPLATE = REGISTRY.register("notexture_chestplate", NotextureItem.Chestplate::new);
 	public static final DeferredItem<Item> NOTEXTURE_LEGGINGS = REGISTRY.register("notexture_leggings", NotextureItem.Leggings::new);
 	public static final DeferredItem<Item> NOTEXTURE_BOOTS = REGISTRY.register("notexture_boots", NotextureItem.Boots::new);
+	public static final DeferredItem<Item> FAKE_LAUGH = REGISTRY.register("fake_laugh", FakeLaughItem::new);
 
 	// Start of user code block custom items
 	// End of user code block custom items

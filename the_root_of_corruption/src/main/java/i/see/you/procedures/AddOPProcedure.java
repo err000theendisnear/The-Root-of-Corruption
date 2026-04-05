@@ -17,6 +17,7 @@ import net.minecraft.core.BlockPos;
 import io.netty.buffer.Unpooled;
 
 import i.see.you.world.inventory.OpcommandMenu;
+import i.see.you.TheRootOfCorruptionMod;
 
 public class AddOPProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -45,24 +46,26 @@ public class AddOPProcedure {
 		}
 		if (entity instanceof Player _player)
 			_player.closeContainer();
-		if (entity instanceof ServerPlayer _ent) {
-			BlockPos _bpos = BlockPos.containing(x, y, z);
-			_ent.openMenu(new MenuProvider() {
-				@Override
-				public Component getDisplayName() {
-					return Component.literal("Opcommand");
-				}
+		TheRootOfCorruptionMod.queueServerWork(1, () -> {
+			if (entity instanceof ServerPlayer _ent) {
+				BlockPos _bpos = BlockPos.containing(x, y, z);
+				_ent.openMenu(new MenuProvider() {
+					@Override
+					public Component getDisplayName() {
+						return Component.literal("Opcommand");
+					}
 
-				@Override
-				public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-					return false;
-				}
+					@Override
+					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+						return false;
+					}
 
-				@Override
-				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-					return new OpcommandMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
-				}
-			}, _bpos);
-		}
+					@Override
+					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+						return new OpcommandMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+					}
+				}, _bpos);
+			}
+		});
 	}
 }

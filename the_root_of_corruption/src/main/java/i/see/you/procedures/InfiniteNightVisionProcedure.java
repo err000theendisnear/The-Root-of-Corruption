@@ -10,7 +10,7 @@ public class InfiniteNightVisionProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		itemstack.setDamageValue(0);
+		MendingProcedure.execute(itemstack);
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 10000, 1));
 		if (entity instanceof LivingEntity _entity)

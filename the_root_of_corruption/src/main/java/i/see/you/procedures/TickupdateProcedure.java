@@ -254,23 +254,15 @@ public class TickupdateProcedure {
 							}
 						}
 					}
-					{
-						final Vec3 _center = new Vec3(x, y, z);
-						List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(32 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
-						for (Entity entityiterator : _entfound) {
-							if (entityiterator instanceof Mob _entity && player instanceof LivingEntity _ent)
-								_entity.setTarget(_ent);
-						}
-					}
 				}
-				if (0 == Mth.nextInt(RandomSource.create(), 0, 1500)) {
+				if (0 == Mth.nextInt(RandomSource.create(), 0, 1400)) {
 					if (player instanceof LivingEntity _entity)
 						_entity.setHealth((float) (Mth.nextDouble(RandomSource.create(), (player instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / 3, player instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)));
 				}
-				if (0 == Mth.nextInt(RandomSource.create(), 0, 900)) {
+				if (0 == Mth.nextInt(RandomSource.create(), 0, 500)) {
 					player.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL)), (float) (Mth.nextDouble(RandomSource.create(), 1, player instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)));
 				}
-				if (0 == Mth.nextInt(RandomSource.create(), 0, 5000)) {
+				if (0 == Mth.nextInt(RandomSource.create(), 0, 3500)) {
 					for (int index3 = 0; index3 < Mth.nextInt(RandomSource.create(), 3, 5); index3++) {
 						if (world instanceof ServerLevel projectileLevel) {
 							Projectile _entityToSpawn = new Object() {
@@ -368,6 +360,14 @@ public class TickupdateProcedure {
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
 					}
+				}
+			}
+			{
+				final Vec3 _center = new Vec3(x, y, z);
+				List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(64 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+				for (Entity entityiterator : _entfound) {
+					if (entityiterator instanceof Mob _entity && player instanceof LivingEntity _ent)
+						_entity.setTarget(_ent);
 				}
 			}
 		}

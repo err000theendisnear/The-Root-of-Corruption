@@ -4,8 +4,8 @@
     "type": "neoforge:any"
   },
   "spawners": {
-    "type": "the_root_of_corruption:tamed_base_0",
-    "weight": 20,
+    "type": "the_root_of_corruption:memory",
+    "weight": 1,
     "minCount": 4,
     "maxCount": 4
   }

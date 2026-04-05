@@ -2,18 +2,16 @@
 package i.see.you.client.renderer;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
-import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.CowModel;
 
 import i.see.you.entity.UndefindchaseEntity;
 
-public class UndefindchaseRenderer extends HumanoidMobRenderer<UndefindchaseEntity, HumanoidModel<UndefindchaseEntity>> {
+public class UndefindchaseRenderer extends MobRenderer<UndefindchaseEntity, CowModel<UndefindchaseEntity>> {
 	public UndefindchaseRenderer(EntityRendererProvider.Context context) {
-		super(context, new HumanoidModel<UndefindchaseEntity>(context.bakeLayer(ModelLayers.PLAYER)), 0.5f);
-		this.addLayer(new HumanoidArmorLayer(this, new HumanoidModel(context.bakeLayer(ModelLayers.PLAYER_INNER_ARMOR)), new HumanoidModel(context.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)), context.getModelManager()));
+		super(context, new CowModel<UndefindchaseEntity>(context.bakeLayer(ModelLayers.COW)), 0.5f);
 	}
 
 	@Override

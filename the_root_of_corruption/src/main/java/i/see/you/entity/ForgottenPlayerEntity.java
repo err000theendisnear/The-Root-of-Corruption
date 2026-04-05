@@ -58,7 +58,7 @@ import i.see.you.init.TheRootOfCorruptionModEntities;
 public class ForgottenPlayerEntity extends Monster {
 	public ForgottenPlayerEntity(EntityType<ForgottenPlayerEntity> type, Level world) {
 		super(type, world);
-		xpReward = 0;
+		xpReward = 100;
 		setNoAi(false);
 		setCustomName(Component.literal("=)"));
 		setCustomNameVisible(true);

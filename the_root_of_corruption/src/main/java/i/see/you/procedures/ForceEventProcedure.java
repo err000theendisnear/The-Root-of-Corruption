@@ -20,6 +20,18 @@ public class ForceEventProcedure {
 		event = StringArgumentType.getString(arguments, "execute");
 		if (event.contains("jumpscare")) {
 			JumpscareProcedure.execute(world, x, y, z);
+		} else if (event.contains("rename")) {
+			HorrornameProcedure.execute(entity);
+		} else if (event.contains("attack")) {
+			FakePlayerAttackProcedure.execute(world, entity);
+		} else if (event.contains("undefined")) {
+			UndefindProcedure.execute(entity);
+		} else if (event.contains("break")) {
+			BreakblocksoundProcedure.execute(world, x, y, z);
+		} else if (event.contains("void")) {
+			FromthevoidProcedure.execute(world, x, z, entity);
+		} else if (event.contains("wind") && event.contains("charge")) {
+			WindchargeProcedure.execute(world, x, y, z);
 		} else if (event.contains("fly")) {
 			FlyplayerProcedure.execute(world, x, y, z, entity);
 		} else if (event.contains("bulid")) {

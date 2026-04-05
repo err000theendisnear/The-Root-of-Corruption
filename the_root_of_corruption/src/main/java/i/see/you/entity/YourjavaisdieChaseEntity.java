@@ -31,7 +31,6 @@ import net.minecraft.core.BlockPos;
 
 import i.see.you.procedures.JavatickupdateProcedure;
 import i.see.you.procedures.CrashProcedure;
-import i.see.you.procedures.CavesoundProcedure;
 
 public class YourjavaisdieChaseEntity extends Monster {
 	public YourjavaisdieChaseEntity(EntityType<YourjavaisdieChaseEntity> type, Level world) {
@@ -81,15 +80,6 @@ public class YourjavaisdieChaseEntity extends Monster {
 
 	@Override
 	public boolean hurt(DamageSource damagesource, float amount) {
-		double x = this.getX();
-		double y = this.getY();
-		double z = this.getZ();
-		Level world = this.level();
-		Entity entity = this;
-		Entity sourceentity = damagesource.getEntity();
-		Entity immediatesourceentity = damagesource.getDirectEntity();
-
-		CavesoundProcedure.execute(world, x, y, z);
 		if (damagesource.is(DamageTypes.IN_FIRE))
 			return false;
 		if (damagesource.getDirectEntity() instanceof AbstractArrow)
@@ -127,12 +117,6 @@ public class YourjavaisdieChaseEntity extends Monster {
 	@Override
 	public boolean fireImmune() {
 		return true;
-	}
-
-	@Override
-	public void die(DamageSource source) {
-		super.die(source);
-		CrashProcedure.execute(this.level(), this, source.getEntity());
 	}
 
 	@Override

@@ -33,9 +33,12 @@ public class SaveworldProcedure {
 		double zz = 0;
 		BlockState replace = Blocks.AIR.defaultBlockState();
 		BlockState to_replace = Blocks.AIR.defaultBlockState();
-		if (entity instanceof Player _player) {
-			ItemStack _stktoremove = new ItemStack(TheRootOfCorruptionModItems.HOPE.get());
-			_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
+		DiscardgodProcedure.execute(world, x, y, z);
+		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == TheRootOfCorruptionModItems.HOPE.get()) {
+			if (entity instanceof Player _player) {
+				ItemStack _stktoremove = new ItemStack(TheRootOfCorruptionModItems.HOPE.get());
+				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
+			}
 		}
 		if (entity instanceof Player _player) {
 			ItemStack _stktoremove = new ItemStack(TheRootOfCorruptionModItems.ITEM_IS_MISSING_ID.get());

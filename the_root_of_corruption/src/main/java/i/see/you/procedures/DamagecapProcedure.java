@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.Registries;
 import i.see.you.configuration.ConfigConfiguration;
+import net.minecraft.world.entity.LivingEntity;
 
 @EventBusSubscriber
 public class DamagecapProcedure {
@@ -23,8 +24,15 @@ public class DamagecapProcedure {
 			float amount = event.getAmount();
 			Entity sourceentity = event.getSource().getEntity();
 			float damagecap = ConfigConfiguration.MISSING_DAMAGECAP.get().floatValue();
-			if (AllMissnoAromrProcedure.execute(entity) && amount > damagecap && !isgod(sourceentity)) {
-				event.setAmount(damagecap);
+			if (AllMissnoAromrProcedure.execute(entity) && amount > damagecap) {
+				if (isgod(sourceentity)) {
+					if (entity instanceof LivingEntity _entity) {
+						_entity.setHealth(0.0f);
+					}
+					entity.kill();
+				} else {
+					event.setAmount(damagecap);
+				}
 			}
 		}
 	}

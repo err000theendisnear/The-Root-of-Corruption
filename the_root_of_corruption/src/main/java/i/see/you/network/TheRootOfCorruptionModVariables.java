@@ -110,6 +110,8 @@ public class TheRootOfCorruptionModVariables {
 		public double spawnx = 0;
 		public double spawny = 0;
 		public double spawnz = 0;
+		public boolean online = false;
+		public boolean tovoid = false;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -132,6 +134,8 @@ public class TheRootOfCorruptionModVariables {
 			spawnx = nbt.getDouble("spawnx");
 			spawny = nbt.getDouble("spawny");
 			spawnz = nbt.getDouble("spawnz");
+			online = nbt.getBoolean("online");
+			tovoid = nbt.getBoolean("tovoid");
 		}
 
 		@Override
@@ -150,6 +154,8 @@ public class TheRootOfCorruptionModVariables {
 			nbt.putDouble("spawnx", spawnx);
 			nbt.putDouble("spawny", spawny);
 			nbt.putDouble("spawnz", spawnz);
+			nbt.putBoolean("online", online);
+			nbt.putBoolean("tovoid", tovoid);
 			return nbt;
 		}
 

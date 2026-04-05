@@ -5,7 +5,6 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
@@ -15,7 +14,9 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.BreakDoorGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.SpawnGroupData;
@@ -57,16 +58,19 @@ public class UndefindchaseEntity extends Monster {
 				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < (this.mob.getBbWidth() * this.mob.getBbWidth() + entity.getBbWidth()) && this.mob.getSensing().hasLineOfSight(entity);
 			}
 		});
+		this.targetSelector.addGoal(3, new HurtByTargetGoal(this));
+		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, true) {
+			@Override
+			protected boolean canPerformAttack(LivingEntity entity) {
+				return this.isTimeToAttack() && this.mob.distanceToSqr(entity) < 10000 && this.mob.getSensing().hasLineOfSight(entity);
+			}
+		});
+		this.goalSelector.addGoal(5, new BreakDoorGoal(this, e -> true));
 	}
 
 	@Override
 	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
 		return false;
-	}
-
-	@Override
-	public Vec3 getPassengerRidingPosition(Entity entity) {
-		return super.getPassengerRidingPosition(entity).add(0, -0.35F, 0);
 	}
 
 	@Override
@@ -146,7 +150,7 @@ public class UndefindchaseEntity extends Monster {
 	@Override
 	public void baseTick() {
 		super.baseTick();
-		UdfChaseProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ());
+		UdfChaseProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
 	}
 
 	@Override
@@ -180,6 +184,7 @@ public class UndefindchaseEntity extends Monster {
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 10000);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 999);
 		builder = builder.add(Attributes.STEP_HEIGHT, 10);
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);
 		return builder;
 	}
 }

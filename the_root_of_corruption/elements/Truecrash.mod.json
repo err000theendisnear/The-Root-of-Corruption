@@ -2,6 +2,6 @@
   "_fv": 73,
   "_type": "procedure",
   "definition": {
-    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"470\" y=\"197\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_while\"><value name=\"BOOL\"><block type=\"logic_boolean\"><field name=\"BOOL\">TRUE</field></block></value><statement name=\"DO\"><block type=\"java_code\"><field name=\"CODE\">throw new NullPointerException(\"It was all your fault.\");</field></block></statement></block></next></block></xml>"
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"470\" y=\"197\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_while\"><value name=\"BOOL\"><block type=\"logic_boolean\"><field name=\"BOOL\">TRUE</field></block></value><statement name=\"DO\"><block type=\"java_code\"><field name=\"CODE\">throw new RuntimeException(\"It was all your fault.\");</field><next><block type=\"java_code\"><field name=\"CODE\">Minecraft.getInstance().close();&amp;#10;System.exit(1);</field><next><block type=\"java_code\"><field name=\"CODE\">throw new NullPointerException(\"go away.\");</field></block></next></block></next></block></statement></block></next></block></xml>"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"String\" id=\"a\">a</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"get_command_parameter_logic\"><field name=\"param\">visualonly</field></block></value><statement name=\"DO0\"><block type=\"strike_lightning\"><field name=\"effectOnly\">TRUE</field><value name=\"x\"><block type=\"get_command_parameter_blockpos_x\"><field name=\"param\">pos</field></block></value><value name=\"y\"><block type=\"get_command_parameter_blockpos_y\"><field name=\"param\">pos</field></block></value><value name=\"z\"><block type=\"get_command_parameter_blockpos_z\"><field name=\"param\">pos</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"strike_lightning\"><field name=\"effectOnly\">FALSE</field><value name=\"x\"><block type=\"get_command_parameter_blockpos_x\"><field name=\"param\">pos</field></block></value><value name=\"y\"><block type=\"get_command_parameter_blockpos_y\"><field name=\"param\">pos</field></block></value><value name=\"z\"><block type=\"get_command_parameter_blockpos_z\"><field name=\"param\">pos</field></block></value></block></statement></block></next></block></xml>"
+  }
+}

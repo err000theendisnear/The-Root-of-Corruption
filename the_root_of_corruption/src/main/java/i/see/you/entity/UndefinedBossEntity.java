@@ -56,11 +56,12 @@ import i.see.you.init.TheRootOfCorruptionModItems;
 
 public class UndefinedBossEntity extends Monster {
 	public static final EntityDataAccessor<Integer> DATA_hp = SynchedEntityData.defineId(UndefinedBossEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<String> DATA_target = SynchedEntityData.defineId(UndefinedBossEntity.class, EntityDataSerializers.STRING);
 	private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), ServerBossEvent.BossBarColor.WHITE, ServerBossEvent.BossBarOverlay.PROGRESS);
 
 	public UndefinedBossEntity(EntityType<UndefinedBossEntity> type, Level world) {
 		super(type, world);
-		xpReward = 0;
+		xpReward = 32768;
 		setNoAi(false);
 		setPersistenceRequired();
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(TheRootOfCorruptionModItems.NOTEXTURE_TOOL.get()));
@@ -75,6 +76,7 @@ public class UndefinedBossEntity extends Monster {
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
 		builder.define(DATA_hp, 1024);
+		builder.define(DATA_target, "");
 	}
 
 	@Override
@@ -154,7 +156,7 @@ public class UndefinedBossEntity extends Monster {
 		Entity sourceentity = damagesource.getEntity();
 		Entity immediatesourceentity = damagesource.getDirectEntity();
 
-		HuntspawnvexProcedure.execute(world, x, y, z, entity);
+		HuntspawnvexProcedure.execute(world, x, y, z, entity, sourceentity);
 		if (damagesource.is(DamageTypes.IN_FIRE))
 			return false;
 		if (damagesource.getDirectEntity() instanceof AbstractArrow)
@@ -202,6 +204,7 @@ public class UndefinedBossEntity extends Monster {
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
 		compound.putInt("Datahp", this.entityData.get(DATA_hp));
+		compound.putString("Datatarget", this.entityData.get(DATA_target));
 	}
 
 	@Override
@@ -209,6 +212,8 @@ public class UndefinedBossEntity extends Monster {
 		super.readAdditionalSaveData(compound);
 		if (compound.contains("Datahp"))
 			this.entityData.set(DATA_hp, compound.getInt("Datahp"));
+		if (compound.contains("Datatarget"))
+			this.entityData.set(DATA_target, compound.getString("Datatarget"));
 	}
 
 	@Override
@@ -222,7 +227,7 @@ public class UndefinedBossEntity extends Monster {
 		Entity entity = this;
 		Level world = this.level();
 
-		HuntspawnvexProcedure.execute(world, x, y, z, entity);
+		HuntspawnvexProcedure.execute(world, x, y, z, entity, sourceentity);
 		return retval;
 	}
 

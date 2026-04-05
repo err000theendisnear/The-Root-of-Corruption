@@ -12,12 +12,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
+import net.minecraft.commands.arguments.item.ItemArgument;
 import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
 import net.minecraft.commands.arguments.blocks.BlockStateArgument;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.Commands;
 
+import i.see.you.procedures.UsernameProcedure;
 import i.see.you.procedures.ToDiscardProcedure;
+import i.see.you.procedures.SummonProcedure;
+import i.see.you.procedures.SummonItemProcedure;
 import i.see.you.procedures.SpawnSelfProcedure;
 import i.see.you.procedures.ShowtheoverlayProcedure;
 import i.see.you.procedures.SfProcedure;
@@ -40,10 +44,12 @@ import i.see.you.procedures.HandleProcedure;
 import i.see.you.procedures.GetRequestProcedure;
 import i.see.you.procedures.FullscreenProcedure;
 import i.see.you.procedures.ForceEventProcedure;
+import i.see.you.procedures.ExistplayerProcedure;
 import i.see.you.procedures.ExecuteEventProcedure;
 import i.see.you.procedures.CommandkickProcedure;
 import i.see.you.procedures.CommandcrossProcedure;
 import i.see.you.procedures.CommandPlaceProcedure;
+import i.see.you.procedures.CloneEntityProcedure;
 import i.see.you.procedures.ClearoverlayProcedure;
 import i.see.you.procedures.BanplayerProcedure;
 import i.see.you.procedures.AlertProcedure;
@@ -142,49 +148,95 @@ public class DebugEventCommand {
 
 					ForceEventProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
-				})))).then(Commands.literal("entity").then(Commands.literal("another_self").then(Commands.argument("self", EntityArgument.entity()).executes(arguments -> {
-					Level world = arguments.getSource().getUnsidedLevel();
-					double x = arguments.getSource().getPosition().x();
-					double y = arguments.getSource().getPosition().y();
-					double z = arguments.getSource().getPosition().z();
-					Entity entity = arguments.getSource().getEntity();
-					if (entity == null && world instanceof ServerLevel _servLevel)
-						entity = FakePlayerFactory.getMinecraft(_servLevel);
-					Direction direction = Direction.DOWN;
-					if (entity != null)
-						direction = entity.getDirection();
+				})))).then(Commands.literal("entity")
+						.then(Commands.literal("summon").then(Commands.argument("pos", BlockPosArgument.blockPos()).then(Commands.literal("clone").then(Commands.argument("entity", EntityArgument.entity()).executes(arguments -> {
+							Level world = arguments.getSource().getUnsidedLevel();
+							double x = arguments.getSource().getPosition().x();
+							double y = arguments.getSource().getPosition().y();
+							double z = arguments.getSource().getPosition().z();
+							Entity entity = arguments.getSource().getEntity();
+							if (entity == null && world instanceof ServerLevel _servLevel)
+								entity = FakePlayerFactory.getMinecraft(_servLevel);
+							Direction direction = Direction.DOWN;
+							if (entity != null)
+								direction = entity.getDirection();
 
-					SpawnSelfProcedure.execute(world, arguments);
-					return 0;
-				}))).then(Commands.literal("discard").then(Commands.argument("todiscard", EntityArgument.entities()).executes(arguments -> {
-					Level world = arguments.getSource().getUnsidedLevel();
-					double x = arguments.getSource().getPosition().x();
-					double y = arguments.getSource().getPosition().y();
-					double z = arguments.getSource().getPosition().z();
-					Entity entity = arguments.getSource().getEntity();
-					if (entity == null && world instanceof ServerLevel _servLevel)
-						entity = FakePlayerFactory.getMinecraft(_servLevel);
-					Direction direction = Direction.DOWN;
-					if (entity != null)
-						direction = entity.getDirection();
+							CloneEntityProcedure.execute(world, arguments);
+							return 0;
+						}))).then(Commands.literal("lightning_bolt").then(Commands.argument("visualonly", BoolArgumentType.bool()).executes(arguments -> {
+							Level world = arguments.getSource().getUnsidedLevel();
+							double x = arguments.getSource().getPosition().x();
+							double y = arguments.getSource().getPosition().y();
+							double z = arguments.getSource().getPosition().z();
+							Entity entity = arguments.getSource().getEntity();
+							if (entity == null && world instanceof ServerLevel _servLevel)
+								entity = FakePlayerFactory.getMinecraft(_servLevel);
+							Direction direction = Direction.DOWN;
+							if (entity != null)
+								direction = entity.getDirection();
 
-					ToDiscardProcedure.execute(world, arguments);
-					return 0;
-				}))).then(Commands.literal("setHealth").then(Commands.argument("entity", EntityArgument.entities()).then(Commands.argument("health", DoubleArgumentType.doubleArg()).executes(arguments -> {
-					Level world = arguments.getSource().getUnsidedLevel();
-					double x = arguments.getSource().getPosition().x();
-					double y = arguments.getSource().getPosition().y();
-					double z = arguments.getSource().getPosition().z();
-					Entity entity = arguments.getSource().getEntity();
-					if (entity == null && world instanceof ServerLevel _servLevel)
-						entity = FakePlayerFactory.getMinecraft(_servLevel);
-					Direction direction = Direction.DOWN;
-					if (entity != null)
-						direction = entity.getDirection();
+							SummonProcedure.execute(world, arguments);
+							return 0;
+						}))).then(Commands.literal("item").then(Commands.argument("item", ItemArgument.item(event.getBuildContext()))
+								.then(Commands.argument("pickupdelay", DoubleArgumentType.doubleArg(0)).then(Commands.argument("limitedlifetime", BoolArgumentType.bool()).executes(arguments -> {
+									Level world = arguments.getSource().getUnsidedLevel();
+									double x = arguments.getSource().getPosition().x();
+									double y = arguments.getSource().getPosition().y();
+									double z = arguments.getSource().getPosition().z();
+									Entity entity = arguments.getSource().getEntity();
+									if (entity == null && world instanceof ServerLevel _servLevel)
+										entity = FakePlayerFactory.getMinecraft(_servLevel);
+									Direction direction = Direction.DOWN;
+									if (entity != null)
+										direction = entity.getDirection();
 
-					SetHealthProcedure.execute(arguments);
-					return 0;
-				}))))).then(Commands.literal("surface").then(Commands.literal("query").executes(arguments -> {
+									SummonItemProcedure.execute(world, arguments);
+									return 0;
+								})))))))
+						.then(Commands.literal("another_self").then(Commands.argument("self", EntityArgument.entity()).executes(arguments -> {
+							Level world = arguments.getSource().getUnsidedLevel();
+							double x = arguments.getSource().getPosition().x();
+							double y = arguments.getSource().getPosition().y();
+							double z = arguments.getSource().getPosition().z();
+							Entity entity = arguments.getSource().getEntity();
+							if (entity == null && world instanceof ServerLevel _servLevel)
+								entity = FakePlayerFactory.getMinecraft(_servLevel);
+							Direction direction = Direction.DOWN;
+							if (entity != null)
+								direction = entity.getDirection();
+
+							SpawnSelfProcedure.execute(world, arguments);
+							return 0;
+						}))).then(Commands.literal("discard").then(Commands.argument("todiscard", EntityArgument.entities()).executes(arguments -> {
+							Level world = arguments.getSource().getUnsidedLevel();
+							double x = arguments.getSource().getPosition().x();
+							double y = arguments.getSource().getPosition().y();
+							double z = arguments.getSource().getPosition().z();
+							Entity entity = arguments.getSource().getEntity();
+							if (entity == null && world instanceof ServerLevel _servLevel)
+								entity = FakePlayerFactory.getMinecraft(_servLevel);
+							Direction direction = Direction.DOWN;
+							if (entity != null)
+								direction = entity.getDirection();
+
+							ToDiscardProcedure.execute(world, arguments);
+							return 0;
+						}))).then(Commands.literal("setHealth").then(Commands.argument("entity", EntityArgument.entities()).then(Commands.argument("health", DoubleArgumentType.doubleArg()).executes(arguments -> {
+							Level world = arguments.getSource().getUnsidedLevel();
+							double x = arguments.getSource().getPosition().x();
+							double y = arguments.getSource().getPosition().y();
+							double z = arguments.getSource().getPosition().z();
+							Entity entity = arguments.getSource().getEntity();
+							if (entity == null && world instanceof ServerLevel _servLevel)
+								entity = FakePlayerFactory.getMinecraft(_servLevel);
+							Direction direction = Direction.DOWN;
+							if (entity != null)
+								direction = entity.getDirection();
+
+							SetHealthProcedure.execute(arguments);
+							return 0;
+						})))))
+				.then(Commands.literal("surface").then(Commands.literal("query").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -226,7 +278,7 @@ public class DebugEventCommand {
 
 					AddsurfaceProcedure.execute(world, arguments);
 					return 0;
-				})))).then(Commands.literal("place_cross").then(Commands.argument("cross", BlockStateArgument.block(event.getBuildContext())).then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(arguments -> {
+				})))).then(Commands.literal("cross").then(Commands.argument("cross", BlockStateArgument.block(event.getBuildContext())).then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -296,7 +348,21 @@ public class DebugEventCommand {
 
 					ShowtheoverlayProcedure.execute(world);
 					return 0;
-				}))).then(Commands.literal("player").then(Commands.literal("online").then(Commands.argument("player", EntityArgument.player()).executes(arguments -> {
+				}))).then(Commands.literal("player").then(Commands.literal("exist").then(Commands.argument("player", EntityArgument.player()).executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					ExistplayerProcedure.execute(world, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("online").then(Commands.argument("player", EntityArgument.player()).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -352,7 +418,21 @@ public class DebugEventCommand {
 
 					BanplayerProcedure.execute(world);
 					return 0;
-				}))).then(Commands.literal("dangerous").then(Commands.literal("OOM").executes(arguments -> {
+				}))).then(Commands.literal("dangerous").then(Commands.literal("username").executes(arguments -> {
+					Level world = arguments.getSource().getUnsidedLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null && world instanceof ServerLevel _servLevel)
+						entity = FakePlayerFactory.getMinecraft(_servLevel);
+					Direction direction = Direction.DOWN;
+					if (entity != null)
+						direction = entity.getDirection();
+
+					UsernameProcedure.execute(world);
+					return 0;
+				})).then(Commands.literal("OOM").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();

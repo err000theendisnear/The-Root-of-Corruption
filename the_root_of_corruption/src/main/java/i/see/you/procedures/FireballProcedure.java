@@ -8,8 +8,6 @@ import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 
@@ -21,7 +19,7 @@ public class FireballProcedure {
 		if (entity instanceof LivingEntity _entity)
 			_entity.removeAllEffects();
 		entity.clearFire();
-		if (Mth.nextInt(RandomSource.create(), 0, 750) == 0) {
+		if (Mth.nextInt(RandomSource.create(), 0, 175) == 0) {
 			{
 				Entity _shootFrom = entity;
 				Level projectileLevel = _shootFrom.level();
@@ -38,12 +36,8 @@ public class FireballProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
-			entity.push(0, 0.3, 0);
-			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 120, 1));
-			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 500, 2));
-		} else if (Mth.nextInt(RandomSource.create(), 0, 100) == 0) {
+			entity.push(0, 0.5, 0);
+		} else if (Mth.nextInt(RandomSource.create(), 0, 50) == 0) {
 			{
 				Entity _shootFrom = entity;
 				Level projectileLevel = _shootFrom.level();
@@ -60,8 +54,6 @@ public class FireballProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
-			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-				_entity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 0));
 		}
 	}
 }

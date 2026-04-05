@@ -9,7 +9,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Explosion;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -45,12 +44,11 @@ import i.see.you.init.TheRootOfCorruptionModItems;
 public class LostMemoryEntity extends Monster implements RangedAttackMob {
 	public LostMemoryEntity(EntityType<LostMemoryEntity> type, Level world) {
 		super(type, world);
-		xpReward = 0;
+		xpReward = 50;
 		setNoAi(false);
 		setPersistenceRequired();
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(TheRootOfCorruptionModItems.THE_BROKEN_MEMORY.get()));
 		this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(TheRootOfCorruptionModItems.ITEM_IS_MISSING_ID.get()));
-		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.NETHERITE_HELMET));
 	}
 
 	@Override
@@ -119,7 +117,7 @@ public class LostMemoryEntity extends Monster implements RangedAttackMob {
 		Entity sourceentity = damagesource.getEntity();
 		Entity immediatesourceentity = damagesource.getDirectEntity();
 
-		HuntspawnvexProcedure.execute(world, x, y, z, entity);
+		HuntspawnvexProcedure.execute(world, x, y, z, entity, sourceentity);
 		if (damagesource.is(DamageTypes.IN_FIRE))
 			return false;
 		if (damagesource.getDirectEntity() instanceof AbstractArrow)
@@ -198,7 +196,7 @@ public class LostMemoryEntity extends Monster implements RangedAttackMob {
 		builder = builder.add(Attributes.ARMOR, 30);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 8);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 114);
-		builder = builder.add(Attributes.STEP_HEIGHT, 3);
+		builder = builder.add(Attributes.STEP_HEIGHT, 30);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 100);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 3);
 		return builder;

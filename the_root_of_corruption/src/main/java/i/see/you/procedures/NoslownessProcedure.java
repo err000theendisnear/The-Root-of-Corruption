@@ -10,7 +10,7 @@ public class NoslownessProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		itemstack.setDamageValue(0);
+		MendingProcedure.execute(itemstack);
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 1));
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())

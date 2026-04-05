@@ -4,6 +4,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 import i.see.you.configuration.ConfigConfiguration;
+import i.see.you.TheRootOfCorruptionMod;
 
 public class CrashProcedure {
 	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
@@ -18,6 +19,8 @@ public class CrashProcedure {
 		NotchaseProcedure.execute(world);
 		if (ConfigConfiguration.CRASH.get()) {
 			TruecrashProcedure.execute();
+		} else {
+			TheRootOfCorruptionMod.LOGGER.info("failed to crash");
 		}
 	}
 }

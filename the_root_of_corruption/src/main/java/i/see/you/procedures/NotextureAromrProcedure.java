@@ -35,6 +35,9 @@ public class NotextureAromrProcedure {
 		DamageSource damagesource = event.getSource();
 		Entity immediatesourceentity = event.getSource().getDirectEntity();
 		Entity sourceentity = event.getSource().getEntity();
+		if (sourceentity == entity || immediatesourceentity == entity) {
+			return;
+		}
 		double amount = event.getAmount();
 		if ((AllNotextureProcedure.execute(entity) || AllMissnoAromrProcedure.execute(entity)) && entity instanceof Player) {
 			if (!(immediatesourceentity instanceof LivingEntity) && immediatesourceentity != null) {
@@ -42,7 +45,7 @@ public class NotextureAromrProcedure {
 					immediatesourceentity.discard();
 			}
 			if (sourceentity != null && !sourceentity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god")))) {
-				sourceentity.hurt(new DamageSource(world.holderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("the_root_of_corruption:null_pointer_damage"))), entity), (float) (amount / 2));
+				sourceentity.hurt(new DamageSource(world.holderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("the_root_of_corruption:null_pointer_damage"))), null, null), (float) (amount / 2));
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
 						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave")), SoundSource.MUSIC, 1000, 1);

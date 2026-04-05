@@ -19,6 +19,7 @@ import net.minecraft.core.registries.Registries;
 import i.see.you.entity.YourjavaisdieEntity;
 import i.see.you.entity.YourjavaisdieChaseEntity;
 import i.see.you.entity.WatcherEntity;
+import i.see.you.entity.WatchdogEntity;
 import i.see.you.entity.UndefinedleftthegameEntity;
 import i.see.you.entity.UndefinedOnSurfaceEntity;
 import i.see.you.entity.UndefinedBossEntity;
@@ -27,10 +28,12 @@ import i.see.you.entity.UndefindchaseEntity;
 import i.see.you.entity.TamedBase0Entity;
 import i.see.you.entity.SteveEntity;
 import i.see.you.entity.SoulEntity;
+import i.see.you.entity.ServerOwnerEntity;
 import i.see.you.entity.RandomCrossEntity;
 import i.see.you.entity.MissingOneEntity;
 import i.see.you.entity.MissingOneChaseEntity;
 import i.see.you.entity.MinecraftRootEntity;
+import i.see.you.entity.MemoryEntity;
 import i.see.you.entity.LostMemoryEntity;
 import i.see.you.entity.InvalidCreeperEntity;
 import i.see.you.entity.InvadeCrashreportEntity;
@@ -51,13 +54,13 @@ import i.see.you.TheRootOfCorruptionMod;
 public class TheRootOfCorruptionModEntities {
 	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(Registries.ENTITY_TYPE, TheRootOfCorruptionMod.MODID);
 	public static final DeferredHolder<EntityType<?>, EntityType<UndefindchaseEntity>> UNDEFINDCHASE = register("undefindchase",
-			EntityType.Builder.<UndefindchaseEntity>of(UndefindchaseEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(999).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
+			EntityType.Builder.<UndefindchaseEntity>of(UndefindchaseEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(999).setUpdateInterval(3).fireImmune().sized(0.9f, 1.4f));
 	public static final DeferredHolder<EntityType<?>, EntityType<UndefindstareEntity>> UNDEFINDSTARE = register("undefindstare",
 			EntityType.Builder.<UndefindstareEntity>of(UndefindstareEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<YourjavaisdieEntity>> YOURJAVAISDIE = register("yourjavaisdie",
 			EntityType.Builder.<YourjavaisdieEntity>of(YourjavaisdieEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(666).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<YourjavaisdieChaseEntity>> YOURJAVAISDIE_CHASE = register("yourjavaisdie_chase",
-			EntityType.Builder.<YourjavaisdieChaseEntity>of(YourjavaisdieChaseEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
+			EntityType.Builder.<YourjavaisdieChaseEntity>of(YourjavaisdieChaseEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<EntitySpawnerEntity>> ENTITY_SPAWNER = register("entity_spawner",
 			EntityType.Builder.<EntitySpawnerEntity>of(EntitySpawnerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<BedrockStalkerEntity>> BEDROCK_STALKER = register("bedrock_stalker",
@@ -118,6 +121,18 @@ public class TheRootOfCorruptionModEntities {
 			EntityType.Builder.<MissingOneChaseEntity>of(MissingOneChaseEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
 					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<ServerOwnerEntity>> SERVER_OWNER = register("server_owner",
+			EntityType.Builder.<ServerOwnerEntity>of(ServerOwnerEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<WatchdogEntity>> WATCHDOG = register("watchdog",
+			EntityType.Builder.<WatchdogEntity>of(WatchdogEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<MemoryEntity>> MEMORY = register("memory",
+			EntityType.Builder.<MemoryEntity>of(MemoryEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -153,6 +168,9 @@ public class TheRootOfCorruptionModEntities {
 		GameCrashEntity.init(event);
 		MissingOneEntity.init(event);
 		MissingOneChaseEntity.init(event);
+		ServerOwnerEntity.init(event);
+		WatchdogEntity.init(event);
+		MemoryEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -183,5 +201,8 @@ public class TheRootOfCorruptionModEntities {
 		event.put(GAME_CRASH.get(), GameCrashEntity.createAttributes().build());
 		event.put(MISSING_ONE.get(), MissingOneEntity.createAttributes().build());
 		event.put(MISSING_ONE_CHASE.get(), MissingOneChaseEntity.createAttributes().build());
+		event.put(SERVER_OWNER.get(), ServerOwnerEntity.createAttributes().build());
+		event.put(WATCHDOG.get(), WatchdogEntity.createAttributes().build());
+		event.put(MEMORY.get(), MemoryEntity.createAttributes().build());
 	}
 }

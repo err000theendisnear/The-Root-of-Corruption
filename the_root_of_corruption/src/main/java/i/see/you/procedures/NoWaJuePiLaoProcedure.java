@@ -14,7 +14,7 @@ public class NoWaJuePiLaoProcedure {
 	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		itemstack.setDamageValue(0);
+		MendingProcedure.execute(itemstack);
 		TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = 0;
 		TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())

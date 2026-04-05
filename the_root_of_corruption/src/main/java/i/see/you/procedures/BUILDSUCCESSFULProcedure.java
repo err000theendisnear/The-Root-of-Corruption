@@ -33,7 +33,7 @@ public class BUILDSUCCESSFULProcedure {
 														AlertWindowsProcedure.execute("> Task :assemble", "Executing Gradle task: build");
 														TheRootOfCorruptionMod.queueServerWork(20, () -> {
 															AlertWindowsProcedure.execute("> Task :build", "Executing Gradle task: build");
-															TheRootOfCorruptionMod.queueServerWork(20, () -> {
+															TheRootOfCorruptionMod.queueServerWork(50, () -> {
 																AlertWindowsProcedure.execute("BUILD SUCCESSFUL", "Executing Gradle task: build");
 															});
 														});

@@ -14,10 +14,10 @@ import i.see.you.entity.ForgottenPlayerEntity;
 
 public class CanForgottenProcedure {
 	public static boolean execute(LevelAccessor world, double x, double y, double z) {
-		return Mth.nextInt(RandomSource.create(), 0, 100) == 0 && ((Entity) world.getEntitiesOfClass(ForgottenPlayerEntity.class, AABB.ofSize(new Vec3(x, y, z), 100, 100, 100), e -> true).stream().sorted(new Object() {
+		return Mth.nextInt(RandomSource.create(), 0, 20) == 0 && ((Entity) world.getEntitiesOfClass(ForgottenPlayerEntity.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
 			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null)) == null && !world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 32, 32, 32), e -> true).isEmpty();
+		}.compareDistOf(x, y, z)).findFirst().orElse(null)) == null && !(!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10, 10, 10), e -> true).isEmpty());
 	}
 }

@@ -6,15 +6,17 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 
+import java.lang.reflect.Method;
+
 public class KillentityProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
-		if (entity == null)
-			return;
+		if (entity == null) return;
+		DamageSource source = new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL));
 		while (entity.isAlive()) {
-			entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL)), entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1);
-			entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.FELL_OUT_OF_WORLD)), entity instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1);
-			if (entity instanceof LivingEntity _entity)
-				_entity.setHealth(0);
+			entity.hurt(source, Float.MAX_VALUE);
+			entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.FELL_OUT_OF_WORLD)), Float.MAX_VALUE);
+			if (entity instanceof LivingEntity _ent)
+				_ent.setHealth(0);
 			entity.kill();
 		}
 	}

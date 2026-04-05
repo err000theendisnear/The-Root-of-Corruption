@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import i.see.you.client.renderer.YourjavaisdieRenderer;
 import i.see.you.client.renderer.YourjavaisdieChaseRenderer;
 import i.see.you.client.renderer.WatcherRenderer;
+import i.see.you.client.renderer.WatchdogRenderer;
 import i.see.you.client.renderer.UndefinedleftthegameRenderer;
 import i.see.you.client.renderer.UndefinedOnSurfaceRenderer;
 import i.see.you.client.renderer.UndefinedBossRenderer;
@@ -22,10 +23,12 @@ import i.see.you.client.renderer.UndefindchaseRenderer;
 import i.see.you.client.renderer.TamedBase0Renderer;
 import i.see.you.client.renderer.SteveRenderer;
 import i.see.you.client.renderer.SoulRenderer;
+import i.see.you.client.renderer.ServerOwnerRenderer;
 import i.see.you.client.renderer.RandomCrossRenderer;
 import i.see.you.client.renderer.MissingOneRenderer;
 import i.see.you.client.renderer.MissingOneChaseRenderer;
 import i.see.you.client.renderer.MinecraftRootRenderer;
+import i.see.you.client.renderer.MemoryRenderer;
 import i.see.you.client.renderer.LostMemoryRenderer;
 import i.see.you.client.renderer.InvalidCreeperRenderer;
 import i.see.you.client.renderer.InvadeCrashreportRenderer;
@@ -71,5 +74,8 @@ public class TheRootOfCorruptionModEntityRenderers {
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.GAME_CRASH.get(), GameCrashRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.MISSING_ONE.get(), MissingOneRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.MISSING_ONE_CHASE.get(), MissingOneChaseRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.SERVER_OWNER.get(), ServerOwnerRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.WATCHDOG.get(), WatchdogRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.MEMORY.get(), MemoryRenderer::new);
 	}
 }

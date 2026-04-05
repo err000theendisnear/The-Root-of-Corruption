@@ -41,23 +41,23 @@ public class GlitchProcedure {
 		}
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {
-				_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:nothing")), SoundSource.VOICE, 100, 1);
+				_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:nothing")), SoundSource.MASTER, 100, 1);
 			} else {
-				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:nothing")), SoundSource.VOICE, 100, 1, false);
+				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:nothing")), SoundSource.MASTER, 100, 1, false);
 			}
 		}
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {
-				_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:wrong_sound")), SoundSource.VOICE, 100, 1);
+				_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:wrong_sound")), SoundSource.MASTER, 100, 1);
 			} else {
-				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:wrong_sound")), SoundSource.VOICE, 100, 1, false);
+				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:wrong_sound")), SoundSource.MASTER, 100, 1, false);
 			}
 		}
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {
-				_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.VOICE, 100, 1);
+				_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.MASTER, 100, 1);
 			} else {
-				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.VOICE, 100, 1, false);
+				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.MASTER, 100, 1, false);
 			}
 		}
 		TheRootOfCorruptionMod.queueServerWork(2000, () -> {

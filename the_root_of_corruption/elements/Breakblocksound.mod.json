@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"math_random_int_between\"><value name=\"min\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value><value name=\"max\"><block type=\"math_number\"><field name=\"NUM\">7</field></block></value></block></value><statement name=\"DO\"><block type=\"wait\"><value name=\"ticks\"><block type=\"math_dual_ops\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"java_code_get\"><field name=\"CODE\">index0</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">20</field></block></value></block></value><statement name=\"do\"><block type=\"call_procedure\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"0\"></mutation><field name=\"procedure\">FakeBreakblock</field></block></statement></block></statement></block></next></block></xml>"
+  }
+}

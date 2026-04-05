@@ -73,7 +73,7 @@
     "trackingRange": 640,
     "followRange": 160,
     "health": 1024,
-    "xpAmount": 0,
+    "xpAmount": 32768,
     "waterMob": false,
     "breatheUnderwater": {
       "fixedValue": false
@@ -126,6 +126,11 @@
         "name": "hp",
         "type": "integer",
         "value": 1024
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "value": ""
       }
     ],
     "onStruckByLightning": {

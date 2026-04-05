@@ -16,17 +16,22 @@ import net.minecraft.core.BlockPos;
 import java.util.Comparator;
 import java.util.ArrayList;
 
+import i.see.you.TheRootOfCorruptionMod;
+
 public class UdfchaseSpawnProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		TheRootOfCorruptionMod.queueServerWork(666, () -> {
+			DiscardProcedure.execute(entity);
+		});
 		for (Entity entityiterator : new ArrayList<>(world.players())) {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:chase")), SoundSource.PLAYERS, 100,
+					_level.playSound(null, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:chase")), SoundSource.MASTER, 100,
 							1);
 				} else {
-					_level.playLocalSound((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:chase")), SoundSource.PLAYERS, 100, 1, false);
+					_level.playLocalSound((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:chase")), SoundSource.MASTER, 100, 1, false);
 				}
 			}
 		}

@@ -11,6 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.client.Minecraft;
 
 import java.util.Comparator;
 
@@ -26,9 +27,23 @@ public class SpawnrandomentityProcedure {
 				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 			}
 		}.compareDistOf(x, y, z)).findFirst().orElse(null)) == null && world.canSeeSkyFromBelowWater(BlockPos.containing(x, y, z)) && (entity.level().dimension()) == Level.OVERWORLD) {
-			if (1 == Mth.nextInt(RandomSource.create(), 1, 3)) {
+			if (1 == Mth.nextInt(RandomSource.create(), 1, 2)) {
 				if (world instanceof ServerLevel _level) {
 					Entity entityToSpawn = TheRootOfCorruptionModEntities.UNDEFINDSTARE.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+					if (entityToSpawn != null) {
+						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
+					}
+				}
+			} else if (Minecraft.getInstance().getFps() > 120 && 1 == Mth.nextInt(RandomSource.create(), 1, 2)) {
+				if (world instanceof ServerLevel _level) {
+					Entity entityToSpawn = TheRootOfCorruptionModEntities.WATCHDOG.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+					if (entityToSpawn != null) {
+						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
+					}
+				}
+			} else if (1 == Mth.nextInt(RandomSource.create(), 1, 3)) {
+				if (world instanceof ServerLevel _level) {
+					Entity entityToSpawn = TheRootOfCorruptionModEntities.SERVER_OWNER.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
 					if (entityToSpawn != null) {
 						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 					}

@@ -15,6 +15,9 @@
     "the_root_of_corruption:custom_death_watch",
     "the_root_of_corruption:soul",
     "the_root_of_corruption:missing_one",
-    "the_root_of_corruption:missing_one_chase"
+    "the_root_of_corruption:missing_one_chase",
+    "the_root_of_corruption:server_owner",
+    "the_root_of_corruption:memory",
+    "the_root_of_corruption:watchdog"
   ]
 }

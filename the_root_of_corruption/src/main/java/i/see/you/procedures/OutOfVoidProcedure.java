@@ -4,16 +4,12 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
-
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
-
-import javax.annotation.Nullable;
-
-import i.see.you.init.TheRootOfCorruptionModItems;
+import i.see.you.init.TheRootOfCorruptionModItems;
 
 @EventBusSubscriber
 public class OutOfVoidProcedure {

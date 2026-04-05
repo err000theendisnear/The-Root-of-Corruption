@@ -132,6 +132,8 @@ public class MissingonechasetickupdateProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
+		} else {
+			DiscardProcedure.execute(entity);
 		}
 	}
 }

@@ -30,10 +30,18 @@ import i.see.you.TheRootOfCorruptionMod;
 
 public class TrueleftthegameProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity sourceentity) {
-		if (sourceentity == null)
-			return;
+		Entity player = null;
 		if (sourceentity instanceof Player || sourceentity instanceof ServerPlayer) {
-			if (sourceentity instanceof ServerPlayer _serverPlayer)
+			player = sourceentity;
+		} else {
+			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
+				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
+				}
+			}.compareDistOf(x, y, z)).findFirst().orElse(null);
+		}
+		if (!(player == null)) {
+			if (player instanceof ServerPlayer _serverPlayer)
 				_serverPlayer.awardRecipesByKey(Collections.singletonList(ResourceLocation.parse("the_root_of_corruption:savelost")));
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((((Component.translatable("death.attack.player").getString()).replace("%1$s", "Undefined")).replace("%2$s", sourceentity.getDisplayName().getString()))),
@@ -44,8 +52,8 @@ public class TrueleftthegameProcedure {
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7e" + (Component.translatable("multiplayer.player.left").getString()).replace("%s", "Undefined"))), false);
 			TheRootOfCorruptionModVariables.MapVariables.get(world).left = true;
 			TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
-			if (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 6400, 6400, 6400), e -> true).isEmpty()) {
-				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 6400, 6400, 6400), e -> true).stream().sorted(new Object() {
+			if (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).isEmpty()) {
+				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
 					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 					}
@@ -63,7 +71,7 @@ public class TrueleftthegameProcedure {
 						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 					}
 				}
-				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 6400, 6400, 6400), e -> true).stream().sorted(new Object() {
+				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
 					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 					}

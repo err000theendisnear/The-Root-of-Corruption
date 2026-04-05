@@ -18,12 +18,12 @@
     "recipeRemainder": {
       "value": ""
     },
-    "destroyAnyBlock": false,
-    "immuneToFire": false,
+    "destroyAnyBlock": true,
+    "immuneToFire": true,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "enableMeleeDamage": false,
-    "damageVsEntity": 0.0,
+    "enableMeleeDamage": true,
+    "damageVsEntity": 9.0,
     "specialInformation": {
       "fixedValue": [
         "err"
@@ -34,6 +34,9 @@
     },
     "inventorySize": 9,
     "inventoryStackSize": 64,
+    "onEntityHitWith": {
+      "name": "DoKnockback"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,
@@ -45,7 +48,7 @@
     "nutritionalValue": -20,
     "saturation": -20.0,
     "eatResultItem": {
-      "value": "CUSTOM:ItemIsMissingID"
+      "value": "CUSTOM:FakeLaugh"
     },
     "isMeat": false,
     "isAlwaysEdible": true,

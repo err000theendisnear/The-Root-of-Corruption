@@ -70,7 +70,7 @@
     "movementSpeed": 0.4,
     "stepHeight": 100.0,
     "armorBaseValue": 0.0,
-    "trackingRange": 64,
+    "trackingRange": 640,
     "followRange": 616,
     "health": 1024,
     "xpAmount": 0,
@@ -120,12 +120,6 @@
       "value": ""
     },
     "entityDataEntries": [],
-    "whenMobDies": {
-      "name": "Crash"
-    },
-    "whenMobIsHurt": {
-      "name": "Cavesound"
-    },
     "whenThisMobKillsAnother": {
       "name": "Crash"
     },

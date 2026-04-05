@@ -16,6 +16,7 @@ import net.minecraft.network.chat.Component;
 import javax.annotation.Nullable;
 
 import i.see.you.network.TheRootOfCorruptionModVariables;
+import i.see.you.configuration.ConfigConfiguration;
 
 @EventBusSubscriber
 public class PlayerJoinProcedure {
@@ -53,6 +54,9 @@ public class PlayerJoinProcedure {
 				if (!world.isClientSide() && world.getServer() != null)
 					world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7e" + (Component.translatable("multiplayer.player.joined").getString()).replace("%s", entity.getDisplayName().getString()))), false);
 			}
+		}
+		if (TheRootOfCorruptionModVariables.MapVariables.get(world).online && !IsOnlineProcedure.execute(entity) && ConfigConfiguration.BAN.get()) {
+			KickplayerProcedure.execute(entity, Component.translatable("mco.error.invalid.session.message").getString() + "(" + Component.translatable("mco.error.invalid.session.title").getString() + ")");
 		}
 	}
 }

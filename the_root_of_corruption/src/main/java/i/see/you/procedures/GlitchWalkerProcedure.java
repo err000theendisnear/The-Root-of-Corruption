@@ -16,7 +16,7 @@ public class GlitchWalkerProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		itemstack.setDamageValue(0);
+		MendingProcedure.execute(itemstack);
 		if (ConfigConfiguration.REPLACE_TO_GLOWING_OBSIDIAN.get() && !entity.isUnderWater()) {
 			for (int index0 = 0; index0 < 3; index0++) {
 				for (int index1 = 0; index1 < 3; index1++) {

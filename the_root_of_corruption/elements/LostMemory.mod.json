@@ -51,7 +51,7 @@
       "value": "CUSTOM:ItemIsMissingID"
     },
     "equipmentHelmet": {
-      "value": "Items.NETHERITE_HELMET"
+      "value": ""
     },
     "equipmentBody": {
       "value": ""
@@ -68,12 +68,12 @@
     "attackKnockback": 3.0,
     "knockbackResistance": 100.0,
     "movementSpeed": 0.3,
-    "stepHeight": 3.0,
+    "stepHeight": 30.0,
     "armorBaseValue": 30.0,
     "trackingRange": 514,
     "followRange": 114,
     "health": 150,
-    "xpAmount": 0,
+    "xpAmount": 50,
     "waterMob": false,
     "breatheUnderwater": {
       "fixedValue": true

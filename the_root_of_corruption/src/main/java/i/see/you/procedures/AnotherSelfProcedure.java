@@ -26,6 +26,7 @@ import net.minecraft.world.item.component.ResolvableProfile;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.tags.TagKey;
 import java.util.Comparator;
+import java.util.UUID;
 
 public class AnotherSelfProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -54,7 +55,7 @@ public class AnotherSelfProcedure {
 					player_head = new ItemStack(Blocks.PLAYER_HEAD).copy();
 					if (entity instanceof LivingEntity _livingEntity10 && _livingEntity10.getAttributes().hasAttribute(Attributes.MAX_HEALTH))
 						_livingEntity10.getAttribute(Attributes.MAX_HEALTH).setBaseValue((player instanceof LivingEntity _livEnt ? _livEnt.getMaxHealth() : -1));
-					GameProfile profile = new GameProfile(null, playername);
+					GameProfile profile = new GameProfile(UUID.fromString(player.getStringUUID()), playername);
 					ResolvableProfile resolvableProfile = new ResolvableProfile(profile);
 					player_head.set(DataComponents.PROFILE, resolvableProfile);
 					{

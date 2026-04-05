@@ -19,10 +19,9 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.component.ResolvableProfile;
 import com.mojang.authlib.GameProfile;
-
+import java.util.UUID;
 import java.util.Comparator;
-
-import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.GameProfile;
 
 public class CrossProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
@@ -62,9 +61,9 @@ public class CrossProcedure {
 			playername = player.getDisplayName().getString();
 			if (IsOnlineProcedure.execute(player)) {
 				head = new ItemStack(Blocks.PLAYER_HEAD).copy();
-					GameProfile profile = new GameProfile(null, playername);
-					ResolvableProfile resolvableProfile = new ResolvableProfile(profile);
-					head.set(DataComponents.PROFILE, resolvableProfile);
+				GameProfile profile = new GameProfile(UUID.fromString(player.getStringUUID()), playername);
+				ResolvableProfile resolvableProfile = new ResolvableProfile(profile);
+				head.set(DataComponents.PROFILE, resolvableProfile);
 			}
 		}
 		if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {

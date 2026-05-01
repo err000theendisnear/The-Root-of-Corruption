@@ -24,12 +24,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
 import i.see.you.network.TheRootOfCorruptionModVariables;
+import i.see.you.init.TheRootOfCorruptionModEntities;
 
 @EventBusSubscriber
 public class IntothecaveProcedure {
@@ -57,7 +56,7 @@ public class IntothecaveProcedure {
 			}
 		} else if (TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface == 5000) {
 			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("into the cave,now."), true);
+				_player.displayClientMessage(Component.literal("into the cave, now."), true);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:glitch")), SoundSource.PLAYERS, 100, 1);
@@ -82,7 +81,7 @@ public class IntothecaveProcedure {
 				_player.displayClientMessage(Component.literal("behind you."), true);
 			if (entity instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.SURVIVAL);
-			if (world.getLevelData().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
+			if (world.getLevelData().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || Math.random() < 0.7) {
 				if (world instanceof ServerLevel _level) {
 					Entity entityToSpawn = EntityType.CREEPER.spawn(_level, BlockPos.containing(x - entity.getLookAngle().x, y, z - entity.getZ()), MobSpawnType.MOB_SUMMONED);
 					if (entityToSpawn != null) {
@@ -112,17 +111,14 @@ public class IntothecaveProcedure {
 					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:error")), SoundSource.PLAYERS, 100, 1, false);
 				}
 			}
-			if (entity instanceof ServerPlayer _player)
-				_player.setGameMode(GameType.SURVIVAL);
 			if (entity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal("right behind you."), true);
 			if (entity instanceof LivingEntity _entity)
 				_entity.removeEffect(MobEffects.NIGHT_VISION);
-			{
-				Entity _ent = entity;
-				if (!_ent.level().isClientSide() && _ent.getServer() != null) {
-					_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-							_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "summon error_not_found:undefined_on_surface");
+			if (world instanceof ServerLevel _level) {
+				Entity entityToSpawn = TheRootOfCorruptionModEntities.UNDEFINED_ON_SURFACE.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+				if (entityToSpawn != null) {
+					entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 				}
 			}
 		}

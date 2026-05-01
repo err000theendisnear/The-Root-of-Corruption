@@ -11,11 +11,75 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.player.LocalPlayer;
 
+import java.util.ArrayList;
+
 public class ExecuteEventProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static String execute(LevelAccessor world, double y, Entity entity) {
 		if (entity == null)
-			return;
+			return "";
+		String name = "";
+		ArrayList<Object> event = new ArrayList<>();
+		ArrayList<Object> place = new ArrayList<>();
+		ArrayList<Object> give = new ArrayList<>();
+		give.add("null");
+		give.add("server");
+		give.add("bucket");
+		give.add("deepslate");
+		for (Object arraylistiterator : give) {
+			event.add(("give" + (arraylistiterator instanceof String _str5 ? _str5 : "")));
+		} //give
+		place.add("copper");
+		place.add("light");
+		place.add("fire");
+		for (Object arraylistiterator : place) {
+			event.add(("place" + (arraylistiterator instanceof String _str12 ? _str12 : "")));
+		} //place
+		event.add("pause");
+		event.add("overlay");
+		event.add("die");
+		event.add("lava");
+		event.add("gui");
+		event.add("message");
+		event.add("message");
+		event.add("chat");
+		event.add("gc");
+		event.add("totem");
+		event.add("stuck");
+		event.add("under");
+		event.add("particle");
+		event.add("goaway");
+		event.add("rename");
+		event.add("attack");
+		event.add("undefined");
+		event.add("break");
+		event.add("void");
+		event.add("windcharge");
+		event.add("fly");
+		event.add("title");
+		event.add("broken");
+		event.add("memory");
+		event.add("safe");
+		event.add("damage");
+		event.add("behind");
+		event.add("errnull");
+		event.add("throw");
+		event.add("jump");
+		event.add("see");
+		event.add("enchant");
 		//why can't execute event?
+		if (Mth.nextInt(RandomSource.create(), 0, 6) == 0) {
+			event.add("ip");
+		} else if (Mth.nextInt(RandomSource.create(), 0, 3) == 0) {
+			event.add("left");
+		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 0) {
+			event.add("build");
+		} else if (Mth.nextInt(RandomSource.create(), 0, 1) == 0) {
+			event.add("corruption");
+		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 0) {
+			event.add("log");
+		} else if (Math.random() < 0.45) {
+			event.add("cantsee");
+		}
 		if (!(new Object() {
 			public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 				if (_ent instanceof ServerPlayer _player)
@@ -24,66 +88,28 @@ public class ExecuteEventProcedure {
 					return _player.getRecipeBook().contains(recipe);
 				return false;
 			}
-		}.hasRecipe(entity, ResourceLocation.parse("the_root_of_corruption:errr"))) && Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//because recipe event need before give the recipe.
-			CutomRecipeProcedure.execute(entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			HorrornameProcedure.execute(entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			FakePlayerAttackProcedure.execute(world, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 1) {
-			BreakblocksoundProcedure.execute(world, x, y, z);
+		}.hasRecipe(entity, ResourceLocation.parse("the_root_of_corruption:errr")))) {//because recipe event need before give the recipe.
+			event.add("recipe");
 		} else if (Mth.nextInt(RandomSource.create(), 0, 1) == 1) {
-			WindchargeProcedure.execute(world, x, y, z);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 4) == 1) {
-			FromthevoidProcedure.execute(world, x, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			FlyplayerProcedure.execute(world, x, y, z, entity);
+			event.add("doom");
+		} else if (entity instanceof ServerPlayer _plr62 && _plr62.level() instanceof ServerLevel && _plr62.getAdvancements().getOrStartProgress(_plr62.server.getAdvancements().get(ResourceLocation.parse("minecraft:end/kill_dragon"))).isDone()) {//gift event need kill ender dragon.
+			event.add("gift");
+		} else if ((entity.level().dimension()) == Level.OVERWORLD) {//rot in hell event need you are in overworld.
+			event.add("hell");
 		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 1) {
-			BUILDSUCCESSFULProcedure.execute(world);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 2) == 1) {
-			IpProcedure.execute(entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			HorrorTitleProcedure.execute();
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			TheBrokenAnomalyProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 3) == 0) {
-			LeftgameProcedure.execute(world, x, y, z);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 5) == 0) {
-			OutOfMemoryErrorProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 6) == 0) {
-			HotSpotLogProcedure.execute(world, x, y, z);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			YouarenotsafeProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			ToDeathProcedure.execute(world, entity);
-		} else if ((entity.level().dimension()) == Level.OVERWORLD && Mth.nextInt(RandomSource.create(), 1, 2) == 1) {//rot in hell event need you are in overworld.
-			RotinthehellProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 0, 5) == 0) {
-			JumpscareProcedure.execute(world, x, y, z);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			RightbehindyouProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			MissingProcedure.execute(entity);
-		} else if (entity instanceof ServerPlayer _plr24 && _plr24.level() instanceof ServerLevel && _plr24.getAdvancements().getOrStartProgress(_plr24.server.getAdvancements().get(ResourceLocation.parse("minecraft:end/kill_dragon"))).isDone()
-				&& Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			GiftProcedure.execute(world, x, y, z, entity);
-			//gift event need kill ender dragon.
-		} else if (!world.getLevelData().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY) && Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			StartkeepInventoryProcedure.execute(world, x, y, z);
+			event.add("jumpscare");
+		} else if (world.getLevelData().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
+			event.add("keep");
 			//keepinvenory event need gamerule keepinvenory is false.
-		} else if (y < 0 && Mth.nextInt(RandomSource.create(), 1, 3) == 1) {
-			DeepcavesoundProcedure.execute(world, x, y, z, entity);
-			//bedrock event need y<0.
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			PlaceErrNullProcedure.execute(world, x, y, z);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			ArrowtheerrorProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			ToJumpProcedure.execute(world, x, y, z, entity);
-		} else if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
-			IcanseeyouProcedure.execute(world, x, y, z, entity);
-		} else {
-			UndefindProcedure.execute(entity);
+		} else if (y < 0) {//bedrock event need y<0.
+			event.add("bedrock");
 		}
+		try {
+			name = event.get(Mth.nextInt(RandomSource.create(), 0, (int) (event.size() - 1))) instanceof String _str75 ? _str75 : "";
+		} catch (Throwable e) {//沟槽的IndexOutOfBoundsException
+			e.printStackTrace();
+			return "";
+		}
+		return name;
 	}
 }

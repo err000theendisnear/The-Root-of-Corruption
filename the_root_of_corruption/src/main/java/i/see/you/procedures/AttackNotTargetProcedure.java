@@ -46,8 +46,8 @@ public class AttackNotTargetProcedure {
 		}
 		if (!(entity instanceof Player || entity instanceof ServerPlayer)) {
 			entity.push((sourceentity.getLookAngle().x), (sourceentity.getLookAngle().y), (sourceentity.getLookAngle().z));
-			entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL)), (float) ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / 3.8));
-			sourceentity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((entity.getX()), (entity.getY()), (entity.getZ())));
+			sourceentity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL)), (float) ((sourceentity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) / 3.8));
+			entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((sourceentity.getX()), (sourceentity.getY()), (sourceentity.getZ())));
 			if (!((entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).getItem() == Items.TOTEM_OF_UNDYING)) {
 				TheRootOfCorruptionMod.queueServerWork(40, () -> {
 					if (entity instanceof LivingEntity _entity) {
@@ -81,14 +81,14 @@ public class AttackNotTargetProcedure {
 									entityToSpawn.hasImpulse = true;
 									return entityToSpawn;
 								}
-							}.getPotion(projectileLevel, sourceentity, 0, (-1), 0);
+							}.getPotion(projectileLevel, entity, 0, (-1), 0);
 							_entityToSpawn.setPos(x, y, z);
 							_entityToSpawn.shoot(0, (-1), 0, 1, 0);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
-						if (entity.getType().is(EntityTypeTags.UNDEAD)) {
+						if (sourceentity.getType().is(EntityTypeTags.UNDEAD)) {
 							{
-								Entity _shootFrom = sourceentity;
+								Entity _shootFrom = entity;
 								Level projectileLevel = _shootFrom.level();
 								if (!projectileLevel.isClientSide()) {
 									Projectile _entityToSpawn = new Object() {
@@ -100,7 +100,7 @@ public class AttackNotTargetProcedure {
 											entityToSpawn.hasImpulse = true;
 											return entityToSpawn;
 										}
-									}.getPotion(projectileLevel, sourceentity, (sourceentity.getX()), (sourceentity.getLookAngle().y), (sourceentity.getZ()));
+									}.getPotion(projectileLevel, sourceentity, (entity.getLookAngle().x), (entity.getLookAngle().y), (entity.getLookAngle().z));
 									_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
 									_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 2, 3);
 									projectileLevel.addFreshEntity(_entityToSpawn);
@@ -108,7 +108,7 @@ public class AttackNotTargetProcedure {
 							}
 						} else {
 							{
-								Entity _shootFrom = sourceentity;
+								Entity _shootFrom = entity;
 								Level projectileLevel = _shootFrom.level();
 								if (!projectileLevel.isClientSide()) {
 									Projectile _entityToSpawn = new Object() {
@@ -120,7 +120,7 @@ public class AttackNotTargetProcedure {
 											entityToSpawn.hasImpulse = true;
 											return entityToSpawn;
 										}
-									}.getPotion(projectileLevel, sourceentity, (sourceentity.getX()), (sourceentity.getLookAngle().y), (sourceentity.getZ()));
+									}.getPotion(projectileLevel, sourceentity, (entity.getLookAngle().x), (entity.getLookAngle().y), (entity.getLookAngle().z));
 									_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
 									_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 2, 3);
 									projectileLevel.addFreshEntity(_entityToSpawn);
@@ -162,29 +162,28 @@ public class AttackNotTargetProcedure {
 						projectileLevel.addFreshEntity(_entityToSpawn);
 					}
 				}
-				if (entity instanceof LivingEntity _entity)
+				if (sourceentity instanceof LivingEntity _entity)
 					_entity.removeAllEffects();
-				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 1000, 2));
-				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 1000, 2));
-				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 1000, 2));
-				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				if (sourceentity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 					_entity.addEffect(new MobEffectInstance(MobEffects.POISON, 1000, 2));
-				entity.setAirSupply(0);
-				if (entity instanceof Mob _entity && ((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 100, 100, 100), e -> true).stream().sorted(new Object() {
+				sourceentity.setAirSupply(0);
+				if (world instanceof ServerLevel _level) {
+					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
+					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(sourceentity.getX(), sourceentity.getY(), sourceentity.getZ())));;
+					_level.addFreshEntity(entityToSpawn);
+				}
+				if (sourceentity instanceof Mob _entity && ((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1000, 1000, 1000), e -> true).stream().sorted(new Object() {
 					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
 					}
 				}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof LivingEntity _ent)
 					_entity.setTarget(_ent);
-				if (world instanceof ServerLevel _level) {
-					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(entity.getX(), entity.getY(), entity.getZ())));
-					entityToSpawn.setVisualOnly(true);
-					_level.addFreshEntity(entityToSpawn);
-				}
 			});
 		}
 	}

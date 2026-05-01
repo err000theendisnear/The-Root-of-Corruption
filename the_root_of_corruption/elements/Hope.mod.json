@@ -9,7 +9,11 @@
     "states": [],
     "name": "Don't use this item =)",
     "rarity": "EPIC",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "stackSize": 1,
     "enchantability": 0,
     "useDuration": 0,

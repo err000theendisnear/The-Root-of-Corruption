@@ -17,10 +17,10 @@
       "item": "minecraft:enchanted_golden_apple"
     },
     "d": {
-      "item": "minecraft:mace"
+      "item": "the_root_of_corruption:save_the_world"
     },
     "e": {
-      "item": "the_root_of_corruption:save_the_world"
+      "item": "the_root_of_corruption:undefined_heart"
     }
   },
   "result": {

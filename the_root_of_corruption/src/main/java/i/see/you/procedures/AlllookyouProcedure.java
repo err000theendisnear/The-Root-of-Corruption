@@ -20,6 +20,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
@@ -49,12 +51,12 @@ public class AlllookyouProcedure {
 		double cave = 0;
 		BlockState block = Blocks.AIR.defaultBlockState();
 		String blockname = "";
-		xx = x - 8;
-		for (int index0 = 0; index0 < 4; index0++) {
-			yy = y - 8;
-			for (int index1 = 0; index1 < 4; index1++) {
-				zz = z - 8;
-				for (int index2 = 0; index2 < 4; index2++) {
+		xx = x - 16;
+		for (int index0 = 0; index0 < 8; index0++) {
+			yy = y - 16;
+			for (int index1 = 0; index1 < 8; index1++) {
+				zz = z - 16;
+				for (int index2 = 0; index2 < 8; index2++) {
 					block = (world.getBlockState(BlockPos.containing(xx, yy, zz)));
 					blockname = BuiltInRegistries.BLOCK.getKey(block.getBlock()).toString();
 					if (blockname.contains("stone") || blockname.contains("rock") || blockname.contains("ore")) {
@@ -74,7 +76,7 @@ public class AlllookyouProcedure {
 				TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface + 0.01;
 				TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 			} else {
-				if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y, z)) && world.getMaxLocalRawBrightness(BlockPos.containing(x, y, z)) > 4 && y > 20 && cave < 40) {
+				if (world.canSeeSkyFromBelowWater(BlockPos.containing(x, y, z)) && world.getMaxLocalRawBrightness(BlockPos.containing(x, y, z)) > 4 && y > 20 && cave < 450) {
 					if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.GRASS_BLOCK) {
 						TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface = TheRootOfCorruptionModVariables.MapVariables.get(world).on_surface + 0.02;
 						TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
@@ -100,6 +102,20 @@ public class AlllookyouProcedure {
 						entityiterator.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3(x, (y + 1), z));
 					}
 				}
+			}
+		}
+		{
+			Entity _ent = entity;
+			if (!_ent.level().isClientSide() && _ent.getServer() != null) {
+				_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
+						_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "stopsound @a * music.game");
+			}
+		}
+		{
+			Entity _ent = entity;
+			if (!_ent.level().isClientSide() && _ent.getServer() != null) {
+				_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
+						_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "stopsound @a * music.menu");
 			}
 		}
 	}

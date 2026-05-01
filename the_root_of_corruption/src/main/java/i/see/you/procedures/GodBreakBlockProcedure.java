@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.BlockPos;
 import i.see.you.configuration.ConfigConfiguration;
+import i.see.you.entity.UndefinedBossEntity;
 
 @EventBusSubscriber
 public class GodBreakBlockProcedure {
@@ -22,11 +23,25 @@ public class GodBreakBlockProcedure {
 	public static void execute(EntityTickEvent.Pre event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (ConfigConfiguration.BREAKBLOCK.get() && entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god")))) {
-			BlockPos _pos = BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z);
-			Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z), null);
-			world.destroyBlock(_pos, false);
-			event.setCanceled(false);
+		if (ConfigConfiguration.BREAKBLOCK.get() && (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god"))) || entity instanceof UndefinedBossEntity)) {
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y, z + entity.getLookAngle().z));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x + 1, y + entity.getLookAngle().y, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x + 1, y + entity.getLookAngle().y, z + entity.getLookAngle().z - 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x - 1, y + entity.getLookAngle().y, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x - 1, y + entity.getLookAngle().y, z + entity.getLookAngle().z - 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x + 1, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x - 1, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x + 1, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z - 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x - 1, y + entity.getLookAngle().y + 1, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x + 1, y + entity.getLookAngle().y + 2, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x - 1, y + entity.getLookAngle().y + 2, z + entity.getLookAngle().z + 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x + 1, y + entity.getLookAngle().y + 2, z + entity.getLookAngle().z - 1));
+			breakblock(world, BlockPos.containing(x + entity.getLookAngle().x - 1, y + entity.getLookAngle().y + 2, z + entity.getLookAngle().z + 1));
 		}
+	}
+	private static void breakblock(LevelAccessor world, BlockPos _pos) {
+		Block.dropResources(world.getBlockState(_pos), world, _pos, null);
+		world.destroyBlock(_pos, false);
 	}
 }

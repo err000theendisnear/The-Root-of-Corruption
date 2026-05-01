@@ -31,11 +31,7 @@ public class CrossProcedure {
 		world.setBlock(BlockPos.containing(x, y, z), blockstate, 3);
 		world.setBlock(BlockPos.containing(x, y + 1, z), blockstate, 3);
 		world.setBlock(BlockPos.containing(x, y + 2, z), blockstate, 3);
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1000, 1000, 1000), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null);
+		player = NearestPlayerProcedure.execute(world, x, y, z);
 		if (!(player == null) && Mth.nextInt(RandomSource.create(), 0, 50) == 0) {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
@@ -59,12 +55,13 @@ public class CrossProcedure {
 				}
 			}
 			playername = player.getDisplayName().getString();
-			if (IsOnlineProcedure.execute(player)) {
-				head = new ItemStack(Blocks.PLAYER_HEAD).copy();
-				GameProfile profile = new GameProfile(UUID.fromString(player.getStringUUID()), playername);
-				ResolvableProfile resolvableProfile = new ResolvableProfile(profile);
-				head.set(DataComponents.PROFILE, resolvableProfile);
-			}
+			head = new ItemStack(Blocks.PLAYER_HEAD).copy();
+			GameProfile profile = new GameProfile(UUID.fromString(player.getStringUUID()), playername);
+			ResolvableProfile resolvableProfile = new ResolvableProfile(profile);
+			head.set(DataComponents.PROFILE, resolvableProfile);
+			i.see.you.TheRootOfCorruptionMod.LOGGER.info("place cross at : " + BlockPos.containing(x, y, z) + ", blockstate : " + blockstate + "with " + playername + "'s head : " + head);
+		} else {
+			i.see.you.TheRootOfCorruptionMod.LOGGER.info("place cross at : " + BlockPos.containing(x, y, z) + ", blockstate : " + blockstate);
 		}
 		if (Mth.nextInt(RandomSource.create(), 1, 2) == 1) {
 			world.setBlock(BlockPos.containing(x + -1, y + 2, z), blockstate, 3);

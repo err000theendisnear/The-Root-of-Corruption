@@ -34,7 +34,7 @@
       }
     ],
     "customProperties": [],
-    "name": "Fight Gen",
+    "name": "Last Fight Dimension Generator",
     "specialInformation": {
       "fixedValue": []
     },
@@ -42,7 +42,11 @@
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "destroyTool": "Not specified",
     "customDrop": {
       "value": ""

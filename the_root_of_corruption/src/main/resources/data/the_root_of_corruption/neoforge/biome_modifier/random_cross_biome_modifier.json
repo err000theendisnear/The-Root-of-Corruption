@@ -5,7 +5,7 @@
   },
   "spawners": {
     "type": "the_root_of_corruption:random_cross",
-    "weight": 1,
+    "weight": 20,
     "minCount": 1,
     "maxCount": 1
   }

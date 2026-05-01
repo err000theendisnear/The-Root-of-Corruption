@@ -29,6 +29,7 @@ public class ProhibitedtreatmentProcedure {
 			return;
 		if (entity instanceof Player) {
 			if (!world.getEntitiesOfClass(UndefinedBossEntity.class, AABB.ofSize(new Vec3(x, y, z), 512, 512, 512), e -> true).isEmpty()) {
+				entity.invulnerableTime = 0;
 				event.setCanceled(true);
 				return;			
 			}

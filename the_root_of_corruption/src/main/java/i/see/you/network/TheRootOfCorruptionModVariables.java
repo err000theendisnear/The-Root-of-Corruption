@@ -5,6 +5,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
@@ -25,19 +27,51 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.HolderLookup;
 
+import java.util.function.Supplier;
+
 import i.see.you.TheRootOfCorruptionMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class TheRootOfCorruptionModVariables {
 	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, TheRootOfCorruptionMod.MODID);
+	public static final Supplier<AttachmentType<PlayerVariables>> PLAYER_VARIABLES = ATTACHMENT_TYPES.register("player_variables", () -> AttachmentType.serializable(() -> new PlayerVariables()).build());
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		TheRootOfCorruptionMod.addNetworkMessage(SavedDataSyncMessage.TYPE, SavedDataSyncMessage.STREAM_CODEC, SavedDataSyncMessage::handleData);
+		TheRootOfCorruptionMod.addNetworkMessage(PlayerVariablesSyncMessage.TYPE, PlayerVariablesSyncMessage.STREAM_CODEC, PlayerVariablesSyncMessage::handleData);
 	}
 
 	@EventBusSubscriber
 	public static class EventBusVariableHandlers {
+		@SubscribeEvent
+		public static void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
+			if (event.getEntity() instanceof ServerPlayer player)
+				player.getData(PLAYER_VARIABLES).syncPlayerVariables(event.getEntity());
+		}
+
+		@SubscribeEvent
+		public static void onPlayerRespawnedSyncPlayerVariables(PlayerEvent.PlayerRespawnEvent event) {
+			if (event.getEntity() instanceof ServerPlayer player)
+				player.getData(PLAYER_VARIABLES).syncPlayerVariables(event.getEntity());
+		}
+
+		@SubscribeEvent
+		public static void onPlayerChangedDimensionSyncPlayerVariables(PlayerEvent.PlayerChangedDimensionEvent event) {
+			if (event.getEntity() instanceof ServerPlayer player)
+				player.getData(PLAYER_VARIABLES).syncPlayerVariables(event.getEntity());
+		}
+
+		@SubscribeEvent
+		public static void clonePlayer(PlayerEvent.Clone event) {
+			PlayerVariables original = event.getOriginal().getData(PLAYER_VARIABLES);
+			PlayerVariables clone = new PlayerVariables();
+			clone.undefined_uuid = original.undefined_uuid;
+			if (!event.isWasDeath()) {
+			}
+			event.getEntity().setData(PLAYER_VARIABLES, clone);
+		}
+
 		@SubscribeEvent
 		public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
 			if (event.getEntity() instanceof ServerPlayer player) {
@@ -112,6 +146,9 @@ public class TheRootOfCorruptionModVariables {
 		public double spawnz = 0;
 		public boolean online = false;
 		public boolean tovoid = false;
+		public boolean canyouseeme = false;
+		public boolean unpauseable = false;
+		public double screen_phase = 0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -136,6 +173,9 @@ public class TheRootOfCorruptionModVariables {
 			spawnz = nbt.getDouble("spawnz");
 			online = nbt.getBoolean("online");
 			tovoid = nbt.getBoolean("tovoid");
+			canyouseeme = nbt.getBoolean("canyouseeme");
+			unpauseable = nbt.getBoolean("unpauseable");
+			screen_phase = nbt.getDouble("screen_phase");
 		}
 
 		@Override
@@ -156,6 +196,9 @@ public class TheRootOfCorruptionModVariables {
 			nbt.putDouble("spawnz", spawnz);
 			nbt.putBoolean("online", online);
 			nbt.putBoolean("tovoid", tovoid);
+			nbt.putBoolean("canyouseeme", canyouseeme);
+			nbt.putBoolean("unpauseable", unpauseable);
+			nbt.putDouble("screen_phase", screen_phase);
 			return nbt;
 		}
 
@@ -209,6 +252,51 @@ public class TheRootOfCorruptionModVariables {
 					else
 						WorldVariables.clientSide.read(message.data.save(new CompoundTag(), context.player().registryAccess()), context.player().registryAccess());
 				}).exceptionally(e -> {
+					context.connection().disconnect(Component.literal(e.getMessage()));
+					return null;
+				});
+			}
+		}
+	}
+
+	public static class PlayerVariables implements INBTSerializable<CompoundTag> {
+		public String undefined_uuid = "\"\"";
+
+		@Override
+		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
+			CompoundTag nbt = new CompoundTag();
+			nbt.putString("undefined_uuid", undefined_uuid);
+			return nbt;
+		}
+
+		@Override
+		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
+			undefined_uuid = nbt.getString("undefined_uuid");
+		}
+
+		public void syncPlayerVariables(Entity entity) {
+			if (entity instanceof ServerPlayer serverPlayer)
+				PacketDistributor.sendToPlayer(serverPlayer, new PlayerVariablesSyncMessage(this));
+		}
+	}
+
+	public record PlayerVariablesSyncMessage(PlayerVariables data) implements CustomPacketPayload {
+		public static final Type<PlayerVariablesSyncMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(TheRootOfCorruptionMod.MODID, "player_variables_sync"));
+		public static final StreamCodec<RegistryFriendlyByteBuf, PlayerVariablesSyncMessage> STREAM_CODEC = StreamCodec
+				.of((RegistryFriendlyByteBuf buffer, PlayerVariablesSyncMessage message) -> buffer.writeNbt(message.data().serializeNBT(buffer.registryAccess())), (RegistryFriendlyByteBuf buffer) -> {
+					PlayerVariablesSyncMessage message = new PlayerVariablesSyncMessage(new PlayerVariables());
+					message.data.deserializeNBT(buffer.registryAccess(), buffer.readNbt());
+					return message;
+				});
+
+		@Override
+		public Type<PlayerVariablesSyncMessage> type() {
+			return TYPE;
+		}
+
+		public static void handleData(final PlayerVariablesSyncMessage message, final IPayloadContext context) {
+			if (context.flow() == PacketFlow.CLIENTBOUND && message.data != null) {
+				context.enqueueWork(() -> context.player().getData(PLAYER_VARIABLES).deserializeNBT(context.player().registryAccess(), message.data.serializeNBT(context.player().registryAccess()))).exceptionally(e -> {
 					context.connection().disconnect(Component.literal(e.getMessage()));
 					return null;
 				});

@@ -37,6 +37,11 @@ public class LaughItem extends Item {
 	}
 
 	@Override
+	public float getDestroySpeed(ItemStack itemstack, BlockState state) {
+		return 10f;
+	}
+
+	@Override
 	public boolean isCorrectToolForDrops(ItemStack itemstack, BlockState state) {
 		return true;
 	}

@@ -1,16 +1,20 @@
 package i.see.you.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import java.util.HashMap;
 
 import i.see.you.world.inventory.MeomorydeathMenu;
+import i.see.you.network.MeomorydeathButtonMessage;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -19,6 +23,7 @@ public class MeomorydeathScreen extends AbstractContainerScreen<MeomorydeathMenu
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	Button button_null;
 
 	public MeomorydeathScreen(MeomorydeathMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -70,5 +75,13 @@ public class MeomorydeathScreen extends AbstractContainerScreen<MeomorydeathMenu
 	@Override
 	public void init() {
 		super.init();
+		button_null = Button.builder(Component.translatable("gui.the_root_of_corruption.meomorydeath.button_null"), e -> {
+			if (true) {
+				PacketDistributor.sendToServer(new MeomorydeathButtonMessage(0, x, y, z));
+				MeomorydeathButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
+		}).bounds(this.leftPos + 70, this.topPos + 149, 46, 20).build();
+		guistate.put("button:button_null", button_null);
+		this.addRenderableWidget(button_null);
 	}
 }

@@ -42,7 +42,11 @@
     "resistance": 100.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "destroyTool": "pickaxe",
     "customDrop": {
       "value": ""

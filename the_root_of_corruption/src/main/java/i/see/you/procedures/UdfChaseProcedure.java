@@ -1,7 +1,5 @@
 package i.see.you.procedures;
 
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.entity.player.Player;
@@ -13,8 +11,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.particles.SimpleParticleType;
 
-import java.util.Comparator;
-
 import i.see.you.init.TheRootOfCorruptionModParticleTypes;
 
 public class UdfChaseProcedure {
@@ -22,15 +18,11 @@ public class UdfChaseProcedure {
 		if (entity == null)
 			return;
 		Entity player = null;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 640, 640, 640), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null);
+		player = NearbyPlayerProcedure.execute(world, entity);
 		if (world instanceof ServerLevel _level)
-			_level.sendParticles((SimpleParticleType) (TheRootOfCorruptionModParticleTypes.ERROR.get()), x, y, z, 5, 1, 1, 1, 1);
+			_level.sendParticles((SimpleParticleType) (TheRootOfCorruptionModParticleTypes.ERROR.get()), x, y, z, 5, 1, 1, 1, 0);
 		if (world instanceof ServerLevel _level)
-			_level.sendParticles((SimpleParticleType) (TheRootOfCorruptionModParticleTypes.THIS_IS_NOT_FAIR.get()), x, y, z, 5, 1, 1, 1, 1);
+			_level.sendParticles((SimpleParticleType) (TheRootOfCorruptionModParticleTypes.THIS_IS_NOT_FAIR.get()), x, y, z, 5, 1, 1, 1, 0);
 		if (player == null) {
 			if (player instanceof Player _player) {
 				_player.getAbilities().flying = false;

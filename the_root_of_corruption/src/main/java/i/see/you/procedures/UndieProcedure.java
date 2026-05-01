@@ -15,7 +15,7 @@ public class UndieProcedure {
 	public static void onEntityDeath(LivingDeathEvent event) {
 		if (event.getEntity() != null) {
 			Entity entity = event.getEntity();
-			if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god")))) {
+			if (entity.getPersistentData().getBoolean("Invulnerable") || entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse("minecraft:god")))) {
 				event.setCanceled(true);
 			}
 		}

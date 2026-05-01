@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import i.see.you.TheRootOfCorruptionMod;
+import org.checkerframework.common.reflection.qual.GetMethod;
 
 public class AlertWindow {
     private final String title;
@@ -28,10 +29,10 @@ public class AlertWindow {
         }
 
         String classpath;
-        if (!FMLEnvironment.production) {
-            classpath = System.getProperty("java.class.path");
+        if (FMLEnvironment.production) {
+        	classpath = ModList.get().getModFileById("the_root_of_corruption").getFile().getFilePath().toString();
         } else {
-            classpath = ModList.get().getModFileById("the_root_of_corruption").getFile().getFilePath().toString();
+            classpath = System.getProperty("java.class.path");
         }
         List<String> command = new ArrayList<>();
         command.add(javaPath.toString());
@@ -61,5 +62,13 @@ public class AlertWindow {
             }
         }
         return null;
+    }
+    
+    public String getTitle() {
+    	return this.title;
+    }
+
+    public String getMessage() {
+    	return this.message;
     }
 }

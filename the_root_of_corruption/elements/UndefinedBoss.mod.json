@@ -45,7 +45,7 @@
     "bossBarColor": "WHITE",
     "bossBarType": "PROGRESS",
     "equipmentMainHand": {
-      "value": "CUSTOM:NotextureTool"
+      "value": "CUSTOM:SaveTheWorld"
     },
     "equipmentOffHand": {
       "value": "Items.TOTEM_OF_UNDYING"
@@ -138,9 +138,6 @@
     },
     "whenMobFalls": {
       "name": "Tickupdate"
-    },
-    "whenMobDies": {
-      "name": "Trueleftthegame"
     },
     "whenMobIsHurt": {
       "name": "Huntspawnvex"

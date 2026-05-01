@@ -7,8 +7,6 @@ import java.io.File;
 import i.see.you.configuration.ConfigConfiguration;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.lang.Exception;
-import java.lang.RuntimeException;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 import i.see.you.TheRootOfCorruptionMod;

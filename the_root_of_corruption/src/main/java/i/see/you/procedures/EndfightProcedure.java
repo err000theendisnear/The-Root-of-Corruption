@@ -21,7 +21,7 @@ public class EndfightProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		if (!((entity.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_root_of_corruption:last_fight")))) {
+		if ((entity.level().dimension()) == Level.OVERWORLD) {
 			TheRootOfCorruptionModVariables.MapVariables.get(world).spawnx = (entity instanceof ServerPlayer _player && !_player.level().isClientSide())
 					? ((_player.getRespawnDimension().equals(_player.level().dimension()) && _player.getRespawnPosition() != null) ? _player.getRespawnPosition().getX() : _player.level().getLevelData().getSpawnPos().getX())
 					: 0;

@@ -11,19 +11,26 @@ import net.minecraft.world.level.block.Block;
 
 import i.see.you.block.VoidAlterBlock;
 import i.see.you.block.ThisIsAllTheblockFaultBlock;
+import i.see.you.block.TheWorldIsDyingBlock;
 import i.see.you.block.TexturelessBlock;
 import i.see.you.block.RotInHellBlock;
 import i.see.you.block.OPCommandBlockBlock;
 import i.see.you.block.NetherreactorBlock;
 import i.see.you.block.MissingnoBlock;
+import i.see.you.block.LockedChestBlock;
 import i.see.you.block.InitializednetherreactorBlock;
+import i.see.you.block.HeartLessBlock;
 import i.see.you.block.GlowingobsidianBlock;
 import i.see.you.block.FinishedNetherreactorBlock;
 import i.see.you.block.FightGenBlock;
 import i.see.you.block.ExecuterootBlock;
 import i.see.you.block.ErrNullBlock;
+import i.see.you.block.ERRUNDEFINEDBlock;
+import i.see.you.block.DayNegativeOneBlock;
 import i.see.you.block.CorruptionbedrockBlock;
 import i.see.you.block.CorruptionRootBlock;
+import i.see.you.block.BlockIsWatchingYouBlock;
+import i.see.you.block.AdministratorBlock;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TheRootOfCorruptionModBlocks {
@@ -43,6 +50,13 @@ public class TheRootOfCorruptionModBlocks {
 	public static final DeferredBlock<Block> ROT_IN_HELL = REGISTRY.register("rot_in_hell", RotInHellBlock::new);
 	public static final DeferredBlock<Block> CORRUPTION_ROOT = REGISTRY.register("corruption_root", CorruptionRootBlock::new);
 	public static final DeferredBlock<Block> OP_COMMAND_BLOCK = REGISTRY.register("op_command_block", OPCommandBlockBlock::new);
+	public static final DeferredBlock<Block> DAY_NEGATIVE_ONE = REGISTRY.register("day_negative_one", DayNegativeOneBlock::new);
+	public static final DeferredBlock<Block> ERRUNDEFINED = REGISTRY.register("errundefined", ERRUNDEFINEDBlock::new);
+	public static final DeferredBlock<Block> ADMINISTRATOR = REGISTRY.register("administrator", AdministratorBlock::new);
+	public static final DeferredBlock<Block> HEART_LESS = REGISTRY.register("heart_less", HeartLessBlock::new);
+	public static final DeferredBlock<Block> LOCKED_CHEST = REGISTRY.register("locked_chest", LockedChestBlock::new);
+	public static final DeferredBlock<Block> BLOCK_IS_WATCHING_YOU = REGISTRY.register("block_is_watching_you", BlockIsWatchingYouBlock::new);
+	public static final DeferredBlock<Block> THE_WORLD_IS_DYING = REGISTRY.register("the_world_is_dying", TheWorldIsDyingBlock::new);
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

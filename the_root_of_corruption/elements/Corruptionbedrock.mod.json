@@ -34,7 +34,7 @@
       }
     ],
     "customProperties": [],
-    "name": "Corruptionbedrock",
+    "name": "Corruption Bedrock",
     "specialInformation": {
       "fixedValue": []
     },
@@ -42,7 +42,11 @@
     "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
@@ -58,7 +62,7 @@
       "value": "NONE"
     },
     "tickRate": 0,
-    "tickRandomly": false,
+    "tickRandomly": true,
     "isReplaceable": false,
     "canProvidePower": false,
     "emittedRedstonePower": {
@@ -120,8 +124,8 @@
     "onRightClicked": {
       "name": "Horror"
     },
-    "onTickUpdate": {
-      "name": "ToCorruption"
+    "onRandomUpdateEvent": {
+      "name": "StartCorruption"
     },
     "onDestroyedByPlayer": {
       "name": "Horror"

@@ -36,14 +36,18 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.BlockPos;
 
 import java.util.List;
 import java.util.Comparator;
 
+import i.see.you.init.TheRootOfCorruptionModParticleTypes;
 import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.init.TheRootOfCorruptionModEntities;
+import i.see.you.init.TheRootOfCorruptionModBlocks;
 import i.see.you.entity.UndefinedBossEntity;
 import i.see.you.entity.BrokenErrEntity;
 
@@ -65,16 +69,27 @@ public class TickupdateProcedure {
 				}
 			}
 		} else {
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 500, 500, 500), e -> true).stream().sorted(new Object() {
-				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-				}
-			}.compareDistOf(x, y, z)).findFirst().orElse(null);
+			player = NearbyPlayerProcedure.execute(world, entity);
 		}
 		if (!(player == null)) {
+			if (entity.getPersistentData().getBoolean("Invulnerable")) {
+				if (player instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("null"), true);
+				if (world instanceof ServerLevel _level)
+					_level.sendParticles((SimpleParticleType) (TheRootOfCorruptionModParticleTypes.ERROR.get()), x, y, z, 5, 1, 1, 1, 0.6);
+				if (world instanceof ServerLevel _level)
+					_level.sendParticles((SimpleParticleType) (TheRootOfCorruptionModParticleTypes.THIS_IS_NOT_FAIR.get()), x, y, z, 5, 1, 1, 1, 0.6);
+				if (entity instanceof LivingEntity _le) {
+					_le.heal(0.01f);
+				}
+			} else {
+				if (player instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("err"), true);
+			}
+			RemoveHarmfulEffectProcedure.execute(entity);
 			if (entity instanceof LivingEntity _entity)
 				_entity.setHealth((float) (entity instanceof UndefinedBossEntity _datEntI ? _datEntI.getEntityData().get(UndefinedBossEntity.DATA_hp) : 0));
-			a = new ItemStack(TheRootOfCorruptionModItems.NOTEXTURE_TOOL.get()).copy();
+			a = new ItemStack(TheRootOfCorruptionModItems.SAVE_THE_WORLD.get()).copy();
 			a.enchant(world.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.VANISHING_CURSE), 1);
 			if (entity instanceof LivingEntity _entity) {
 				ItemStack _setstack = a.copy();
@@ -131,8 +146,6 @@ public class TickupdateProcedure {
 					_living.setItemSlot(EquipmentSlot.HEAD, a);
 				}
 			}
-			if (entity instanceof LivingEntity _entity)
-				_entity.removeAllEffects();
 			player.setAirSupply(0);
 			if (player instanceof LivingEntity _entity)
 				_entity.swing(InteractionHand.MAIN_HAND, true);
@@ -153,6 +166,24 @@ public class TickupdateProcedure {
 			}
 			if (player instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.SURVIVAL);
+			if (y < player.getY()) {
+				world.setBlock(BlockPos.containing(x, y, z), TheRootOfCorruptionModBlocks.ERRUNDEFINED.get().defaultBlockState(), 3);
+				{
+					Entity _ent = entity;
+					_ent.teleportTo(x, (y + 1), z);
+					if (_ent instanceof ServerPlayer _serverPlayer)
+						_serverPlayer.connection.teleport(x, (y + 1), z, _ent.getYRot(), _ent.getXRot());
+				}
+			}
+			if (world.isEmptyBlock(BlockPos.containing(x, y - 1, z)) && Math.floor(player.getY()) >= Math.floor(y)) {
+				world.setBlock(BlockPos.containing(x, y - 1, z), TheRootOfCorruptionModBlocks.THE_WORLD_IS_DYING.get().defaultBlockState(), 3);
+				{
+					Entity _ent = entity;
+					_ent.teleportTo(x, Math.ceil(y), z);
+					if (_ent instanceof ServerPlayer _serverPlayer)
+						_serverPlayer.connection.teleport(x, Math.ceil(y), z, _ent.getYRot(), _ent.getXRot());
+				}
+			}
 			if (0 == Mth.nextInt(RandomSource.create(), 0, 5)) {
 				if (0 == Mth.nextInt(RandomSource.create(), 0, 100)) {
 					if (world instanceof ServerLevel _level) {
@@ -263,7 +294,7 @@ public class TickupdateProcedure {
 					player.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC_KILL)), (float) (Mth.nextDouble(RandomSource.create(), 1, player instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1)));
 				}
 				if (0 == Mth.nextInt(RandomSource.create(), 0, 3500)) {
-					for (int index3 = 0; index3 < Mth.nextInt(RandomSource.create(), 3, 5); index3++) {
+					for (int index3 = 0; index3 < Mth.nextInt(RandomSource.create(), 12, 20); index3++) {
 						if (world instanceof ServerLevel projectileLevel) {
 							Projectile _entityToSpawn = new Object() {
 								public Projectile getFireball(Level level, Entity shooter) {
@@ -273,7 +304,7 @@ public class TickupdateProcedure {
 								}
 							}.getFireball(projectileLevel, entity);
 							_entityToSpawn.setPos(x, y, z);
-							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 1);
+							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 100);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
 						if (world instanceof ServerLevel projectileLevel) {
@@ -285,7 +316,7 @@ public class TickupdateProcedure {
 								}
 							}.getFireball(projectileLevel, entity);
 							_entityToSpawn.setPos(x, y, z);
-							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 1);
+							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 100);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
 						if (world instanceof ServerLevel projectileLevel) {
@@ -297,7 +328,7 @@ public class TickupdateProcedure {
 								}
 							}.getFireball(projectileLevel, entity);
 							_entityToSpawn.setPos(x, y, z);
-							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 1);
+							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 100);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
 						if (world instanceof ServerLevel projectileLevel) {
@@ -309,11 +340,11 @@ public class TickupdateProcedure {
 								}
 							}.getFireball(projectileLevel, entity);
 							_entityToSpawn.setPos(x, y, z);
-							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 1);
+							_entityToSpawn.shoot((Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), (Mth.nextDouble(RandomSource.create(), -1, 1)), 2, 100);
 							projectileLevel.addFreshEntity(_entityToSpawn);
 						}
 					}
-					for (int index4 = 0; index4 < Mth.nextInt(RandomSource.create(), 12, 20); index4++) {
+					for (int index4 = 0; index4 < Mth.nextInt(RandomSource.create(), 3, 5); index4++) {
 						if (world instanceof ServerLevel projectileLevel) {
 							Projectile _entityToSpawn = new Object() {
 								public Projectile getPotion(Level level, Entity shooter) {

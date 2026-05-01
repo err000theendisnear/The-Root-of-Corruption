@@ -22,7 +22,11 @@
     "onBootsTick": {
       "name": "Clear"
     },
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "armorTextureFile": "goaway",
     "helmetName": "Notexture",
     "bodyName": "Notexture",
@@ -92,17 +96,33 @@
     "bootsPiglinNeutral": {
       "fixedValue": false
     },
-    "maxDamage": 50,
+    "maxDamage": 500,
     "damageValueHelmet": 8,
     "damageValueBody": 18,
     "damageValueLeggings": 15,
     "damageValueBoots": 6,
     "enchantability": 9,
-    "toughness": 0.0,
+    "toughness": 5.0,
     "knockbackResistance": 1.0,
     "equipSound": {
       "value": "ambient.cave"
     },
-    "repairItems": []
+    "repairItems": [
+      {
+        "value": "CUSTOM:Server"
+      },
+      {
+        "value": "Blocks.BEDROCK"
+      },
+      {
+        "value": "CUSTOM:Textureless"
+      },
+      {
+        "value": "CUSTOM:Executeroot"
+      },
+      {
+        "value": "CUSTOM:FakeLaugh"
+      }
+    ]
   }
 }

@@ -34,7 +34,7 @@
       }
     ],
     "customProperties": [],
-    "name": "This Is All Theblock Fault",
+    "name": "This Is All The block Fault",
     "specialInformation": {
       "fixedValue": []
     },
@@ -42,7 +42,11 @@
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "destroyTool": "Not specified",
     "customDrop": {
       "value": ""

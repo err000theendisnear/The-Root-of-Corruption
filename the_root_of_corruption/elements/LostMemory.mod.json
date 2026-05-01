@@ -108,7 +108,7 @@
       "value": "CUSTOM:void"
     },
     "hurtSound": {
-      "value": "ambient.cave"
+      "value": "CUSTOM:exception_hunt"
     },
     "deathSound": {
       "value": "CUSTOM:die"

@@ -10,6 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.client.Minecraft;
 
 import i.see.you.init.TheRootOfCorruptionModFluidTypes;
@@ -18,7 +19,7 @@ import i.see.you.init.TheRootOfCorruptionModFluidTypes;
 public class ErrNullFluidType extends FluidType {
 	public ErrNullFluidType() {
 		super(FluidType.Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true).motionScale(-0.035D).density(100).viscosity(100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
-				.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH));
+				.sound(SoundActions.BUCKET_EMPTY, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:cave"))).sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH));
 	}
 
 	@SubscribeEvent

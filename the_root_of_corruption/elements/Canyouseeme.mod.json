@@ -1,0 +1,53 @@
+{
+  "_fv": 73,
+  "_type": "overlay",
+  "definition": {
+    "priority": "HIGHEST",
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_can_you_see_me",
+          "text": {
+            "fixedValue": "CAN YOU SEE ME?   CAN YOU SEE ME?   CAN YOU SEE ME?   CAN YOU SEE ME?"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "anchorPoint": "CENTER",
+          "x": 35,
+          "y": 10,
+          "locked": false
+        }
+      },
+      {
+        "type": "entitymodel",
+        "data": {
+          "entityModel": {
+            "name": "WatcherModel"
+          },
+          "scale": 30,
+          "rotationX": 0,
+          "followMouseMovement": false,
+          "anchorPoint": "CENTER",
+          "x": 204,
+          "y": 104,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "no_texture.png",
+    "overlayTarget": "Ingame",
+    "displayCondition": {
+      "name": "CYSM"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

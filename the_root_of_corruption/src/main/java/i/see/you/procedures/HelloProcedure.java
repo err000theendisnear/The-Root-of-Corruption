@@ -6,11 +6,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 import net.neoforged.api.distmarker.Dist;
 
-import net.minecraft.util.RandomSource;
-import net.minecraft.util.Mth;
-
 import javax.annotation.Nullable;
 
+import i.see.you.configuration.ConfigConfiguration;
 import i.see.you.TheRootOfCorruptionMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
@@ -25,10 +23,12 @@ public class HelloProcedure {
 	}
 
 	private static void execute(@Nullable Event event) {
-		if (Mth.nextInt(RandomSource.create(), 0, 10) == 0) {
-			TheRootOfCorruptionMod.LOGGER.warn("Hello World?");
-		} else {
-			TheRootOfCorruptionMod.LOGGER.info("Hello World!");
+		if (ConfigConfiguration.TRASH_LOG.get()) {
+			if (Math.random() < 0.05) {
+				TheRootOfCorruptionMod.LOGGER.warn("Hello World?");
+			} else {
+				TheRootOfCorruptionMod.LOGGER.info("Hello World!");
+			}
 		}
 	}
 }

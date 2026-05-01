@@ -11,7 +11,7 @@ public class GoDeadProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 16, 16, 16), e -> true).isEmpty()) {
+		if (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 12, 12, 12), e -> true).isEmpty()) {
 			DiscardProcedure.execute(entity);
 			CavesoundProcedure.execute(world, x, y, z);
 			if (Math.random() < 0.01) {

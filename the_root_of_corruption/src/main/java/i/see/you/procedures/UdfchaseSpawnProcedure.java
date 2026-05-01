@@ -1,10 +1,7 @@
 package i.see.you.procedures;
 
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
@@ -13,15 +10,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 
-import java.util.Comparator;
 import java.util.ArrayList;
 
 import i.see.you.TheRootOfCorruptionMod;
 
 public class UdfchaseSpawnProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		LogUndefinedProcedure.execute();
 		TheRootOfCorruptionMod.queueServerWork(666, () -> {
 			DiscardProcedure.execute(entity);
 		});
@@ -35,11 +32,7 @@ public class UdfchaseSpawnProcedure {
 				}
 			}
 		}
-		if (entity instanceof Mob _entity && ((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1000, 1000, 1000), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof LivingEntity _ent)
+		if (entity instanceof Mob _entity && NearbyPlayerProcedure.execute(world, entity) instanceof LivingEntity _ent)
 			_entity.setTarget(_ent);
 	}
 }

@@ -99,7 +99,7 @@ public class LostMemoryEntity extends Monster implements RangedAttackMob {
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave"));
+		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:exception_hunt"));
 	}
 
 	@Override

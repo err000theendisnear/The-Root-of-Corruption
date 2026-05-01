@@ -26,7 +26,6 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.Difficulty;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -35,6 +34,7 @@ import net.minecraft.core.BlockPos;
 import javax.annotation.Nullable;
 
 import i.see.you.procedures.SpawnrandomentityProcedure;
+import i.see.you.procedures.EntitySpawnerCanSpawnProcedure;
 import i.see.you.procedures.DiscardProcedure;
 import i.see.you.init.TheRootOfCorruptionModEntities;
 
@@ -131,9 +131,12 @@ public class EntitySpawnerEntity extends Monster {
 	}
 
 	public static void init(RegisterSpawnPlacementsEvent event) {
-		event.register(TheRootOfCorruptionModEntities.ENTITY_SPAWNER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)),
-				RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		event.register(TheRootOfCorruptionModEntities.ENTITY_SPAWNER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (entityType, world, reason, pos, random) -> {
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			return EntitySpawnerCanSpawnProcedure.execute();
+		}, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {

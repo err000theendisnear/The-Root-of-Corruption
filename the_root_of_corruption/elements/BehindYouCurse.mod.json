@@ -1,0 +1,22 @@
+{
+  "_fv": 73,
+  "_type": "enchantment",
+  "definition": {
+    "name": "Behind You",
+    "supportedSlots": "any",
+    "weight": 1,
+    "anvilCost": 666,
+    "maxLevel": 1,
+    "damageModifier": 0,
+    "incompatibleEnchantments": [],
+    "supportedItems": [
+      {
+        "value": "TAG:minecraft:tag"
+      }
+    ],
+    "isTreasureEnchantment": true,
+    "isCurse": true,
+    "canGenerateInLootTables": false,
+    "canVillagerTrade": false
+  }
+}

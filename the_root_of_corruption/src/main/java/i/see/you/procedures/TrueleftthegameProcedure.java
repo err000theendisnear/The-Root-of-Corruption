@@ -1,9 +1,11 @@
 package i.see.you.procedures;
 
 import net.neoforged.neoforge.items.ItemHandlerHelper;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.Event;
 
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
@@ -19,68 +21,73 @@ import net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.core.BlockPos;
 
-import java.util.Comparator;
+import javax.annotation.Nullable;
+
 import java.util.Collections;
+import java.util.ArrayList;
 
 import i.see.you.network.TheRootOfCorruptionModVariables;
 import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.TheRootOfCorruptionMod;
 
+@EventBusSubscriber
 public class TrueleftthegameProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity sourceentity) {
-		Entity player = null;
-		if (sourceentity instanceof Player || sourceentity instanceof ServerPlayer) {
-			player = sourceentity;
-		} else {
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
-				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-				}
-			}.compareDistOf(x, y, z)).findFirst().orElse(null);
-		}
-		if (!(player == null)) {
-			if (player instanceof ServerPlayer _serverPlayer)
-				_serverPlayer.awardRecipesByKey(Collections.singletonList(ResourceLocation.parse("the_root_of_corruption:savelost")));
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((((Component.translatable("death.attack.player").getString()).replace("%1$s", "Undefined")).replace("%2$s", sourceentity.getDisplayName().getString()))),
-						false);
-		}
-		TheRootOfCorruptionMod.queueServerWork(100, () -> {
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7e" + (Component.translatable("multiplayer.player.left").getString()).replace("%s", "Undefined"))), false);
-			TheRootOfCorruptionModVariables.MapVariables.get(world).left = true;
-			TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
-			if (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).isEmpty()) {
-				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
-					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-					}
-				}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof ServerPlayer _player && !_player.level().isClientSide()) {
-					ResourceKey<Level> destinationType = Level.OVERWORLD;
-					if (_player.level().dimension() == destinationType)
-						return;
-					ServerLevel nextLevel = _player.server.getLevel(destinationType);
-					if (nextLevel != null) {
-						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
-						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
-							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
-						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+	@SubscribeEvent
+	public static void onPlayerTick(PlayerTickEvent.Post event) {
+		execute(event, event.getEntity().level(), event.getEntity());
+	}
+
+	public static void execute(LevelAccessor world, Entity entity) {
+		execute(null, world, entity);
+	}
+
+	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
+		if (entity == null)
+			return;
+		Entity undefined = null;
+		if ((entity.level().dimension()) == ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_root_of_corruption:last_fight"))) {
+			undefined = UUIDToEntityProcedure.execute(world, entity.getData(TheRootOfCorruptionModVariables.PLAYER_VARIABLES).undefined_uuid);
+			if (!(undefined == null) && !undefined.isAlive()) {
+				for (Entity entityiterator : new ArrayList<>(world.players())) {
+					{
+						TheRootOfCorruptionModVariables.PlayerVariables _vars = entityiterator.getData(TheRootOfCorruptionModVariables.PLAYER_VARIABLES);
+						_vars.undefined_uuid = "";
+						_vars.syncPlayerVariables(entityiterator);
 					}
 				}
-				if (((Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 10000, 10000, 10000), e -> true).stream().sorted(new Object() {
-					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
+				if (entity instanceof ServerPlayer _serverPlayer)
+					_serverPlayer.awardRecipesByKey(Collections.singletonList(ResourceLocation.parse("the_root_of_corruption:savelost")));
+				if (!world.isClientSide() && world.getServer() != null)
+					world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((((Component.translatable("death.attack.player").getString()).replace("%1$s", "Undefined")).replace("%2$s", entity.getDisplayName().getString()))), false);
+				TheRootOfCorruptionMod.queueServerWork(100, () -> {
+					if (!world.isClientSide() && world.getServer() != null)
+						world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7e" + (Component.translatable("multiplayer.player.left").getString()).replace("%s", "Undefined"))), false);
+					TheRootOfCorruptionModVariables.MapVariables.get(world).left = true;
+					TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
+					if (entity instanceof ServerPlayer _player && !_player.level().isClientSide()) {
+						ResourceKey<Level> destinationType = Level.OVERWORLD;
+						if (_player.level().dimension() == destinationType)
+							return;
+						ServerLevel nextLevel = _player.server.getLevel(destinationType);
+						if (nextLevel != null) {
+							_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+							_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+							_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+							for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+								_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+							_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+						}
 					}
-				}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof Player _player) {
-					ItemStack _setstack = new ItemStack(TheRootOfCorruptionModItems.UNDEFINED_HEART.get()).copy();
-					_setstack.setCount(1);
-					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-				}
+					if (entity instanceof Player _player) {
+						ItemStack _setstack = new ItemStack(TheRootOfCorruptionModItems.UNDEFINED_HEART.get()).copy();
+						_setstack.setCount(1);
+						ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
+					}
+				});
 			}
-		});
+		}
 	}
 }

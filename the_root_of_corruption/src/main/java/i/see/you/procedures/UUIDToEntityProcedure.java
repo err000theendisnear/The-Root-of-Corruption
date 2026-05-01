@@ -14,9 +14,7 @@ public class UUIDToEntityProcedure {
 		if (world instanceof ServerLevel level) {
 			try {
 				entity = level.getEntity(UUID.fromString(uuid));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			} catch (Throwable e) {}
 		}
 		return entity;
 	}

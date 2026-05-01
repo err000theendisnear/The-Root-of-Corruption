@@ -132,14 +132,32 @@
       "value": ""
     },
     "entityDataEntries": [],
+    "onStruckByLightning": {
+      "name": "WatcherTickupdate"
+    },
+    "whenMobFalls": {
+      "name": "WatcherTickupdate"
+    },
+    "whenMobDies": {
+      "name": "WatcherTickupdate"
+    },
+    "whenMobIsHurt": {
+      "name": "WatcherTickupdate"
+    },
+    "onRightClickedOn": {
+      "name": "WatcherTickupdate"
+    },
+    "whenThisMobKillsAnother": {
+      "name": "WatcherTickupdate"
+    },
     "onMobTickUpdate": {
-      "name": "Watch"
+      "name": "WatcherTickupdate"
     },
     "onPlayerCollidesWith": {
-      "name": "Watch"
+      "name": "WatcherTickupdate"
     },
     "onInitialSpawn": {
-      "name": "Watch"
+      "name": "WatcherTickupdate"
     },
     "hasAI": true,
     "aiBase": "(none)",

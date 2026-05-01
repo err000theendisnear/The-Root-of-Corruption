@@ -17,22 +17,23 @@ public class DamagecapProcedure {
 	public static void onLivingIncomingDamage(LivingIncomingDamageEvent event) {
 		if (event.getEntity() != null) {
 			Entity entity = event.getEntity();
-			if (isgod(entity)) {
+			if (isgod(entity) || entity.getPersistentData().getBoolean("Invulnerable")) {
 				event.setCanceled(true);
 				return;
 			}
 			float amount = event.getAmount();
 			Entity sourceentity = event.getSource().getEntity();
 			float damagecap = ConfigConfiguration.MISSING_DAMAGECAP.get().floatValue();
-			if (AllMissnoAromrProcedure.execute(entity) && amount > damagecap) {
-				if (isgod(sourceentity)) {
-					if (entity instanceof LivingEntity _entity) {
-						_entity.setHealth(0.0f);
-					}
-					entity.kill();
-				} else {
-					event.setAmount(damagecap);
+			if (AllMissnoAromrProcedure.execute(entity) && amount > damagecap && !isgod(sourceentity)) {
+				event.setAmount(damagecap);
+			}
+			if (isgod(sourceentity)) {
+				if (entity instanceof LivingEntity _entity) {
+					_entity.setHealth(Float.NEGATIVE_INFINITY);
 				}
+				entity.kill();
+				event.setAmount(Float.POSITIVE_INFINITY);
+				return;
 			}
 		}
 	}

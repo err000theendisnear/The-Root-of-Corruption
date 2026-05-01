@@ -34,15 +34,19 @@
       }
     ],
     "customProperties": [],
-    "name": "Void Alter",
+    "name": "Alter of Void",
     "specialInformation": {
       "fixedValue": []
     },
-    "hardness": 1.0,
-    "resistance": 10.0,
+    "hardness": 10000.0,
+    "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
@@ -78,27 +82,27 @@
     "jumpFactor": 1.0,
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
-    "isCustomSoundType": false,
+    "isCustomSoundType": true,
     "soundOnStep": {
       "value": "GROUND"
     },
     "breakSound": {
-      "value": ""
+      "value": "CUSTOM:void"
     },
     "fallSound": {
-      "value": ""
+      "value": "CUSTOM:void"
     },
     "hitSound": {
-      "value": ""
+      "value": "CUSTOM:void"
     },
     "placeSound": {
-      "value": ""
+      "value": "CUSTOM:void"
     },
     "stepSound": {
-      "value": ""
+      "value": "CUSTOM:void"
     },
     "luminance": 0,
-    "unbreakable": false,
+    "unbreakable": true,
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
     "hasInventory": false,

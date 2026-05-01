@@ -4,9 +4,9 @@ license="MIT License"
 
 [[mods]]
 modId="the_root_of_corruption"
-version="1.0.5"
+version="1.0.8"
 displayName="The Root of Corruption"
-displayURL="https://mcreator.net"
+displayURL="https://github.com/err000theendisnear/The-Root-of-Corruption/"
 logoFile="logo.png"
 credits="???"
 authors="err.undefined"

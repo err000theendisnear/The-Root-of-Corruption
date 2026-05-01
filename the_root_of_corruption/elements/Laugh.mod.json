@@ -9,11 +9,15 @@
     "states": [],
     "name": "Laugh",
     "rarity": "UNCOMMON",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "stackSize": 1,
     "enchantability": 0,
     "useDuration": 32,
-    "toolType": 1.0,
+    "toolType": 10.0,
     "damageCount": 0,
     "recipeRemainder": {
       "value": ""

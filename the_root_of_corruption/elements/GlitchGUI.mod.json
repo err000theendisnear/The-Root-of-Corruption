@@ -1,0 +1,501 @@
+{
+  "_fv": 73,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null1",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 88,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null2",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 59,
+          "locked": false
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 203,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null3",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null4",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null5",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null6",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null7",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 84,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_null8",
+          "text": {
+            "fixedValue": "null"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 202,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "null0",
+          "text": "null",
+          "x": 130,
+          "y": 42,
+          "locked": false
+        }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "null1",
+          "text": "null",
+          "x": 256,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 131,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null1",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 252,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_null",
+          "text": {
+            "fixedValue": "null"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 202,
+          "y": 96,
+          "locked": false
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "null",
+          "name": "null2",
+          "width": 120,
+          "height": 20,
+          "x": 157,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null2",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 134,
+          "y": 119,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null3",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 251,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null4",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 132,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null5",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 179,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null6",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 226,
+          "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null7",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 254,
+          "y": 138,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null8",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 132,
+          "y": 155,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null9",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 132,
+          "y": 176,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null10",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 178,
+          "y": 155,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null11",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 225,
+          "y": 156,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null12",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 255,
+          "y": 156,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null13",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 177,
+          "y": 176,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null14",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 224,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_null15",
+          "text": "null",
+          "isUndecorated": false,
+          "width": 46,
+          "height": 20,
+          "x": 254,
+          "y": 178,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_no_texture",
+          "image": "no_texture.png",
+          "hoveredImage": "no_texture.png",
+          "x": 301,
+          "y": 1,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_no_texture1",
+          "image": "no_texture.png",
+          "hoveredImage": "no_texture.png",
+          "x": 98,
+          "y": 202,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "x": 1,
+          "y": -3,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "x": 0,
+          "y": 124,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "x": 128,
+          "y": 3,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "no_texture.png",
+          "use1Xscale": true,
+          "x": 231,
+          "y": 1,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

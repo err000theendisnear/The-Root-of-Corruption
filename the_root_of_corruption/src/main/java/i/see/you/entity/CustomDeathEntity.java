@@ -198,7 +198,7 @@ public class CustomDeathEntity extends Monster {
 		builder = builder.add(Attributes.MAX_HEALTH, 1024);
 		builder = builder.add(Attributes.ARMOR, 0);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 10000);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 160);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 2048);
 		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
 		return builder;
 	}

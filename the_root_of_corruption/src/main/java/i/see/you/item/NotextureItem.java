@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +25,8 @@ import java.util.List;
 import java.util.EnumMap;
 
 import i.see.you.procedures.ClearProcedure;
+import i.see.you.init.TheRootOfCorruptionModItems;
+import i.see.you.init.TheRootOfCorruptionModBlocks;
 
 import com.google.common.collect.Iterables;
 
@@ -40,7 +43,10 @@ public abstract class NotextureItem extends ArmorItem {
 				map.put(ArmorItem.Type.CHESTPLATE, 18);
 				map.put(ArmorItem.Type.HELMET, 8);
 				map.put(ArmorItem.Type.BODY, 18);
-			}), 9, DeferredHolder.create(Registries.SOUND_EVENT, ResourceLocation.parse("ambient.cave")), () -> Ingredient.of(), List.of(new ArmorMaterial.Layer(ResourceLocation.parse("the_root_of_corruption:goaway"))), 0f, 1f);
+			}), 9, DeferredHolder.create(Registries.SOUND_EVENT, ResourceLocation.parse("ambient.cave")),
+					() -> Ingredient.of(new ItemStack(TheRootOfCorruptionModItems.SERVER.get()), new ItemStack(Blocks.BEDROCK), new ItemStack(TheRootOfCorruptionModBlocks.TEXTURELESS.get()),
+							new ItemStack(TheRootOfCorruptionModBlocks.EXECUTEROOT.get()), new ItemStack(TheRootOfCorruptionModItems.FAKE_LAUGH.get())),
+					List.of(new ArmorMaterial.Layer(ResourceLocation.parse("the_root_of_corruption:goaway"))), 5f, 1f);
 			registerHelper.register(ResourceLocation.parse("the_root_of_corruption:notexture"), armorMaterial);
 			ARMOR_MATERIAL = BuiltInRegistries.ARMOR_MATERIAL.wrapAsHolder(armorMaterial);
 		});
@@ -52,7 +58,7 @@ public abstract class NotextureItem extends ArmorItem {
 
 	public static class Helmet extends NotextureItem {
 		public Helmet() {
-			super(ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(50)));
+			super(ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(500)));
 		}
 
 		@Override
@@ -66,7 +72,7 @@ public abstract class NotextureItem extends ArmorItem {
 
 	public static class Chestplate extends NotextureItem {
 		public Chestplate() {
-			super(ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(50)));
+			super(ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(500)));
 		}
 
 		@Override
@@ -80,7 +86,7 @@ public abstract class NotextureItem extends ArmorItem {
 
 	public static class Leggings extends NotextureItem {
 		public Leggings() {
-			super(ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(50)));
+			super(ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(500)));
 		}
 
 		@Override
@@ -94,7 +100,7 @@ public abstract class NotextureItem extends ArmorItem {
 
 	public static class Boots extends NotextureItem {
 		public Boots() {
-			super(ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(50)));
+			super(ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(500)));
 		}
 
 		@Override

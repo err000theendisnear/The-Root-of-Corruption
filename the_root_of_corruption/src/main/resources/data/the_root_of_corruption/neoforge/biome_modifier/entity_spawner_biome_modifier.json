@@ -5,7 +5,7 @@
   },
   "spawners": {
     "type": "the_root_of_corruption:entity_spawner",
-    "weight": 1,
+    "weight": 7,
     "minCount": 1,
     "maxCount": 1
   }

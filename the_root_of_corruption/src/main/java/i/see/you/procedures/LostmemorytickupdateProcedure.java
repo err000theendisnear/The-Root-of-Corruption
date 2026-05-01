@@ -9,6 +9,7 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.projectile.WitherSkull;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.entity.projectile.SpectralArrow;
@@ -19,7 +20,7 @@ import net.minecraft.world.entity.projectile.DragonFireball;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
@@ -43,9 +44,11 @@ import net.minecraft.core.BlockPos;
 import java.util.List;
 import java.util.Comparator;
 
+import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.init.TheRootOfCorruptionModEntities;
 import i.see.you.init.TheRootOfCorruptionModBlocks;
 import i.see.you.entity.BrokenErrEntity;
+import i.see.you.TheRootOfCorruptionMod;
 
 public class LostmemorytickupdateProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -66,18 +69,13 @@ public class LostmemorytickupdateProcedure {
 				}
 			}
 		} else {
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 100, 100, 100), e -> true).stream().sorted(new Object() {
-				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-				}
-			}.compareDistOf(x, y, z)).findFirst().orElse(null);
+			player = NearbyPlayerProcedure.execute(world, entity);
 		}
 		if (!((entity.level().dimension()) == Level.END) || player == null) {
 			if (!entity.level().isClientSide())
 				entity.discard();
 		} else {
-			if (entity instanceof LivingEntity _entity)
-				_entity.removeAllEffects();
+			RemoveHarmfulEffectProcedure.execute(entity);
 			entity.stopRiding();
 			if (player instanceof Player _player) {
 				_player.getAbilities().flying = false;
@@ -147,18 +145,20 @@ public class LostmemorytickupdateProcedure {
 						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 					}
 				}
-				if (((Entity) world.getEntitiesOfClass(EnderMan.class, AABB.ofSize(new Vec3(x, y, z), 2, 2, 2), e -> true).stream().sorted(new Object() {
-					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-					}
-				}.compareDistOf(x, y, z)).findFirst().orElse(null)) instanceof Mob _entity && player instanceof LivingEntity _ent)
-					_entity.setTarget(_ent);
 				for (int index0 = 0; index0 < 3; index0++) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = EntityType.PHANTOM.spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
 						if (entityToSpawn != null) {
 							entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
 						}
+					}
+				}
+				{
+					final Vec3 _center = new Vec3(x, y, z);
+					List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+					for (Entity entityiterator : _entfound) {
+						if (entityiterator instanceof Mob _entity && player instanceof LivingEntity _ent)
+							_entity.setTarget(_ent);
 					}
 				}
 			}
@@ -291,6 +291,18 @@ public class LostmemorytickupdateProcedure {
 					_level.explode(null, x, (player.getY()), z, 10, Level.ExplosionInteraction.TNT);
 				if (world instanceof Level _level && !_level.isClientSide())
 					_level.explode(null, x, (player.getY()), z, 10, Level.ExplosionInteraction.BLOCK);
+			}
+			if (0 == Mth.nextInt(RandomSource.create(), 0, 100)) {
+				TheRootOfCorruptionMod.queueServerWork(100, () -> {
+					if (!entity.isAlive()) {
+						if (world instanceof ServerLevel _level) {
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(TheRootOfCorruptionModItems.THE_BROKEN_MEMORY.get()));
+							entityToSpawn.setPickUpDelay(0);
+							entityToSpawn.setUnlimitedLifetime();
+							_level.addFreshEntity(entityToSpawn);
+						}
+					}
+				});
 			}
 			world.destroyBlock(BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y, z + entity.getLookAngle().z), false);
 			player.hurt(new DamageSource(world.holderOrThrow(DamageTypes.FELL_OUT_OF_WORLD)), (float) Mth.nextDouble(RandomSource.create(), 0.1, 2.5));

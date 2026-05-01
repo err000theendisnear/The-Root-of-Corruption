@@ -31,4 +31,9 @@ public class TheRootOfCorruptionModSounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> WRONG_SOUND = REGISTRY.register("wrong_sound", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "wrong_sound")));
 	public static final DeferredHolder<SoundEvent, SoundEvent> FAILED = REGISTRY.register("failed", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "failed")));
 	public static final DeferredHolder<SoundEvent, SoundEvent> HAL1 = REGISTRY.register("hal1", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "hal1")));
+	public static final DeferredHolder<SoundEvent, SoundEvent> HELLO = REGISTRY.register("hello", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "hello")));
+	public static final DeferredHolder<SoundEvent, SoundEvent> EXCEPTION_HUNT = REGISTRY.register("exception_hunt", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "exception_hunt")));
+	public static final DeferredHolder<SoundEvent, SoundEvent> ANONYMITY_TIAN_SOUND = REGISTRY.register("anonymity_tian_sound",
+			() -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "anonymity_tian_sound")));
+	public static final DeferredHolder<SoundEvent, SoundEvent> CAVE_NOISE_LOUD = REGISTRY.register("cave_noise_loud", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("the_root_of_corruption", "cave_noise_loud")));
 }

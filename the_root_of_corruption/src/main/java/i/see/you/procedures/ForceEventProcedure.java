@@ -2,24 +2,67 @@ package i.see.you.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
-import net.minecraft.commands.CommandSourceStack;
 
 import i.see.you.TheRootOfCorruptionMod;
 
-import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.arguments.StringArgumentType;
-
 public class ForceEventProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, CommandContext<CommandSourceStack> arguments, Entity entity) {
-		if (entity == null)
-			return;
+	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity, String eventname) {
+		if (entity == null || eventname == null)
+			return false;
 		String event = "";
 		boolean execute_event = false;
 		execute_event = true;
-		event = StringArgumentType.getString(arguments, "execute");
+		event = eventname;
 		if (event.contains("jumpscare")) {
 			JumpscareProcedure.execute(world, x, y, z);
+		} else if (event.contains("gc")) {
+			SystemGCProcedure.execute();
+		} else if (event.contains("pause")) {
+			PauseGameProcedure.execute(world);
+		} else if (event.contains("overlay")) {
+			BehindYouOverlayProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("under")) {
+			UnderFeetBlockProcedure.execute(world, x, y, z);
+		} else if (event.contains("gui")) {
+			OpenGlitchGUIProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("die")) {
+			ClientDieProcedure.execute(world, entity);
+		} else if (event.contains("chat")) {
+			OpenChatScreenProcedure.execute(entity);
+		} else if (event.contains("totem")) {
+			TexturelessAnimationProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("see") && (event.contains("can") && event.contains("not") || event.contains("can't") || event.contains("cant"))) {
+			CantYouSeeProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("message")) {
+			RandomMessageProcedure.execute(world);
+		} else if (event.contains("stuck")) {
+			StuckProcedure.execute(entity);
+		} else if (event.contains("particle")) {
+			ISeeYouParticleProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("give")) {
+			if (event.contains("deepslate")) {
+				GiveReinforcedDeepslateProcedure.execute(entity);
+			} else if (event.contains("server")) {
+				GiveServerProcedure.execute(entity);
+			} else if (event.contains("null")) {
+				GiveNullNullNullProcedure.execute(entity);
+			} else if (event.contains("bucket")) {
+				GiveDayNegativeOneBucketProcedure.execute(entity);
+			}
+		} else if (event.contains("place")) {
+			if (event.contains("copper")) {
+				PlaceRawCopperBlockProcedure.execute(world, x, y, z);
+			} else if (event.contains("light")) {
+				PlaceLight15Procedure.execute(world, x, y, z);
+			} else if (event.contains("fire")) {
+				PlaceSoulFireProcedure.execute(world, x, y, z);
+			}
+		} else if (event.contains("doom")) {
+			BreakworldProcedure.execute(world, x, y, z, entity);
+		} else if (event.contains("enchant")) {
+			EnchantmentProcedure.execute(world, entity);
+		} else if (event.contains("away") && event.contains("go")) {
+			GoawaygoawayProcedure.execute(world, entity);
 		} else if (event.contains("rename")) {
 			HorrornameProcedure.execute(entity);
 		} else if (event.contains("attack")) {
@@ -72,7 +115,7 @@ public class ForceEventProcedure {
 			PlaceErrNullProcedure.execute(world, x, y, z);
 		} else if (event.contains("throw")) {
 			ArrowtheerrorProcedure.execute(world, x, y, z, entity);
-		} else if (event.contains("tojump")) {
+		} else if (event.contains("jump")) {
 			ToJumpProcedure.execute(world, x, y, z, entity);
 		} else if (event.contains("see")) {
 			IcanseeyouProcedure.execute(world, x, y, z, entity);
@@ -80,12 +123,6 @@ public class ForceEventProcedure {
 			TheRootOfCorruptionMod.LOGGER.warn("Not Event!");
 			execute_event = false;
 		}
-		if (execute_event) {
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal((Component.translatable("chat.error_not_found.event").getString())), false);
-		} else {
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7c" + Component.translatable("chat.error_not_found.noevent").getString())), false);
-		}
+		return execute_event;
 	}
 }

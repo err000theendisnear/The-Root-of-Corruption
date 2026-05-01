@@ -27,7 +27,7 @@ import net.minecraft.commands.CommandSource;
 
 public class ErrorseeProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		if (entity == null)
+		if (entity == null || AllMissnoAromrProcedure.execute(entity))
 			return;
 		{
 			Entity _ent = entity;
@@ -38,22 +38,16 @@ public class ErrorseeProcedure {
 		}
 		entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.FELL_OUT_OF_WORLD)), 1);
 		entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((x + Mth.nextInt(RandomSource.create(), -1, 1)), (y + Mth.nextInt(RandomSource.create(), -1, 1)), (z + Mth.nextInt(RandomSource.create(), -1, 1))));
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide()) {
 			_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 1, 255));
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 1, 255));
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 1, 255));
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 1, 255));
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 1, 4));
-		if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 			_entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 1, 4));
-		if (entity instanceof LivingEntity _entity)
 			_entity.swing(InteractionHand.MAIN_HAND, true);
-		if (entity instanceof LivingEntity _entity)
 			_entity.swing(InteractionHand.OFF_HAND, true);
+		}
 		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerIter) {
 			for (int _idx = 0; _idx < _modHandlerIter.getSlots(); _idx++) {
 				ItemStack itemstackiterator = _modHandlerIter.getStackInSlot(_idx);
@@ -66,22 +60,18 @@ public class ErrorseeProcedure {
 		entity.igniteForSeconds(1);
 		entity.setAirSupply(0);
 		entity.setTicksFrozen(5);
-		if (entity instanceof Player _player)
+		if (entity instanceof Player _player) {
 			_player.getFoodData().setFoodLevel(0);
-		if (entity instanceof Player _player)
 			_player.getFoodData().setSaturation(0);
-		if (entity instanceof Player _player && !_player.level().isClientSide())
-			_player.displayClientMessage(Component.literal("\u00A78Corruption"), true);
-		if (entity instanceof Player _player) {
+			if (!_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("\u00A78Corruption"), true);
 			_player.getAbilities().flying = false;
 			_player.onUpdateAbilities();
+			if (_player.isFallFlying())
+				_player.stopFallFlying();
+			_player.resetAttackStrengthTicker();
 		}
-		if (entity instanceof Player _plr && _plr.isFallFlying()) {
-			_plr.stopFallFlying();
-		}
-		if (entity instanceof Player _plr32)
-			_plr32.resetAttackStrengthTicker();
-		if (entity instanceof ServerPlayer _player)
-			_player.setGameMode(GameType.SURVIVAL);
+		if (entity instanceof ServerPlayer _p)
+			_p.setGameMode(GameType.SURVIVAL);
 	}
 }

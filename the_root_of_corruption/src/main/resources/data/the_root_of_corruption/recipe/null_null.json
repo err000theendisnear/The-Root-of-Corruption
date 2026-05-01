@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "null",
+  "category": "misc",
+  "pattern": [
+    "abc",
+    "def",
+    "ghi"
+  ],
+  "key": {
+    "a": {
+      "item": "the_root_of_corruption:heart_less"
+    },
+    "b": {
+      "item": "the_root_of_corruption:corruptionbedrock"
+    },
+    "c": {
+      "item": "the_root_of_corruption:errundefined"
+    },
+    "d": {
+      "item": "the_root_of_corruption:textureless"
+    },
+    "e": {
+      "item": "the_root_of_corruption:executeroot"
+    },
+    "f": {
+      "item": "the_root_of_corruption:item_is_missing_id"
+    },
+    "g": {
+      "item": "the_root_of_corruption:nullnullnull"
+    },
+    "h": {
+      "item": "the_root_of_corruption:missingno"
+    },
+    "i": {
+      "item": "the_root_of_corruption:server"
+    }
+  },
+  "result": {
+    "id": "the_root_of_corruption:locked_chest",
+    "count": 1
+  }
+}

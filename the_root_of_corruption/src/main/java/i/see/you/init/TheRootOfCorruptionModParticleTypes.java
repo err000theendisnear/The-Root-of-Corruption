@@ -17,4 +17,7 @@ public class TheRootOfCorruptionModParticleTypes {
 	public static final DeferredRegister<ParticleType<?>> REGISTRY = DeferredRegister.create(Registries.PARTICLE_TYPE, TheRootOfCorruptionMod.MODID);
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ERROR = REGISTRY.register("error", () -> new SimpleParticleType(true));
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> THIS_IS_NOT_FAIR = REGISTRY.register("this_is_not_fair", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> I = REGISTRY.register("i", () -> new SimpleParticleType(true));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SEE = REGISTRY.register("see", () -> new SimpleParticleType(true));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> YOU = REGISTRY.register("you", () -> new SimpleParticleType(false));
 }

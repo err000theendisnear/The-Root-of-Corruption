@@ -33,7 +33,7 @@ public class SummonlightboltProcedure {
 				}
 			} else if (hitResult.getType() == HitResult.Type.ENTITY) {
 				Entity HitEntity = ((EntityHitResult) hitResult).getEntity();
-				BlockPos thisPos = HitEntity.blockPosition();
+				BlockPos thisPos = BlockPos.containing(HitEntity.getX(), HitEntity.getY(), HitEntity.getZ());
 				if (world instanceof ServerLevel _level) {
 					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
 					entityToSpawn.moveTo(Vec3.atBottomCenterOf(thisPos));

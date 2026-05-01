@@ -1,13 +1,11 @@
 package i.see.you.procedures;
 
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.EntityType;
@@ -28,8 +26,6 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.BlockPos;
 
-import java.util.Comparator;
-
 import i.see.you.init.TheRootOfCorruptionModParticleTypes;
 import i.see.you.TheRootOfCorruptionMod;
 
@@ -39,17 +35,8 @@ public class LogdieProcedure {
 			return;
 		String reportlog = "";
 		Entity player = null;
-		player = entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null;
+		player = NearbyPlayerProcedure.execute(world, entity);
 		if (player == null) {
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1145, 1145, 1145), e -> true).stream().sorted(new Object() {
-				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-				}
-			}.compareDistOf(x, y, z)).findFirst().orElse(null);
-			if (player == null) {
-				if (entity instanceof Mob _entity && player instanceof LivingEntity _ent)
-					_entity.setTarget(_ent);
-			}
 			DiscardProcedure.execute(entity);
 		} else {
 			if (world instanceof Level _level) {
@@ -101,8 +88,8 @@ public class LogdieProcedure {
 			if (player instanceof Player _plr && _plr.isFallFlying()) {
 				_plr.stopFallFlying();
 			}
-			if (player instanceof Player _plr23)
-				_plr23.resetAttackStrengthTicker();
+			if (player instanceof Player _plr19)
+				_plr19.resetAttackStrengthTicker();
 			if (player instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.SURVIVAL);
 			if (player instanceof Player _player)

@@ -1,14 +1,13 @@
 package i.see.you.procedures;
 
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.entity.projectile.WitherSkull;
+import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.LargeFireball;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.DragonFireball;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
@@ -16,13 +15,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
-
-import java.util.Comparator;
 
 import i.see.you.init.TheRootOfCorruptionModEntities;
 import i.see.you.entity.MissingOneChaseEntity;
@@ -33,37 +29,8 @@ public class MissingonechasetickupdateProcedure {
 		if (entity == null)
 			return;
 		Entity player = null;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 444, 444, 444), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null);
+		player = NearbyPlayerProcedure.execute(world, entity);
 		if (!(player == null)) {
-			if (player instanceof Player _player)
-				_player.getFoodData().setSaturation(0);
-			if (player instanceof Player _player)
-				_player.getFoodData().setFoodLevel(0);
-			if (player instanceof Player _player)
-				_player.closeContainer();
-			if (player instanceof Player _plr && _plr.isFallFlying()) {
-				_plr.stopFallFlying();
-			}
-			if (player instanceof Player _plr6)
-				_plr6.resetAttackStrengthTicker();
-			if (player instanceof Player _player) {
-				_player.getAbilities().mayBuild = false;
-				_player.onUpdateAbilities();
-			}
-			if (player instanceof Player _player) {
-				_player.getAbilities().flying = false;
-				_player.onUpdateAbilities();
-			}
-			if (player instanceof Player _player) {
-				_player.getAbilities().invulnerable = true;
-				_player.onUpdateAbilities();
-			}
-			if (player instanceof ServerPlayer _player)
-				_player.setGameMode(GameType.SURVIVAL);
 			player.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC)), 1);
 			if (entity instanceof Mob _entity && player instanceof LivingEntity _ent)
 				_entity.setTarget(_ent);
@@ -127,6 +94,26 @@ public class MissingonechasetickupdateProcedure {
 				Level projectileLevel = _shootFrom.level();
 				if (!projectileLevel.isClientSide()) {
 					Projectile _entityToSpawn = new LargeFireball(EntityType.FIREBALL, projectileLevel);
+					_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
+					_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 1, 0);
+					projectileLevel.addFreshEntity(_entityToSpawn);
+				}
+			}
+			{
+				Entity _shootFrom = entity;
+				Level projectileLevel = _shootFrom.level();
+				if (!projectileLevel.isClientSide()) {
+					Projectile _entityToSpawn = new DragonFireball(EntityType.DRAGON_FIREBALL, projectileLevel);
+					_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
+					_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 1, 0);
+					projectileLevel.addFreshEntity(_entityToSpawn);
+				}
+			}
+			{
+				Entity _shootFrom = entity;
+				Level projectileLevel = _shootFrom.level();
+				if (!projectileLevel.isClientSide()) {
+					Projectile _entityToSpawn = new SmallFireball(EntityType.SMALL_FIREBALL, projectileLevel);
 					_entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
 					_entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 1, 0);
 					projectileLevel.addFreshEntity(_entityToSpawn);

@@ -37,7 +37,7 @@ public class JavadietickupdateProcedure {
 		if (!(player == null)) {
 			entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((player.getX()), (player.getY() + 1), (player.getZ())));
 			if (LookentityProcedure.execute(player, entity)) {
-				if (Math.random() > 0.7) {
+				if (Math.random() > 0.9) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = TheRootOfCorruptionModEntities.YOURJAVAISDIE_CHASE.get().spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
 						if (entityToSpawn != null) {

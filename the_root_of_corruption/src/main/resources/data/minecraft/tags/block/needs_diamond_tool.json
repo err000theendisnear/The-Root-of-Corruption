@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "the_root_of_corruption:block_is_watching_you",
+    "the_root_of_corruption:administrator",
     "the_root_of_corruption:glowingobsidian"
   ]
 }

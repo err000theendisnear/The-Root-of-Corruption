@@ -13,9 +13,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
-
-import javax.annotation.Nullable;
-
 import i.see.you.entity.UndefinedBossEntity;
 
 @EventBusSubscriber
@@ -27,14 +24,11 @@ public class NotToDieProcedure {
 		}
 	}
 
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		execute(null, world, x, y, z, entity);
-	}
-
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
+	private static void execute(LivingDeathEvent event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
 		if (entity instanceof UndefinedBossEntity && (entity instanceof UndefinedBossEntity _datEntI ? _datEntI.getEntityData().get(UndefinedBossEntity.DATA_hp) : 0) > 0) {
+			event.setCanceled(true);
 			if (entity instanceof LivingEntity _entity)
 				_entity.setHealth((float) (entity instanceof UndefinedBossEntity _datEntI ? _datEntI.getEntityData().get(UndefinedBossEntity.DATA_hp) : 0));
 			if (world instanceof ServerLevel _level) {

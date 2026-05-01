@@ -49,7 +49,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 
-import i.see.you.procedures.TrueleftthegameProcedure;
 import i.see.you.procedures.TickupdateProcedure;
 import i.see.you.procedures.HuntspawnvexProcedure;
 import i.see.you.init.TheRootOfCorruptionModItems;
@@ -64,7 +63,7 @@ public class UndefinedBossEntity extends Monster {
 		xpReward = 32768;
 		setNoAi(false);
 		setPersistenceRequired();
-		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(TheRootOfCorruptionModItems.NOTEXTURE_TOOL.get()));
+		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(TheRootOfCorruptionModItems.SAVE_THE_WORLD.get()));
 		this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.TOTEM_OF_UNDYING));
 		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(TheRootOfCorruptionModItems.MISSING_ARMOR_HELMET.get()));
 		this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(TheRootOfCorruptionModItems.MISSING_ARMOR_CHESTPLATE.get()));
@@ -192,12 +191,6 @@ public class UndefinedBossEntity extends Monster {
 	@Override
 	public boolean fireImmune() {
 		return true;
-	}
-
-	@Override
-	public void die(DamageSource source) {
-		super.die(source);
-		TrueleftthegameProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), source.getEntity());
 	}
 
 	@Override

@@ -18,12 +18,15 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import i.see.you.fluid.ErrNullFluid;
+import i.see.you.fluid.DayNegativeOneFluid;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TheRootOfCorruptionModFluids {
 	public static final DeferredRegister<Fluid> REGISTRY = DeferredRegister.create(BuiltInRegistries.FLUID, TheRootOfCorruptionMod.MODID);
 	public static final DeferredHolder<Fluid, FlowingFluid> ERR_NULL = REGISTRY.register("err_null", () -> new ErrNullFluid.Source());
 	public static final DeferredHolder<Fluid, FlowingFluid> FLOWING_ERR_NULL = REGISTRY.register("flowing_err_null", () -> new ErrNullFluid.Flowing());
+	public static final DeferredHolder<Fluid, FlowingFluid> DAY_NEGATIVE_ONE = REGISTRY.register("day_negative_one", () -> new DayNegativeOneFluid.Source());
+	public static final DeferredHolder<Fluid, FlowingFluid> FLOWING_DAY_NEGATIVE_ONE = REGISTRY.register("flowing_day_negative_one", () -> new DayNegativeOneFluid.Flowing());
 
 	@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class FluidsClientSideHandler {
@@ -31,6 +34,8 @@ public class TheRootOfCorruptionModFluids {
 		public static void clientSetup(FMLClientSetupEvent event) {
 			ItemBlockRenderTypes.setRenderLayer(ERR_NULL.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FLOWING_ERR_NULL.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(DAY_NEGATIVE_ONE.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FLOWING_DAY_NEGATIVE_ONE.get(), RenderType.translucent());
 		}
 	}
 }

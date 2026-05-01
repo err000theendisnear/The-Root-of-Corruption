@@ -1,0 +1,8 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "the_root_of_corruption:block/error",
+    "particle": "the_root_of_corruption:block/1101000_1100101_1101100_1110000"
+  },
+  "render_type": "cutout"
+}

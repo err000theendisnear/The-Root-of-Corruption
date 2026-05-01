@@ -22,7 +22,11 @@
     "onBootsTick": {
       "name": "GlitchWalker"
     },
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "armorTextureFile": "missing",
     "helmetName": "Missing",
     "bodyName": "Missing",
@@ -106,6 +110,12 @@
     "repairItems": [
       {
         "value": "CUSTOM:ItemIsMissingID"
+      },
+      {
+        "value": "CUSTOM:NULLNULLNULL"
+      },
+      {
+        "value": "Blocks.BEDROCK"
       }
     ]
   }

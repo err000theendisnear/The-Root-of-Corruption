@@ -122,5 +122,88 @@
         "stream": false
       }
     ]
+  },
+  "hello": {
+    "subtitle": "subtitles.hello",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:111101_101001",
+        "stream": false
+      }
+    ]
+  },
+  "exception_hunt": {
+    "subtitle": "subtitles.exception_hunt",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:exception_hunt",
+        "stream": false
+      }
+    ]
+  },
+  "anonymity_tian_sound": {
+    "subtitle": "subtitles.anonymity_tian_sound",
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:nmt_sound",
+        "stream": false
+      }
+    ]
+  },
+  "cave_noise_loud": {
+    "sounds": [
+      {
+        "name": "the_root_of_corruption:cave1",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave2",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave3",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave4",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave5",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave6",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave7",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave8",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave9",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave10",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave11",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave12",
+        "stream": false
+      },
+      {
+        "name": "the_root_of_corruption:cave13",
+        "stream": false
+      }
+    ]
   }
 }

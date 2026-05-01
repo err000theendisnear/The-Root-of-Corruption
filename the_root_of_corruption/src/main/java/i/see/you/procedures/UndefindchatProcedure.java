@@ -39,7 +39,9 @@ public class UndefindchatProcedure {
 			return;
 		if (!world.getEntitiesOfClass(CustomDeathWatchEntity.class, AABB.ofSize(new Vec3(x, y, z), 1280, 1280, 1280), e -> true).isEmpty()) {
 			event.setCanceled(true);
-			SayProcedure.execute(entity);
+			if (entity instanceof Player _player && !_player.level().isClientSide()) {
+				_player.displayClientMessage(Component.literal("\u00A7cerror : package net.neoforged.neoforge.event.ServerChatEvent does not exist"), true);
+			}
 			return;
 		}
 		String chat = "";
@@ -48,11 +50,9 @@ public class UndefindchatProcedure {
 			if (TheRootOfCorruptionModVariables.MapVariables.get(world).undefined_join) {
 				if (chat.contains("hello") || chat.contains("hi")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: cannot find symbol"), false);
+						errSay(world);
 						TheRootOfCorruptionMod.queueServerWork(100, () -> {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7aHello."), false);
+							UndefinedSay("\u00A7aHello.", world);
 						});
 					});
 				} else if ((chat).equals("undefined") || (chat).equals("undefind")) {
@@ -66,40 +66,28 @@ public class UndefindchatProcedure {
 								}
 							}
 						});
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: \u00A7k_rot_in_hell."), false);
+						UndefinedSay("\u00A7cerror: \u00A7k_rot_in_hell.", world);
 						TheRootOfCorruptionMod.queueServerWork(20, () -> {
 							entity.kill();
-							{
-								Entity _ent = entity;
-								if (!_ent.level().isClientSide() && _ent.getServer() != null) {
-									_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null,
-											4, _ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), ("kick @s " + Component.translatable("multiplayer.disconnect.banned").getString()));
-								}
-							}
+							KickplayerProcedure.execute(entity, Component.translatable("multiplayer.disconnect.banned").getString());
 						});
 					});
 				} else if (chat.contains("\u00A7k")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> that's me."), false);
+						UndefinedSay("that's me.", world);;
 					});
 				} else if (chat.contains("who are you")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: cannot find symbol"), false);
+						errSay(world);
 						TheRootOfCorruptionMod.queueServerWork(100, () -> {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7a\u00A7kUndefind"), false);
+							UndefinedSay("\u00A7a\u00A7kUndefined", world);
 						});
 					});
 				} else if (chat.contains("what do you want")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: cannot find symbol"), false);
+						errSay(world);
 						TheRootOfCorruptionMod.queueServerWork(120, () -> {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7ahelp."), false);
+							
 							if (entity instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal("\u00A7cplease."), true);
 							if (world instanceof Level _level) {
@@ -142,28 +130,23 @@ public class UndefindchatProcedure {
 					});
 				} else if (chat.contains("mojang")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: cannot find symbol"), false);
+						errSay(world);
 						TheRootOfCorruptionMod.queueServerWork(50, () -> {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7aThey are \u00A7k_wo_ye_bu_zhi_dao"), false);
+							UndefinedSay("\u00A7aThey regret not fixing this bug.", world);
 						});
 					});
 				} else if (chat.contains("1.7.10") || chat.contains("alpha") || chat.contains("beta")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: cannot find symbol"), false);
+						errSay(world);
 						TheRootOfCorruptionMod.queueServerWork(100, () -> {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7ahome."), false);
+							UndefinedSay("\u00A7ahome.", world);
 						});
 					});
 				} else if (chat.contains("the broken script") || chat.contains("mark101")) {
 					TheRootOfCorruptionMod.queueServerWork(175, () -> {
 						if (Calendar.getInstance().get(Calendar.MONTH) == 3 && Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 0) {
 							if (ModList.get().isLoaded("thebrokenscript")) {
-								if (!world.isClientSide() && world.getServer() != null)
-									world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> :)"), false);
+								UndefinedSay(":)", world);
 								TheRootOfCorruptionMod.queueServerWork(50, () -> {
 									{
 										Entity _ent = entity;
@@ -177,8 +160,7 @@ public class UndefindchatProcedure {
 								});
 								TheRootOfCorruptionMod.queueServerWork(250, () -> {
 									if (entity.isAlive()) {
-										if (!world.isClientSide() && world.getServer() != null)
-											world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> >:("), false);
+										UndefinedSay(">:(", world);
 										TheRootOfCorruptionMod.queueServerWork(50, () -> {
 											{
 												Entity _ent = entity;
@@ -193,14 +175,12 @@ public class UndefindchatProcedure {
 								});
 							}
 						} else {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> ([{<err.die>}])"), false);
+							UndefinedSay("([<err.go_away>})", world);
 						}
 					});
 				} else if (chat.contains("null")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> friend."), false);
+						UndefinedSay("friend.", world);
 					});
 					TheRootOfCorruptionMod.queueServerWork(200, () -> {
 						{
@@ -215,15 +195,26 @@ public class UndefindchatProcedure {
 					});
 				} else if (chat.contains("herobrine")) {
 					TheRootOfCorruptionMod.queueServerWork(100, () -> {
-						if (!world.isClientSide() && world.getServer() != null)
-							world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7cerror: cannot find symbol"), false);
+						errSay(world);
 						TheRootOfCorruptionMod.queueServerWork(100, () -> {
-							if (!world.isClientSide() && world.getServer() != null)
-								world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<Undefind> \u00A7ahe right behind you."), false);
+							UndefinedSay("\u00A7ahe is right behind you.", world);
 						});
 					});
 				}
 			}
 		}
+	}
+	
+	private static void UndefinedSay(String message, LevelAccessor world) {
+		Entity _ent = SpawnFakePlayerProcedure.execute(world, "Undefined");
+		if (!world.isClientSide() && _ent.getServer() != null) {
+			_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), world instanceof ServerLevel _svlvl ? _svlvl : null, 4,
+					_ent.getName().getString(), _ent.getDisplayName(), world.getServer(), _ent), ("say " + message));
+		}
+	}
+
+	private static void errSay(LevelAccessor world) {
+		LogUndefinedProcedure.execute();
+		UndefinedSay("\u00A7cerror: cannot find symbol", world);
 	}
 }

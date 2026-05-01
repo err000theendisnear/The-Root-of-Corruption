@@ -230,18 +230,6 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1018,10 +1006,6 @@
         ],
         "dependencies": [
           {
-            "name": "arguments",
-            "type": "cmdcontext"
-          },
-          {
             "name": "entity",
             "type": "entity"
           },
@@ -1038,10 +1022,15 @@
             "type": "number"
           },
           {
+            "name": "eventname",
+            "type": "string"
+          },
+          {
             "name": "world",
             "type": "world"
           }
-        ]
+        ],
+        "return_type": "logic"
       }
     },
     {
@@ -1088,10 +1077,6 @@
           {
             "name": "arguments",
             "type": "cmdcontext"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -1169,40 +1154,6 @@
       "metadata": {
         "files": [
           "src/main/java/i/see/you/procedures/StartCorruptionProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "blockstate",
-            "type": "blockstate"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "ToCorruption",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "to_corruption",
-      "metadata": {
-        "files": [
-          "src/main/java/i/see/you/procedures/ToCorruptionProcedure.java"
         ],
         "dependencies": [
           {
@@ -1370,6 +1321,10 @@
           "src/main/java/i/see/you/procedures/SfProcedure.java"
         ],
         "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
           {
             "name": "world",
             "type": "world"
@@ -1681,6 +1636,7 @@
           "src/main/resources/assets/the_root_of_corruption/models/block/err_null.json",
           "src/main/java/i/see/you/block/ErrNullBlock.java",
           "src/main/resources/assets/the_root_of_corruption/blockstates/err_null.json",
+          "src/main/java/i/see/you/item/ErrNullItem.java",
           "src/main/java/i/see/you/fluid/ErrNullFluid.java",
           "src/main/java/i/see/you/fluid/types/ErrNullFluidType.java"
         ]
@@ -1746,22 +1702,15 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
             "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
             "type": "number"
           },
           {
             "name": "world",
             "type": "world"
           }
-        ]
+        ],
+        "return_type": "string"
       }
     },
     {
@@ -3292,6 +3241,10 @@
           {
             "name": "itemstack",
             "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -3314,6 +3267,10 @@
           {
             "name": "itemstack",
             "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -3548,24 +3505,6 @@
       }
     },
     {
-      "name": "God",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "god",
-      "metadata": {
-        "files": [
-          "src/main/java/i/see/you/procedures/GodProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
       "name": "NotextureTool",
       "type": "item",
       "compiles": true,
@@ -3668,12 +3607,36 @@
         ],
         "dependencies": [
           {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
             "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
             "type": "entity"
           },
           {
             "name": "amount",
             "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -3682,7 +3645,7 @@
       "name": "NotToDie",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "not_to_die",
       "metadata": {
         "files": [
@@ -3750,7 +3713,7 @@
       "name": "Trueleftthegame",
       "type": "procedure",
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "trueleftthegame",
       "metadata": {
         "files": [
@@ -3758,20 +3721,8 @@
         ],
         "dependencies": [
           {
-            "name": "sourceentity",
+            "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
           },
           {
             "name": "world",
@@ -5359,7 +5310,8 @@
       "metadata": {
         "files": [
           "src/main/java/i/see/you/world/inventory/MeomorydeathMenu.java",
-          "src/main/java/i/see/you/client/gui/MeomorydeathScreen.java"
+          "src/main/java/i/see/you/client/gui/MeomorydeathScreen.java",
+          "src/main/java/i/see/you/network/MeomorydeathButtonMessage.java"
         ]
       }
     },
@@ -5367,7 +5319,7 @@
       "name": "OutOfMemoryError",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "out_of_memory_error",
       "metadata": {
         "files": [
@@ -5945,7 +5897,7 @@
       "name": "EventStart",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "event_start",
       "metadata": {
         "files": [
@@ -5987,6 +5939,10 @@
         ],
         "dependencies": [
           {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -6020,24 +5976,6 @@
       "metadata": {
         "files": [
           "src/main/java/i/see/you/AlertWindowInner.java"
-        ]
-      }
-    },
-    {
-      "name": "Say",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "say",
-      "metadata": {
-        "files": [
-          "src/main/java/i/see/you/procedures/SayProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
         ]
       }
     },
@@ -6080,8 +6018,8 @@
         ],
         "dependencies": [
           {
-            "name": "world",
-            "type": "world"
+            "name": "arguments",
+            "type": "cmdcontext"
           }
         ]
       }
@@ -6177,10 +6115,6 @@
           {
             "name": "arguments",
             "type": "cmdcontext"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -6689,6 +6623,10 @@
           {
             "name": "itemstack",
             "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -7644,11 +7582,3290 @@
           {
             "name": "entity",
             "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Leave",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "leave",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/LeaveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
           },
           {
             "name": "world",
             "type": "world"
           }
+        ]
+      }
+    },
+    {
+      "name": "RemoveHarmfulEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "remove_harmful_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RemoveHarmfulEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InventoryHelper",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "inventory_helper",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/InventoryHelperProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "copy",
+            "type": "logic"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "arraylist"
+      }
+    },
+    {
+      "name": "Goawaygoaway",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "goawaygoaway",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GoawaygoawayProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RunEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "run_event",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RunEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EntityToSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "entity_to_spawn",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/i/see/you/procedures/EntityToSpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "summon",
+            "type": "logic"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MusicManager",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "music_manager",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/mixins/MusicManagerMixin.java"
+        ]
+      }
+    },
+    {
+      "name": "Memoryspawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "memoryspawn",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/MemoryspawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GetHitEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "get_hit_entity",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/i/see/you/procedures/GetHitEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "maxDistance",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GetHitBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "get_hit_block",
+      "metadata": {
+        "return_type": "blockstate",
+        "files": [
+          "src/main/java/i/see/you/procedures/GetHitBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "maxDistance",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BehindYouCurse",
+      "type": "enchantment",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behind_you_curse",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_root_of_corruption/enchantment/behind_you_curse.json"
+        ]
+      }
+    },
+    {
+      "name": "BehindU",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behind_u",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/BehindUProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Enchantment",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "enchantment",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/EnchantmentProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SmallBomb",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "small_bomb",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/entity/SmallBombEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "Boom",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "boom",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/BoomProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Breakworld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "breakworld",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/BreakworldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlaceRawCopperBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_raw_copper_block",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PlaceRawCopperBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlaceLight15",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "place_light",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PlaceLight15Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlaceSoulFire",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_soul_fire",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PlaceSoulFireProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NearbyPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nearby_player",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/i/see/you/procedures/NearbyPlayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TriggerRandomEvent",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "trigger_random_event",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/TriggerRandomEvent.java"
+        ]
+      }
+    },
+    {
+      "name": "TriggerEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trigger_event",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TriggerEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "reset",
+            "type": "logic"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StartEvent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "start_event",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/StartEventProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddPercent",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_percent",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/AddPercentProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Saveyourself",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "saveyourself",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SaveyourselfProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlayerRespawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "player_respawn",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PlayerRespawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SlowMending",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "slow_mending",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SlowMendingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Explode",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "explode",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ExplodeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ExplodeMob",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "explode_mob",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ExplodeMobProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ExplodeTNT",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "explode_tnt",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ExplodeTNTProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ExplodeBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "explode_block",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ExplodeBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Save",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "save",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SaveProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Enchanter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "enchanter",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/EnchanterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Push",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "push",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PushProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RenderTotem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "render_totem",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RenderTotemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FakePlayerExecuteCommand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fake_player_execute_command",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/FakePlayerExecuteCommandProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rightclick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rightclick",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RightclickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rightclickentity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "rightclickentity",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RightclickentityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetCanChat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_can_chat",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SetCanChatProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Youjustlosthegame",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "youjustlosthegame",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/YoujustlosthegameProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "NearestPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nearest_player",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/i/see/you/procedures/NearestPlayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Canyouseeme",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "canyouseeme",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/CanyouseemeOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "CYSM",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cysm",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/CYSMProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Canyouseemyself",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "canyouseemyself",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/CanyouseemyselfProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WatcherModel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "watcher_model",
+      "metadata": {
+        "return_type": "entity",
+        "files": [
+          "src/main/java/i/see/you/procedures/WatcherModelProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DayNegativeOne",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "day_negative_one",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/item/DayNegativeOneItem.java",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/day_negative_one.json",
+          "src/main/java/i/see/you/block/DayNegativeOneBlock.java",
+          "src/main/java/i/see/you/fluid/types/DayNegativeOneFluidType.java",
+          "src/main/resources/assets/the_root_of_corruption/models/item/day_negative_one_bucket.json",
+          "src/main/resources/assets/the_root_of_corruption/models/block/day_negative_one.json",
+          "src/main/java/i/see/you/fluid/DayNegativeOneFluid.java"
+        ]
+      }
+    },
+    {
+      "name": "GiveDayNegativeOneBucket",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_day_negative_one_bucket",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveDayNegativeOneBucketProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveReinforcedDeepslate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_reinforced_deepslate",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveReinforcedDeepslateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "I",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "i",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/particle/IParticle.java",
+          "src/main/resources/assets/the_root_of_corruption/particles/i.json"
+        ]
+      }
+    },
+    {
+      "name": "See",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "see",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/particles/see.json",
+          "src/main/java/i/see/you/client/particle/SeeParticle.java"
+        ]
+      }
+    },
+    {
+      "name": "You",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "you",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/particle/YouParticle.java",
+          "src/main/resources/assets/the_root_of_corruption/particles/you.json"
+        ]
+      }
+    },
+    {
+      "name": "ISeeYouParticle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "i_see_you_particle",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ISeeYouParticleProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EmptyRenderer",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "empty_renderer",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/renderer/EmptyRendererRenderer.java",
+          "src/main/java/i/see/you/entity/EmptyRendererEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "Red",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "red",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/RedOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "RendererExist",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "renderer_exist",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/RendererExistProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EmptyRendererTU",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "empty_renderer_tu",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/EmptyRendererTUProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RenderMadness",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "render_madness",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/RenderMadness.java"
+        ]
+      }
+    },
+    {
+      "name": "Resetyourscreen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "resetyourscreen",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ResetyourscreenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ResetMinecraftScreen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset_minecraft_screen",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ResetMinecraftScreenProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "DayNegativeOneBoom",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "day_negative_one_boom",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/DayNegativeOneBoomProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AnonymityTianJoin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "anonymity_tian_join",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/AnonymityTianJoinProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GoAwayException",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "go_away_exception",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/GoAwayException.java"
+        ]
+      }
+    },
+    {
+      "name": "GoAwayError",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "go_away_error",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GoAwayErrorProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Stuck",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuck",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/StuckProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RandomMessage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "random_message",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RandomMessageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ClearAllGod",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clear_all_god",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ClearAllGodProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DebugTool",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/item/DebugToolItem.java",
+          "src/main/resources/assets/the_root_of_corruption/models/item/debug_tool.json"
+        ]
+      }
+    },
+    {
+      "name": "Green",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "green",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/GreenOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "Blue",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blue",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/BlueOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "HorrorMainMenu",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "horror_main_menu",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/HorrorMainMenuOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "ERRUNDEFINED",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "errundefined",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/block/ERRUNDEFINEDBlock.java",
+          "src/main/resources/assets/the_root_of_corruption/models/block/errundefined.json",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/errundefined.json",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/errundefined.json",
+          "src/main/resources/assets/the_root_of_corruption/models/item/errundefined.json"
+        ]
+      }
+    },
+    {
+      "name": "CantYouSee",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cant_you_see",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/CantYouSeeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsOptfine",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_optfine",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/IsOptfineProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "TotemPacketHandler",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "totem_packet_handler",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/TotemPacketHandler.java"
+        ]
+      }
+    },
+    {
+      "name": "TotemAnimation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "totem_animation",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TotemAnimationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TexturelessAnimation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "textureless_animation",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TexturelessAnimationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AdministratorChat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "administrator_chat",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/AdministratorChatProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OpenChatScreen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_chat_screen",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/OpenChatScreenProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NULLNULLNULL",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nullnullnull",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/item/nullnullnull.json",
+          "src/main/java/i/see/you/item/NULLNULLNULLItem.java"
+        ]
+      }
+    },
+    {
+      "name": "GlitchGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "glitch_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/world/inventory/GlitchGUIMenu.java",
+          "src/main/java/i/see/you/client/gui/GlitchGUIScreen.java"
+        ]
+      }
+    },
+    {
+      "name": "ClientDie",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "client_die",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ClientDieProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OpenGlitchGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_glitch_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/OpenGlitchGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveNullNullNull",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_null_null_null",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveNullNullNullProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Server",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "server",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/item/server.json",
+          "src/main/java/i/see/you/item/ServerItem.java"
+        ]
+      }
+    },
+    {
+      "name": "GiveServer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_server",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveServerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Administrator",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "administrator",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/block/administrator.json",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/administrator.json",
+          "src/main/resources/assets/the_root_of_corruption/models/item/administrator.json",
+          "src/main/java/i/see/you/block/AdministratorBlock.java",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/administrator.json"
+        ]
+      }
+    },
+    {
+      "name": "UnderFeetBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "under_feet_block",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/UnderFeetBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NoTarget",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "no_target",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/NoTargetProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fatal",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fatal",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/entity/FatalEntity.java",
+          "src/main/java/i/see/you/client/renderer/FatalRenderer.java",
+          "src/main/resources/data/the_root_of_corruption/neoforge/biome_modifier/fatal_biome_modifier.json"
+        ]
+      }
+    },
+    {
+      "name": "Lava",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lava",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/LavaProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OverWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "over_world",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/OverWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TheCorruptionRoot",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_corruption_root",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "HeartLess",
+      "type": "plant",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heart_less",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_root_of_corruption/worldgen/configured_feature/heart_less.json",
+          "src/main/java/i/see/you/block/HeartLessBlock.java",
+          "src/main/resources/data/the_root_of_corruption/neoforge/biome_modifier/heart_less_biome_modifier.json",
+          "src/main/resources/assets/the_root_of_corruption/models/block/heart_less.json",
+          "src/main/resources/assets/the_root_of_corruption/models/item/heart_less.json",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/heart_less.json",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/heart_less.json",
+          "src/main/resources/data/the_root_of_corruption/worldgen/placed_feature/heart_less.json"
+        ]
+      }
+    },
+    {
+      "name": "Artifact",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "artifact",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/item/artifact.json",
+          "src/main/java/i/see/you/item/ArtifactItem.java"
+        ]
+      }
+    },
+    {
+      "name": "KillHitEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kill_hit_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/KillHitEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DieNBTEntityGoDie",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "die_nbt_entity_go_die",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/DieNBTEntityGoDieProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LockedChest",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "locked_chest",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/block/locked_chest.json",
+          "src/main/resources/assets/the_root_of_corruption/models/item/locked_chest.json",
+          "src/main/java/i/see/you/block/LockedChestBlock.java",
+          "src/main/java/i/see/you/block/entity/LockedChestBlockEntity.java",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/locked_chest.json",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/locked_chest.json"
+        ]
+      }
+    },
+    {
+      "name": "Chest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chest",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ChestProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Chset",
+      "type": "itemextension",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chset",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "AreYouPlayer",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "are_you_player",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/gui/AreYouPlayerScreen.java",
+          "src/main/java/i/see/you/world/inventory/AreYouPlayerMenu.java",
+          "src/main/java/i/see/you/network/AreYouPlayerButtonMessage.java"
+        ]
+      }
+    },
+    {
+      "name": "IsPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_player",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/IsPlayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SacrificeYou",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sacrifice_you",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SacrificeYouProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BreakHitBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "break_hit_block",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/BreakHitBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TeleportDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "teleport_dimension",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TeleportDimensionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "dimension",
+            "type": "dimensiontype"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddPlayerInPlayerList",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_player_in_player_list",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/AddPlayerInPlayerListProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Minecraft",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "minecraft",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/mixins/MinecraftMixin.java"
+        ]
+      }
+    },
+    {
+      "name": "P1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "p_1",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/P1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "p_2",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/P2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "p_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/P3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "P4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "p_4",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/P4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "YouOverlay",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "you_overlay",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/YouOverlayOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "Look",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "look",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/LookOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "At",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "at",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/AtOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "Behind",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behind",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/client/screens/BehindOverlay.java"
+        ]
+      }
+    },
+    {
+      "name": "BehindYouOverlay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behind_you_overlay",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/BehindYouOverlayProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PauseGame",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pause_game",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PauseGameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UndefinedJoin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "undefined_join",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/UndefinedJoinProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pause",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pause",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/PauseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_player",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/AddPlayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EntityDiePlaceHeartLess",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "entity_die_place_heart_less",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/EntityDiePlaceHeartLessProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NullNull",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "null_null",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_root_of_corruption/recipe/null_null.json"
+        ]
+      }
+    },
+    {
+      "name": "TeleportToOverworld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleport_to_overworld",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TeleportToOverworldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ToOverWorld",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "to_over_world",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/item/to_over_world.json",
+          "src/main/java/i/see/you/item/ToOverWorldItem.java"
+        ]
+      }
+    },
+    {
+      "name": "KillAttackEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kill_attack_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/KillAttackEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BlockIsWatchingYou",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "block_is_watching_you",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_root_of_corruption/neoforge/biome_modifier/block_is_watching_you_biome_modifier.json",
+          "src/main/resources/assets/the_root_of_corruption/models/item/block_is_watching_you.json",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/block_is_watching_you.json",
+          "src/main/resources/data/the_root_of_corruption/worldgen/configured_feature/block_is_watching_you.json",
+          "src/main/java/i/see/you/block/BlockIsWatchingYouBlock.java",
+          "src/main/resources/assets/the_root_of_corruption/models/block/block_is_watching_you.json",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/block_is_watching_you.json",
+          "src/main/resources/data/the_root_of_corruption/worldgen/placed_feature/block_is_watching_you.json"
+        ]
+      }
+    },
+    {
+      "name": "InvulnerableEntityTickupdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "invulnerable_entity_tickupdate",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/InvulnerableEntityTickupdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EntitySpawnerCanSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_spawner_can_spawn",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/i/see/you/procedures/EntitySpawnerCanSpawnProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "SystemGC",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "system_gc",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/SystemGCProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "TheBrokenMemoryKillPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_broken_memory_kill_player",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/TheBrokenMemoryKillPlayerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "WatcherTickupdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "watcher_tickupdate",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/WatcherTickupdateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ServerCommonPacketListenerImpl",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "server_common_packet_listener_impl",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/mixins/ServerCommonPacketListenerImplMixin.java"
+        ]
+      }
+    },
+    {
+      "name": "ServerLevel",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "server_level",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/mixins/ServerLevelMixin.java"
+        ]
+      }
+    },
+    {
+      "name": "TheWorldIsDying",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_world_is_dying",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_root_of_corruption/models/item/the_world_is_dying.json",
+          "src/main/resources/data/the_root_of_corruption/loot_table/blocks/the_world_is_dying.json",
+          "src/main/resources/assets/the_root_of_corruption/models/block/the_world_is_dying.json",
+          "src/main/java/i/see/you/block/TheWorldIsDyingBlock.java",
+          "src/main/resources/assets/the_root_of_corruption/blockstates/the_world_is_dying.json"
+        ]
+      }
+    },
+    {
+      "name": "WorldIsDying",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "world_is_dying",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/WorldIsDyingProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LogUndefined",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "log_undefined",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/LogUndefinedProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "GetAllEntityinRegistries",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_all_entityin_registries",
+      "metadata": {
+        "return_type": "arraylist",
+        "files": [
+          "src/main/java/i/see/you/procedures/GetAllEntityinRegistriesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveAllDebuffToEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "give_all_debuff_to_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveAllDebuffToEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "beacon",
+            "type": "logic"
+          },
+          {
+            "name": "particle",
+            "type": "logic"
+          },
+          {
+            "name": "level",
+            "type": "number"
+          },
+          {
+            "name": "time",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ClearHarmfulEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clear_harmful_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ClearHarmfulEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveHarmfulEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_harmful_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveHarmfulEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RemoveBeneficialEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "remove_beneficial_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RemoveBeneficialEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RemoveNeutralEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "remove_neutral_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RemoveNeutralEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveAllBuffToEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "give_all_buff_to_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveAllBuffToEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "beacon",
+            "type": "logic"
+          },
+          {
+            "name": "particle",
+            "type": "logic"
+          },
+          {
+            "name": "level",
+            "type": "number"
+          },
+          {
+            "name": "time",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveAllNeutralEffectToEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "give_all_neutral_effect_to_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveAllNeutralEffectToEntityProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "beacon",
+            "type": "logic"
+          },
+          {
+            "name": "particle",
+            "type": "logic"
+          },
+          {
+            "name": "level",
+            "type": "number"
+          },
+          {
+            "name": "time",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RemoveAllNeutralEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "remove_all_neutral_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RemoveAllNeutralEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RemoveAllBeneficialEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "remove_all_beneficial_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/RemoveAllBeneficialEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveNeutralEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_neutral_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveNeutralEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GiveBeneficialEffect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_beneficial_effect",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/GiveBeneficialEffectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ForceKill",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "force_kill",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/procedures/ForceKillProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ReportType",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "report_type",
+      "metadata": {
+        "files": [
+          "src/main/java/i/see/you/mixins/ReportTypeMixin.java"
         ]
       }
     }
@@ -7749,6 +10966,30 @@
       "type": "logic",
       "scope": "map",
       "value": "false"
+    },
+    {
+      "name": "canyouseeme",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "undefined_uuid",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "unpauseable",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "screen_phase",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -7871,12 +11112,59 @@
       ],
       "category": "voice",
       "subtitle": ""
+    },
+    {
+      "name": "hello",
+      "files": [
+        "111101_101001"
+      ],
+      "category": "master",
+      "subtitle": "aGVsbG8u"
+    },
+    {
+      "name": "exception_hunt",
+      "files": [
+        "exception_hunt"
+      ],
+      "category": "master",
+      "subtitle": "Exception hunt"
+    },
+    {
+      "name": "anonymity_tian_sound",
+      "files": [
+        "nmt_sound"
+      ],
+      "category": "master",
+      "subtitle": "书接上回"
+    },
+    {
+      "name": "cave_noise_loud",
+      "files": [
+        "cave1",
+        "cave2",
+        "cave3",
+        "cave4",
+        "cave5",
+        "cave6",
+        "cave7",
+        "cave8",
+        "cave9",
+        "cave10",
+        "cave11",
+        "cave12",
+        "cave13"
+      ],
+      "category": "neutral",
+      "subtitle": ""
     }
   ],
   "tag_elements": {
     "ITEMS:minecraft:chest_armor": [
       "~CUSTOM:Notexture.body",
       "~CUSTOM:MissingArmor.body"
+    ],
+    "ENCHANTMENTS:minecraft:curse": [
+      "~CUSTOM:BehindYouCurse"
     ],
     "BLOCKS:minecraft:overworld_carver_replaceables": [
       "~Blocks.RED_NETHER_BRICK",
@@ -7885,12 +11173,14 @@
       "~CUSTOM:Executeroot",
       "~CUSTOM:Corruptionbedrock"
     ],
-    "BLOCKS:minecraft:needs_diamond_tool": [
-      "~CUSTOM:Glowingobsidian"
-    ],
     "ITEMS:minecraft:leg_armor": [
       "~CUSTOM:Notexture.legs",
       "~CUSTOM:MissingArmor.legs"
+    ],
+    "BLOCKS:minecraft:needs_diamond_tool": [
+      "~CUSTOM:BlockIsWatchingYou",
+      "~CUSTOM:Administrator",
+      "~CUSTOM:Glowingobsidian"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
       "~CUSTOM:FinishedNetherreactor",
@@ -7899,7 +11189,14 @@
       "~CUSTOM:Glowingobsidian"
     ],
     "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:DayNegativeOne",
       "~CUSTOM:ErrNull"
+    ],
+    "ENCHANTMENTS:minecraft:treasure": [
+      "~CUSTOM:BehindYouCurse"
+    ],
+    "BLOCKS:minecraft:mineable/shovel": [
+      "~CUSTOM:BlockIsWatchingYou"
     ],
     "ITEMS:minecraft:enchantable/durability": [
       "~CUSTOM:SaveTheWorld"
@@ -7934,11 +11231,16 @@
       "CUSTOM:MissingOneChase",
       "CUSTOM:ServerOwner",
       "CUSTOM:Memory",
-      "CUSTOM:Watchdog"
+      "CUSTOM:Watchdog",
+      "CUSTOM:EmptyRenderer",
+      "CUSTOM:RandomCross"
     ],
     "ITEMS:minecraft:head_armor": [
       "~CUSTOM:Notexture.helmet",
       "~CUSTOM:MissingArmor.helmet"
+    ],
+    "BLOCKS:minecraft:mineable/hoe": [
+      "~CUSTOM:Administrator"
     ],
     "ITEMS:minecraft:foot_armor": [
       "~CUSTOM:Notexture.boots",
@@ -7953,45 +11255,106 @@
       "~CUSTOM:Hope"
     ]
   },
-  "tab_element_order": {},
+  "tab_element_order": {
+    "CUSTOM:TheCorruptionRoot": [
+      "Corruptionbedrock",
+      "Executeroot",
+      "Textureless",
+      "Glowingobsidian",
+      "Netherreactor",
+      "Initializednetherreactor",
+      "FinishedNetherreactor",
+      "RotInHell",
+      "Missingno",
+      "Administrator",
+      "FightGen",
+      "ThisIsAllTheblockFault",
+      "CorruptionRoot",
+      "VoidAlter",
+      "ERRUNDEFINED",
+      "BlockIsWatchingYou",
+      "TheWorldIsDying",
+      "LockedChest",
+      "HeartLess",
+      "ItemIsMissingID",
+      "NULLNULLNULL",
+      "Server",
+      "Laugh",
+      "FakeLaugh",
+      "Notexture",
+      "MissingArmor",
+      "UndefinedHeart",
+      "SaveTheWorld",
+      "TheBrokenMemory",
+      "MissingSword",
+      "NotextureTool",
+      "Artifact",
+      "Fly",
+      "DebugTool",
+      "Hope",
+      "DayNegativeOne",
+      "ErrNull",
+      "ToOverWorld"
+    ]
+  },
   "language_map": {
     "en_us": {
       "gui.error_not_found.eye.label_i_see_you": "I See You",
+      "item.the_root_of_corruption.artifact.description_0": "Can you see me?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave": "Why Can You Just Leave?",
       "chat.error_not_found.online.true": "%s is online player.",
       "item.error_not_found.notexture_tool": "Notexture Tool",
       "block.the_root_of_corruption.glowingobsidian": "Glowingobsidian",
-      "block.the_root_of_corruption.void_alter": "Void Alter",
+      "item.the_root_of_corruption.fake_laugh.description_0": "1",
+      "block.the_root_of_corruption.void_alter": "Alter of Void",
       "item.error_not_found.the_broken_memory.desc": "he is die",
       "item.the_root_of_corruption.notexture_boots": "Notexture",
       "entity.error_not_found.undefindstare": "Undefindstare",
       "item.error_not_found.missing_armor_helmet": "Missing",
+      "gui.the_root_of_corruption.horror_main_menu.label_behind_you": "Behind you",
       "advancements.udf.descr": "err.undefined",
+      "item.the_root_of_corruption.to_over_world": "To Overworld",
+      "item.the_root_of_corruption.server": "Server",
       "entity.the_root_of_corruption.entity_spawner": "Entity Spawner",
       "chat.error_not_found.username": "Your username is %5.",
       "block.error_not_found.this_is_all_theblock_fault": "This Is All Theblock Fault",
       "block.error_not_found.err_null": "err",
       "key.the_root_of_corruption.spawn_lightbolt": "Spawn Lightbolt",
       "entity.the_root_of_corruption.steve": "Steve",
+      "block.the_root_of_corruption.day_negative_one": "Day -1",
       "entity.the_root_of_corruption.missing_one": "Missing One",
+      "subtitles.exception_hunt": "6fa990717dce54eea6c1cdd17dceb085",
       "item.the_root_of_corruption.notexture_chestplate": "Notexture",
       "block.the_root_of_corruption.corruption_root": "Corruption Root",
       "chat.error_not_found.online.false": "%s is offline player.",
       "fluid.the_root_of_corruption.err_null": "Err Null",
       "item.the_root_of_corruption.hope": "Don\u0027t use this item \u003d)",
+      "item.the_root_of_corruption.err_null_bucket": "Can you see me?",
+      "gui.the_root_of_corruption.horror_main_menu.label_go_away": "Go away",
       "entity.the_root_of_corruption.bedrock_stalker": "Bedrock Stalker",
       "entity.the_root_of_corruption.glitch_code": "Glitch Code",
+      "gui.the_root_of_corruption.glitch_gui.button_null": "null",
+      "gui.the_root_of_corruption.are_you_player.button_done": "Done",
+      "block.the_root_of_corruption.locked_chest": "Locked Chest",
       "subtitles.noise": "",
       "entity.error_not_found.undefined_boss": "Undefined Boss",
+      "subtitles.hello": "aGVsbG8u",
       "item.error_not_found.hope.description_0": "Discard it",
+      "gui.the_root_of_corruption.glitch_gui.button_null13": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null14": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null15": "null",
       "item.the_root_of_corruption.notexture_tool": "Notexture Tool",
       "subtitles.cave": "",
       "entity.the_root_of_corruption.watchdog": "Watchdog",
+      "entity.the_root_of_corruption.empty_renderer": "Empty Renderer",
       "entity.error_not_found.base_0": "Base 0",
-      "advancements.you_help_all_soul.descr": "You Clear All Error",
+      "advancements.you_help_all_soul.descr": "You Freed All Soul.",
       "entity.error_not_found.entity_spawner": "Entity Spawner",
       "subtitles.void": "???",
+      "gui.the_root_of_corruption.horror_main_menu.label_leaveleaveleaveleaveleaveleave": "LeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeave",
       "item.error_not_found.laugh.desc": "1",
       "item.the_root_of_corruption.laugh.desc": "1",
+      "fluid.the_root_of_corruption.day_negative_one": "Day -1",
       "item.error_not_found.missing_armor_leggings": "Missing",
       "entity.the_root_of_corruption.custom_death": "Custom Death",
       "gui.the_root_of_corruption.opcommand.command": "",
@@ -7999,11 +11362,18 @@
       "item.the_root_of_corruption.item_is_missing_id": "ItemIsMissingID",
       "entity.error_not_found.bedrock_stalker": "Bedrock Stalker",
       "chat.error_not_found.discard": "Discard %5 entities!",
-      "chat.error_not_found.event": "Execute a event!",
+      "chat.error_not_found.event": "Execute an event!",
+      "gui.the_root_of_corruption.glitch_gui.button_null10": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null11": "null",
+      "gui.the_root_of_corruption.horror_main_menu.label_undefined": "undefined",
+      "gui.the_root_of_corruption.glitch_gui.button_null12": "null",
       "subtitles.chase": "",
       "item.error_not_found.hope.desc": "Discard it.",
+      "item.the_root_of_corruption.debug_tool.description_0": "The ultimate weapon of this mod.",
       "biome.error_not_found.saveus": "Saveus",
       "block.error_not_found.fight_gen": "Fight Gen",
+      "gui.the_root_of_corruption.horror_main_menu.label_empty": "???",
+      "block.the_root_of_corruption.the_world_is_dying": "The World Is Dying",
       "chat.error_not_found.surface": "on surface time is %5.",
       "entity.the_root_of_corruption.undefined_on_surface": "Undefined On Surface",
       "item.error_not_found.the_broken_memory": "The Broken Memory",
@@ -8013,7 +11383,7 @@
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you": "you look at behind you",
       "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory": "ERR:OutOfMemory",
       "block.error_not_found.netherreactor": "Netherreactor",
-      "block.the_root_of_corruption.fight_gen": "Fight Gen",
+      "block.the_root_of_corruption.fight_gen": "Last Fight Dimension Generator",
       "entity.error_not_found.yourjavaisdie": "Yourjavaisdie",
       "block.error_not_found.missingno": "Missingno",
       "death.attack.null_pointer_damage": "err",
@@ -8022,9 +11392,10 @@
       "gui.the_root_of_corruption.opcommand.button_add_op": "Add OP",
       "subtitles.failed": "",
       "entity.error_not_found.watcher": "Watcher",
-      "advancements.you_help_all_soul.title": "You Save All Soul",
+      "advancements.you_help_all_soul.title": "You Saved All Soul.",
       "item.the_root_of_corruption.item_is_missing_id.description_0": "err",
       "subtitles.hal1": "",
+      "item.the_root_of_corruption.day_negative_one_bucket.description_0": "undefinedundefinedundefined",
       "death.attack.null_pointer_damage.player": "err",
       "item.the_root_of_corruption.missing_armor_chestplate": "Missing",
       "advancements.undefined.descr": "UndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefined",
@@ -8034,6 +11405,7 @@
       "item.error_not_found.undefined_heart.desc": "Eat it",
       "advancements.theendisnear.descr": "theendisnear",
       "subtitles.wrong_sound": "",
+      "item_group.the_root_of_corruption.the_corruption_root": "The Root of Corruption",
       "subtitles.jumpscare": "behind you",
       "block.the_root_of_corruption.rot_in_hell": "Rot In Hell",
       "block.error_not_found.void_alter": "Void Alter",
@@ -8041,7 +11413,8 @@
       "entity.error_not_found.lost_memory": "Lost Memory",
       "item.error_not_found.laugh.description_0": "err",
       "chat.error_not_found.percent": "There are %s ticks until the next event occurs.",
-      "chat.error_not_found.noevent": "§cNot any event！",
+      "enchantment.the_root_of_corruption.behind_you_curse": "Behind You",
+      "chat.error_not_found.noevent": "§cNot any event!",
       "entity.error_not_found.forgotten_player": "Forgotten Player",
       "chat.error_not_found.exist.true": "Player name %5 exist.",
       "item.the_root_of_corruption.notexture_leggings": "Notexture",
@@ -8052,24 +11425,44 @@
       "entity.the_root_of_corruption.yourjavaisdie": "Yourjavaisdie",
       "painting.the_root_of_corruption.errerrerrerr.author": "null",
       "subtitles.the_end_is_undefined": "",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave12": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave11": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave14": "Why Can You Just Leave?",
       "item.the_root_of_corruption.fly": "Fly",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave13": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave10": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_null": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null": "null",
       "block.error_not_found.finished_netherreactor": "Finished Netherreactor",
       "effect.error_not_found.corruption": "Corruption",
       "block.the_root_of_corruption.initializednetherreactor": "Initializednetherreactor",
-      "block.the_root_of_corruption.executeroot": "Executeroot",
+      "item.the_root_of_corruption.nullnullnull": "NULL",
+      "gui.the_root_of_corruption.glitch_gui.button_null8": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null9": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null6": "null",
+      "block.the_root_of_corruption.executeroot": "Execute root",
       "entity.the_root_of_corruption.undefindstare": "Undefindstare",
+      "gui.the_root_of_corruption.glitch_gui.button_null7": "null",
       "block.error_not_found.rot_in_hell": "Rot In Hell",
       "entity.the_root_of_corruption.missing_one_chase": "Missing One Chase",
       "entity.the_root_of_corruption.forgotten_player": "Forgotten Player",
       "entity.error_not_found.undefined_on_surface": "Undefined On Surface",
+      "gui.the_root_of_corruption.glitch_gui.button_null1": "null",
+      "gui.the_root_of_corruption.canyouseeme.label_can_you_see_me": "CAN YOU SEE ME?   CAN YOU SEE ME?   CAN YOU SEE ME?   CAN YOU SEE ME?",
+      "gui.the_root_of_corruption.glitch_gui.button_null4": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null5": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null2": "null",
       "entity.the_root_of_corruption.memory": "Memory",
+      "gui.the_root_of_corruption.glitch_gui.button_null3": "null",
       "item.the_root_of_corruption.laugh": "Laugh",
       "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory1": "ERR:OutOfMemory",
       "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory2": "ERR:OutOfMemory",
-      "advancements.youneedhe.title": "i see you",
+      "item.the_root_of_corruption.artifact": "Artifact",
+      "advancements.youneedhe.title": "I see you.",
       "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory3": "ERR:OutOfMemory",
       "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory4": "ERR:OutOfMemory",
       "entity.error_not_found.steve": "Steve",
+      "gui.the_root_of_corruption.horror_main_menu.label_empty1": "empty",
       "chat.error_not_found.handle": "Window Handle is %s.",
       "entity.the_root_of_corruption.invalid_creeper": "Invalid Creeper",
       "entity.the_root_of_corruption.watcher": "Watcher",
@@ -8077,6 +11470,7 @@
       "item.the_root_of_corruption.undefined_heart.desc": "Eat it",
       "entity.the_root_of_corruption.server_owner": "Server Owner",
       "entity.the_root_of_corruption.base_0": "Base 0",
+      "block.the_root_of_corruption.block_is_watching_you": "Block Is Watching You",
       "entity.the_root_of_corruption.invade_crashreport": "Invade Crashreport",
       "biome.the_root_of_corruption.saveus": "Saveus",
       "item.the_root_of_corruption.missing_sword": "Missing",
@@ -8086,16 +11480,24 @@
       "item.the_root_of_corruption.the_broken_memory.desc": "he is die",
       "effect.the_root_of_corruption.corruption": "Corruption",
       "entity.the_root_of_corruption.tamed_base_0": "Tamed Base 0",
-      "block.the_root_of_corruption.this_is_all_theblock_fault": "This Is All Theblock Fault",
+      "gui.the_root_of_corruption.meomorydeath.button_null": "null",
+      "gui.the_root_of_corruption.horror_main_menu.label_i_see_you": "I see you",
+      "block.the_root_of_corruption.this_is_all_theblock_fault": "This Is All The block Fault",
+      "gui.the_root_of_corruption.horror_main_menu.label_get_out": "Get out",
       "entity.the_root_of_corruption.game_crash": "Game Crash",
+      "gui.the_root_of_corruption.are_you_player.player": "",
       "item.the_root_of_corruption.missing_armor_helmet": "Missing",
       "item.the_root_of_corruption.fake_laugh": "Laugh",
       "entity.the_root_of_corruption.yourjavaisdie_chase": "Yourjavaisdie Chase",
+      "gui.the_root_of_corruption.glitch_gui.label_null8": "null",
       "gui.the_root_of_corruption.eye.label_i_see_you": "I See You",
+      "item.the_root_of_corruption.debug_tool": "Debug Tool",
       "item.the_root_of_corruption.save_the_world.desc": "freedom",
+      "chat.error_not_found.return": "Return : %s.",
+      "gui.the_root_of_corruption.are_you_player.label_enter_your_player_name": "Enter your player name",
       "block.the_root_of_corruption.finished_netherreactor": "Finished Netherreactor",
       "chat.error_not_found.exist.false": "Player name %5 doesn\u0027t exist.",
-      "block.the_root_of_corruption.corruptionbedrock": "Corruptionbedrock",
+      "block.the_root_of_corruption.corruptionbedrock": "Corruption Bedrock",
       "item.error_not_found.item_is_missing_id": "ItemIsMissingID",
       "entity.the_root_of_corruption.soul": "Soul",
       "entity.error_not_found.undefinedleftthegame": "Undefinedleftthegame",
@@ -8103,10 +11505,18 @@
       "gamerule.enableEvent": "enable event",
       "advancements.theendisnear.title": "theendisnear",
       "entity.the_root_of_corruption.custom_death_watch": "Custom Death Watch",
+      "gui.the_root_of_corruption.glitch_gui.label_null4": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null5": "null",
       "entity.error_not_found.invade_crashreport": "Invade Crashreport",
+      "gui.the_root_of_corruption.glitch_gui.label_null6": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null7": "null",
       "key.error_not_found.spawn_lightbolt": "Spawn Lightbolt",
+      "gui.the_root_of_corruption.glitch_gui.label_null1": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null2": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null3": "null",
       "block.the_root_of_corruption.err_null": "Err Null",
       "key.the_root_of_corruption.missing_chestplate_key": "Missing Chestplate Key",
+      "subtitles.anonymity_tian_sound": "\\u00A7k书接上回（何意味）",
       "block.error_not_found.initializednetherreactor": "Initializednetherreactor",
       "item.the_root_of_corruption.save_the_world": "Save The World",
       "entity.error_not_found.undefindchase": "Undefindchase",
@@ -8118,6 +11528,7 @@
       "gui.the_root_of_corruption.opcommand.label_command": "Command:",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you1": "you look at behind you",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you4": "you look at behind you",
+      "block.the_root_of_corruption.administrator.description_0": "null",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you3": "you look at behind you",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you6": "you look at behind you",
       "entity.the_root_of_corruption.minecraft_root": "Minecraft Root",
@@ -8125,9 +11536,21 @@
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you5": "you look at behind you",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you8": "you look at behind you",
       "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you7": "you look at behind you",
+      "block.the_root_of_corruption.errundefined": "ERR.UNDEFINED",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave9": "Why Can You Just Leave?",
       "item.error_not_found.laugh": "Laugh",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave8": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave7": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave6": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave5": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave4": "Why Can You Just Leave?",
       "item.the_root_of_corruption.missing_armor_leggings": "Missing",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave3": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave2": "Why Can You Just Leave?",
+      "block.the_root_of_corruption.administrator": "Administrator",
       "subtitles.error": "undefined.watch",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave1": "Why Can You Just Leave?",
+      "subtitles.cave_noise_loud": "",
       "fluid.error_not_found.err_null": "Err Null",
       "advancements.goodbye.descr": "\u003d)",
       "advancements.undefined.title": "Undefined",
@@ -8137,15 +11560,305 @@
       "block.error_not_found.textureless": "Textureless",
       "subtitles.glitch": "err",
       "item.error_not_found.item_is_missing_id.description_0": "",
+      "gui.the_root_of_corruption.glitch_gui.null0": "null",
       "item.the_root_of_corruption.missing_armor_boots": "Missing",
+      "gui.the_root_of_corruption.glitch_gui.null2": "null",
+      "gui.the_root_of_corruption.glitch_gui.null1": "null",
       "entity.the_root_of_corruption.undefined_boss": "Undefined Boss",
       "entity.error_not_found.yourjavaisdie_chase": "Yourjavaisdie Chase",
       "biome.the_root_of_corruption.thehell": "Thehell",
+      "entity.the_root_of_corruption.fatal": "Fatal",
       "block.the_root_of_corruption.textureless": "Textureless",
-      "advancements.youneedhe.descr": "i can see you",
+      "advancements.youneedhe.descr": "I can see you.",
       "item.the_root_of_corruption.hope.desc": "Discard it.",
+      "item.the_root_of_corruption.day_negative_one_bucket": "java.lang.IllegalArgumentException",
+      "block.the_root_of_corruption.heart_less": "Heart Less",
       "advancements.udf.title": "You are become Undefined",
       "gamerule.enableEvent.description": "enable random event",
+      "gui.the_root_of_corruption.glitch_gui.tooltip_null": "null",
+      "entity.error_not_found.glitch_code": "Glitch Code",
+      "subtitles.hope": "",
+      "item.error_not_found.hope": "Don\u0027t use this item \u003d)",
+      "entity.the_root_of_corruption.random_cross": "Random Cross"
+    },
+    "zh_cn": {
+      "gui.error_not_found.eye.label_i_see_you": "I See You",
+      "item.the_root_of_corruption.artifact.description_0": "这期神了",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave": "Why Can You Just Leave?",
+      "chat.error_not_found.online.true": "%s为正版玩家",
+      "item.error_not_found.notexture_tool": "Notexture Tool",
+      "block.the_root_of_corruption.glowingobsidian": "发光的黑曜石",
+      "item.the_root_of_corruption.fake_laugh.description_0": "1",
+      "block.the_root_of_corruption.void_alter": "Void Alter",
+      "item.error_not_found.the_broken_memory.desc": "he is die",
+      "item.the_root_of_corruption.notexture_boots": "Notexture",
+      "entity.error_not_found.undefindstare": "Undefindstare",
+      "item.error_not_found.missing_armor_helmet": "Missing",
+      "gui.the_root_of_corruption.horror_main_menu.label_behind_you": "Behind you",
+      "advancements.udf.descr": "err.undefined",
+      "item.the_root_of_corruption.to_over_world": "To Overworld",
+      "item.the_root_of_corruption.server": "Server",
+      "entity.the_root_of_corruption.entity_spawner": "Entity Spawner",
+      "block.error_not_found.this_is_all_theblock_fault": "This Is All Theblock Fault",
+      "chat.error_not_found.username": "你的用户名为%5.",
+      "block.error_not_found.err_null": "err",
+      "entity.the_root_of_corruption.steve": "Steve",
+      "key.the_root_of_corruption.spawn_lightbolt": "生成闪电束",
+      "block.the_root_of_corruption.day_negative_one": "Day -1",
+      "subtitles.exception_hunt": "6fa990717dce54eea6c1cdd17dceb085",
+      "entity.the_root_of_corruption.missing_one": "Missing One",
+      "item.the_root_of_corruption.notexture_chestplate": "Notexture",
+      "block.the_root_of_corruption.corruption_root": "Corruption Root",
+      "fluid.the_root_of_corruption.err_null": "Err Null",
+      "chat.error_not_found.online.false": "%s为离线玩家",
+      "item.the_root_of_corruption.hope": "Don\u0027t use this item \u003d)",
+      "item.the_root_of_corruption.err_null_bucket": "Can you see me?",
+      "gui.the_root_of_corruption.horror_main_menu.label_go_away": "Go away",
+      "entity.the_root_of_corruption.bedrock_stalker": "Bedrock Stalker",
+      "entity.the_root_of_corruption.glitch_code": "Glitch Code",
+      "gui.the_root_of_corruption.glitch_gui.button_null": "null",
+      "gui.the_root_of_corruption.are_you_player.button_done": "确认",
+      "entity.error_not_found.undefined_boss": "Undefined Boss",
+      "subtitles.noise": "",
+      "block.the_root_of_corruption.locked_chest": "Locked Chest",
+      "item.error_not_found.hope.description_0": "Discard it",
+      "subtitles.hello": "aGVsbG8u",
+      "gui.the_root_of_corruption.glitch_gui.button_null13": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null14": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null15": "null",
+      "item.the_root_of_corruption.notexture_tool": "Notexture Tool",
+      "subtitles.cave": "",
+      "entity.the_root_of_corruption.watchdog": "服务器的看门狗",
+      "entity.error_not_found.base_0": "Base 0",
+      "entity.the_root_of_corruption.empty_renderer": "Empty Renderer",
+      "advancements.you_help_all_soul.descr": "You Clear All Error",
+      "entity.error_not_found.entity_spawner": "Entity Spawner",
+      "subtitles.void": "???",
+      "gui.the_root_of_corruption.horror_main_menu.label_leaveleaveleaveleaveleaveleave": "LeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeaveLeave",
+      "item.error_not_found.laugh.desc": "1",
+      "item.the_root_of_corruption.laugh.desc": "1",
+      "fluid.the_root_of_corruption.day_negative_one": "Day -1",
+      "item.error_not_found.missing_armor_leggings": "Missing",
+      "entity.the_root_of_corruption.custom_death": "Custom Death",
+      "gui.the_root_of_corruption.opcommand.command": "",
+      "painting.the_root_of_corruption.errerrerrerr.title": "Err",
+      "item.the_root_of_corruption.item_is_missing_id": "ItemIsMissingID",
+      "entity.error_not_found.bedrock_stalker": "Bedrock Stalker",
+      "chat.error_not_found.event": "执行了一个事件",
+      "chat.error_not_found.discard": "移除了%5个实体",
+      "gui.the_root_of_corruption.glitch_gui.button_null10": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null11": "null",
+      "gui.the_root_of_corruption.horror_main_menu.label_undefined": "undefined",
+      "gui.the_root_of_corruption.glitch_gui.button_null12": "null",
+      "subtitles.chase": "",
+      "item.error_not_found.hope.desc": "Discard it.",
+      "item.the_root_of_corruption.debug_tool.description_0": "！？强强？！",
+      "biome.error_not_found.saveus": "Saveus",
+      "gui.the_root_of_corruption.horror_main_menu.label_empty": "???",
+      "block.error_not_found.fight_gen": "Fight Gen",
+      "block.the_root_of_corruption.the_world_is_dying": "The World Is Dying",
+      "chat.error_not_found.surface": "你在表面的时间为%5.",
+      "item.error_not_found.the_broken_memory": "The Broken Memory",
+      "entity.the_root_of_corruption.undefined_on_surface": "Undefined On Surface",
+      "subtitles.nothing": "\u003d)",
+      "item.error_not_found.missing_armor_boots": "Missing",
+      "block.the_root_of_corruption.netherreactor": "下界反应核",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you": "you look at behind you",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory": "ERR:OutOfMemory",
+      "block.error_not_found.netherreactor": "下界反应核",
+      "block.the_root_of_corruption.fight_gen": "Fight Gen",
+      "entity.error_not_found.yourjavaisdie": "Yourjavaisdie",
+      "block.error_not_found.missingno": "Missingno",
+      "death.attack.null_pointer_damage": "err",
+      "item.the_root_of_corruption.laugh.description_0": "err",
+      "entity.error_not_found.random_cross": "Random Cross",
+      "gui.the_root_of_corruption.opcommand.button_add_op": "添加OP值",
+      "subtitles.failed": "",
+      "entity.error_not_found.watcher": "Watcher",
+      "advancements.you_help_all_soul.title": "You Save All Soul",
+      "item.the_root_of_corruption.item_is_missing_id.description_0": "err",
+      "subtitles.hal1": "",
+      "item.the_root_of_corruption.day_negative_one_bucket.description_0": "undefinedundefinedundefined",
+      "death.attack.null_pointer_damage.player": "err",
+      "item.the_root_of_corruption.missing_armor_chestplate": "Missing",
+      "advancements.undefined.descr": "UndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefinedUndefined",
+      "gui.the_root_of_corruption.opcommand.button_done": "确定",
+      "subtitles.die": "0",
+      "entity.the_root_of_corruption.undefindchase": "Undefindchase",
+      "item.error_not_found.undefined_heart.desc": "Eat it",
+      "advancements.theendisnear.descr": "theendisnear",
+      "subtitles.wrong_sound": "",
+      "item_group.the_root_of_corruption.the_corruption_root": "The Root of Corruption",
+      "subtitles.jumpscare": "behind you",
+      "block.the_root_of_corruption.rot_in_hell": "Rot In Hell",
+      "block.error_not_found.void_alter": "Void Alter",
+      "advancements.goodbye.title": "\u003d)",
+      "entity.error_not_found.lost_memory": "Lost Memory",
+      "item.error_not_found.laugh.description_0": "err",
+      "chat.error_not_found.percent": "下一个事件在%s刻后执行",
+      "enchantment.the_root_of_corruption.behind_you_curse": "Behind You",
+      "chat.error_not_found.noevent": "§c无法找到事件",
+      "entity.error_not_found.forgotten_player": "Forgotten Player",
+      "chat.error_not_found.exist.true": "玩家名%5存在",
+      "item.the_root_of_corruption.notexture_leggings": "Notexture",
+      "block.error_not_found.executeroot": "Executeroot",
+      "item.the_root_of_corruption.notexture_helmet": "Notexture",
+      "subtitles.goaway": "",
+      "death.attack.null_pointer_damage.item": "err",
+      "entity.the_root_of_corruption.yourjavaisdie": "Yourjavaisdie",
+      "painting.the_root_of_corruption.errerrerrerr.author": "null",
+      "subtitles.the_end_is_undefined": "",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave12": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave11": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave14": "Why Can You Just Leave?",
+      "item.the_root_of_corruption.fly": "Fly",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave13": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave10": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_null": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null": "null",
+      "block.error_not_found.finished_netherreactor": "Finished Netherreactor",
+      "effect.error_not_found.corruption": "Corruption",
+      "block.the_root_of_corruption.initializednetherreactor": "激活的下界反应核",
+      "item.the_root_of_corruption.nullnullnull": "NULL",
+      "gui.the_root_of_corruption.glitch_gui.button_null8": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null9": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null6": "null",
+      "block.the_root_of_corruption.executeroot": "Executeroot",
+      "entity.the_root_of_corruption.undefindstare": "Undefindstare",
+      "gui.the_root_of_corruption.glitch_gui.button_null7": "null",
+      "block.error_not_found.rot_in_hell": "Rot In Hell",
+      "entity.the_root_of_corruption.missing_one_chase": "Missing One Chase",
+      "entity.the_root_of_corruption.forgotten_player": "Forgotten Player",
+      "entity.error_not_found.undefined_on_surface": "Undefined On Surface",
+      "gui.the_root_of_corruption.glitch_gui.button_null1": "null",
+      "gui.the_root_of_corruption.canyouseeme.label_can_you_see_me": "CAN YOU SEE ME?   CAN YOU SEE ME?   CAN YOU SEE ME?   CAN YOU SEE ME?",
+      "gui.the_root_of_corruption.glitch_gui.button_null4": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null5": "null",
+      "gui.the_root_of_corruption.glitch_gui.button_null2": "null",
+      "entity.the_root_of_corruption.memory": "Memory",
+      "gui.the_root_of_corruption.glitch_gui.button_null3": "null",
+      "item.the_root_of_corruption.laugh": "Laugh",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory1": "ERR:OutOfMemory",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory2": "ERR:OutOfMemory",
+      "item.the_root_of_corruption.artifact": "神器",
+      "advancements.youneedhe.title": "I see you",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory3": "ERR:OutOfMemory",
+      "gui.the_root_of_corruption.meomorydeath.label_erroutofmemory4": "ERR:OutOfMemory",
+      "entity.error_not_found.steve": "Steve",
+      "gui.the_root_of_corruption.horror_main_menu.label_empty1": "empty",
+      "chat.error_not_found.handle": "当前窗口句柄未%s.",
+      "entity.the_root_of_corruption.invalid_creeper": "Invalid Creeper",
+      "entity.the_root_of_corruption.watcher": "Watcher",
+      "entity.error_not_found.invalid_creeper": "Invalid Creeper",
+      "item.the_root_of_corruption.undefined_heart.desc": "Eat it",
+      "entity.the_root_of_corruption.server_owner": "Server Owner",
+      "entity.the_root_of_corruption.base_0": "Base 0",
+      "block.the_root_of_corruption.block_is_watching_you": "Block Is Watching You",
+      "entity.the_root_of_corruption.invade_crashreport": "Invade Crashreport",
+      "biome.the_root_of_corruption.saveus": "Saveus",
+      "item.the_root_of_corruption.missing_sword": "Missing",
+      "item.error_not_found.missing_armor_chestplate": "Missing",
+      "block.the_root_of_corruption.missingno": "Missingno",
+      "entity.the_root_of_corruption.lost_memory": "Lost Memory",
+      "item.the_root_of_corruption.the_broken_memory.desc": "he is die",
+      "effect.the_root_of_corruption.corruption": "Corruption",
+      "entity.the_root_of_corruption.tamed_base_0": "Tamed Base 0",
+      "gui.the_root_of_corruption.meomorydeath.button_null": "null",
+      "gui.the_root_of_corruption.horror_main_menu.label_i_see_you": "I see you",
+      "block.the_root_of_corruption.this_is_all_theblock_fault": "This Is All Theblock Fault",
+      "gui.the_root_of_corruption.horror_main_menu.label_get_out": "Get out",
+      "entity.the_root_of_corruption.game_crash": "Game Crash",
+      "gui.the_root_of_corruption.are_you_player.player": "",
+      "item.the_root_of_corruption.missing_armor_helmet": "Missing",
+      "item.the_root_of_corruption.fake_laugh": "Laugh",
+      "entity.the_root_of_corruption.yourjavaisdie_chase": "Yourjavaisdie Chase",
+      "gui.the_root_of_corruption.glitch_gui.label_null8": "null",
+      "gui.the_root_of_corruption.eye.label_i_see_you": "I See You",
+      "item.the_root_of_corruption.debug_tool": "！？审搞？！",
+      "item.the_root_of_corruption.save_the_world.desc": "freedom",
+      "chat.error_not_found.return": "返回: %s.",
+      "gui.the_root_of_corruption.are_you_player.label_enter_your_player_name": "输入你的玩家名",
+      "block.the_root_of_corruption.finished_netherreactor": "耗尽的下界反应核",
+      "chat.error_not_found.exist.false": "玩家名%5不存在",
+      "block.the_root_of_corruption.corruptionbedrock": "Corruptionbedrock",
+      "item.error_not_found.item_is_missing_id": "ItemIsMissingID",
+      "entity.the_root_of_corruption.soul": "Soul",
+      "entity.error_not_found.undefinedleftthegame": "Undefinedleftthegame",
+      "block.error_not_found.glowingobsidian": "发光的黑曜石",
+      "gamerule.enableEvent": "enable event",
+      "advancements.theendisnear.title": "theendisnear",
+      "entity.the_root_of_corruption.custom_death_watch": "Custom Death Watch",
+      "gui.the_root_of_corruption.glitch_gui.label_null4": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null5": "null",
+      "entity.error_not_found.invade_crashreport": "Invade Crashreport",
+      "gui.the_root_of_corruption.glitch_gui.label_null6": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null7": "null",
+      "key.error_not_found.spawn_lightbolt": "生成闪电束",
+      "gui.the_root_of_corruption.glitch_gui.label_null1": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null2": "null",
+      "gui.the_root_of_corruption.glitch_gui.label_null3": "null",
+      "block.the_root_of_corruption.err_null": "Err Null",
+      "key.the_root_of_corruption.missing_chestplate_key": "Missing胸甲使用键",
+      "subtitles.anonymity_tian_sound": "\\u00A7k书接上回（何意味）",
+      "block.error_not_found.initializednetherreactor": "耗尽的下界反应核",
+      "item.the_root_of_corruption.save_the_world": "Save The World",
+      "entity.error_not_found.undefindchase": "Undefindchase",
+      "key.error_not_found.missing_chestplate_key": "Missing胸甲使用键",
+      "entity.the_root_of_corruption.undefinedleftthegame": "Undefinedleftthegame",
+      "block.error_not_found.corruptionbedrock": "Corruptionbedrock",
+      "item.error_not_found.undefined_heart": "Undefined Heart",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you2": "you look at behind you",
+      "gui.the_root_of_corruption.opcommand.label_command": "命令:",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you1": "you look at behind you",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you4": "you look at behind you",
+      "block.the_root_of_corruption.administrator.description_0": "null",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you3": "you look at behind you",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you6": "you look at behind you",
+      "entity.the_root_of_corruption.minecraft_root": "Minecraft Root",
+      "item.the_root_of_corruption.undefined_heart": "Undefined Heart",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you5": "you look at behind you",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you8": "you look at behind you",
+      "gui.the_root_of_corruption.behindyou.label_you_look_at_behind_you7": "you look at behind you",
+      "block.the_root_of_corruption.errundefined": "ERR.UNDEFINED",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave9": "Why Can You Just Leave?",
+      "item.error_not_found.laugh": "Laugh",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave8": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave7": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave6": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave5": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave4": "Why Can You Just Leave?",
+      "item.the_root_of_corruption.missing_armor_leggings": "Missing",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave3": "Why Can You Just Leave?",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave2": "Why Can You Just Leave?",
+      "block.the_root_of_corruption.administrator": "Administrator",
+      "subtitles.error": "undefined.watch",
+      "gui.the_root_of_corruption.horror_main_menu.label_why_can_you_just_leave1": "Why Can You Just Leave?",
+      "subtitles.cave_noise_loud": "",
+      "fluid.error_not_found.err_null": "Err Null",
+      "advancements.goodbye.descr": "\u003d)",
+      "advancements.undefined.title": "Undefined",
+      "block.the_root_of_corruption.op_command_block": "OP命令方块",
+      "item.the_root_of_corruption.fake_laugh.desc": "err",
+      "item.the_root_of_corruption.the_broken_memory": "The Broken Memory",
+      "block.error_not_found.textureless": "Textureless",
+      "subtitles.glitch": "err",
+      "item.error_not_found.item_is_missing_id.description_0": "",
+      "gui.the_root_of_corruption.glitch_gui.null0": "null",
+      "item.the_root_of_corruption.missing_armor_boots": "Missing",
+      "gui.the_root_of_corruption.glitch_gui.null2": "null",
+      "gui.the_root_of_corruption.glitch_gui.null1": "null",
+      "entity.the_root_of_corruption.undefined_boss": "Undefined Boss",
+      "entity.error_not_found.yourjavaisdie_chase": "Yourjavaisdie Chase",
+      "biome.the_root_of_corruption.thehell": "Thehell",
+      "entity.the_root_of_corruption.fatal": "Fatal",
+      "block.the_root_of_corruption.textureless": "Textureless",
+      "advancements.youneedhe.descr": "I can see you",
+      "item.the_root_of_corruption.hope.desc": "Discard it.",
+      "item.the_root_of_corruption.day_negative_one_bucket": "java.lang.IllegalArgumentException",
+      "block.the_root_of_corruption.heart_less": "Heart Less",
+      "advancements.udf.title": "You are become Undefined",
+      "gamerule.enableEvent.description": "enable random event",
+      "gui.the_root_of_corruption.glitch_gui.tooltip_null": "null",
       "entity.error_not_found.glitch_code": "Glitch Code",
       "subtitles.hope": "",
       "item.error_not_found.hope": "Don\u0027t use this item \u003d)",
@@ -8159,10 +11872,10 @@
   "workspaceSettings": {
     "modid": "the_root_of_corruption",
     "modName": "The Root of Corruption",
-    "version": "1.0.5",
+    "version": "1.0.8",
     "description": "BUILD FAILED",
     "author": "err.undefined",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://github.com/err000theendisnear/The-Root-of-Corruption/",
     "license": "MIT License",
     "serverSideOnly": false,
     "modPicture": "behind_you",

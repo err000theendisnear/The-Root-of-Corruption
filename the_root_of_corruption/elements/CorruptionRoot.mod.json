@@ -42,7 +42,11 @@
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
@@ -58,7 +62,7 @@
       "value": "NONE"
     },
     "tickRate": 0,
-    "tickRandomly": false,
+    "tickRandomly": true,
     "isReplaceable": false,
     "canProvidePower": false,
     "emittedRedstonePower": {
@@ -92,10 +96,10 @@
       "value": "CUSTOM:failed"
     },
     "placeSound": {
-      "value": "CUSTOM:die"
+      "value": "CUSTOM:the_end_is_undefined"
     },
     "stepSound": {
-      "value": "CUSTOM:jumpscare"
+      "value": "CUSTOM:exception_hunt"
     },
     "luminance": 0,
     "unbreakable": true,
@@ -119,6 +123,9 @@
     "fluidRestrictions": [],
     "onTickUpdate": {
       "name": "Corrupt"
+    },
+    "onRandomUpdateEvent": {
+      "name": "StartCorruption"
     },
     "generateFeature": false,
     "restrictionBiomes": [],

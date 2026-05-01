@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "the_root_of_corruption:block/error",
+    "up": "the_root_of_corruption:block/error",
+    "north": "the_root_of_corruption:block/error",
+    "east": "the_root_of_corruption:block/error",
+    "south": "the_root_of_corruption:block/error",
+    "west": "the_root_of_corruption:block/error",
+    "particle": "the_root_of_corruption:block/error"
+  },
+  "render_type": "solid"
+}

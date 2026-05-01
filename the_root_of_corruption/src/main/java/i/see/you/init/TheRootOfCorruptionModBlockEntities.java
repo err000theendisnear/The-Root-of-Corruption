@@ -16,12 +16,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 import i.see.you.block.entity.OPCommandBlockBlockEntity;
+import i.see.you.block.entity.LockedChestBlockEntity;
 import i.see.you.TheRootOfCorruptionMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class TheRootOfCorruptionModBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, TheRootOfCorruptionMod.MODID);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> OP_COMMAND_BLOCK = register("op_command_block", TheRootOfCorruptionModBlocks.OP_COMMAND_BLOCK, OPCommandBlockBlockEntity::new);
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> LOCKED_CHEST = register("locked_chest", TheRootOfCorruptionModBlocks.LOCKED_CHEST, LockedChestBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities
@@ -32,5 +34,6 @@ public class TheRootOfCorruptionModBlockEntities {
 	@SubscribeEvent
 	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, OP_COMMAND_BLOCK.get(), (blockEntity, side) -> ((OPCommandBlockBlockEntity) blockEntity).getItemHandler());
+		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, LOCKED_CHEST.get(), (blockEntity, side) -> ((LockedChestBlockEntity) blockEntity).getItemHandler());
 	}
 }

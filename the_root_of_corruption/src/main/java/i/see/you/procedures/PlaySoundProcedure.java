@@ -20,7 +20,7 @@ public class PlaySoundProcedure {
 					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse(sound)), SoundSource.MASTER, (float) volume, (float) pitch, false);
 				}
 			}
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 	}

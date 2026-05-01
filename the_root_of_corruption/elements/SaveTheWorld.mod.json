@@ -9,11 +9,15 @@
     "states": [],
     "name": "Save The World",
     "rarity": "EPIC",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "stackSize": 1,
     "enchantability": 0,
     "useDuration": 0,
-    "toolType": 32.0,
+    "toolType": 66.0,
     "damageCount": 100,
     "recipeRemainder": {
       "value": ""
@@ -37,6 +41,18 @@
     },
     "onRightClickedOnBlock": {
       "name": "Savelevel"
+    },
+    "onCrafted": {
+      "name": "Horror"
+    },
+    "onEntityHitWith": {
+      "name": "Saveyourself"
+    },
+    "onItemInInventoryTick": {
+      "name": "SlowMending"
+    },
+    "onItemInUseTick": {
+      "name": "SlowMending"
     },
     "onFinishUsingItem": {
       "name": "Tamebase0"

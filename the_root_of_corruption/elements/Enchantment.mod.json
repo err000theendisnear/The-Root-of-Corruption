@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"arraylist_foreach\"><value name=\"var\"><block type=\"procedure_retval_arraylist\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"1\"></mutation><field name=\"procedure\">InventoryHelper</field><field name=\"name0\">copy</field><value name=\"arg0\"><block type=\"logic_boolean\"><field name=\"BOOL\">FALSE</field></block></value></block></value><value name=\"iterator\"><block type=\"arraylist_iterator\"></block></value><statement name=\"foreach\"><block type=\"item_add_enhancement\"><field name=\"enhancement\">CUSTOM:BehindYouCurse</field><value name=\"item\"><block type=\"arraylist_get_entry_as_itemstack\"><value name=\"entry\"><block type=\"arraylist_iterator\"></block></value></block></value><value name=\"level\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement></block></next></block></xml>"
+  }
+}

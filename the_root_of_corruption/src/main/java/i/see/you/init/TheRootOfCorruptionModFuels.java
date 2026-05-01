@@ -17,5 +17,7 @@ public class TheRootOfCorruptionModFuels {
 		ItemStack itemstack = event.getItemStack();
 		if (itemstack.getItem() == TheRootOfCorruptionModItems.ITEM_IS_MISSING_ID.get())
 			event.setBurnTime(666);
+		else if (itemstack.getItem() == TheRootOfCorruptionModBlocks.LOCKED_CHEST.get().asItem())
+			event.setBurnTime(300);
 	}
 }

@@ -1,9 +1,15 @@
 {
   "required": true,
   "package": "i.see.you.mixins",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mixins.the_root_of_corruption.refmap.json",
   "mixins": [
-    "CrashReportMixin"
+    "CrashReportMixin",
+    "MusicManagerMixin",
+    "MinecraftMixin",
+    "ServerCommonPacketListenerImplMixin",
+    "ServerLevelMixin",
+    "ReportTypeMixin"
   ],
   "client": [],
   "minVersion": "0.8"

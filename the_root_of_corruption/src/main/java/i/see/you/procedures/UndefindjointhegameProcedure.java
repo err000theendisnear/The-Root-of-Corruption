@@ -37,6 +37,9 @@ public class UndefindjointhegameProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		if (!(TheRootOfCorruptionModVariables.MapVariables.get(world).undefined_join || TheRootOfCorruptionModVariables.MapVariables.get(world).left)) {
 			TheRootOfCorruptionMod.queueServerWork(18000, () -> {
+				for (Entity entityiterator : new ArrayList<>(world.players())) {
+					UndefinedJoinProcedure.execute(world, entityiterator);
+				}
 				if (!(TheRootOfCorruptionModVariables.MapVariables.get(world).undefined_join || TheRootOfCorruptionModVariables.MapVariables.get(world).left)) {
 					if (!world.isClientSide() && world.getServer() != null)
 						world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("\u00A7e" + (Component.translatable("multiplayer.player.joined").getString()).replace("%s", "Undefined"))), false);
@@ -45,11 +48,9 @@ public class UndefindjointhegameProcedure {
 					for (Entity entityiterator : new ArrayList<>(world.players())) {
 						if (world instanceof Level _level) {
 							if (!_level.isClientSide()) {
-								_level.playSound(null, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:void")),
-										SoundSource.PLAYERS, 100, 1);
+								_level.playSound(null, BlockPos.containing(entityiterator.getX(), entityiterator.getY(), entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 100, 1);
 							} else {
-								_level.playLocalSound((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:void")), SoundSource.PLAYERS, 100, 1,
-										false);
+								_level.playLocalSound((entityiterator.getX()), (entityiterator.getY()), (entityiterator.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 100, 1, false);
 							}
 						}
 						if ((entityiterator.getDisplayName().getString()).equals("Undefind") || (entityiterator.getDisplayName().getString()).equals("Undefined")) {

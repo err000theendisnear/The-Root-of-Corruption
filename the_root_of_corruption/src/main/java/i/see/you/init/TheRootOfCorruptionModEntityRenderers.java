@@ -35,7 +35,9 @@ import i.see.you.client.renderer.InvadeCrashreportRenderer;
 import i.see.you.client.renderer.GlitchCodeRenderer;
 import i.see.you.client.renderer.GameCrashRenderer;
 import i.see.you.client.renderer.ForgottenPlayerRenderer;
+import i.see.you.client.renderer.FatalRenderer;
 import i.see.you.client.renderer.EntitySpawnerRenderer;
+import i.see.you.client.renderer.EmptyRendererRenderer;
 import i.see.you.client.renderer.CustomDeathWatchRenderer;
 import i.see.you.client.renderer.CustomDeathRenderer;
 import i.see.you.client.renderer.BedrockStalkerRenderer;
@@ -77,5 +79,8 @@ public class TheRootOfCorruptionModEntityRenderers {
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.SERVER_OWNER.get(), ServerOwnerRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.WATCHDOG.get(), WatchdogRenderer::new);
 		event.registerEntityRenderer(TheRootOfCorruptionModEntities.MEMORY.get(), MemoryRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.SMALL_BOMB.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.EMPTY_RENDERER.get(), EmptyRendererRenderer::new);
+		event.registerEntityRenderer(TheRootOfCorruptionModEntities.FATAL.get(), FatalRenderer::new);
 	}
 }

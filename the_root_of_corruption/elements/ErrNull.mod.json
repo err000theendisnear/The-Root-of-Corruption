@@ -3,7 +3,7 @@
   "_type": "fluid",
   "definition": {
     "name": "Err Null",
-    "bucketName": "Err Null Bucket",
+    "bucketName": "Can you see me?",
     "textureStill": "no_texture",
     "textureFlowing": "no_texture",
     "textureRenderOverlay": "no_texture",
@@ -29,11 +29,15 @@
     "viscosity": 100,
     "temperature": 300,
     "type": "WATER",
-    "generateBucket": false,
-    "textureBucket": "",
-    "creativeTabs": [],
+    "generateBucket": true,
+    "textureBucket": "no_texture",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "emptySound": {
-      "value": ""
+      "value": "CUSTOM:cave"
     },
     "rarity": "COMMON",
     "specialInformation": {

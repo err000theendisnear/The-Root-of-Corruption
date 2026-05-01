@@ -117,7 +117,7 @@ public class UndefindstareEntity extends Monster {
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		UdfchaseSpawnProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ(), this);
+		UdfchaseSpawnProcedure.execute(this.level(), this);
 	}
 
 	@Override

@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "the_root_of_corruption:saveus",
+    "the_root_of_corruption:thehell"
+  ],
+  "features": "the_root_of_corruption:heart_less",
+  "step": "vegetal_decoration"
+}

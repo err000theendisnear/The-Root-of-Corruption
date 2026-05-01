@@ -1,0 +1,134 @@
+{
+  "_fv": 73,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "error",
+    "textureBottom": "",
+    "customModelName": "Cross model",
+    "itemTexture": "1101000_1100101_1101100_1110000",
+    "particleTexture": "1101000_1100101_1101100_1110000",
+    "tintType": "No tint",
+    "isItemTinted": true,
+    "plantType": "normal",
+    "suspiciousStewEffect": "INSTANT_DAMAGE",
+    "suspiciousStewDuration": 100000,
+    "secondaryTreeChance": 0.1,
+    "trees": [
+      null,
+      null
+    ],
+    "flowerTrees": [
+      null,
+      null
+    ],
+    "megaTrees": [
+      null,
+      null
+    ],
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 3,
+    "customBoundingBox": false,
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 0.0,
+        "my": 0.0,
+        "mz": 0.0,
+        "Mx": 16.0,
+        "My": 16.0,
+        "Mz": 16.0,
+        "subtract": false
+      }
+    ],
+    "name": "Heart Less",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
+    "hardness": 10.0,
+    "resistance": 0.0,
+    "luminance": 0,
+    "unbreakable": false,
+    "isSolid": true,
+    "isWaterloggable": false,
+    "isCustomSoundType": true,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "breakSound": {
+      "value": "CUSTOM:die"
+    },
+    "stepSound": {
+      "value": "CUSTOM:die"
+    },
+    "placeSound": {
+      "value": "CUSTOM:die"
+    },
+    "hitSound": {
+      "value": "CUSTOM:die"
+    },
+    "fallSound": {
+      "value": "CUSTOM:die"
+    },
+    "useLootTableForDrops": false,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": false,
+    "emissiveRendering": false,
+    "hasTileEntity": false,
+    "isReplaceable": false,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": "Blocks.BEDROCK"
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 100,
+    "fireSpreadSpeed": 60,
+    "jumpFactor": 0.0,
+    "speedFactor": 0.1,
+    "canBePlacedOn": [],
+    "isBonemealable": false,
+    "frequencyOnChunks": 5,
+    "generateFeature": true,
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:Saveus"
+      },
+      {
+        "value": "CUSTOM:Thehell"
+      }
+    ],
+    "generationType": "Grass",
+    "patchSize": 64,
+    "generateAtAnyHeight": true,
+    "onDestroyedByPlayer": {
+      "name": "Horror"
+    },
+    "onStartToDestroy": {
+      "name": "Horror"
+    },
+    "onEntityCollides": {
+      "name": "Horror"
+    },
+    "onBlockPlacedBy": {
+      "name": "Horror"
+    },
+    "onRightClicked": {
+      "name": "Horror"
+    },
+    "onEntityWalksOn": {
+      "name": "Horror"
+    },
+    "onHitByProjectile": {
+      "name": "Horror"
+    }
+  }
+}

@@ -18,6 +18,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
@@ -26,7 +27,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.registries.Registries;
 
 import i.see.you.procedures.Tamebase0Procedure;
+import i.see.you.procedures.SlowMendingProcedure;
+import i.see.you.procedures.SaveyourselfProcedure;
 import i.see.you.procedures.SavelevelProcedure;
+import i.see.you.procedures.HorrorProcedure;
 import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.TheRootOfCorruptionMod;
 
@@ -50,7 +54,7 @@ public class SaveTheWorldItem extends Item {
 
 	@Override
 	public float getDestroySpeed(ItemStack itemstack, BlockState state) {
-		return 32f;
+		return 66f;
 	}
 
 	@Override
@@ -100,6 +104,21 @@ public class SaveTheWorldItem extends Item {
 	@Override
 	public boolean hurtEnemy(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
 		itemstack.hurtAndBreak(1, entity, LivingEntity.getSlotForHand(entity.getUsedItemHand()));
+		SaveyourselfProcedure.execute(entity.level(), entity.getX(), entity.getY(), entity.getZ(), entity, sourceentity);
 		return true;
+	}
+
+	@Override
+	public void onCraftedBy(ItemStack itemstack, Level world, Player entity) {
+		super.onCraftedBy(itemstack, world, entity);
+		HorrorProcedure.execute(entity);
+	}
+
+	@Override
+	public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
+		super.inventoryTick(itemstack, world, entity, slot, selected);
+		if (selected)
+			SlowMendingProcedure.execute(itemstack);
+		SlowMendingProcedure.execute(itemstack);
 	}
 }

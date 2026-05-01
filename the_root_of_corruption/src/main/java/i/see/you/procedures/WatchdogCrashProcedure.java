@@ -2,6 +2,7 @@ package i.see.you.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.Component;
 
 import i.see.you.configuration.ConfigConfiguration;
 import i.see.you.TheRootOfCorruptionMod;
@@ -10,6 +11,7 @@ public class WatchdogCrashProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		entity.setCustomName(Component.literal("Watchdog"));
 		entity.push(1, 1, 1);
 		CavesoundProcedure.execute(world, x, y, z);
 		TheRootOfCorruptionMod.queueServerWork((int) (double) ConfigConfiguration.WATCHDOG_CRASHTIME.get(), () -> {

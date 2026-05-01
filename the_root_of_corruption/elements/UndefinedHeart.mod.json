@@ -9,7 +9,11 @@
     "states": [],
     "name": "Undefined Heart",
     "rarity": "EPIC",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "stackSize": 64,
     "enchantability": 0,
     "useDuration": 32,

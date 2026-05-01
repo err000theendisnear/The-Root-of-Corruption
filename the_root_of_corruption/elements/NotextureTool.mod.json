@@ -9,7 +9,11 @@
     "states": [],
     "name": "Notexture Tool",
     "rarity": "EPIC",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "stackSize": 1,
     "enchantability": 100,
     "useDuration": 0,

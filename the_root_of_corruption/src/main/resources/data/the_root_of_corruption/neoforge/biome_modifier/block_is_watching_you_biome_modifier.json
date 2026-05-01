@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": {
+    "type": "neoforge:any"
+  },
+  "features": "the_root_of_corruption:block_is_watching_you",
+  "step": "underground_ores"
+}

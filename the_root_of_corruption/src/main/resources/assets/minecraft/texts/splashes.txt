@@ -1,21 +1,35 @@
+Anomaly
 000
 error
 type
 null
+Undefined
+Undefined
+Undefined
+UndefinedUndefinedUndefinedUndefinedUndefinedUndefined
 undefined
 undefined
 undefined
 undefinedundefinedundefinedundefinedundefinedundefined
 run
 err
-err.server
+We hate you, anonymity_tian
+We hate you, zh_chau7
 i
 see
 you
 behind you
 right behind you
-§4§k_gun_mu
+i am §4§k_gun_mu
 void
-left the game
-join the game
+go away
+get out
+from §kthe_bug
+I Watch You.
+§rMissing
+§rMissingno
+This is all your fault.
+java.lang.NullPointerException
+sun.misc.Unsafe
+@javax.annotation.Nullable
 Also try The Broken Script!

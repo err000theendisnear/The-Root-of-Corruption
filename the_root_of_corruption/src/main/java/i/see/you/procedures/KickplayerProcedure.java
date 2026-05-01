@@ -8,10 +8,8 @@ public class KickplayerProcedure {
 	public static void execute(Entity entity, String kickreason) {
 		if (entity == null || kickreason == null)
 			return;
-		String reason = "";
 		if (!entity.level().isClientSide() && entity instanceof ServerPlayer srveplyr_071) {
-			reason = kickreason;
-			srveplyr_071.connection.disconnect(Component.literal(reason));
+			srveplyr_071.connection.disconnect(Component.literal(kickreason));
 		}
 	}
 }

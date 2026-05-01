@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "the_root_of_corruption:item/1101000_1100101_1101100_1110000"
+  }
+}

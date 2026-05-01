@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.server.level.ServerLevel;
 import net.neoforged.neoforge.common.util.FakePlayer;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
 
 public class SpawnFakePlayerProcedure {
 	public static Entity execute(LevelAccessor world, String name) {
@@ -15,10 +16,7 @@ public class SpawnFakePlayerProcedure {
 		GameProfile profile = new GameProfile(UUID.nameUUIDFromBytes(a.getBytes()), a);
 		if (world instanceof ServerLevel server) {
 			FakePlayer fakePlayer = new FakePlayer(server, profile);
-			if (fakePlayer instanceof Entity ent) {
-				return ent;
-			}
-			return null;
+			return (Entity) fakePlayer;
 		}
 		return null;
 	}

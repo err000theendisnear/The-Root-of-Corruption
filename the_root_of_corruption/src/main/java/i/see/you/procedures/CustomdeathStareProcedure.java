@@ -23,6 +23,7 @@ import net.minecraft.advancements.AdvancementHolder;
 
 import java.util.Comparator;
 
+import i.see.you.network.TheRootOfCorruptionModVariables;
 import i.see.you.init.TheRootOfCorruptionModEntities;
 import i.see.you.TheRootOfCorruptionMod;
 
@@ -37,7 +38,25 @@ public class CustomdeathStareProcedure {
 			}
 		}.compareDistOf(x, y, z)).findFirst().orElse(null);
 		if (!(player == null) && LookentityProcedure.execute(player, entity)) {
-			if (Math.random() > 0.1) {
+			if (Math.random() < 0.1) {
+				if (world instanceof ServerLevel _level) {
+					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
+					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y, z)));;
+					_level.addFreshEntity(entityToSpawn);
+				}
+				if (world instanceof ServerLevel _level) {
+					Entity entityToSpawn = EntityType.WARDEN.spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
+					if (entityToSpawn != null) {
+						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
+					}
+				}
+				if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
+					_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 114514, 255));
+				if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
+					_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 114514, 255));
+			} else {
+				TheRootOfCorruptionModVariables.MapVariables.get(world).unpauseable = true;
+				TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 				if (!entity.level().isClientSide())
 					entity.discard();
 				NosoundProcedure.execute(world, x, y, z);
@@ -132,22 +151,6 @@ public class CustomdeathStareProcedure {
 						}
 					});
 				});
-			} else {
-				if (world instanceof ServerLevel _level) {
-					LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(_level);
-					entityToSpawn.moveTo(Vec3.atBottomCenterOf(BlockPos.containing(x, y, z)));;
-					_level.addFreshEntity(entityToSpawn);
-				}
-				if (world instanceof ServerLevel _level) {
-					Entity entityToSpawn = EntityType.WARDEN.spawn(_level, BlockPos.containing(x, y, z), MobSpawnType.MOB_SUMMONED);
-					if (entityToSpawn != null) {
-						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
-					}
-				}
-				if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 114514, 255));
-				if (player instanceof LivingEntity _entity && !_entity.level().isClientSide())
-					_entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 114514, 255));
 			}
 		}
 	}

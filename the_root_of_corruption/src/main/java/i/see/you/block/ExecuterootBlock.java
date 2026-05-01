@@ -2,6 +2,8 @@
 package i.see.you.block;
 
 import net.neoforged.neoforge.common.util.DeferredSoundType;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.material.FluidState;
@@ -17,13 +19,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.util.RandomSource;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.client.Minecraft;
 
-import i.see.you.procedures.ToCorruptionProcedure;
+import i.see.you.procedures.StartCorruptionProcedure;
 import i.see.you.procedures.HorrorProcedure;
 
 public class ExecuterootBlock extends Block {
@@ -32,7 +34,7 @@ public class ExecuterootBlock extends Block {
 				.sound(new DeferredSoundType(1.0f, 1.0f, () -> BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:noise")), () -> BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:void")),
 						() -> BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:void")), () -> BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave")),
 						() -> BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave"))))
-				.strength(666f, 10000f));
+				.strength(666f, 10000f).randomTicks());
 	}
 
 	@Override
@@ -40,10 +42,15 @@ public class ExecuterootBlock extends Block {
 		return 15;
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@Override
-	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
-		super.tick(blockstate, world, pos, random);
-		ToCorruptionProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+	public void animateTick(BlockState blockstate, Level world, BlockPos pos, RandomSource random) {
+		super.animateTick(blockstate, world, pos, random);
+		Player entity = Minecraft.getInstance().player;
+		int x = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
+		StartCorruptionProcedure.execute(world, x, y, z, blockstate);
 	}
 
 	@Override

@@ -23,12 +23,18 @@ import java.util.List;
 import java.util.Comparator;
 
 import i.see.you.entity.UndefinedBossEntity;
+import i.see.you.TheRootOfCorruptionMod;
 
 public class HuntspawnvexProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
 		if (entity instanceof UndefinedBossEntity) {
+			LogUndefinedProcedure.execute();
+			entity.getPersistentData().putBoolean("Invulnerable", true);
+			TheRootOfCorruptionMod.queueServerWork(20, () -> {
+				entity.getPersistentData().putBoolean("Invulnerable", false);
+			});
 			if (entity instanceof UndefinedBossEntity _datEntSetI)
 				_datEntSetI.getEntityData().set(UndefinedBossEntity.DATA_hp, (int) ((entity instanceof UndefinedBossEntity _datEntI ? _datEntI.getEntityData().get(UndefinedBossEntity.DATA_hp) : 0) + Mth.nextInt(RandomSource.create(), 1, 3)));
 			if (0 == Mth.nextInt(RandomSource.create(), 0, 5)) {

@@ -1,16 +1,12 @@
 package i.see.you.procedures;
 
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
-
-import java.util.Comparator;
 
 import i.see.you.init.TheRootOfCorruptionModEntities;
 
@@ -19,11 +15,7 @@ public class UdfstaretickupdateProcedure {
 		if (entity == null)
 			return;
 		Entity player = null;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 640, 640, 640), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null);
+		player = NearbyPlayerProcedure.execute(world, entity);
 		if (!(player == null)) {
 			entity.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3((player.getX()), (player.getY() + 1), (player.getZ())));
 			if (LookentityProcedure.execute(player, entity)) {

@@ -61,6 +61,6 @@ public class ArrowtheerrorProcedure {
 			projectileLevel.addFreshEntity(_entityToSpawn);
 		}
 		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("throw new error(\"err\")"), false);
+			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("throw new Error();"), false);
 	}
 }

@@ -1,0 +1,7 @@
+{
+  "_fv": 73,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"java_code\"><field name=\"CODE\">try {</field><next><block type=\"java_code\"><field name=\"CODE\">Minecraft mc = Minecraft.getInstance();</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"java_code_get\"><field name=\"CODE\">mc.player != null</field></block></value><statement name=\"DO0\"><block type=\"entity_close_gui\"><value name=\"entity\"><block type=\"entity_from_deps\"></block></value><next><block type=\"java_code\"><field name=\"CODE\">mc.execute(() -&gt; {&amp;#10;\t\tmc.setScreen((Screen) new ChatScreen(\"You shouldn't have come here.\"));&amp;#10;});</field></block></next></block></statement><next><block type=\"java_code\"><field name=\"CODE\">} catch (Throwable e) {&amp;#10; e.printStackTrace();&amp;#10;}</field></block></next></block></next></block></next></block></next></block></xml>"
+  }
+}

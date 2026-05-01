@@ -18,6 +18,7 @@ import net.minecraft.world.entity.projectile.SpectralArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
@@ -47,6 +48,7 @@ import java.util.List;
 import java.util.Comparator;
 import java.util.ArrayList;
 
+import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class ForgottenPlayerTickupdateProcedure {
@@ -68,11 +70,7 @@ public class ForgottenPlayerTickupdateProcedure {
 				}
 			}
 		} else {
-			player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 100, 100, 100), e -> true).stream().sorted(new Object() {
-				Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-					return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-				}
-			}.compareDistOf(x, y, z)).findFirst().orElse(null);
+			player = NearbyPlayerProcedure.execute(world, entity);
 		}
 		if (!((entity.level().dimension()) == Level.NETHER) || player == null) {
 			if (!entity.level().isClientSide())
@@ -91,7 +89,7 @@ public class ForgottenPlayerTickupdateProcedure {
 				}
 			}
 			if (!entity.isInvisible()) {
-				if (player instanceof LivingEntity _livEnt13 && _livEnt13.isBlocking()) {
+				if (player instanceof LivingEntity _livEnt12 && _livEnt12.isBlocking()) {
 					sword = new ItemStack(Items.NETHERITE_AXE).copy();
 				} else if (!world.isEmptyBlock(BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y, z + entity.getLookAngle().z))
 						|| world.getBlockState(BlockPos.containing(x + entity.getLookAngle().x, y + entity.getLookAngle().y, z + entity.getLookAngle().z)).canOcclude()) {
@@ -199,6 +197,18 @@ public class ForgottenPlayerTickupdateProcedure {
 				}
 			}
 			entity.stopRiding();
+			if (0 == Mth.nextInt(RandomSource.create(), 0, 125)) {
+				TheRootOfCorruptionMod.queueServerWork(125, () -> {
+					if (!entity.isAlive()) {
+						if (world instanceof ServerLevel _level) {
+							ItemEntity entityToSpawn = new ItemEntity(_level, x, y, z, new ItemStack(TheRootOfCorruptionModItems.HOPE.get()));
+							entityToSpawn.setPickUpDelay(0);
+							entityToSpawn.setUnlimitedLifetime();
+							_level.addFreshEntity(entityToSpawn);
+						}
+					}
+				});
+			}
 			if (0 == (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 4, 4, 4), e -> true).isEmpty() ? Mth.nextInt(RandomSource.create(), 0, 750) : Mth.nextInt(RandomSource.create(), 0, 450))) {
 				entity.push((entity.getLookAngle().x), (entity.getLookAngle().y), (entity.getLookAngle().z));
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -297,8 +307,7 @@ public class ForgottenPlayerTickupdateProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
-			if (entity instanceof LivingEntity _entity)
-				_entity.removeAllEffects();
+			RemoveHarmfulEffectProcedure.execute(entity);
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 1));
 			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())

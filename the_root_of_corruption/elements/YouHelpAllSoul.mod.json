@@ -2,8 +2,8 @@
   "_fv": 73,
   "_type": "achievement",
   "definition": {
-    "achievementName": "You Save All Soul",
-    "achievementDescription": "You Clear All Error",
+    "achievementName": "You Saved All Soul.",
+    "achievementDescription": "You Freed All Soul.",
     "achievementIcon": {
       "value": "CUSTOM:Hope"
     },

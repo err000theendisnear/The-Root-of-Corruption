@@ -1,0 +1,21 @@
+{
+  "description": {
+    "translate": "enchantment.the_root_of_corruption.behind_you_curse"
+  },
+  "supported_items": "#minecraft:tag",
+  "weight": 1,
+  "max_level": 1,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "max_cost": {
+    "base": 6,
+    "per_level_above_first": 10
+  },
+  "anvil_cost": 666,
+  "slots": [
+    "any"
+  ],
+  "exclusive_set": []
+}

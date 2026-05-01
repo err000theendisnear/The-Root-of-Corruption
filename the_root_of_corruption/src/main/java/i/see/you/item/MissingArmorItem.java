@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.ItemStack;
@@ -45,7 +46,8 @@ public abstract class MissingArmorItem extends ArmorItem {
 				map.put(ArmorItem.Type.CHESTPLATE, 48);
 				map.put(ArmorItem.Type.HELMET, 25);
 				map.put(ArmorItem.Type.BODY, 48);
-			}), 50, DeferredHolder.create(Registries.SOUND_EVENT, ResourceLocation.parse("ambient.cave")), () -> Ingredient.of(new ItemStack(TheRootOfCorruptionModItems.ITEM_IS_MISSING_ID.get())),
+			}), 50, DeferredHolder.create(Registries.SOUND_EVENT, ResourceLocation.parse("ambient.cave")),
+					() -> Ingredient.of(new ItemStack(TheRootOfCorruptionModItems.ITEM_IS_MISSING_ID.get()), new ItemStack(TheRootOfCorruptionModItems.NULLNULLNULL.get()), new ItemStack(Blocks.BEDROCK)),
 					List.of(new ArmorMaterial.Layer(ResourceLocation.parse("the_root_of_corruption:missing"))), 10f, 5f);
 			registerHelper.register(ResourceLocation.parse("the_root_of_corruption:missing_armor"), armorMaterial);
 			ARMOR_MATERIAL = BuiltInRegistries.ARMOR_MATERIAL.wrapAsHolder(armorMaterial);
@@ -70,7 +72,7 @@ public abstract class MissingArmorItem extends ArmorItem {
 		public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 			super.inventoryTick(itemstack, world, entity, slot, selected);
 			if (entity instanceof Player player && Iterables.contains(player.getArmorSlots(), itemstack)) {
-				InfiniteNightVisionProcedure.execute(entity, itemstack);
+				InfiniteNightVisionProcedure.execute(world, entity, itemstack);
 			}
 		}
 	}
@@ -108,7 +110,7 @@ public abstract class MissingArmorItem extends ArmorItem {
 		public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 			super.inventoryTick(itemstack, world, entity, slot, selected);
 			if (entity instanceof Player player && Iterables.contains(player.getArmorSlots(), itemstack)) {
-				NoslownessProcedure.execute(entity, itemstack);
+				NoslownessProcedure.execute(world, entity, itemstack);
 			}
 		}
 	}

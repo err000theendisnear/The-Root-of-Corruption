@@ -24,7 +24,7 @@
         "value": "Items.GOLDEN_APPLE#1"
       },
       {
-        "value": "Items.MACE"
+        "value": "CUSTOM:SaveTheWorld"
       },
       {
         "value": "Items.GOLDEN_APPLE#1"
@@ -33,7 +33,7 @@
         "value": "CUSTOM:Laugh"
       },
       {
-        "value": "CUSTOM:SaveTheWorld"
+        "value": "CUSTOM:UndefinedHeart"
       },
       {
         "value": "CUSTOM:Laugh"

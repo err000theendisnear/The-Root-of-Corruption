@@ -28,6 +28,7 @@ import i.see.you.entity.UndefindchaseEntity;
 import i.see.you.entity.TamedBase0Entity;
 import i.see.you.entity.SteveEntity;
 import i.see.you.entity.SoulEntity;
+import i.see.you.entity.SmallBombEntity;
 import i.see.you.entity.ServerOwnerEntity;
 import i.see.you.entity.RandomCrossEntity;
 import i.see.you.entity.MissingOneEntity;
@@ -40,8 +41,10 @@ import i.see.you.entity.InvadeCrashreportEntity;
 import i.see.you.entity.GlitchCodeEntity;
 import i.see.you.entity.GameCrashEntity;
 import i.see.you.entity.ForgottenPlayerEntity;
+import i.see.you.entity.FatalEntity;
 import i.see.you.entity.ErrEntity;
 import i.see.you.entity.EntitySpawnerEntity;
+import i.see.you.entity.EmptyRendererEntity;
 import i.see.you.entity.CustomDeathWatchEntity;
 import i.see.you.entity.CustomDeathEntity;
 import i.see.you.entity.ClearbombEntity;
@@ -70,7 +73,7 @@ public class TheRootOfCorruptionModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<UndefinedleftthegameEntity>> UNDEFINEDLEFTTHEGAME = register("undefinedleftthegame",
 			EntityType.Builder.<UndefinedleftthegameEntity>of(UndefinedleftthegameEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<RandomCrossEntity>> RANDOM_CROSS = register("random_cross",
-			EntityType.Builder.<RandomCrossEntity>of(RandomCrossEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+			EntityType.Builder.<RandomCrossEntity>of(RandomCrossEntity::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
 					.sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<ErrEntity>> ERR = register("err",
@@ -100,17 +103,15 @@ public class TheRootOfCorruptionModEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<TamedBase0Entity>> TAMED_BASE_0 = register("tamed_base_0",
 			EntityType.Builder.<TamedBase0Entity>of(TamedBase0Entity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(514).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<MinecraftRootEntity>> MINECRAFT_ROOT = register("minecraft_root",
-			EntityType.Builder.<MinecraftRootEntity>of(MinecraftRootEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3)
-
-					.sized(0.6f, 1.8f));
+			EntityType.Builder.<MinecraftRootEntity>of(MinecraftRootEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<ClearbombEntity>> CLEARBOMB = register("clearbomb",
 			EntityType.Builder.<ClearbombEntity>of(ClearbombEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final DeferredHolder<EntityType<?>, EntityType<CustomDeathEntity>> CUSTOM_DEATH = register("custom_death",
-			EntityType.Builder.<CustomDeathEntity>of(CustomDeathEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(0.9f, 1.4f));
+			EntityType.Builder.<CustomDeathEntity>of(CustomDeathEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(10000).setUpdateInterval(3).fireImmune().sized(0.9f, 1.4f));
 	public static final DeferredHolder<EntityType<?>, EntityType<CustomDeathWatchEntity>> CUSTOM_DEATH_WATCH = register("custom_death_watch",
 			EntityType.Builder.<CustomDeathWatchEntity>of(CustomDeathWatchEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 	public static final DeferredHolder<EntityType<?>, EntityType<SoulEntity>> SOUL = register("soul",
-			EntityType.Builder.<SoulEntity>of(SoulEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(640).setUpdateInterval(3).fireImmune().sized(0.6f, 1.95f));
+			EntityType.Builder.<SoulEntity>of(SoulEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(1000).setUpdateInterval(3).fireImmune().sized(0.6f, 1.95f));
 	public static final DeferredHolder<EntityType<?>, EntityType<GameCrashEntity>> GAME_CRASH = register("game_crash",
 			EntityType.Builder.<GameCrashEntity>of(GameCrashEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
@@ -133,6 +134,14 @@ public class TheRootOfCorruptionModEntities {
 			EntityType.Builder.<MemoryEntity>of(MemoryEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
 					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<SmallBombEntity>> SMALL_BOMB = register("small_bomb",
+			EntityType.Builder.<SmallBombEntity>of(SmallBombEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+	public static final DeferredHolder<EntityType<?>, EntityType<EmptyRendererEntity>> EMPTY_RENDERER = register("empty_renderer",
+			EntityType.Builder.<EmptyRendererEntity>of(EmptyRendererEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
+
+					.sized(0.5f, 0.5f));
+	public static final DeferredHolder<EntityType<?>, EntityType<FatalEntity>> FATAL = register("fatal",
+			EntityType.Builder.<FatalEntity>of(FatalEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(6400).setUpdateInterval(3).fireImmune().sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -171,6 +180,8 @@ public class TheRootOfCorruptionModEntities {
 		ServerOwnerEntity.init(event);
 		WatchdogEntity.init(event);
 		MemoryEntity.init(event);
+		EmptyRendererEntity.init(event);
+		FatalEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -204,5 +215,7 @@ public class TheRootOfCorruptionModEntities {
 		event.put(SERVER_OWNER.get(), ServerOwnerEntity.createAttributes().build());
 		event.put(WATCHDOG.get(), WatchdogEntity.createAttributes().build());
 		event.put(MEMORY.get(), MemoryEntity.createAttributes().build());
+		event.put(EMPTY_RENDERER.get(), EmptyRendererEntity.createAttributes().build());
+		event.put(FATAL.get(), FatalEntity.createAttributes().build());
 	}
 }

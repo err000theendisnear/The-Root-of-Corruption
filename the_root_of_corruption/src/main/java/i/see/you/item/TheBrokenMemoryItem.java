@@ -3,9 +3,11 @@ package i.see.you.item;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -20,6 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.registries.Registries;
 
+import i.see.you.procedures.ReturnTrueProcedure;
 import i.see.you.procedures.HorrorProcedure;
 import i.see.you.entity.BrokenErrEntity;
 import i.see.you.TheRootOfCorruptionMod;
@@ -27,18 +30,29 @@ import i.see.you.TheRootOfCorruptionMod;
 public class TheBrokenMemoryItem extends Item {
 	public TheBrokenMemoryItem() {
 		super(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.UNCOMMON)
-				.attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 1, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+				.attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
 						.add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build())
 				.jukeboxPlayable(ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(TheRootOfCorruptionMod.MODID, "the_broken_memory"))));
 	}
 
 	@Override
+	public UseAnim getUseAnimation(ItemStack itemstack) {
+		return UseAnim.SPEAR;
+	}
+
+	@Override
+	public int getUseDuration(ItemStack itemstack, LivingEntity livingEntity) {
+		return 10000;
+	}
+
+	@Override
 	public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
 		InteractionResultHolder<ItemStack> ar = InteractionResultHolder.fail(entity.getItemInHand(hand));
-		if (entity.getAbilities().instabuild || findAmmo(entity) != ItemStack.EMPTY) {
-			ar = InteractionResultHolder.success(entity.getItemInHand(hand));
-			entity.startUsingItem(hand);
-		}
+		if (ReturnTrueProcedure.execute())
+			if (entity.getAbilities().instabuild || findAmmo(entity) != ItemStack.EMPTY) {
+				ar = InteractionResultHolder.success(entity.getItemInHand(hand));
+				entity.startUsingItem(hand);
+			}
 		return ar;
 	}
 
@@ -50,11 +64,14 @@ public class TheBrokenMemoryItem extends Item {
 	}
 
 	@Override
-	public void onUseTick(Level world, LivingEntity entity, ItemStack itemstack, int count) {
+	public void releaseUsing(ItemStack itemstack, Level world, LivingEntity entity, int time) {
 		if (!world.isClientSide() && entity instanceof ServerPlayer player) {
+			float pullingPower = BowItem.getPowerForTime(this.getUseDuration(itemstack, player) - time);
+			if (pullingPower < 0.1)
+				return;
 			ItemStack stack = findAmmo(player);
 			if (player.getAbilities().instabuild || stack != ItemStack.EMPTY) {
-				BrokenErrEntity projectile = BrokenErrEntity.shoot(world, entity, world.getRandom());
+				BrokenErrEntity projectile = BrokenErrEntity.shoot(world, entity, world.getRandom(), pullingPower);
 				if (player.getAbilities().instabuild) {
 					projectile.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 				} else {
@@ -67,7 +84,6 @@ public class TheBrokenMemoryItem extends Item {
 					}
 				}
 			}
-			entity.releaseUsingItem();
 		}
 	}
 

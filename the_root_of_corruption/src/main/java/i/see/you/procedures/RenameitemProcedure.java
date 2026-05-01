@@ -11,7 +11,7 @@ import net.minecraft.core.component.DataComponents;
 
 public class RenameitemProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
-		if (entity == null)
+		if (entity == null || AllMissnoAromrProcedure.execute(entity))
 			return;
 		if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerIter) {
 			for (int _idx = 0; _idx < _modHandlerIter.getSlots(); _idx++) {

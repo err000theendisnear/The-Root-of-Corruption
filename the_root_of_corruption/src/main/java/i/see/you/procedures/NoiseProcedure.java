@@ -33,13 +33,20 @@ public class NoiseProcedure {
 			CavesoundProcedure.execute(world, x, y, z);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(player.getX(), player.getY(), player.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:noise")), SoundSource.PLAYERS, 1, 1);
+					_level.playSound(null, BlockPos.containing(player.getX(), player.getY(), player.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:die")), SoundSource.MASTER, 1000, 1);
 				} else {
-					_level.playLocalSound((player.getX()), (player.getY()), (player.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:noise")), SoundSource.PLAYERS, 1, 1, false);
+					_level.playLocalSound((player.getX()), (player.getY()), (player.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:die")), SoundSource.MASTER, 1000, 1, false);
 				}
 			}
-			if (world.getLevelData() instanceof ServerLevelData _levelData12)
-				_levelData12.setGameTime((int) (Math.floor(world.getLevelData().getGameTime() / 24000) * 24000 + 18000));
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(player.getX(), player.getY(), player.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:noise")), SoundSource.MASTER, 1000, 1);
+				} else {
+					_level.playLocalSound((player.getX()), (player.getY()), (player.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:noise")), SoundSource.MASTER, 1000, 1, false);
+				}
+			}
+			if (world.getLevelData() instanceof ServerLevelData _levelData16)
+				_levelData16.setGameTime((int) (Math.floor(world.getLevelData().getGameTime() / 24000) * 24000 + 18000));
 			world.getLevelData().setRaining(true);
 		}
 	}

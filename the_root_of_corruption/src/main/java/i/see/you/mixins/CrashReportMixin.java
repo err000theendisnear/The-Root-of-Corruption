@@ -17,7 +17,7 @@ public abstract class CrashReportMixin {
             titleField.setAccessible(true);
             System.out.println("Crash report title has been modified, raw title : " + title);
             titleField.set(this, "Here I am.");
-        } catch (Exception e) {
+        } catch (Throwable e) {
             System.err.println("failed to modified Crash report title");
             e.printStackTrace();
         }

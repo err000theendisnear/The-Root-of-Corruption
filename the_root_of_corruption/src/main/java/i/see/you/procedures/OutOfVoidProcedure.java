@@ -10,6 +10,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import i.see.you.init.TheRootOfCorruptionModItems;
+import i.see.you.entity.LostMemoryEntity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
 
 @EventBusSubscriber
 public class OutOfVoidProcedure {
@@ -19,7 +23,7 @@ public class OutOfVoidProcedure {
 		DamageSource damagesource = event.getSource();
 		if (damagesource == null || entity == null)
 			return;
-		if (damagesource.is(DamageTypes.FELL_OUT_OF_WORLD) && (entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(TheRootOfCorruptionModItems.LAUGH.get())) : false)) {
+		if ((damagesource.is(DamageTypes.FELL_OUT_OF_WORLD) || damagesource.is(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("the_root_of_corruption:null_pointer_damage")))) && (entity instanceof LostMemoryEntity || (entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(TheRootOfCorruptionModItems.LAUGH.get())) : false))) {
 			event.setCanceled(true);
 		}
 	}

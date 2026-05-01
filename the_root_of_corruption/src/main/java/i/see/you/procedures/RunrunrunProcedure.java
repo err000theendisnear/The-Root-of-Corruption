@@ -43,12 +43,10 @@ public class RunrunrunProcedure {
 			return;
 		Entity player = null;
 		double time = 0;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 1500, 1500, 1500), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null);
-		if (!(player == null)) {
+		player = NearbyPlayerProcedure.execute(world, entity);
+		if (player == null) {
+			DiscardProcedure.execute(entity);
+		} else {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave")), SoundSource.RECORDS, 10000, 1);
@@ -124,7 +122,9 @@ public class RunrunrunProcedure {
 						Entity _ent = player;
 						if (!_ent.level().isClientSide() && _ent.getServer() != null) {
 							_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-									_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "title @a title \"runrunrunrunrunrun\"");
+									_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "title @a subtitle \"runrunrunrunrunrunrunrunrunrunrunrun\"");
+							_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
+									_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "title @a title \"runrunrunrunrunrunrunrunrunrunrunrun\"");
 						}
 					}
 				}
@@ -148,8 +148,6 @@ public class RunrunrunProcedure {
 				if (entity instanceof CustomDeathEntity _datEntSetI)
 					_datEntSetI.getEntityData().set(CustomDeathEntity.DATA_run, (int) ((entity instanceof CustomDeathEntity _datEntI ? _datEntI.getEntityData().get(CustomDeathEntity.DATA_run) : 0) + 1));
 			}
-		} else {
-			DiscardProcedure.execute(entity);
 		}
 	}
 }

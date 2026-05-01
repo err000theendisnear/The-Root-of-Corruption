@@ -14,9 +14,8 @@ public class TodieProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		TheRootOfCorruptionMod.queueServerWork(48000, () -> {
-			if (!entity.level().isClientSide())
-				entity.discard();
+		TheRootOfCorruptionMod.queueServerWork(5000, () -> {
+			DiscardProcedure.execute(entity);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
 					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("ambient.cave")), SoundSource.NEUTRAL, 1000, 1);

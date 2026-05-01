@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "the_root_of_corruption:day_negative_one",
     "the_root_of_corruption:err_null"
   ]
 }

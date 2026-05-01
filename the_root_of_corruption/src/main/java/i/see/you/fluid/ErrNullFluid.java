@@ -11,13 +11,15 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.particles.ParticleOptions;
 
 import i.see.you.init.TheRootOfCorruptionModParticleTypes;
+import i.see.you.init.TheRootOfCorruptionModItems;
 import i.see.you.init.TheRootOfCorruptionModFluids;
 import i.see.you.init.TheRootOfCorruptionModFluidTypes;
 import i.see.you.init.TheRootOfCorruptionModBlocks;
 
 public abstract class ErrNullFluid extends BaseFlowingFluid {
 	public static final BaseFlowingFluid.Properties PROPERTIES = new BaseFlowingFluid.Properties(() -> TheRootOfCorruptionModFluidTypes.ERR_NULL_TYPE.get(), () -> TheRootOfCorruptionModFluids.ERR_NULL.get(),
-			() -> TheRootOfCorruptionModFluids.FLOWING_ERR_NULL.get()).explosionResistance(100f).slopeFindDistance(1).block(() -> (LiquidBlock) TheRootOfCorruptionModBlocks.ERR_NULL.get());
+			() -> TheRootOfCorruptionModFluids.FLOWING_ERR_NULL.get()).explosionResistance(100f).slopeFindDistance(1).bucket(() -> TheRootOfCorruptionModItems.ERR_NULL_BUCKET.get())
+			.block(() -> (LiquidBlock) TheRootOfCorruptionModBlocks.ERR_NULL.get());
 
 	private ErrNullFluid() {
 		super(PROPERTIES);

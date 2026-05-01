@@ -5,11 +5,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
@@ -22,6 +19,7 @@ import net.minecraft.core.BlockPos;
 import javax.annotation.Nullable;
 
 import i.see.you.init.TheRootOfCorruptionModBlocks;
+import i.see.you.TheRootOfCorruptionMod;
 
 @EventBusSubscriber
 public class SummonAlterProcedure {
@@ -37,17 +35,24 @@ public class SummonAlterProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (!world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 32, 32, 32), e -> true).isEmpty() && entity instanceof EnderMan && 0 == Mth.nextInt(RandomSource.create(), 0, 1500)) {
-			if (!entity.level().isClientSide())
-				entity.discard();
+		if (entity instanceof EnderMan && 0 == Mth.nextInt(RandomSource.create(), 0, 125000)) {
+			DiscardProcedure.execute(entity);
 			world.setBlock(BlockPos.containing(x, y, z), TheRootOfCorruptionModBlocks.VOID_ALTER.get().defaultBlockState(), 3);
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.PLAYERS, 1000, 1);
+					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.MASTER, 1000, 1);
 				} else {
-					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.PLAYERS, 1000, 1, false);
+					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:failed")), SoundSource.MASTER, 1000, 1, false);
 				}
 			}
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:nothing")), SoundSource.MASTER, 1000, 1);
+				} else {
+					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:nothing")), SoundSource.MASTER, 1000, 1, false);
+				}
+			}
+			TheRootOfCorruptionMod.LOGGER.info(("added void alter at " + BlockPos.containing(x, y, z)));
 		}
 	}
 }

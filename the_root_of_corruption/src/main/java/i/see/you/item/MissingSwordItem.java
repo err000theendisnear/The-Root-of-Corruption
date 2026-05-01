@@ -5,9 +5,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -21,17 +23,26 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 
 import i.see.you.procedures.ThrownewProcedure;
-import i.see.you.procedures.ThrowErrProcedure;
 import i.see.you.procedures.Tamebase0Procedure;
 import i.see.you.procedures.ReturnTrueProcedure;
 import i.see.you.procedures.MissTortureProcedure;
-import i.see.you.entity.ErrEntity;
+import i.see.you.entity.SmallBombEntity;
 
 public class MissingSwordItem extends Item {
 	public MissingSwordItem() {
 		super(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)
 				.attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 443, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
 						.add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
+	}
+
+	@Override
+	public UseAnim getUseAnimation(ItemStack itemstack) {
+		return UseAnim.BOW;
+	}
+
+	@Override
+	public int getUseDuration(ItemStack itemstack, LivingEntity livingEntity) {
+		return 30000;
 	}
 
 	@Override
@@ -78,11 +89,14 @@ public class MissingSwordItem extends Item {
 	}
 
 	@Override
-	public void onUseTick(Level world, LivingEntity entity, ItemStack itemstack, int count) {
+	public void releaseUsing(ItemStack itemstack, Level world, LivingEntity entity, int time) {
 		if (!world.isClientSide() && entity instanceof ServerPlayer player) {
+			float pullingPower = BowItem.getPowerForTime(this.getUseDuration(itemstack, player) - time);
+			if (pullingPower < 0.1)
+				return;
 			ItemStack stack = findAmmo(player);
 			if (player.getAbilities().instabuild || stack != ItemStack.EMPTY) {
-				ErrEntity projectile = ErrEntity.shoot(world, entity, world.getRandom());
+				SmallBombEntity projectile = SmallBombEntity.shoot(world, entity, world.getRandom(), pullingPower);
 				if (player.getAbilities().instabuild) {
 					projectile.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 				} else {
@@ -94,13 +108,11 @@ public class MissingSwordItem extends Item {
 						stack.shrink(1);
 					}
 				}
-				ThrowErrProcedure.execute(entity);
 			}
-			entity.releaseUsingItem();
 		}
 	}
 
 	private ItemStack findAmmo(Player player) {
-		return new ItemStack(ErrEntity.PROJECTILE_ITEM.getItem());
+		return new ItemStack(SmallBombEntity.PROJECTILE_ITEM.getItem());
 	}
 }

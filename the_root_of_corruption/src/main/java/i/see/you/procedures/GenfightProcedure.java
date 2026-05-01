@@ -1,6 +1,8 @@
 package i.see.you.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.Mth;
 import net.minecraft.core.BlockPos;
 
 import i.see.you.init.TheRootOfCorruptionModBlocks;
@@ -8,9 +10,9 @@ import i.see.you.TheRootOfCorruptionMod;
 
 public class GenfightProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
-		world.setBlock(BlockPos.containing(x, y, z), TheRootOfCorruptionModBlocks.THIS_IS_ALL_THEBLOCK_FAULT.get().defaultBlockState(), 3);
-		TheRootOfCorruptionMod.queueServerWork(1, () -> {
-			if (Math.abs(x) + Math.abs(z) < 150) {
+		if (world.hasChunkAt(BlockPos.containing(x * 3, y * 3, z * 3))) {
+			world.setBlock(BlockPos.containing(x, y, z), TheRootOfCorruptionModBlocks.THIS_IS_ALL_THEBLOCK_FAULT.get().defaultBlockState(), 3);
+			TheRootOfCorruptionMod.queueServerWork(Mth.nextInt(RandomSource.create(), 1, 10), () -> {
 				if (world.isEmptyBlock(BlockPos.containing(x, y, z + 1))) {
 					world.setBlock(BlockPos.containing(x, y, z + 1), TheRootOfCorruptionModBlocks.FIGHT_GEN.get().defaultBlockState(), 3);
 				}
@@ -23,7 +25,7 @@ public class GenfightProcedure {
 				if (world.isEmptyBlock(BlockPos.containing(x - 1, y, z))) {
 					world.setBlock(BlockPos.containing(x - 1, y, z), TheRootOfCorruptionModBlocks.FIGHT_GEN.get().defaultBlockState(), 3);
 				}
-			}
-		});
+			});
+		}
 	}
 }

@@ -15,7 +15,7 @@ public class AlertWindowsProcedure {
 		try {
 			new AlertWindow(a, b).show();
 			MinimizeWindowProcedure.execute();
-		} catch(Exception e) {
+		} catch(Throwable e) {
 			TheRootOfCorruptionMod.LOGGER.error("Failed to start alert window", e);
 		}
 	}

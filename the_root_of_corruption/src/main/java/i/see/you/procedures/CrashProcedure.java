@@ -20,7 +20,7 @@ public class CrashProcedure {
 		if (ConfigConfiguration.CRASH.get()) {
 			TruecrashProcedure.execute();
 		} else {
-			TheRootOfCorruptionMod.LOGGER.info("failed to crash");
+			TheRootOfCorruptionMod.LOGGER.info("failed to crash, because configuration variable \"crash\" is false");
 		}
 	}
 }

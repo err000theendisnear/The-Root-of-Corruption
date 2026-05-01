@@ -1,10 +1,8 @@
 package i.see.you.procedures;
 
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.Items;
@@ -13,7 +11,6 @@ import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
@@ -23,11 +20,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
-
-import java.util.Comparator;
 
 import i.see.you.init.TheRootOfCorruptionModEntities;
 import i.see.you.entity.BrokenErrEntity;
@@ -35,21 +29,14 @@ import i.see.you.entity.BrokenErrEntity;
 public class CorruptProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		Entity player = null;
-		Entity the_entity = null;
-		player = (Entity) world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 128, 128, 128), e -> true).stream().sorted(new Object() {
-			Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-				return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-			}
-		}.compareDistOf(x, y, z)).findFirst().orElse(null);
+		player = NearestPlayerProcedure.execute(world, x, y, z);
 		if (!(player == null)) {
-			if (player instanceof Player _plr2)
-				_plr2.resetAttackStrengthTicker();
+			if (player instanceof Player _plr1)
+				_plr1.resetAttackStrengthTicker();
 			if (player instanceof Player _plr && _plr.isFallFlying()) {
 				_plr.stopFallFlying();
 			}
-			if (player instanceof ServerPlayer _player)
-				_player.setGameMode(GameType.SURVIVAL);
-			if (Mth.nextInt(RandomSource.create(), 0, 1000) == 0) {
+			if (Mth.nextInt(RandomSource.create(), 0, 300) == 0) {
 				if (world instanceof ServerLevel projectileLevel) {
 					Projectile _entityToSpawn = new Object() {
 						public Projectile getArrow(Level level, float damage, int knockback, byte piercing) {
@@ -330,7 +317,7 @@ public class CorruptProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
-			if (Mth.nextInt(RandomSource.create(), 0, 500) == 0) {
+			if (Mth.nextInt(RandomSource.create(), 0, 50) == 0) {
 				if (world instanceof ServerLevel projectileLevel) {
 					Projectile _entityToSpawn = new WitherSkull(EntityType.WITHER_SKULL, projectileLevel);
 					_entityToSpawn.setPos(x, y, z);
@@ -386,7 +373,7 @@ public class CorruptProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
-			if (Mth.nextInt(RandomSource.create(), 0, 500) == 0) {
+			if (Mth.nextInt(RandomSource.create(), 0, 150) == 0) {
 				if (world instanceof ServerLevel projectileLevel) {
 					Projectile _entityToSpawn = new Object() {
 						public Projectile getPotion(Level level) {
@@ -496,7 +483,7 @@ public class CorruptProcedure {
 					projectileLevel.addFreshEntity(_entityToSpawn);
 				}
 			}
-			if (Mth.nextInt(RandomSource.create(), 0, 1800) == 0) {
+			if (Mth.nextInt(RandomSource.create(), 0, 15000) == 0) {
 				if (world instanceof ServerLevel _level) {
 					Entity entityToSpawn = TheRootOfCorruptionModEntities.INVALID_CREEPER.get().spawn(_level, BlockPos.containing(x, y + 1, z), MobSpawnType.MOB_SUMMONED);
 					if (entityToSpawn != null) {
@@ -505,23 +492,10 @@ public class CorruptProcedure {
 				}
 			}
 			if (Mth.nextInt(RandomSource.create(), 0, 5000) == 0) {
-				if (world instanceof ServerLevel _level) {
-					Entity entityToSpawn = EntityType.WARDEN.spawn(_level, BlockPos.containing(x, y + 1, z), MobSpawnType.MOB_SUMMONED);
-					if (entityToSpawn != null) {
-						entityToSpawn.setYRot(world.getRandom().nextFloat() * 360F);
-					}
-				}
-				the_entity = (Entity) world.getEntitiesOfClass(Warden.class, AABB.ofSize(new Vec3(x, y, z), 2, 2, 2), e -> true).stream().sorted(new Object() {
-					Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-						return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-					}
-				}.compareDistOf(x, y, z)).findFirst().orElse(null);
-				if (!(the_entity == null)) {
-					if (the_entity instanceof Mob _entity && player instanceof LivingEntity _ent)
-						_entity.setTarget(_ent);
-				}
+				if (EntityToSpawnProcedure.execute(world, x, y, z, MobSpawnType.MOB_SUMMONED, "minecraft:warden") instanceof Mob _entity && player instanceof LivingEntity _ent)
+					_entity.setTarget(_ent);
 			}
-			if (Mth.nextInt(RandomSource.create(), 0, 5000) == 0) {
+			if (Mth.nextInt(RandomSource.create(), 0, 2500) == 0) {
 				if (world instanceof ServerLevel _level) {
 					Entity entityToSpawn = EntityType.TNT_MINECART.spawn(_level, BlockPos.containing(x, y + 10, z), MobSpawnType.MOB_SUMMONED);
 					if (entityToSpawn != null) {

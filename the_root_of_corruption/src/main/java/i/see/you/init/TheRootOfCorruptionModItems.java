@@ -13,10 +13,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
 
 import i.see.you.item.UndefinedHeartItem;
+import i.see.you.item.ToOverWorldItem;
 import i.see.you.item.TheBrokenMemoryItem;
+import i.see.you.item.ServerItem;
 import i.see.you.item.SaveTheWorldItem;
 import i.see.you.item.NotextureToolItem;
 import i.see.you.item.NotextureItem;
+import i.see.you.item.NULLNULLNULLItem;
 import i.see.you.item.MissingSwordItem;
 import i.see.you.item.MissingArmorItem;
 import i.see.you.item.LaughItem;
@@ -24,6 +27,10 @@ import i.see.you.item.ItemIsMissingIDItem;
 import i.see.you.item.HopeItem;
 import i.see.you.item.FlyItem;
 import i.see.you.item.FakeLaughItem;
+import i.see.you.item.ErrNullItem;
+import i.see.you.item.DebugToolItem;
+import i.see.you.item.DayNegativeOneItem;
+import i.see.you.item.ArtifactItem;
 import i.see.you.TheRootOfCorruptionMod;
 
 public class TheRootOfCorruptionModItems {
@@ -31,6 +38,7 @@ public class TheRootOfCorruptionModItems {
 	public static final DeferredItem<Item> CORRUPTIONBEDROCK = block(TheRootOfCorruptionModBlocks.CORRUPTIONBEDROCK);
 	public static final DeferredItem<Item> EXECUTEROOT = block(TheRootOfCorruptionModBlocks.EXECUTEROOT);
 	public static final DeferredItem<Item> TEXTURELESS = block(TheRootOfCorruptionModBlocks.TEXTURELESS);
+	public static final DeferredItem<Item> ERR_NULL_BUCKET = REGISTRY.register("err_null_bucket", ErrNullItem::new);
 	public static final DeferredItem<Item> GLOWINGOBSIDIAN = block(TheRootOfCorruptionModBlocks.GLOWINGOBSIDIAN);
 	public static final DeferredItem<Item> NETHERREACTOR = block(TheRootOfCorruptionModBlocks.NETHERREACTOR);
 	public static final DeferredItem<Item> INITIALIZEDNETHERREACTOR = block(TheRootOfCorruptionModBlocks.INITIALIZEDNETHERREACTOR);
@@ -60,6 +68,18 @@ public class TheRootOfCorruptionModItems {
 	public static final DeferredItem<Item> NOTEXTURE_LEGGINGS = REGISTRY.register("notexture_leggings", NotextureItem.Leggings::new);
 	public static final DeferredItem<Item> NOTEXTURE_BOOTS = REGISTRY.register("notexture_boots", NotextureItem.Boots::new);
 	public static final DeferredItem<Item> FAKE_LAUGH = REGISTRY.register("fake_laugh", FakeLaughItem::new);
+	public static final DeferredItem<Item> DAY_NEGATIVE_ONE_BUCKET = REGISTRY.register("day_negative_one_bucket", DayNegativeOneItem::new);
+	public static final DeferredItem<Item> DEBUG_TOOL = REGISTRY.register("debug_tool", DebugToolItem::new);
+	public static final DeferredItem<Item> ERRUNDEFINED = block(TheRootOfCorruptionModBlocks.ERRUNDEFINED);
+	public static final DeferredItem<Item> NULLNULLNULL = REGISTRY.register("nullnullnull", NULLNULLNULLItem::new);
+	public static final DeferredItem<Item> SERVER = REGISTRY.register("server", ServerItem::new);
+	public static final DeferredItem<Item> ADMINISTRATOR = block(TheRootOfCorruptionModBlocks.ADMINISTRATOR);
+	public static final DeferredItem<Item> HEART_LESS = block(TheRootOfCorruptionModBlocks.HEART_LESS);
+	public static final DeferredItem<Item> ARTIFACT = REGISTRY.register("artifact", ArtifactItem::new);
+	public static final DeferredItem<Item> LOCKED_CHEST = block(TheRootOfCorruptionModBlocks.LOCKED_CHEST);
+	public static final DeferredItem<Item> TO_OVER_WORLD = REGISTRY.register("to_over_world", ToOverWorldItem::new);
+	public static final DeferredItem<Item> BLOCK_IS_WATCHING_YOU = block(TheRootOfCorruptionModBlocks.BLOCK_IS_WATCHING_YOU);
+	public static final DeferredItem<Item> THE_WORLD_IS_DYING = block(TheRootOfCorruptionModBlocks.THE_WORLD_IS_DYING);
 
 	// Start of user code block custom items
 	// End of user code block custom items

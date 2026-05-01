@@ -59,14 +59,47 @@
         "chance": 0.1,
         "feature": {
           "feature": {
-            "type": "minecraft:block_pile",
+            "type": "minecraft:simple_random_selector",
             "config": {
-              "state_provider": {
-                "type": "minecraft:simple_state_provider",
-                "state": {
-                  "Name": "minecraft:oak_sign"
+              "features": [
+                {
+                  "feature": {
+                    "type": "minecraft:lake",
+                    "config": {
+                      "fluid": {
+                        "type": "minecraft:simple_state_provider",
+                        "state": {
+                          "Name": "the_root_of_corruption:day_negative_one"
+                        }
+                      },
+                      "barrier": {
+                        "type": "minecraft:simple_state_provider",
+                        "state": {
+                          "Name": "the_root_of_corruption:this_is_all_theblock_fault"
+                        }
+                      }
+                    }
+                  },
+                  "placement": [
+                    {
+                      "type": "minecraft:count",
+                      "count": 4
+                    }
+                  ]
+                },
+                {
+                  "feature": {
+                    "type": "minecraft:spring_feature",
+                    "config": {
+                      "state": {
+                        "Name": "the_root_of_corruption:day_negative_one"
+                      },
+                      "valid_blocks": "#minecraft:err"
+                    }
+                  },
+                  "placement": []
                 }
-              }
+              ]
             }
           },
           "placement": []

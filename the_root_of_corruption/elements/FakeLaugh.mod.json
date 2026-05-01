@@ -9,7 +9,11 @@
     "states": [],
     "name": "Laugh",
     "rarity": "UNCOMMON",
-    "creativeTabs": [],
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:TheCorruptionRoot"
+      }
+    ],
     "stackSize": 1,
     "enchantability": 0,
     "useDuration": 32,
@@ -25,7 +29,9 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInformation": {
-      "fixedValue": []
+      "fixedValue": [
+        "1"
+      ]
     },
     "glowCondition": {
       "fixedValue": false

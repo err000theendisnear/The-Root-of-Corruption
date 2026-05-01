@@ -14,6 +14,9 @@ public class DeathProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
+		TheRootOfCorruptionModVariables.MapVariables.get(world).unpauseable = false;
+		TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
+		NosoundProcedure.execute(world, x, y, z);
 		TheRootOfCorruptionModVariables.MapVariables.get(world).ban = true;
 		TheRootOfCorruptionModVariables.MapVariables.get(world).syncData(world);
 		if (world instanceof Level _level) {
@@ -86,6 +89,7 @@ public class DeathProcedure {
 				_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("the_root_of_corruption:jumpscare")), SoundSource.AMBIENT, 10000, 1, false);
 			}
 		}
+		KickplayerProcedure.execute(entity, "Null");
 		DiscardProcedure.execute(entity);
 		DiscardProcedure.execute(sourceentity);
 	}

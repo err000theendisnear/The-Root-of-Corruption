@@ -18,6 +18,8 @@
     "the_root_of_corruption:missing_one_chase",
     "the_root_of_corruption:server_owner",
     "the_root_of_corruption:memory",
-    "the_root_of_corruption:watchdog"
+    "the_root_of_corruption:watchdog",
+    "the_root_of_corruption:empty_renderer",
+    "the_root_of_corruption:random_cross"
   ]
 }

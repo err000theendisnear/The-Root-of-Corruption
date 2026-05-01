@@ -137,7 +137,7 @@ public class UndefindchaseEntity extends Monster {
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata) {
 		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata);
-		UdfchaseSpawnProcedure.execute(world, this.getX(), this.getY(), this.getZ(), this);
+		UdfchaseSpawnProcedure.execute(world, this);
 		return retval;
 	}
 

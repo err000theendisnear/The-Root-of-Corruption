@@ -9,7 +9,10 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
+import i.see.you.client.particle.YouParticle;
 import i.see.you.client.particle.ThisIsNotFairParticle;
+import i.see.you.client.particle.SeeParticle;
+import i.see.you.client.particle.IParticle;
 import i.see.you.client.particle.ErrorParticle;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -18,5 +21,8 @@ public class TheRootOfCorruptionModParticles {
 	public static void registerParticles(RegisterParticleProvidersEvent event) {
 		event.registerSpriteSet(TheRootOfCorruptionModParticleTypes.ERROR.get(), ErrorParticle::provider);
 		event.registerSpriteSet(TheRootOfCorruptionModParticleTypes.THIS_IS_NOT_FAIR.get(), ThisIsNotFairParticle::provider);
+		event.registerSpriteSet(TheRootOfCorruptionModParticleTypes.I.get(), IParticle::provider);
+		event.registerSpriteSet(TheRootOfCorruptionModParticleTypes.SEE.get(), SeeParticle::provider);
+		event.registerSpriteSet(TheRootOfCorruptionModParticleTypes.YOU.get(), YouParticle::provider);
 	}
 }

@@ -2,8 +2,8 @@
   "_fv": 73,
   "_type": "achievement",
   "definition": {
-    "achievementName": "i see you",
-    "achievementDescription": "i can see you",
+    "achievementName": "I see you.",
+    "achievementDescription": "I can see you.",
     "achievementIcon": {
       "value": "CUSTOM:Laugh"
     },
